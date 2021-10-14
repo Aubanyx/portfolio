@@ -1,0 +1,34 @@
+/** MIXINS - START **/
+
+@mixin Title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: black;
+}
+
+@mixin Subtitle {
+  font-size: 2rem;
+  font-weight: 100;
+  color: black;
+}
+
+@mixin Text {
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: normal;
+  color: black;
+}
+
+@mixin SkillsTitle {
+  font-size: 2rem;
+  font-weight: 400;
+  color: black;
+}
+
+@mixin SkillsSubtitle {
+  font-size: 1.4rem;
+  font-weight: 200;
+  color: black;
+}
+
+/** MIXINS - END **/

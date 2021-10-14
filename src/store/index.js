@@ -4,8 +4,14 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+      isNavOpen: false
+  },
+  mutations: {
+      toggleNav(state) {
+          state.isNavOpen = !state.isNavOpen;
+      }
+  },
   actions: {},
   modules: {},
 });
