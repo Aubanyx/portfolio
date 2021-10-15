@@ -75,12 +75,12 @@ export default {
     }
 
     &::before {
-      content: "";
-      display: inline-block;
-      height: 0.8rem;
-      width: 0.8rem;
-      border-radius: 100%;
-      background: $firstColor;
+      content: url("../assets/img/check.svg");
+      //display: inline-block;
+      height: 2rem;
+      width: 2rem;
+      //border-radius: 100%;
+      //background: $firstColor;
       margin-right: 1rem;
     }
   }
