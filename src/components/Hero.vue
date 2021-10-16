@@ -38,7 +38,7 @@ export default {
   }
 
   .follow {
-    background: violet;
+    //background: violet;
     //height: 100%;
     //width: 100%;
     position: absolute;

@@ -15,19 +15,6 @@
         </div>
       </div>
     </div>
-
-<!--    <div class="skills__section" v-for="(item, index) in skills" :key="'item'+index">-->
-<!--      <div class="skills__box" @click="item.open = !item.open">-->
-<!--        <img class="skills__img" :src="require('../assets/img/'+ item.img +'.svg')" :alt="item.img">-->
-<!--        <div class="skills__content">-->
-<!--          <p class="skills__content&#45;&#45;title">{{ item.title }}</p>-->
-<!--          <p class="skills__content&#45;&#45;subtitle">{{ item.subtitle }}</p>-->
-<!--          <SkillsList :skills="item"/>-->
-<!--        </div>-->
-<!--        <img :class="{'open':item.open}" class="skills__arrow" src="../assets/img/arrow.svg" alt="Arrow">-->
-<!--      </div>-->
-<!--    </div>-->
-
   </section>
 </template>
 
@@ -46,7 +33,7 @@ export default {
           subtitle: "More than 4 years",
           open: false,
           subSkills: [
-            "Html", "Css", "Javascript"
+            "Html", "Css", "Scss", "Javascript"
           ]
         },
         {
@@ -59,7 +46,7 @@ export default {
           ]
         },
         {
-          img: "design",
+          img: "layout",
           title: "Designer",
           subtitle: "More than 4 years",
           open: false,
