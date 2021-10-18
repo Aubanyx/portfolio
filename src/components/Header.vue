@@ -40,7 +40,7 @@ export default {
     height: 5vh;
     justify-content: space-between;
     padding: 4rem 3.5rem;
-    background: green;
+    //background: green;
     z-index: 1;
 
     .name {

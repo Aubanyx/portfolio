@@ -5,57 +5,84 @@
     <div class="hover-content">
       <ul class="listProject">
         <li class="project__element" v-for="(item, index) in projects" :key="'item'+index">
-          <div class="project__subElement" :style="{'background-image': 'url(' + require('../assets/img/'+ item.img +'.svg') +')'}">
-            <a class="project--link" href="#">{{ item.state }}</a>
+          <div class="project__subElement"
+               :style="{'background-image': 'url(' + require('../assets/img/'+ item.img +'.svg') +')'}">
+            <span class="project--linkView" @click="item.open = !item.open">{{ item.state }}</span>
+<!--            <a class="project&#45;&#45;linkRepo" href="#">REPO</a>-->
+<!--            <a class="project&#45;&#45;linkSite" href="#">SITE</a>-->
           </div>
-<!--          <a class="project&#45;&#45;link" href="#">View<br />project</a>-->
+          <ProjectsModal :projects="item"/>
         </li>
-<!--        <div class="overlay" v-for="(item, index) in projects" :key="'item'+index">-->
-<!--          <div class="text">View<br />project</div>-->
-<!--        </div>-->
       </ul>
     </div>
   </section>
 </template>
 
 <script>
+import ProjectsModal from "@/components/ProjectsModal.vue"
+
 export default {
   name: "Projects",
+  components: { ProjectsModal },
   data() {
     return {
       projects: [
         {
           img: "design",
           state: "View project",
+          linkRepo: "https://github.com/Aubanyx/museum-project",
+          linkSite: "https://aubanyx.github.io/museum-project/",
+          open: false
 
         },
         {
           img: "design",
           state: "View project",
+          linkRepo: "https://github.com/Aubanyx/museum-project",
+          linkSite: "https://aubanyx.github.io/museum-project/",
+          open: false
         },
         {
           img: "design",
           state: "View project",
+          linkRepo: "https://github.com/Aubanyx/museum-project",
+          linkSite: "https://aubanyx.github.io/museum-project/",
+          open: false
         },
         {
           img: "design",
           state: "View project",
+          linkRepo: "https://github.com/Aubanyx/museum-project",
+          linkSite: "https://aubanyx.github.io/museum-project/",
+          open: false
         },
         {
           img: "design",
           state: "View project",
+          linkRepo: "https://github.com/Aubanyx/museum-project",
+          linkSite: "https://aubanyx.github.io/museum-project/",
+          open: false
         },
         {
           img: "design",
           state: "View project",
+          linkRepo: "https://github.com/Aubanyx/museum-project",
+          linkSite: "https://aubanyx.github.io/museum-project/",
+          open: false
         },
         {
           img: "design",
           state: "View project",
+          linkRepo: "https://github.com/Aubanyx/museum-project",
+          linkSite: "https://aubanyx.github.io/museum-project/",
+          open: false
         },
         {
           img: "design",
           state: "Coming soon",
+          linkRepo: "https://github.com/Aubanyx/museum-project",
+          linkSite: "https://aubanyx.github.io/museum-project/",
+          open: false
         }
       ]
     }
@@ -110,9 +137,32 @@ export default {
             transform: scale(1.2);
           }
 
+          &:hover .project--linkView {
+            opacity: 1;
+            border: 1px solid orange;
+            width: 30%;
+            height: 30%;
+            font-size: 1rem;
+          }
+
+          //&:hover .project--linkRepo, &:hover .project--linkSite {
+          //  opacity: 1;
+          //  width: 20%;
+          //  height: 20%;
+          //  font-size: 1rem;
+          //}
+
+          //&:hover .project--linkRepo {
+          //  border: 1px solid green;
+          //}
+          //
+          //&:hover .project--linkSite {
+          //  border: 1px solid red;
+          //}
+
           &:hover::before {
-            background: blue;
-            //opacity: 0.3;
+            //background: blue;
+            opacity: 0.1;
           }
 
           &::before {
@@ -130,40 +180,69 @@ export default {
             transition: .2s ease-out;
           }
 
-          &:hover::after {
-            background: orange;
-            width: 40%;
-            height: 40%;
-          }
+          //&:hover::after {
+          //  background: orange;
+          //  width: 40%;
+          //  height: 40%;
+          //}
 
-          &::after {
-            content: "";
-            position: absolute;
+          //&::after {
+          //  content: "";
+          //  position: absolute;
+          //  width: 0;
+          //  height: 0;
+          //  display: flex;
+          //  justify-content: center;
+          //  align-items: center;
+          //  //background: red;
+          //  border-radius: 100%;
+          //  transition: .2s ease-out;
+          //}
+
+          .project--linkView/*, .project--linkRepo, .project--linkSite*/ {
             width: 0;
             height: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            //background: red;
+            font-size: 0;
             border-radius: 100%;
-            transition: .2s ease-out;
-          }
-
-          .project--link {
-            width: 100%;
-            height: 100%;
-            //border-radius: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 1;
             opacity: 0;
             transition: .2s ease-out;
+            cursor: pointer;
+
+            //&:hover {
+            //  opacity: 1;
+            //}
+          }
+          .project--linkView {
+            //position: absolute;
+            //left: 7rem;
 
             &:hover {
-              opacity: 1;
+              background: orange;
             }
           }
+
+          //.project--linkRepo {
+          //  position: absolute;
+          //  top: 8rem;
+          //  right: 7rem;
+          //
+          //  &:hover {
+          //    background: green;
+          //  }
+          //}
+          //.project--linkSite {
+          //  position: absolute;
+          //  bottom: 8rem;
+          //  right: 7rem;
+          //
+          //  &:hover {
+          //    background: red;
+          //  }
+          //}
         }
       }
     }
@@ -176,7 +255,7 @@ export default {
 
 @media only screen and (min-width: 1024px) {
   .container {
-    .hover-content{
+    .hover-content {
       .listProject {
         .project__element {
           width: 25%;
