@@ -55,6 +55,15 @@ export default {
           ]
         },
         {
+          img: "layout",
+          title: "Soft Skills",
+          subtitle: "More than 4 years",
+          open: false,
+          subSkills: [
+            "Html", "Css", "Javascript"
+          ]
+        },
+        {
           img: "others",
           title: "Others",
           subtitle: "More than 4 years",
@@ -72,7 +81,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   background: violet;
-  height: 100vh;
+  //height: 100vh;
   padding: 10rem 0;
 
   .skills__title {

@@ -4,7 +4,15 @@
     <h3 class="projects__subtitle">Most recent work</h3>
     <div class="hover-content">
       <ul class="listProject">
-        <li class="project" :style="{'background-image': 'url(' + require('../assets/img/'+ item.img +'.svg') +')'}" v-for="(item, index) in projects" :key="'item'+index">Project 01</li>
+        <li class="project__element" v-for="(item, index) in projects" :key="'item'+index">
+          <div class="project__subElement" :style="{'background-image': 'url(' + require('../assets/img/'+ item.img +'.svg') +')'}">
+            <a class="project--link" href="#">{{ item.state }}</a>
+          </div>
+<!--          <a class="project&#45;&#45;link" href="#">View<br />project</a>-->
+        </li>
+<!--        <div class="overlay" v-for="(item, index) in projects" :key="'item'+index">-->
+<!--          <div class="text">View<br />project</div>-->
+<!--        </div>-->
       </ul>
     </div>
   </section>
@@ -18,35 +26,36 @@ export default {
       projects: [
         {
           img: "design",
-          test: "01",
+          state: "View project",
+
         },
         {
           img: "design",
-          test: "02",
+          state: "View project",
         },
         {
           img: "design",
-          test: "03",
+          state: "View project",
         },
         {
           img: "design",
-          test: "04",
+          state: "View project",
         },
         {
           img: "design",
-          test: "05",
+          state: "View project",
         },
         {
           img: "design",
-          test: "06",
+          state: "View project",
         },
         {
           img: "design",
-          test: "07",
+          state: "View project",
         },
         {
           img: "design",
-          test: "08",
+          state: "Coming soon",
         }
       ]
     }
@@ -57,7 +66,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   //background: orange;
-  height: 100vh;
+  //height: 100vh;
   padding: 10rem 0;
 
   .projects__title {
@@ -79,14 +88,83 @@ export default {
       flex-wrap: wrap;
       //background-image: url('../assets/img/design.svg');
 
-
-      .project {
-        //background: yellow;
+      .project__element {
         width: 50%;
         height: 50vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        overflow: hidden;
+
+        .project__subElement {
+          //background: yellow;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+          transition: .2s ease-out;
+
+          &:hover {
+            transform: scale(1.2);
+          }
+
+          &:hover::before {
+            background: blue;
+            //opacity: 0.3;
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            //background: orange;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            //border-radius: 100%;
+            background: #aeaeae;
+            opacity: 0.5;
+            transition: .2s ease-out;
+          }
+
+          &:hover::after {
+            background: orange;
+            width: 40%;
+            height: 40%;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            //background: red;
+            border-radius: 100%;
+            transition: .2s ease-out;
+          }
+
+          .project--link {
+            width: 100%;
+            height: 100%;
+            //border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+            opacity: 0;
+            transition: .2s ease-out;
+
+            &:hover {
+              opacity: 1;
+            }
+          }
+        }
       }
     }
   }
@@ -98,10 +176,17 @@ export default {
 
 @media only screen and (min-width: 1024px) {
   .container {
-    .listProject {
-      .project {
-        width: 25%;
-        height: 25vw;
+    .hover-content{
+      .listProject {
+        .project__element {
+          width: 25%;
+          height: 25vw;
+
+          .project__subElement {
+            //width: 25%;
+            //height: 25vw;
+          }
+        }
       }
     }
   }
