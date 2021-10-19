@@ -71,7 +71,7 @@ export default {
     width: 20%;
 
     img {
-      width: 50%;
+      width: 30%;
     }
   }
 
@@ -79,7 +79,7 @@ export default {
     width: 20%;
 
     img {
-      width: 50%;
+      width: 30%;
     }
   }
 
