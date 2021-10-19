@@ -94,7 +94,7 @@ export default {
 .container {
   //background: orange;
   //height: 100vh;
-  padding: 10rem 0;
+  padding-top: 10rem;
 
   .projects__title {
     @include Title;
