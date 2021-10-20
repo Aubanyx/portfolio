@@ -1,10 +1,13 @@
 <template>
   <section id="contact" class="container">
-    <h2 class="contact__title">Contact</h2>
-    <h3 class="contact__subtitle">Most information</h3>
+<!--    <h2 class="contact__title">Contact</h2>-->
+<!--    <h3 class="contact__subtitle">Contact me</h3>-->
     <div class="contact__container">
       <div class="contact__container__boxForm">
-        <form class="contact__container__boxForm__form" action="https://formsubmit.co/aubanlabie@gmail.com" method="POST">
+        <h2 class="contact__title">Contact</h2>
+        <h3 class="contact__subtitle">Contact me</h3>
+        <form class="contact__container__boxForm__form" action="https://formsubmit.co/aubanlabie@gmail.com"
+              method="POST">
           <input type="hidden" name="_captcha" value="false">
           <input type="text" name="name" placeholder="Name" required>
           <div class="contact__container__boxForm__form__box">
@@ -13,11 +16,22 @@
           </div>
           <input type="hidden" name="_next" value="http://localhost:8080/#contact">
           <textarea placeholder="Message" name="message" rows="10" required></textarea>
-          <button class="contact__container__boxForm__form--button" type="submit">Send</button>
+          <button class="contact__container__boxForm__form--button" type="submit">Send message</button>
         </form>
       </div>
       <div class="contact__container__boxMap">
-        <div class="contact__container__boxMap__map">test</div>
+        <div class="contact__container__boxMap__map">
+          <p class="contact__container__boxMap__map--infos">
+            LABIE Auban<br/>
+            Rue de liège<br/>
+            4041 Vottem<br/>
+            <br/>
+            <span>
+              <span>@</span>
+              : aubanlabie@gmail.com
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -35,33 +49,36 @@ export default {
   height: 100%;
   padding-top: 10rem;
 
-  .contact__title {
-    @include Title;
-    margin-bottom: 1rem;  }
-
-  .contact__subtitle {
-    @include Subtitle;
-    margin-bottom: 10rem;
-  }
-
   .contact__container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    //height: 100vh;
+    padding: 0 4rem;
 
     .contact__container__boxForm {
       //width: 50%;
       //background: green;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      .contact__title {
+        @include Title;
+        margin-bottom: 1rem;
+      }
+
+      .contact__subtitle {
+        @include Subtitle;
+        margin-bottom: 10rem;
+      }
 
       .contact__container__boxForm__form {
         display: flex;
         flex-direction: column;
         //align-items: center;
-        width: 80%;
+        width: 100%;
         margin-bottom: 5rem;
 
         input, textarea {
@@ -74,6 +91,7 @@ export default {
           margin: 1rem 0;
           padding-left: 1rem;
           background: #fcfcfc;
+          outline: none;
         }
 
         textarea {
@@ -110,37 +128,50 @@ export default {
         //}
       }
     }
+
     .contact__container__boxMap {
       //width: 50%;
       //background: orange;
-      width: 100vw;
+      width: 100%;
       height: 100vw;
-      padding: 1rem;
+      //padding: 1rem;
 
       .contact__container__boxMap__map {
+        position: relative;
         background-image: url("../assets/img/map.png");
         background-size: cover;
         height: 100%;
+
+        .contact__container__boxMap__map--infos {
+          position: absolute;
+          background: #081217;
+          color: white;
+          width: fit-content;
+          padding: 2rem;
+          text-align: left;
+          font-size: 1.5rem;
+          bottom: 2rem;
+          left: 2rem;
+          line-height: 1.5rem;
+          border: 2px solid $firstColor;
+
+          span:first-child {
+            color: $firstColor;
+          }
+        }
       }
     }
   }
 }
 
 @media only screen and (min-width: 768px) {
-
-}
-
-@media only screen and (min-width: 1024px) {
   .container {
 
     .contact__container {
-      flex-direction: row;
 
       .contact__container__boxForm {
-        width: 50%;
 
         .contact__container__boxForm__form {
-          margin-bottom: 0;
 
           .contact__container__boxForm__form__box {
             display: flex;
@@ -148,17 +179,64 @@ export default {
             width: 100%;
 
             input {
-              width: 40%;
+              width: 49%;
             }
           }
         }
       }
+
+      .contact__container__boxMap {
+        height: 60vw;
+
+        .contact__container__boxMap__map {
+
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    padding-top: 0;
+
+    .contact__container {
+      flex-direction: row;
+      height: 100vh;
+      padding: 0;
+
+      .contact__container__boxForm {
+        //flex-direction: column;
+        width: 50%;
+
+        .contact__container__boxForm__form {
+          padding: 0 4rem;
+          margin-bottom: 0;
+
+          .contact__container__boxForm__form__box {
+            //display: flex;
+            //justify-content: space-between;
+            //width: 100%;
+
+            input {
+              //width: 40%;
+            }
+          }
+        }
+      }
+
       .contact__container__boxMap {
         width: 50%;
+        height: 100%;
         padding: 0;
 
         .contact__container__boxMap__map {
           height: 100%;
+
+          .contact__container__boxMap__map--infos {
+            top: 2rem;
+            bottom: unset;
+          }
         }
       }
     }
