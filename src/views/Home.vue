@@ -9,6 +9,7 @@
     <Projects class="projects" />
     <Contact class="contact" />
     <Footer class="footer" />
+    <ScrollToUp class="scrollToUp" />
   </div>
 </template>
 
@@ -22,6 +23,7 @@ import Skills from "@/components/Skills.vue";
 import Projects from "@/components/Projects.vue";
 import Contact from "@/components/Contact.vue";
 import Footer from "@/components/Footer.vue";
+import ScrollToUp from "@/components/ScrollToUp.vue";
 
 export default {
   name: "Home",
@@ -34,6 +36,7 @@ export default {
     Projects,
     Contact,
     Footer,
+    ScrollToUp,
   },
 };
 </script>
