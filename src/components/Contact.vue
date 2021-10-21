@@ -23,7 +23,7 @@
         <div class="contact__container__boxMap__map">
           <p class="contact__container__boxMap__map--infos">
             LABIE Auban<br/>
-            Rue de liège<br/>
+            Rue de Liège<br/>
             4041 Vottem<br/>
             <br/>
             <span>
@@ -92,6 +92,26 @@ export default {
           padding-left: 1rem;
           background: #fcfcfc;
           outline: none;
+          position: relative;
+
+          //&:focus {
+          //  background: red;
+          //}
+
+          &:focus::after {
+            width: 100%;
+          }
+
+          &::after {
+            content: "testotest";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: $firstColor;
+            transition: 0.3s ease;
+          }
         }
 
         textarea {
@@ -111,9 +131,12 @@ export default {
           display: flex;
           align-items: center;
           align-self: flex-end;
+          cursor: pointer;
+          transition: .2s ease;
 
           &:hover {
-            background: $firstColorExtraLight;
+            background: $firstColor;
+            color: white;
           }
         }
 

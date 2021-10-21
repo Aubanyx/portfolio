@@ -50,13 +50,25 @@ export default {
 
 .sidebar-panel {
   overflow-y: auto;
-  background-color: #130f40;
+  //background-color: #130f40;
+  background: white;
   position: fixed;
   right: 0;
   top: 0;
   height: 100vh;
   z-index: 998;
   padding: 3rem 20px 2rem 20px;
-  width: 300px;
+  //width: 300px;
+  width: 70%;
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .sidebar-panel {
+    width: 60rem;
+  }
 }
 </style>

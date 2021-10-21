@@ -46,6 +46,12 @@ export default {
   height: 6rem;
   background: transparent;
   //opacity: 1;
+  cursor: pointer;
+  transition: transform .3s;
+
+  &:hover {
+    transform: rotateZ(360deg);
+  }
 
   img {
     width: inherit;

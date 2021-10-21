@@ -80,7 +80,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  background: violet;
+  //background: violet;
   //height: 100vh;
   padding: 10rem 0;
 
