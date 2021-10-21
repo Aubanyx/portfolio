@@ -1,12 +1,27 @@
 <template>
   <main id="app">
-<!--    <div id="nav">-->
+    <Loader v-if="$store.state.loading" />
+    <!--    <div id="nav">-->
 <!--      <router-link to="/">Home</router-link> |-->
 <!--      <router-link to="/about">About</router-link>-->
 <!--    </div>-->
     <router-view />
   </main>
 </template>
+
+<script>
+import Loader from "@/components/Loader";
+
+export default {
+  components: { Loader },
+  beforeCreate() {
+    this.$store.commit("onLoading");
+  },
+  mounted() {
+    this.$store.commit("offLoading");
+  }
+}
+</script>
 
 <style lang="scss">
 

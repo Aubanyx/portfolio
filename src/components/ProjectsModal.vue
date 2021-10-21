@@ -3,13 +3,13 @@
     <div v-show="projects.open">
       <div class="overlay" @click="projects.open = !projects.open"></div>
       <div class="modal">
-        <img class="img" src="../assets/img/Egypt_Historical_Museum.png" alt="screenshot project egypt">
+        <img class="img" :src="require('../assets/img/' + projects.img)" alt="image">
       </div>
       <div class="links">
-        <a class="linkRepo" :href="projects.linkRepo"><img src="../assets/img/github.svg" alt="">
+        <a class="linkRepo" :href="projects.linkRepo"><img src="../assets/img/github.svg" alt="Link Github project">
           <p>Github</p></a>
         <span class="separate"></span>
-        <a class="linkSite" :href="projects.linkSite"><img src="../assets/img/website.svg" alt="">
+        <a class="linkSite" :href="projects.linkSite"><img src="../assets/img/website.svg" alt="Link website project">
           <p>Website</p></a>
       </div>
     </div>

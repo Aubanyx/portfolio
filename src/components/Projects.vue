@@ -4,9 +4,9 @@
     <h3 class="projects__subtitle">Most recent work</h3>
     <div class="hover-content">
       <ul class="listProject">
-        <li class="project__element" v-for="(item, index) in projects" :key="'item'+index">
+        <li class="project__element" v-for="(item, index) in projects" :key="'item'+index" :style="{'background-color': item.backColor}">
           <div class="project__subElement"
-               :style="{'background-image': 'url(' + require('../assets/img/'+ item.img +'.svg') +')'}">
+               :style="{'background-image': 'url(' + require('../assets/img/'+ item.logo) +')'}">
             <span class="project--linkView" @click="item.open = !item.open">{{ item.state }}</span>
 <!--            <a class="project&#45;&#45;linkRepo" href="#">REPO</a>-->
 <!--            <a class="project&#45;&#45;linkSite" href="#">SITE</a>-->
@@ -28,60 +28,76 @@ export default {
     return {
       projects: [
         {
-          img: "design",
+          logo: "photo.png",
+          state: "View project",
+          linkRepo: "https://github.com/Aubanyx/portfolio",
+          linkSite: "",
+          img: "#",
+          backColor: "green",
+          open: false
+        },
+        {
+          logo: "egypt.png",
           state: "View project",
           linkRepo: "https://github.com/Aubanyx/museum-project",
           linkSite: "https://aubanyx.github.io/museum-project/",
+          img: "Egypt_Historical_Museum.png",
+          backColor: "blue",
           open: false
 
         },
         {
-          img: "design",
+          logo: "bcbb.svg",
           state: "View project",
-          linkRepo: "https://github.com/Aubanyx/museum-project",
-          linkSite: "https://aubanyx.github.io/museum-project/",
+          linkRepo: "https://github.com/Aubanyx/Forum-bcbb-the-who",
+          linkSite: "https://bcbb-thewho.herokuapp.com/index.php",
+          img: "bcbbTheWho.png",
+          backColor: "violet",
           open: false
         },
         {
-          img: "design",
+          logo: "burger.png",
           state: "View project",
-          linkRepo: "https://github.com/Aubanyx/museum-project",
-          linkSite: "https://aubanyx.github.io/museum-project/",
+          linkRepo: "https://github.com/Aubanyx/ChaosCoffeeRestaurant",
+          linkSite: "#",
+          img: "#",
+          backColor: "beige",
           open: false
         },
         {
-          img: "design",
+          logo: "leaf.png",
           state: "View project",
-          linkRepo: "https://github.com/Aubanyx/museum-project",
-          linkSite: "https://aubanyx.github.io/museum-project/",
+          linkRepo: "https://github.com/Aubanyx/mwenbwa-corses",
+          linkSite: "",
+          img: "#",
+          backColor: "cyan",
           open: false
         },
         {
-          img: "design",
+          logo: "pomodoro.png",
           state: "View project",
-          linkRepo: "https://github.com/Aubanyx/museum-project",
-          linkSite: "https://aubanyx.github.io/museum-project/",
+          linkRepo: "https://github.com/Aubanyx/react-pomodoro",
+          linkSite: "https://auban-react-pomodoro.netlify.app\n",
+          img: "reactPomodoro.png",
+          backColor: "red",
           open: false
         },
         {
-          img: "design",
+          logo: "terminal.svg",
           state: "View project",
-          linkRepo: "https://github.com/Aubanyx/museum-project",
-          linkSite: "https://aubanyx.github.io/museum-project/",
+          linkRepo: "https://github.com/Aubanyx/holidays-CLI",
+          linkSite: "",
+          img: "#",
+          backColor: "purple",
           open: false
         },
         {
-          img: "design",
+          logo: "terminal.svg",
           state: "View project",
-          linkRepo: "https://github.com/Aubanyx/museum-project",
-          linkSite: "https://aubanyx.github.io/museum-project/",
-          open: false
-        },
-        {
-          img: "design",
-          state: "Coming soon",
-          linkRepo: "https://github.com/Aubanyx/museum-project",
-          linkSite: "https://aubanyx.github.io/museum-project/",
+          linkRepo: "https://github.com/Aubanyx/npx-card",
+          linkSite: "",
+          img: "#",
+          backColor: "yellow",
           open: false
         }
       ]
@@ -129,7 +145,8 @@ export default {
           align-items: center;
           position: relative;
           background-position: center;
-          background-size: cover;
+          //background-size: cover;
+          background-size: 8rem;
           background-repeat: no-repeat;
           transition: .2s ease-out;
 
