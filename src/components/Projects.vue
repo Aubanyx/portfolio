@@ -156,7 +156,7 @@ export default {
 
           &:hover .project--linkView {
             opacity: 1;
-            border: 1px solid orange;
+            border: 1px solid $firstColor;
             width: 30%;
             height: 30%;
             font-size: 1rem;
@@ -238,7 +238,7 @@ export default {
             //left: 7rem;
 
             &:hover {
-              background: orange;
+              background: $firstColor;
             }
           }
 

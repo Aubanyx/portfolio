@@ -15,6 +15,10 @@
                 <li><a href="#contact">Contact</a></li>
               </ul>
           </div>
+          <div class="sidebar__boxMail">
+            <p class="sidebar__boxMail--title">A question ?</p>
+            <a class="sidebar__boxMail--mail" href="mailto:aubanlabie@gmail.com">aubanlabie@gmail.com</a>
+          </div>
 <!--          <ul class="sidebar-panel-nav">-->
 <!--            <li><a href="#hero">Home</a></li>-->
 <!--            <li><a href="#about">About</a></li>-->
@@ -177,6 +181,45 @@ export default {
           }
         }
       }
+
+      .sidebar__boxMail {
+        position: absolute;
+        bottom: 5rem;
+        left: 7rem;
+
+        .sidebar__boxMail--title {
+          text-align: left;
+          font-size: 1.7rem;
+          font-weight: 100;
+          margin-bottom: 1rem;
+          color: black;
+        }
+        .sidebar__boxMail--mail {
+          //position: absolute;
+          //bottom: 3rem;
+          //left: 12rem;
+          font-size: 1.7rem;
+          color: black;
+          padding-bottom: 1rem;
+          border-bottom: 1px solid #bcbcbc;
+
+          &:hover::after {
+            width: 100%;
+            left: 0;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: black;
+            transition: 0.3s ease;
+          }
+        }
+      }
       .lang {
         color: black;
         font-size: 1.3rem;
@@ -201,6 +244,16 @@ export default {
       .nav {
         .sidebar__menu {
           padding-left: 10rem;
+        }
+        .sidebar__boxMail {
+          left: 12rem;
+
+          .sidebar__boxMail--title {
+
+          }
+          .sidebar__boxMail--mail {
+
+          }
         }
       }
     }
