@@ -98,20 +98,20 @@ export default {
           //  background: red;
           //}
 
-          &:focus::after {
-            width: 100%;
-          }
-
-          &::after {
-            content: "testotest";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: $firstColor;
-            transition: 0.3s ease;
-          }
+          //&:focus::after {
+          //  width: 100%;
+          //}
+          //
+          //&::after {
+          //  content: "";
+          //  position: absolute;
+          //  top: 0;
+          //  left: 0;
+          //  width: 0;
+          //  height: 2px;
+          //  background: $firstColor;
+          //  transition: 0.3s ease;
+          //}
         }
 
         textarea {

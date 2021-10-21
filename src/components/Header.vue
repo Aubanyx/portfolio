@@ -68,8 +68,12 @@ export default {
       if (Math.abs(window.pageYOffset - this.lastScrollPosition) < this.offset) {
         return;
       }
-      this.showNavbar = window.pageYOffset < this.lastScrollPosition;
-      this.lastScrollPosition = window.pageYOffset;
+      if (!this.isPanelOpen) {
+        this.showNavbar = window.pageYOffset < this.lastScrollPosition;
+        this.lastScrollPosition = window.pageYOffset;
+      }
+      // this.showNavbar = window.pageYOffset < this.lastScrollPosition;
+      // this.lastScrollPosition = window.pageYOffset;
     },
     toHero() {
       document.querySelector('#hero').scrollIntoView({
@@ -96,6 +100,11 @@ export default {
     //     behavior: 'smooth'
     //   });
     // }
+  },
+  computed: {
+    isPanelOpen() {
+      return this.$store.state.isNavOpen;
+    }
   }
 }
 </script>

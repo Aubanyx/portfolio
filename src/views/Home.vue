@@ -8,7 +8,7 @@
     <Skills class="skills" />
     <Projects class="projects" />
     <Contact class="contact" />
-    <Footer class="footer" />
+<!--    <Footer class="footer" />-->
     <ScrollToUp class="scrollToUp" />
   </div>
 </template>
@@ -22,7 +22,7 @@ import About from "@/components/About.vue";
 import Skills from "@/components/Skills.vue";
 import Projects from "@/components/Projects.vue";
 import Contact from "@/components/Contact.vue";
-import Footer from "@/components/Footer.vue";
+// import Footer from "@/components/Footer.vue";
 import ScrollToUp from "@/components/ScrollToUp.vue";
 
 export default {
@@ -35,7 +35,7 @@ export default {
     Skills,
     Projects,
     Contact,
-    Footer,
+    // Footer,
     ScrollToUp,
   },
 };
