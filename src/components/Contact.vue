@@ -27,9 +27,13 @@
             4041 Vottem<br/>
             <br/>
             <span>
-              <span>@</span>
+              <span class="prefix">@</span>
               : aubanlabie@gmail.com
             </span>
+            <br/>
+            <br/>
+            <span class="prefix">☎</span>
+            <span> : 0474/54.84.14</span>
           </p>
         </div>
       </div>
@@ -178,7 +182,7 @@ export default {
           line-height: 1.5rem;
           border: 2px solid $firstColor;
 
-          span:first-child {
+          .prefix {
             color: $firstColor;
           }
         }

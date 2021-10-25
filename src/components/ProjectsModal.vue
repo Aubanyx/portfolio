@@ -8,11 +8,11 @@
         </div>
         <div class="modal__infos">
           <h3 class="modal__infos--title">{{ projects.name }}</h3>
-          <p class="modal__infos--state" :class="{ 'modal__infos--state-off' : projects.state === 'off' }">State : {{ projects.state }}</p>
+          <p class="modal__infos--state" :class="{ 'modal__infos--state-off' : projects.state === 'offline' }">{{ projects.state }}</p>
           <p class="modal__infos--description">{{ projects.description }}</p>
           <div class="modal__infos__links">
-            <a class="modal__infos__links--linkRepo" :href="projects.linkRepo">GitHub</a>
-            <a class="modal__infos__links--linkGit" :href="projects.linkSite">Website</a>
+            <a class="modal__infos__links--linkRepo" :href="projects.linkRepo">GitHub<img class="imgGithub" src="../assets/img/githubRed.svg" alt="Link Github project"></a>
+            <a class="modal__infos__links--linkWeb" :href="projects.linkSite">Website<img class="imgWebsite" src="../assets/img/websiteRed.svg" alt="Link website project"></a>
           </div>
         </div>
       </div>
@@ -122,17 +122,34 @@ export default {
         margin-right: 2rem;
       }
 
-      .modal__infos__links--linkGit, .modal__infos__links--linkRepo {
+      .modal__infos__links--linkWeb, .modal__infos__links--linkRepo {
         padding: 1rem;
         color: $firstColor;
         border: 1px solid $firstColor;
         font-size: 1.5rem;
         transition: .2s ease;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
         
         &:hover {
           background: $firstColor;
           color: white;
         }
+
+        .imgGithub, .imgWebsite {
+          width: 3rem;
+          margin-left: 1rem;
+          transition: .2s ease;
+        }
+      }
+      .modal__infos__links--linkRepo:hover .imgGithub {
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(318deg) brightness(250%) contrast(107%);
+      }
+
+      .modal__infos__links--linkWeb:hover .imgWebsite {
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(318deg) brightness(250%) contrast(107%);
       }
     }
   }

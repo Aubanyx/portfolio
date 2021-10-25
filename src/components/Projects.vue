@@ -35,7 +35,7 @@ export default {
           linkSite: "#",
           img: "Egypt_Historical_Museum.png",
           backColor: "green",
-          state: "on",
+          state: "online",
           open: false,
         },
         {
@@ -46,7 +46,7 @@ export default {
           linkSite: "https://aubanyx.github.io/museum-project/",
           img: "Egypt_Historical_Museum.png",
           backColor: "blue",
-          state: "on",
+          state: "online",
           open: false,
 
         },
@@ -58,7 +58,7 @@ export default {
           linkSite: "https://bcbb-thewho.herokuapp.com/index.php",
           img: "bcbbTheWho.png",
           backColor: "violet",
-          state: "on",
+          state: "online",
           open: false,
         },
         {
@@ -69,7 +69,7 @@ export default {
           linkSite: "#",
           img: "Egypt_Historical_Museum.png",
           backColor: "beige",
-          state: "off",
+          state: "offline",
           open: false,
         },
         {
@@ -80,7 +80,7 @@ export default {
           linkSite: "#",
           img: "Egypt_Historical_Museum.png",
           backColor: "cyan",
-          state: "off",
+          state: "offline",
           open: false,
         },
         {
@@ -91,7 +91,7 @@ export default {
           linkSite: "https://auban-react-pomodoro.netlify.app\n",
           img: "reactPomodoro.png",
           backColor: "red",
-          state: "on",
+          state: "online",
           open: false,
         },
         {
@@ -102,7 +102,7 @@ export default {
           linkSite: "#",
           img: "Egypt_Historical_Museum.png",
           backColor: "purple",
-          state: "off",
+          state: "offline",
           open: false,
         },
         {
@@ -113,7 +113,7 @@ export default {
           linkSite: "#",
           img: "Egypt_Historical_Museum.png",
           backColor: "yellow",
-          state: "off",
+          state: "offline",
           open: false,
         }
       ]
