@@ -4,11 +4,11 @@
       <div class="overlay" @click="modal.open = !modal.open"></div>
       <div class="modal">
         <div class="modal__img">
-          <img class="img" :src="require('../assets/img/' + projects.img)" alt="image">
+          <img class="img" :src="require('../assets/img/' + projects.img)" alt="image" >
         </div>
         <div class="modal__infos">
           <h3 class="modal__infos--title">{{ projects.name }}</h3>
-          <p class="modal__infos--state">{{ projects.state }}</p>
+          <p class="modal__infos--state" :class="{ 'modal__infos--state-off' : projects.state === 'off' }">State : {{ projects.state }}</p>
           <p class="modal__infos--description">{{ projects.description }}</p>
           <div class="modal__infos__links">
             <a class="modal__infos__links--linkRepo" :href="projects.linkRepo">GitHub</a>
@@ -65,9 +65,10 @@ export default {
   border-radius: 1rem;
   z-index: 99;
   display: flex;
+  padding: 5rem;
 
   .modal__img {
-    width: 25%;
+    width: 50%;
 
     .img {
       width: 100%;
@@ -77,29 +78,61 @@ export default {
   .modal__infos {
     display: flex;
     flex-direction: column;
+    width: 100%;
 
-    justify-content: center;
+    //justify-content: center;
     align-items: flex-start;
     text-align: left;
-    padding-left: 2rem;
+    padding-left: 5rem;
 
     .modal__infos--title {
-      font-size: 3rem;
+      font-size: 4rem;
       margin-bottom: 2rem;
+      font-weight: bold;
     }
+
     .modal__infos--state {
       margin-bottom: 2rem;
+      color: darkseagreen;
+      border: 1px solid darkseagreen;
+      border-radius: 1rem;
+      font-size: 1.2rem;
+      padding: 0.5rem;
     }
+
+    .modal__infos--state-off {
+      margin-bottom: 2rem;
+      color: $firstColor;
+      border: 1px solid $firstColor;
+      border-radius: 1rem;
+      font-size: 1.2rem;
+      padding: 0.5rem;
+    }
+
     .modal__infos--description {
       margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: 100;
     }
+
     .modal__infos__links {
       display: flex;
+
       .modal__infos__links--linkRepo {
         margin-right: 2rem;
       }
-      .modal__infos__links--linkGit {
 
+      .modal__infos__links--linkGit, .modal__infos__links--linkRepo {
+        padding: 1rem;
+        color: $firstColor;
+        border: 1px solid $firstColor;
+        font-size: 1.5rem;
+        transition: .2s ease;
+        
+        &:hover {
+          background: $firstColor;
+          color: white;
+        }
       }
     }
   }

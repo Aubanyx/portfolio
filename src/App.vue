@@ -32,7 +32,8 @@ export default {
   text-align: center;
   //color: #2c3e50;
   //color: $primaryColor;
-  color: #3D4280;
+  //color: #3D4280;
+  color: black;
 }
 
 //* {
