@@ -6,8 +6,8 @@
       <ul class="listProject">
         <li class="project__element" v-for="(item, index) in projects" :key="'item'+index" :style="{'background-color': item.backColor}">
           <div class="project__subElement"
-               :style="{'background-image': 'url(' + require('../assets/img/'+ item.logo) +')'}">
-            <span class="project--linkView" @click="item.open = !item.open">{{ item.state }}</span>
+               :style="{'background-image': 'url(' + require('../assets/img/'+ item.img) +')'}">
+            <span class="project--linkView" @click="item.open = !item.open">{{ item.name }}</span>
 <!--            <a class="project&#45;&#45;linkRepo" href="#">REPO</a>-->
 <!--            <a class="project&#45;&#45;linkSite" href="#">SITE</a>-->
           </div>
@@ -29,76 +29,92 @@ export default {
       projects: [
         {
           logo: "photo.png",
-          state: "View project",
+          name: "Portfolio",
+          description: "lorem ipsum dolor sit amet, consectetur",
           linkRepo: "https://github.com/Aubanyx/portfolio",
           linkSite: "",
-          img: "#",
+          img: "Egypt_Historical_Museum.png",
           backColor: "green",
-          open: false
+          state: "on",
+          open: false,
         },
         {
           logo: "egypt.png",
-          state: "View project",
+          name: "Museum Project",
+          description: "lorem ipsum dolor sit amet, consectetur",
           linkRepo: "https://github.com/Aubanyx/museum-project",
           linkSite: "https://aubanyx.github.io/museum-project/",
           img: "Egypt_Historical_Museum.png",
           backColor: "blue",
-          open: false
+          state: "on",
+          open: false,
 
         },
         {
           logo: "bcbb.svg",
-          state: "View project",
+          name: "Forum bcbb the who",
+          description: "lorem ipsum dolor sit amet, consectetur",
           linkRepo: "https://github.com/Aubanyx/Forum-bcbb-the-who",
           linkSite: "https://bcbb-thewho.herokuapp.com/index.php",
           img: "bcbbTheWho.png",
           backColor: "violet",
-          open: false
+          state: "on",
+          open: false,
         },
         {
           logo: "burger.png",
-          state: "View project",
+          name: "Chaos Coffee Restaurant",
+          description: "lorem ipsum dolor sit amet, consectetur",
           linkRepo: "https://github.com/Aubanyx/ChaosCoffeeRestaurant",
           linkSite: "#",
-          img: "#",
+          img: "Egypt_Historical_Museum.png",
           backColor: "beige",
-          open: false
+          state: "off",
+          open: false,
         },
         {
           logo: "leaf.png",
-          state: "View project",
+          name: "Mwenbwa Corses",
+          description: "lorem ipsum dolor sit amet, consectetur",
           linkRepo: "https://github.com/Aubanyx/mwenbwa-corses",
-          linkSite: "",
-          img: "#",
+          linkSite: "#",
+          img: "Egypt_Historical_Museum.png",
           backColor: "cyan",
-          open: false
+          state: "off",
+          open: false,
         },
         {
           logo: "pomodoro.png",
-          state: "View project",
+          name: "React Pomodoro",
+          description: "lorem ipsum dolor sit amet, consectetur",
           linkRepo: "https://github.com/Aubanyx/react-pomodoro",
           linkSite: "https://auban-react-pomodoro.netlify.app\n",
           img: "reactPomodoro.png",
           backColor: "red",
-          open: false
+          state: "on",
+          open: false,
         },
         {
           logo: "terminal.svg",
-          state: "View project",
+          name: "Holidays CLI",
+          description: "lorem ipsum dolor sit amet, consectetur",
           linkRepo: "https://github.com/Aubanyx/holidays-CLI",
           linkSite: "",
-          img: "#",
+          img: "Egypt_Historical_Museum.png",
           backColor: "purple",
-          open: false
+          state: "off",
+          open: false,
         },
         {
           logo: "terminal.svg",
-          state: "View project",
+          name: "Npx Card",
+          description: "lorem ipsum dolor sit amet, consectetur",
           linkRepo: "https://github.com/Aubanyx/npx-card",
-          linkSite: "",
-          img: "#",
+          linkSite: "#",
+          img: "Egypt_Historical_Museum.png",
           backColor: "yellow",
-          open: false
+          state: "off",
+          open: false,
         }
       ]
     }
@@ -145,8 +161,8 @@ export default {
           align-items: center;
           position: relative;
           background-position: center;
-          //background-size: cover;
-          background-size: 8rem;
+          background-size: cover;
+          //background-size: 8rem;
           background-repeat: no-repeat;
           transition: .2s ease-out;
 
@@ -156,10 +172,12 @@ export default {
 
           &:hover .project--linkView {
             opacity: 1;
-            border: 1px solid $firstColor;
-            width: 30%;
-            height: 30%;
-            font-size: 1rem;
+            //border: 1px solid $firstColor;
+            width: 100%;
+            height: 100%;
+            //font-size: 1rem;
+            font-size: 2rem;
+            color: white;
           }
 
           //&:hover .project--linkRepo, &:hover .project--linkSite {
@@ -220,7 +238,7 @@ export default {
             width: 0;
             height: 0;
             font-size: 0;
-            border-radius: 100%;
+            //border-radius: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -239,6 +257,8 @@ export default {
 
             &:hover {
               background: $firstColor;
+              opacity: 0.9;
+              //width: 100%;
             }
           }
 

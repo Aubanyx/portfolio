@@ -1,17 +1,28 @@
 <template>
   <transition>
     <div v-show="projects.open">
-      <div class="overlay" @click="projects.open = !projects.open"></div>
+      <div class="overlay" @click="modal.open = !modal.open"></div>
       <div class="modal">
-        <img class="img" :src="require('../assets/img/' + projects.img)" alt="image">
+        <div class="modal__img">
+          <img class="img" :src="require('../assets/img/' + projects.img)" alt="image">
+        </div>
+        <div class="modal__infos">
+          <h3 class="modal__infos--title">{{ projects.name }}</h3>
+          <p class="modal__infos--state">{{ projects.state }}</p>
+          <p class="modal__infos--description">{{ projects.description }}</p>
+          <div class="modal__infos__links">
+            <a class="modal__infos__links--linkRepo" :href="projects.linkRepo">GitHub</a>
+            <a class="modal__infos__links--linkGit" :href="projects.linkSite">Website</a>
+          </div>
+        </div>
       </div>
-      <div class="links">
-        <a class="linkRepo" :href="projects.linkRepo"><img src="../assets/img/github.svg" alt="Link Github project">
-          <p>Github</p></a>
-        <span class="separate"></span>
-        <a class="linkSite" :href="projects.linkSite"><img src="../assets/img/website.svg" alt="Link website project">
-          <p>Website</p></a>
-      </div>
+<!--      <div class="links">-->
+<!--        <a class="linkRepo" :href="projects.linkRepo"><img src="../assets/img/github.svg" alt="Link Github project">-->
+<!--          <p>Github</p></a>-->
+<!--        <span class="separate"></span>-->
+<!--        <a class="linkSite" :href="projects.linkSite"><img src="../assets/img/website.svg" alt="Link website project">-->
+<!--          <p>Website</p></a>-->
+<!--      </div>-->
     </div>
   </transition>
 </template>
@@ -22,6 +33,11 @@ export default {
   props: [
     'projects'
   ],
+  computed: {
+    modal() {
+      return this.projects;
+    }
+  },
 }
 </script>
 
@@ -48,9 +64,44 @@ export default {
   border: 1rem solid black;
   border-radius: 1rem;
   z-index: 99;
+  display: flex;
 
-  .img {
-    width: 100%;
+  .modal__img {
+    width: 25%;
+
+    .img {
+      width: 100%;
+    }
+  }
+
+  .modal__infos {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 2rem;
+
+    .modal__infos--title {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+    .modal__infos--state {
+      margin-bottom: 2rem;
+    }
+    .modal__infos--description {
+      margin-bottom: 2rem;
+    }
+    .modal__infos__links {
+      display: flex;
+      .modal__infos__links--linkRepo {
+        margin-right: 2rem;
+      }
+      .modal__infos__links--linkGit {
+
+      }
+    }
   }
 }
 
