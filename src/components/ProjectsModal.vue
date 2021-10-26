@@ -5,19 +5,24 @@
       <div class="modal">
         <div class="modal__img">
           <div class="modal__img__pictures">
-            <img id="pic1" class="picture" @mouseover="changeImage(projects.img1)" :src="require('../assets/img/' + projects.img1)" alt="image" >
-            <img id="pic2" class="picture" @mouseover="changeImage(projects.img2)" :src="require('../assets/img/' + projects.img2)" alt="image" >
-            <img id="pic3" class="picture" @mouseover="changeImage(projects.img3)" :src="require('../assets/img/' + projects.img3)" alt="image" >
-            <img id="pic4" class="picture" @mouseover="changeImage(projects.img4)" :src="require('../assets/img/' + projects.img4)" alt="image" >
-            <img id="pic5" class="picture" @mouseover="changeImage(projects.img5)" :src="require('../assets/img/' + projects.img5)" alt="image" >
+            <img id="pic1" class="picture" v-for="image in projects.img" :key="image.id" @mouseover="changeImage(image)" :src="require('../assets/img/' + image)" alt="image" >
+<!--            <img id="pic1" class="picture" @mouseover="changeImage(projects.img1)" :src="require('../assets/img/' + projects.img1)" alt="image" >-->
+<!--            <img id="pic2" class="picture" @mouseover="changeImage(projects.img2)" :src="require('../assets/img/' + projects.img2)" alt="image" >-->
+<!--            <img id="pic3" class="picture" @mouseover="changeImage(projects.img3)" :src="require('../assets/img/' + projects.img3)" alt="image" >-->
+<!--            <img id="pic4" class="picture" @mouseover="changeImage(projects.img4)" :src="require('../assets/img/' + projects.img4)" alt="image" >-->
+<!--            <img id="pic5" class="picture" @mouseover="changeImage(projects.img5)" :src="require('../assets/img/' + projects.img5)" alt="image" >-->
           </div>
 <!--          <img id="pic" class="img" :src="require('../assets/img/' + projects.img1)" alt="image" >-->
-          <img id="pic" class="img" :src="require('../assets/img/' + this.myImage)" alt="image" >
+<!--          <img id="pic" class="img" :src="require('../assets/img/' + this.myImage)" alt="image" >-->
+          <div @mousemove="zoomIn" @mouseleave="zoomOut">
+            <img id="pic" class="img" :src="require('../assets/img/' + this.myImage)" alt="image">
+          </div>
         </div>
         <div class="modal__infos">
           <h3 class="modal__infos--title">{{ projects.name }}</h3>
           <p class="modal__infos--state" :class="{ 'modal__infos--state-off' : projects.state === 'offline' }">{{ projects.state }}</p>
           <p class="modal__infos--description">{{ projects.description }}</p>
+          <p class="modal__infos--techs">Technologies used : <span class="modal__infos--techs--tech" v-for="tech in projects.techUse" :key="tech.id">{{ tech }}</span></p>
           <div class="modal__infos__links">
             <a class="modal__infos__links--linkRepo" :href="projects.linkRepo">GitHub<img class="imgGithub" src="../assets/img/githubRed.svg" alt="Link Github project"></a>
             <a class="modal__infos__links--linkWeb" :href="projects.linkSite">Website<img class="imgWebsite" src="../assets/img/websiteRed.svg" alt="Link website project"></a>
@@ -43,7 +48,8 @@ export default {
   ],
   data() {
     return {
-      myImage: this.projects.img1,
+      myImage: this.projects.img[0],
+      picture: document.getElementById("pic"),
     }
   },
   computed: {
@@ -53,7 +59,17 @@ export default {
   },
   methods: {
     changeImage(newImage) {
+      // console.log("test", this.picture);
+      // console.log("test", this.picture.style.transform);
       this.myImage = newImage;
+    },
+    zoomIn() {
+      console.log("test", this.picture);
+      this.picture.style.transform = "scale(2)";
+    },
+    zoomOut() {
+      console.log("test", this.picture);
+      this.picture.style.transform = "scale(1)";
     }
   },
 
@@ -103,12 +119,21 @@ export default {
     width: 50%;
 
     .modal__img__pictures {
+      display: flex;
+      flex-direction: column;
+      margin-right: 2rem;
+
       .picture {
         width: 5rem;
         height: 5rem;
         border: 1px solid black;
         margin-bottom: 1rem;
         object-fit: cover;
+        transition: .2s ease;
+
+        &:hover {
+          border-color: $firstColor;
+        }
 
         &:last-child {
           margin-bottom: 0;
@@ -118,6 +143,7 @@ export default {
 
     .img {
       width: 70%;
+      object-fit: contain;
     }
   }
 
@@ -144,6 +170,12 @@ export default {
       border-radius: 1rem;
       font-size: 1.2rem;
       padding: 0.5rem;
+      transition: .2s ease;
+
+      &:hover {
+        background: darkseagreen;
+        color: white;
+      }
     }
 
     .modal__infos--state-off {
@@ -159,6 +191,25 @@ export default {
       margin-bottom: 2rem;
       font-size: 2rem;
       font-weight: 100;
+    }
+
+    .modal__infos--techs {
+      font-size: 1.2rem;
+      margin-bottom: 5rem;
+
+      .modal__infos--techs--tech {
+        margin-right: 1rem;
+        border: 1px solid dodgerblue;
+        border-radius: 2rem;
+        padding: 0.5rem;
+        color: dodgerblue;
+        transition: .2s ease;
+
+        &:hover {
+          background: dodgerblue;
+          color: white;
+        }
+      }
     }
 
     .modal__infos__links {
@@ -230,12 +281,12 @@ export default {
     }
   }
 
-  .separate {
-    display: inline-block;
-    width: 1px;
-    height: 5rem;
-    background: $firstColor;
-  }
+  //.separate {
+  //  display: inline-block;
+  //  width: 1px;
+  //  height: 5rem;
+  //  background: $firstColor;
+  //}
 }
 
 //.fade-enter-active,
