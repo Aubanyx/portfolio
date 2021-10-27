@@ -7,14 +7,15 @@
         <li class="project__element" v-for="(item, index) in projects" :key="'item'+index" :style="{'background-color': item.backColor}">
           <div class="project__subElement"
                :style="{'background-image': 'url(' + require('../assets/img/'+ item.img[0]) +')'}">
-            <span class="project--linkView" @click="item.open = !item.open">{{ item.name }}</span>
+            <span class="project--linkView" @click="updateModal(item)">{{ item.name }}</span>
 <!--            <a class="project&#45;&#45;linkRepo" href="#">REPO</a>-->
 <!--            <a class="project&#45;&#45;linkSite" href="#">SITE</a>-->
           </div>
-          <ProjectsModal :projects="item"/>
+<!--          <ProjectsModal :projects="item"/>-->
         </li>
       </ul>
     </div>
+    <ProjectsModal />
   </section>
 </template>
 
@@ -35,10 +36,6 @@ export default {
           linkRepo: "https://github.com/Aubanyx/portfolio",
           linkSite: "#",
           img: ["Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png", "bcbbTheWho.png", "Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png"],
-          // img2: "Egypt_Historical_Museum.png",
-          // img3: "Egypt_Historical_Museum.png",
-          // img4: "Egypt_Historical_Museum.png",
-          // img5: "Egypt_Historical_Museum.png",
           backColor: "green",
           state: "online",
           open: false,
@@ -131,6 +128,20 @@ export default {
       ]
     }
   },
+  methods: {
+    updateModal(item) {
+      this.$store.state.selectedProjects = item;
+      console.log("openModal", this.$store.state.openModal);
+
+      this.$store.state.openModal = true;
+
+      console.log("selectedProjects", this.$store.state.selectedProjects);
+      console.log("openModal", this.$store.state.openModal);
+    }
+  },
+  mounted() {
+    this.$store.state.selectedProjects = this.projects[0];
+  }
 }
 </script>
 

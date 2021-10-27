@@ -1,11 +1,11 @@
 <template>
   <transition>
-    <div v-show="projects.open">
-      <div class="overlay" @click="modal.open = !modal.open"></div>
+    <div v-show="this.openModal">
+      <div class="overlay" @click="modalClose()"></div>
       <div class="modal">
         <div class="modal__img">
           <div class="modal__img__pictures">
-            <img id="pic1" class="picture" v-for="image in projects.img" :key="image.id" @mouseover="changeImage(image)" :src="require('../assets/img/' + image)" alt="image" >
+            <img id="pic1" class="picture" v-for="(image, index) in modal.img" :key="image.id" @mouseover="changeImage(index)" :src="require('../assets/img/' + image)" alt="image" >
 <!--            <img id="pic1" class="picture" @mouseover="changeImage(projects.img1)" :src="require('../assets/img/' + projects.img1)" alt="image" >-->
 <!--            <img id="pic2" class="picture" @mouseover="changeImage(projects.img2)" :src="require('../assets/img/' + projects.img2)" alt="image" >-->
 <!--            <img id="pic3" class="picture" @mouseover="changeImage(projects.img3)" :src="require('../assets/img/' + projects.img3)" alt="image" >-->
@@ -14,18 +14,19 @@
           </div>
 <!--          <img id="pic" class="img" :src="require('../assets/img/' + projects.img1)" alt="image" >-->
 <!--          <img id="pic" class="img" :src="require('../assets/img/' + this.myImage)" alt="image" >-->
-          <div @mousemove="zoomIn" @mouseleave="zoomOut">
-            <img id="pic" class="img" :src="require('../assets/img/' + this.myImage)" alt="image">
+          <div id="containerMainPic" class="modal__img__main" @mousemove="zoomIn()" @mouseleave="zoomOut()">
+            <div class="modal__img__main__zoom"></div>
+            <img id="pic" class="img" :src="require('../assets/img/' + this.modal.img[this.myImageIndex])" alt="image">
           </div>
         </div>
         <div class="modal__infos">
-          <h3 class="modal__infos--title">{{ projects.name }}</h3>
-          <p class="modal__infos--state" :class="{ 'modal__infos--state-off' : projects.state === 'offline' }">{{ projects.state }}</p>
-          <p class="modal__infos--description">{{ projects.description }}</p>
-          <p class="modal__infos--techs">Technologies used : <span class="modal__infos--techs--tech" v-for="tech in projects.techUse" :key="tech.id">{{ tech }}</span></p>
+          <h3 class="modal__infos--title">{{ modal.name }}</h3>
+          <p class="modal__infos--state" :class="{ 'modal__infos--state-off' : modal.state === 'offline' }">{{ modal.state }}</p>
+          <p class="modal__infos--description">{{ modal.description }}</p>
+          <p class="modal__infos--techs">Technologies used : <span class="modal__infos--techs--tech" v-for="tech in modal.techUse" :key="tech.id">{{ tech }}</span></p>
           <div class="modal__infos__links">
-            <a class="modal__infos__links--linkRepo" :href="projects.linkRepo">GitHub<img class="imgGithub" src="../assets/img/githubRed.svg" alt="Link Github project"></a>
-            <a class="modal__infos__links--linkWeb" :href="projects.linkSite">Website<img class="imgWebsite" src="../assets/img/websiteRed.svg" alt="Link website project"></a>
+            <a class="modal__infos__links--linkRepo" :href="modal.linkRepo">GitHub<img class="imgGithub" src="../assets/img/githubRed.svg" alt="Link Github project"></a>
+            <a class="modal__infos__links--linkWeb" :href="modal.linkSite">Website<img class="imgWebsite" src="../assets/img/websiteRed.svg" alt="Link website project"></a>
           </div>
         </div>
       </div>
@@ -43,37 +44,64 @@
 <script>
 export default {
   name: "ProjectsModal",
-  props: [
-    'projects'
-  ],
+  // props: [
+  //   'projects'
+  // ],
   data() {
     return {
-      myImage: this.projects.img[0],
-      picture: document.getElementById("pic"),
+      myImageIndex: 0,
+      picture: "",
+      containerMain: "",
+      w1: "",
+      h1: "",
     }
   },
   computed: {
     modal() {
-      return this.projects;
+      // console.log(this.h1, this.w1);
+      // console.log("containerMain", this.containerMain);
+      return this.$store.state.selectedProjects;
     },
+    openModal() {
+      return this.$store.state.openModal;
+    }
+    // zoomInC() {
+    //   // console.log("test", this.picture);
+    //   return this.picture.style.transform;
+    // },
   },
   methods: {
-    changeImage(newImage) {
+    modalClose() {
+      this.$store.state.openModal = false ;
+    },
+    changeImage(newImageIndex) {
       // console.log("test", this.picture);
       // console.log("test", this.picture.style.transform);
-      this.myImage = newImage;
+      this.myImageIndex = newImageIndex;
     },
     zoomIn() {
-      console.log("test", this.picture);
+      // console.log("test", this.zoomInC);
+      console.log("test", this.picture.style);
+      // console.log(this.h1, this.w1);
+
+      // this.zoomInC = "scale(2)";
       this.picture.style.transform = "scale(2)";
     },
     zoomOut() {
-      console.log("test", this.picture);
+      console.log("test", this.picture.style);
       this.picture.style.transform = "scale(1)";
     }
   },
 
   mounted() {
+    this.picture = document.getElementById("pic");
+    this.containerMain = document.getElementById("containerMainPic");
+
+    // this.w1 = this.containerMain.offsetWidth;
+    // this.h1 = this.containerMain.offsetHeight;
+
+    console.log("containerMain", this.containerMain);
+    console.log(this.h1, this.w1);
     // this.picture = document.querySelector("#pic");
     // let picture1 = document.querySelector("#pic1");
     // let picture2 = document.querySelector("#pic2");
@@ -141,9 +169,22 @@ export default {
       }
     }
 
-    .img {
-      width: 70%;
-      object-fit: contain;
+    .modal__img__main {
+      position: relative;
+      border: 1px solid black;
+
+      .modal__img__main__zoom {
+        position: absolute;
+        background-color: $firstColor;
+        opacity: 0.8;
+        width: 4rem;
+        height: 4rem;
+      }
+
+      .img {
+        width: 100%;
+        object-fit: contain;
+      }
     }
   }
 
@@ -185,6 +226,11 @@ export default {
       border-radius: 1rem;
       font-size: 1.2rem;
       padding: 0.5rem;
+
+      &:hover {
+        background: $firstColor;
+        color: white;
+      }
     }
 
     .modal__infos--description {
