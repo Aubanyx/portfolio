@@ -97,7 +97,13 @@ button:focus {
 
 #burger.active .burger-bar {
   background-color: black;
+  transition: .2s ease;
 }
+
+#burger.active:hover .burger-bar {
+  background-color: $firstColor;
+}
+
 
 #burger.active .burger-bar--1 {
   transform: rotate(45deg)

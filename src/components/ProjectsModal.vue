@@ -6,15 +6,8 @@
         <div class="modal__img">
           <div class="modal__img__pictures">
             <img id="pic1" class="picture" v-for="(image, index) in modal.img" :key="image.id" @mouseover="changeImage(index)" :src="require('../assets/img/' + image)" alt="image" >
-<!--            <img id="pic1" class="picture" @mouseover="changeImage(projects.img1)" :src="require('../assets/img/' + projects.img1)" alt="image" >-->
-<!--            <img id="pic2" class="picture" @mouseover="changeImage(projects.img2)" :src="require('../assets/img/' + projects.img2)" alt="image" >-->
-<!--            <img id="pic3" class="picture" @mouseover="changeImage(projects.img3)" :src="require('../assets/img/' + projects.img3)" alt="image" >-->
-<!--            <img id="pic4" class="picture" @mouseover="changeImage(projects.img4)" :src="require('../assets/img/' + projects.img4)" alt="image" >-->
-<!--            <img id="pic5" class="picture" @mouseover="changeImage(projects.img5)" :src="require('../assets/img/' + projects.img5)" alt="image" >-->
           </div>
-<!--          <img id="pic" class="img" :src="require('../assets/img/' + projects.img1)" alt="image" >-->
-<!--          <img id="pic" class="img" :src="require('../assets/img/' + this.myImage)" alt="image" >-->
-          <div id="containerMainPic" class="modal__img__main" @mousemove="zoomIn()" @mouseleave="zoomOut()">
+          <div id="containerMainPic" class="modal__img__main" @mousemove="zoomIn(); move(event)" @mouseleave="zoomOut()">
             <div class="modal__img__main__zoom"></div>
             <img id="pic" class="img" :src="require('../assets/img/' + this.modal.img[this.myImageIndex])" alt="image">
           </div>
@@ -26,17 +19,10 @@
           <p class="modal__infos--techs">Technologies used : <span class="modal__infos--techs--tech" v-for="tech in modal.techUse" :key="tech.id">{{ tech }}</span></p>
           <div class="modal__infos__links">
             <a class="modal__infos__links--linkRepo" :href="modal.linkRepo">GitHub<img class="imgGithub" src="../assets/img/githubRed.svg" alt="Link Github project"></a>
-            <a class="modal__infos__links--linkWeb" :href="modal.linkSite">Website<img class="imgWebsite" src="../assets/img/websiteRed.svg" alt="Link website project"></a>
+            <a class="modal__infos__links--linkWeb" v-if="modal.state === 'online'" :href="modal.linkSite">Website<img class="imgWebsite" src="../assets/img/websiteRed.svg" alt="Link website project"></a>
           </div>
         </div>
       </div>
-<!--      <div class="links">-->
-<!--        <a class="linkRepo" :href="projects.linkRepo"><img src="../assets/img/github.svg" alt="Link Github project">-->
-<!--          <p>Github</p></a>-->
-<!--        <span class="separate"></span>-->
-<!--        <a class="linkSite" :href="projects.linkSite"><img src="../assets/img/website.svg" alt="Link website project">-->
-<!--          <p>Website</p></a>-->
-<!--      </div>-->
     </div>
   </transition>
 </template>
@@ -54,42 +40,42 @@ export default {
       containerMain: "",
       w1: "",
       h1: "",
+      clientRect: "",
+      x: "",
+      y: "",
     }
   },
   computed: {
     modal() {
-      // console.log(this.h1, this.w1);
-      // console.log("containerMain", this.containerMain);
       return this.$store.state.selectedProjects;
     },
     openModal() {
       return this.$store.state.openModal;
     }
-    // zoomInC() {
-    //   // console.log("test", this.picture);
-    //   return this.picture.style.transform;
-    // },
   },
   methods: {
     modalClose() {
       this.$store.state.openModal = false ;
     },
     changeImage(newImageIndex) {
-      // console.log("test", this.picture);
-      // console.log("test", this.picture.style.transform);
       this.myImageIndex = newImageIndex;
     },
     zoomIn() {
-      // console.log("test", this.zoomInC);
-      console.log("test", this.picture.style);
-      // console.log(this.h1, this.w1);
+      this.w1 = this.containerMain.offsetWidth;
+      this.h1 = this.containerMain.offsetHeight;
+      this.clientRect = this.containerMain.getBoundingClientRect();
 
-      // this.zoomInC = "scale(2)";
-      this.picture.style.transform = "scale(2)";
+      console.log(this.h1, this.w1);
+      console.log(this.clientRect);
+      // this.picture.style.transform = "scale(2)";
     },
     zoomOut() {
-      console.log("test", this.picture.style);
-      this.picture.style.transform = "scale(1)";
+      // this.picture.style.transform = "scale(1)";
+    },
+    move(event) {
+      this.x = event.offsetX;
+      this.y = event.offsetY;
+      console.log(this.x, this.y);
     }
   },
 
@@ -97,11 +83,13 @@ export default {
     this.picture = document.getElementById("pic");
     this.containerMain = document.getElementById("containerMainPic");
 
-    // this.w1 = this.containerMain.offsetWidth;
-    // this.h1 = this.containerMain.offsetHeight;
+    // this.w1 = this.picture.offsetWidth;
+    // this.h1 = this.picture.offsetHeight;
 
-    console.log("containerMain", this.containerMain);
+    // this.clientRect = this.containerMain.getBoundingClientRect();
+
     console.log(this.h1, this.w1);
+
     // this.picture = document.querySelector("#pic");
     // let picture1 = document.querySelector("#pic1");
     // let picture2 = document.querySelector("#pic2");
@@ -170,8 +158,10 @@ export default {
     }
 
     .modal__img__main {
-      position: relative;
+      //position: relative;
       border: 1px solid black;
+      width: 100%;
+
 
       .modal__img__main__zoom {
         position: absolute;
@@ -275,7 +265,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        
+
         &:hover {
           background: $firstColor;
           color: white;

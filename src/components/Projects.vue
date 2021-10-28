@@ -8,10 +8,7 @@
           <div class="project__subElement"
                :style="{'background-image': 'url(' + require('../assets/img/'+ item.img[0]) +')'}">
             <span class="project--linkView" @click="updateModal(item)">{{ item.name }}</span>
-<!--            <a class="project&#45;&#45;linkRepo" href="#">REPO</a>-->
-<!--            <a class="project&#45;&#45;linkSite" href="#">SITE</a>-->
           </div>
-<!--          <ProjectsModal :projects="item"/>-->
         </li>
       </ul>
     </div>
@@ -131,12 +128,7 @@ export default {
   methods: {
     updateModal(item) {
       this.$store.state.selectedProjects = item;
-      console.log("openModal", this.$store.state.openModal);
-
       this.$store.state.openModal = true;
-
-      console.log("selectedProjects", this.$store.state.selectedProjects);
-      console.log("openModal", this.$store.state.openModal);
     }
   },
   mounted() {
