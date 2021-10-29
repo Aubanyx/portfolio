@@ -7,12 +7,13 @@
           <div class="modal__img__pictures">
             <img id="pic1" class="picture" v-for="(image, index) in modal.img" :key="image.id" @mouseover="changeImage(index)" :src="require('../assets/img/' + image)" alt="image" >
           </div>
-          <div id="containerMainPic" class="modal__img__main" @mousemove="zoomIn(); move(event)" @mouseleave="zoomOut()">
-            <div class="modal__img__main__zoom"></div>
+          <div id="containerMainPic" class="modal__img__main" @mousemove="bertrandMove()" @mouseleave="zoomOut()">
+            <div id="zoomRect" class="modal__img__main__zoom"></div>
             <img id="pic" class="img" :src="require('../assets/img/' + this.modal.img[this.myImageIndex])" alt="image">
           </div>
         </div>
         <div class="modal__infos">
+          <div id="preview" class="preview"></div>
           <h3 class="modal__infos--title">{{ modal.name }}</h3>
           <p class="modal__infos--state" :class="{ 'modal__infos--state-off' : modal.state === 'offline' }">{{ modal.state }}</p>
           <p class="modal__infos--description">{{ modal.description }}</p>
@@ -38,11 +39,18 @@ export default {
       myImageIndex: 0,
       picture: "",
       containerMain: "",
+      zoomRect: "",
       w1: "",
       h1: "",
       clientRect: "",
-      x: "",
-      y: "",
+      xCursor: "",
+      yCursor: "",
+      preview: "",
+      c: "",
+      xMove: "",
+      yMove: "",
+      position: "",
+      zoom: 6,
     }
   },
   computed: {
@@ -60,35 +68,93 @@ export default {
     changeImage(newImageIndex) {
       this.myImageIndex = newImageIndex;
     },
-    zoomIn() {
-      this.w1 = this.containerMain.offsetWidth;
-      this.h1 = this.containerMain.offsetHeight;
-      this.clientRect = this.containerMain.getBoundingClientRect();
-
-      console.log(this.h1, this.w1);
-      console.log(this.clientRect);
-      // this.picture.style.transform = "scale(2)";
-    },
     zoomOut() {
-      // this.picture.style.transform = "scale(1)";
+      this.preview.style.display = "none";
+      this.zoomRect.style.display = "none";
     },
-    move(event) {
-      this.x = event.offsetX;
-      this.y = event.offsetY;
-      console.log(this.x, this.y);
+    cursorPos() {
+      const event = window.event;
+
+      this.c = this.picture.getBoundingClientRect();
+      this.xCursor = event.clientX - this.c.left;
+      this.yCursor = event.clientY - this.c.top;
+
+      return {x:this.xCursor, y:this.yCursor};
+    },
+    bertrandMove() {
+      if (screen.width < 1024) {
+        return;
+      }
+
+      this.preview.style.display = "block";
+      this.zoomRect.style.display = "block";
+
+      this.preview.style.backgroundImage = 'url(' + require('../assets/img/' + this.modal.img[this.myImageIndex]) + ')';
+      this.preview.style.backgroundSize = (this.picture.width * this.zoom) + "px " + (this.picture.height * this.zoom) + "px";
+
+      this.position = this.cursorPos();
+
+      if (screen.width >= 1024 && screen.width < 1280) {
+        this.zoomRect.style.width = "6rem";
+        this.zoomRect.style.height = "6rem";
+
+        this.preview.style.width = "36rem";
+        this.preview.style.height = "36rem";
+      }
+
+      if (screen.width >= 1280 && screen.width < 1440) {
+        this.zoomRect.style.width = "7rem";
+        this.zoomRect.style.height = "7rem";
+
+        this.preview.style.width = "42rem";
+        this.preview.style.height = "42rem";
+      }
+
+      if (screen.width >= 1440) {
+        this.zoomRect.style.width = "9rem";
+        this.zoomRect.style.height = "9rem";
+
+        this.preview.style.width = "58rem";
+        this.preview.style.height = "58rem";
+      }
+      // this.zoomRect.style.width = "7rem";
+      // this.zoomRect.style.height = "7rem";
+      //
+      // this.preview.style.width = "42rem";
+      // this.preview.style.height = "42rem";
+
+      this.xMove = this.position.x - (parseInt(this.zoomRect.style.width) * 5);
+      this.yMove = this.position.y - (parseInt(this.zoomRect.style.height) * 5);
+
+      this.xPreview = this.position.x * this.zoom - (parseInt(this.zoomRect.offsetWidth) * 3);
+      this.yPreview = this.position.y * this.zoom - (parseInt(this.zoomRect.offsetHeight) * 3);
+
+      this.zoomRect.style.left = this.xMove + "px";
+      this.zoomRect.style.top = this.yMove + "px";
+
+      this.preview.style.backgroundPosition = "-" + (this.xPreview) + "px -" + (this.yPreview) + "px";
     }
   },
 
   mounted() {
     this.picture = document.getElementById("pic");
     this.containerMain = document.getElementById("containerMainPic");
+    this.preview = document.getElementById("preview");
+    this.zoomRect = document.getElementById("zoomRect");
+
+    this.preview.style.display = "none";
+    this.zoomRect.style.display = "none";
+
+    // this.preview.style.backgroundImage = 'url(' + require('../assets/img/' + this.modal.img[this.myImageIndex]) +')';
+    // this.preview.style.backgroundImage = 'url(../assets/img/' + this.modal.img[this.myImageIndex] + ')';
+
 
     // this.w1 = this.picture.offsetWidth;
     // this.h1 = this.picture.offsetHeight;
 
     // this.clientRect = this.containerMain.getBoundingClientRect();
 
-    console.log(this.h1, this.w1);
+    // console.log(this.h1, this.w1);
 
     // this.picture = document.querySelector("#pic");
     // let picture1 = document.querySelector("#pic1");
@@ -118,32 +184,41 @@ export default {
 }
 
 .modal {
+  //position: fixed;
+  //top: 2%;
   position: absolute;
   top: 280rem;
   left: 15%;
   width: 70%;
+  //height: 96%;
   //height: 70%;
   background: white;
   border: 1rem solid black;
   border-radius: 1rem;
   z-index: 99;
   display: flex;
-  padding: 5rem;
+  flex-direction: column;
+  padding: 2rem;
 
   .modal__img {
     display: flex;
-    width: 50%;
+    flex-direction: column;
+    width: 100%;
 
     .modal__img__pictures {
       display: flex;
-      flex-direction: column;
-      margin-right: 2rem;
+      //flex-direction: column;
+      //margin-right: 2rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
 
       .picture {
         width: 5rem;
         height: 5rem;
         border: 1px solid black;
         margin-bottom: 1rem;
+        margin-right: 2rem;
         object-fit: cover;
         transition: .2s ease;
 
@@ -159,16 +234,18 @@ export default {
 
     .modal__img__main {
       //position: relative;
-      border: 1px solid black;
+      //border: 1px solid black;
       width: 100%;
-
+      height: fit-content;
+      position: relative;
+      overflow: hidden;
 
       .modal__img__main__zoom {
         position: absolute;
         background-color: $firstColor;
         opacity: 0.8;
-        width: 4rem;
-        height: 4rem;
+        width: 6rem;
+        height: 6rem;
       }
 
       .img {
@@ -182,14 +259,25 @@ export default {
     display: flex;
     flex-direction: column;
     width: 100%;
-
     //justify-content: center;
     align-items: flex-start;
     text-align: left;
-    padding-left: 5rem;
+    //padding-left: 5rem;
+    position: relative;
+
+    .preview {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40rem;
+      height: 40rem;
+      margin-left: 5rem;
+      background: aqua;
+    }
 
     .modal__infos--title {
       font-size: 4rem;
+      margin-top: 5rem;
       margin-bottom: 2rem;
       font-weight: bold;
     }
@@ -233,12 +321,19 @@ export default {
       font-size: 1.2rem;
       margin-bottom: 5rem;
 
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: normal;
+      width: 100%;
+
       .modal__infos--techs--tech {
-        margin-right: 1rem;
+        //margin-right: 1rem;
         border: 1px solid dodgerblue;
         border-radius: 2rem;
         padding: 0.5rem;
         color: dodgerblue;
+        margin-top: 1rem;
         transition: .2s ease;
 
         &:hover {
@@ -250,9 +345,13 @@ export default {
 
     .modal__infos__links {
       display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
 
       .modal__infos__links--linkRepo {
-        margin-right: 2rem;
+        margin-bottom: 2rem;
+        //margin-right: 2rem;
       }
 
       .modal__infos__links--linkWeb, .modal__infos__links--linkRepo {
@@ -260,11 +359,11 @@ export default {
         color: $firstColor;
         border: 1px solid $firstColor;
         font-size: 1.5rem;
-        transition: .2s ease;
-
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100%;
+        transition: .2s ease;
 
         &:hover {
           background: $firstColor;
@@ -316,23 +415,67 @@ export default {
       width: 30%;
     }
   }
-
-  //.separate {
-  //  display: inline-block;
-  //  width: 1px;
-  //  height: 5rem;
-  //  background: $firstColor;
-  //}
+}
+.displayNone {
+  display: none;
 }
 
-//.fade-enter-active,
-//.fade-leave-active {
-//  transition: opacity 0.5s ease;
-//}
-//
-//
-//.fade-enter,
-//.fade-leave-to {
-//  opacity: 0;
-//}
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+  .modal {
+    flex-direction: row;
+    padding: 5rem;
+
+    .modal__img {
+      flex-direction: row;
+      width: 50%;
+
+      .modal__img__pictures {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin-right: 2rem;
+
+        .picture {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .modal__infos {
+      padding-left: 5rem;
+
+      .modal__infos--title {
+        margin-top: 0;
+      }
+
+      .modal__infos--techs {
+        display: flex;
+        flex-direction: row;
+        //justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+
+        .modal__infos--techs--tech {
+          margin-left: 1rem;
+          margin-top: 0;
+        }
+      }
+
+      .modal__infos__links {
+        flex-direction: row;
+
+        .modal__infos__links--linkRepo {
+          margin-bottom: 0;
+          margin-right: 2rem;
+        }
+        .modal__infos__links--linkWeb, .modal__infos__links--linkRepo {
+          width: fit-content;
+        }
+      }
+    }
+  }
+}
 </style>
