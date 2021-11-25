@@ -18,6 +18,7 @@
           <textarea placeholder="Message" name="message" rows="10" required></textarea>
           <button class="contact__container__boxForm__form--button" type="submit">Send message</button>
         </form>
+        <Footer class="footer" />
       </div>
       <div class="contact__container__boxMap">
         <div class="contact__container__boxMap__map">
@@ -42,8 +43,14 @@
 </template>
 
 <script>
+import Footer from "@/components/Footer.vue";
+
 export default {
-  name: "Contact"
+  name: "Contact",
+  components: {
+    // HelloWorld,
+    Footer,
+  }
 }
 </script>
 
