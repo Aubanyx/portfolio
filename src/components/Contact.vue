@@ -72,8 +72,9 @@ export default {
       //background: green;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
+      overflow-y: hidden;
 
       .contact__title {
         @include Title;

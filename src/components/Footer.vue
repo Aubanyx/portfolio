@@ -1,10 +1,15 @@
 <template>
   <footer id="footer">
     <div class="footer__container">
+      <ul class="footer__copyright">
+        <li>Labie Auban</li>
+        <li>portfolio © 2021</li>
+      </ul>
+
       <ul class="footer__social">
         <li>Social</li>
-        <li><a href="#">Github</a></li>
-        <li><a href="#">LinkedIn</a></li>
+        <li><a href="https://github.com/Aubanyx"><img src="../assets/img/github.svg" alt="Logo Github"> Github</a></li>
+        <li><a href="https://www.linkedin.com/in/aubanlabie/"><img src="../assets/img/linkedin.svg" alt="Logo LinkedIn"> LinkedIn</a></li>
       </ul>
 
       <ul class="footer__menu">
@@ -15,13 +20,9 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-
-      <ul class="footer__infos">
-
-      </ul>
     </div>
 
-    <p class="footer__copyright">© 2021 LABIE Auban</p>
+<!--    <p class="footer__copyright">© 2021 LABIE Auban</p>-->
   </footer>
 </template>
 
@@ -35,40 +36,79 @@ export default {
 #footer {
   display: flex;
   flex-direction: column;
-  background: aqua;
+  background: $firstColor;
   width: 100%;
-  height: 100%;
   justify-content: center;
-  //align-items: center;
+  margin-top: 10rem;
 
   .footer__container {
     display: flex;
     width: 100%;
     justify-content: space-around;
+    padding: 6rem 0;
 
+    .footer__copyright {
+      @include Text;
+      line-height: 1.5;
+
+      li:first-child {
+        color: black;
+        font-size: 2rem;
+      }
+
+      li:last-child {
+        font-size: 1.4rem;
+        font-weight: 100;
+      }
+    }
 
     .footer__social {
       @include Text;
+      line-height: 1.5;
 
       li:first-child {
-        color: $firstColor;
+        color: black;
         font-size: 2rem;
+      }
+
+      li > a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
+        font-size: 1.4rem;
         font-weight: 100;
+        transition: .2s ease;
+
+        &:hover {
+          color: white;
+        }
+
+        img {
+          width: 1.5rem;
+        }
       }
     }
 
     .footer__menu {
       @include Text;
+      line-height: 1.5;
 
       li:first-child {
-        color: $firstColor;
+        color: black;
         font-size: 2rem;
-        font-weight: 100;
       }
-    }
 
-    .footer__infos {
+      li > a {
+        color: black;
+        font-size: 1.4rem;
+        font-weight: 100;
+        transition: .2s ease;
 
+        &:hover {
+          color: white;
+        }
+      }
     }
   }
 }
