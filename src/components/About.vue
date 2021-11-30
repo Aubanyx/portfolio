@@ -4,7 +4,11 @@
     <div class="about__box">
       <div class="about__img"><img class="about__img--img" src="../assets/img/photo.png" alt="picture"></div>
       <p class="about__box__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet aperiam architecto beatae commodi consequuntur cupiditate dicta dignissimos dolorem earum eius eligendi eveniet ex excepturi explicabo, fuga illo ipsa ipsum minus modi numquam obcaecati odio omnis pariatur perspiciatis placeat quae quas quidem recusandae repellat suscipit totam velit vero voluptates voluptatibus!</p>
-
+      <div class="about__box__numbers">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <!--      <div class="about__divInfo">-->
 <!--        <div class="about__info">-->
 <!--          <p class="about__info__description">Web developer, with extensive knowledge and years of experience, working-->
