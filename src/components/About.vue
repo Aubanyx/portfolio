@@ -3,12 +3,21 @@
 
     <div class="about__box">
       <div class="about__img"><img class="about__img--img" src="../assets/img/photo.png" alt="picture"></div>
-      <p class="about__box__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet aperiam architecto beatae commodi consequuntur cupiditate dicta dignissimos dolorem earum eius eligendi eveniet ex excepturi explicabo, fuga illo ipsa ipsum minus modi numquam obcaecati odio omnis pariatur perspiciatis placeat quae quas quidem recusandae repellat suscipit totam velit vero voluptates voluptatibus!</p>
       <div class="about__box__numbers">
-        <div></div>
-        <div></div>
-        <div></div>
+        <div class="about__box__numbers__text">
+          <p class="about__box__numbers__text__number">01+</p>
+          <p class="about__box__numbers__text__title">test</p>
+        </div>
+        <div class="about__box__numbers__text">
+          <p class="about__box__numbers__text__number">01+</p>
+          <p class="about__box__numbers__text__title">test</p>
+        </div>
+        <div class="about__box__numbers__text">
+          <p class="about__box__numbers__text__number">01+</p>
+          <p class="about__box__numbers__text__title">test</p>
+        </div>
       </div>
+      <p class="about__box__description">Salut ! Je m'appelle Auban Labie, jeune belge de 27 ans, développeur web junior. J'habite Vottem dans la province de Liège. Mes hobbies sont évidemment la programmation, le fitness / la musculation et les jeu-vidéos. Motivé, proactif, toujours prêt à apprendre. Calme et réfléchi, je m'efforce de m'adapter à toutes situations.</p>
       <!--      <div class="about__divInfo">-->
 <!--        <div class="about__info">-->
 <!--          <p class="about__info__description">Web developer, with extensive knowledge and years of experience, working-->
@@ -23,9 +32,9 @@
       <h2 class="about__infos__title">About me</h2>
       <h3 class="about__infos__subtitle">My introduction</h3>
 
-      <p class="about__infos__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet aperiam architecto beatae commodi consequuntur cupiditate dicta dignissimos dolorem earum eius eligendi eveniet ex excepturi explicabo, fuga illo ipsa ipsum minus modi numquam obcaecati odio omnis pariatur perspiciatis placeat quae quas quidem recusandae repellat suscipit totam velit vero voluptates voluptatibus!</p>
+      <p class="about__infos__description">Passionné par le développement web, j'ai eu l'honneur d'acquérir plusieurs expériences enrichissantes au IEPSCF Namur Cadets , où j'ai pu suivre un cursus exemplaire et sein de différents établissements tels que l’une formation sans égal chez BeCode , ce qui m'a permis d'amplifier mes connaissances et mes compétences liées au métier de développeur web.</p>
 
-      <p class="about__infos__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus amet aperiam architecto beatae commodi consequuntur cupiditate dicta dignissimos dolorem earum eius eligendi eveniet ex excepturi explicabo, fuga illo ipsa ipsum minus modi numquam obcaecati odio omnis pariatur perspiciatis placeat quae quas quidem recusandae repellat suscipit totam velit vero voluptates voluptatibus!</p>
+      <p class="about__infos__description">Mon expérience en tant qu'indépendant m'a appris à faire des choix et de me concentrer sur les priorités du moment. Chaque tâche doit être découpée et organisée afin d'optimiser son rendement. Tout comme dans une entreprise, le goal de la semaine via le sprint backlog est une compréhension capitale au sein de l’équipe pour produire la plus haute valeur ajoutée.</p>
 
       <a class="about__infos__btn" href="../assets/pdf/Labie_Auban_CV.pdf" download="">Download CV<img
           class="about__infos__btn__icon" src="../assets/img/download.svg" alt="Icône de téléchargement"></a>
@@ -54,6 +63,27 @@ export default {
     padding: 10rem 0;
     //z-index: 0;
 
+    .about__box__numbers {
+      display: flex;
+      justify-content: space-evenly;
+      margin: 6rem 0;
+
+      .about__box__numbers__text {
+        display: flex;
+        flex-direction: column;
+
+        .about__box__numbers__text__number {
+          font-size: 3rem;
+          font-weight: bold;
+        }
+
+        .about__box__numbers__text__title {
+          font-size: 1.5rem;
+          color: white;
+        }
+      }
+    }
+
     .about__box__description {
       font-size: 1.7rem;
       line-height: normal;
@@ -81,7 +111,7 @@ export default {
 
       .about__img--img {
         width: 30rem;
-        margin-bottom: 3rem;
+        //margin-bottom: 3rem;
         border: 3px solid white;
         border-radius: 30% 5% 30% 5%;
       }
