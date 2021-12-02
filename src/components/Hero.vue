@@ -19,7 +19,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  background: blue;
+  background: antiquewhite;
   height: 100vh;
   width: 100%;
   position: relative;

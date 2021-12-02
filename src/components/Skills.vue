@@ -110,7 +110,8 @@ export default {
         cursor: pointer;
 
         .skills__img {
-          width: 3rem;
+          width: 4rem;
+          margin-top: 0.3rem;
         }
         .skills__content {
           text-align: left;
@@ -123,10 +124,11 @@ export default {
 
           .skills__content--subtitle {
             @include SkillsSubtitle;
+            padding-top: 0.5rem;
           }
         }
         .skills__arrow {
-          width: 3rem;
+          width: 4rem;
           transition: .4s;
           margin-left: auto;
 

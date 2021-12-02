@@ -167,6 +167,20 @@ export default {
         height: 50vw;
         overflow: hidden;
 
+        &:nth-child(even) .project__subElement span:hover {
+          background: $firstColor;
+          opacity: 0.9;
+          color: antiquewhite;
+          //width: 100%;
+        }
+
+        &:nth-child(odd) .project__subElement span:hover {
+          background: antiquewhite;
+          opacity: 0.9;
+          color: rgba(0, 0, 0, 0.98);
+          //width: 100%;
+        }
+
         .project__subElement {
           //background: yellow;
           width: 100%;
@@ -266,15 +280,33 @@ export default {
             //  opacity: 1;
             //}
           }
+          //.project--linkView {
+          //  //position: absolute;
+          //  //left: 7rem;
+          //
+          //  &:nth-child(even):hover {
+          //    background: $firstColor;
+          //    //background: antiquewhite;
+          //    opacity: 0.9;
+          //    //width: 100%;
+          //  }
+          //}
+
           .project--linkView {
             //position: absolute;
             //left: 7rem;
 
-            &:hover {
-              background: $firstColor;
-              opacity: 0.9;
-              //width: 100%;
-            }
+            //&:nth-of-type(even):hover {
+            //  background: $firstColor;
+            //  opacity: 0.9;
+            //  //width: 100%;
+            //}
+            //
+            //&:nth-of-type(odd):hover {
+            //  background: antiquewhite;
+            //  opacity: 0.9;
+            //  //width: 100%;
+            //}
           }
 
           //.project--linkRepo {

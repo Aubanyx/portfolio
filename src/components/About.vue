@@ -6,18 +6,18 @@
       <div class="about__box__numbers">
         <div class="about__box__numbers__text">
           <p class="about__box__numbers__text__number">01+</p>
-          <p class="about__box__numbers__text__title">test</p>
+          <p class="about__box__numbers__text__title">Années d'expériences</p>
         </div>
         <div class="about__box__numbers__text">
           <p class="about__box__numbers__text__number">01+</p>
-          <p class="about__box__numbers__text__title">test</p>
+          <p class="about__box__numbers__text__title">Projets complétés</p>
         </div>
         <div class="about__box__numbers__text">
           <p class="about__box__numbers__text__number">01+</p>
           <p class="about__box__numbers__text__title">test</p>
         </div>
       </div>
-      <p class="about__box__description">Salut ! Je m'appelle Auban Labie, jeune belge de 27 ans, développeur web junior. J'habite Vottem dans la province de Liège. Mes hobbies sont évidemment la programmation, le fitness / la musculation et les jeu-vidéos. Motivé, proactif, toujours prêt à apprendre. Calme et réfléchi, je m'efforce de m'adapter à toutes situations.</p>
+      <p class="about__box__description">Salut ! Je m'appelle Auban Labie, jeune belge de 27 ans, développeur web junior. J'habite Vottem dans la province de Liège. Mes hobbies sont évidemment la programmation, le fitness / la musculation et les jeu-vidéos. Motivé, proactif, toujours prêt à apprendre. Calme et réfléchi, je m'efforce de m'adapter à toutes situations. J'adore donner vie à la fois aux aspects techniques et visuels sur des produits numériques. L'expérience utilisateur est extrêmement importante à mes yeux.</p>
       <!--      <div class="about__divInfo">-->
 <!--        <div class="about__info">-->
 <!--          <p class="about__info__description">Web developer, with extensive knowledge and years of experience, working-->
@@ -32,7 +32,7 @@
       <h2 class="about__infos__title">About me</h2>
       <h3 class="about__infos__subtitle">My introduction</h3>
 
-      <p class="about__infos__description">Passionné par le développement web, j'ai eu l'honneur d'acquérir plusieurs expériences enrichissantes au IEPSCF Namur Cadets , où j'ai pu suivre un cursus exemplaire et sein de différents établissements tels que l’une formation sans égal chez BeCode , ce qui m'a permis d'amplifier mes connaissances et mes compétences liées au métier de développeur web.</p>
+      <p class="about__infos__description">Passionné par le développement web, j'ai eu l'honneur d'acquérir plusieurs expériences enrichissantes au IEPSCF Namur Cadets, où j'ai pu suivre un cursus exemplaire et sein de différents établissements tels que l’une formation sans égal chez BeCode, ce qui m'a permis d'amplifier mes connaissances et mes compétences liées au métier de développeur web.</p>
 
       <p class="about__infos__description">Mon expérience en tant qu'indépendant m'a appris à faire des choix et de me concentrer sur les priorités du moment. Chaque tâche doit être découpée et organisée afin d'optimiser son rendement. Tout comme dans une entreprise, le goal de la semaine via le sprint backlog est une compréhension capitale au sein de l’équipe pour produire la plus haute valeur ajoutée.</p>
 
@@ -61,24 +61,27 @@ export default {
     width: 50%;
     background: $firstColor;
     padding: 10rem 0;
+    padding-top: 0;
     //z-index: 0;
 
     .about__box__numbers {
       display: flex;
       justify-content: space-evenly;
-      margin: 6rem 0;
+      margin: 10rem 0;
 
       .about__box__numbers__text {
         display: flex;
         flex-direction: column;
+        width: min-content;
 
         .about__box__numbers__text__number {
-          font-size: 3rem;
+          font-size: 6rem;
           font-weight: bold;
+          color: antiquewhite;
         }
 
         .about__box__numbers__text__title {
-          font-size: 1.5rem;
+          font-size: 2rem;
           color: white;
         }
       }
@@ -108,12 +111,32 @@ export default {
       //  right: 2rem;
       //  z-index: -1;
       //}
+      //&::after {
+      //  content: "";
+      //  position: absolute;
+      //  height: 100%;
+      //  width: 100%;
+      //  background-color: aqua;
+      //  background-blend-mode: difference;
+      //  mix-blend-mode: multiply;
+      //  z-index: 999;
+      //}
 
       .about__img--img {
-        width: 30rem;
+        //width: 30rem;
+        width: 100%;
+        height: 40rem;
+        object-fit: cover;
+        position: relative;
+        filter: grayscale(1);
+        transition: .2s ease;
         //margin-bottom: 3rem;
-        border: 3px solid white;
-        border-radius: 30% 5% 30% 5%;
+        //border: 3px solid white;
+        //border-radius: 30% 5% 30% 5%;
+
+        &:hover {
+          filter: grayscale(0);
+        }
       }
     }
   }
