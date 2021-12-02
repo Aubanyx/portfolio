@@ -83,6 +83,7 @@ export default {
         .about__box__numbers__text__title {
           font-size: 2rem;
           color: white;
+          margin-top: 1rem;
         }
       }
     }
