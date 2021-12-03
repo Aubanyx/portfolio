@@ -23,7 +23,7 @@ export default {
   height: 100vh;
   width: 100%;
   position: relative;
-  z-index: -1;
+  //z-index: -1;
 
   .hero {
     display: flex;
@@ -31,10 +31,12 @@ export default {
     justify-content: center;
     height: 100%;
     width: 100%;
+    z-index: 2;
 
     .title {
       font-size: 5rem;
       color: black;
+      z-index: 2;
     }
   }
 
