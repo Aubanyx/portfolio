@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="container"></div>
+    <div id="container" @mousemove="animateParticles()"></div>
   </div>
 </template>
 
@@ -16,20 +16,13 @@ export default {
       renderer: null,
       mesh: null,
       container: null,
-      canvas: null,
+      particlesMesh: null,
+      mouseX: 0,
+      mouseY: 0,
     }
   },
   methods: {
     init() {
-      // let container = document.getElementById('container');
-
-      //----------------------------------------------------------------------------------------------------
-      // CAMERA
-      //----------------------------------------------------------------------------------------------------
-
-      this.camera = new Three.PerspectiveCamera(70, this.container.clientWidth / this.container.clientHeight, 0.01, 10);
-      this.camera.position.z = 1;
-
       //----------------------------------------------------------------------------------------------------
       // SCENE
       //----------------------------------------------------------------------------------------------------
@@ -40,12 +33,11 @@ export default {
       // GEOMETRY
       //----------------------------------------------------------------------------------------------------
 
-      // let geometry = new Three.BoxGeometry(0.2, 0.2, 0.2);
-      const radius = 0.55;  // ui: radius
-      const tubeRadius = 0.1;  // ui: tubeRadius
-      const radialSegments = 3;  // ui: radialSegments
-      const tubularSegments = 100;  // ui: tubularSegments
-      let geometry = new Three.TorusGeometry( radius, tubeRadius, radialSegments, tubularSegments );
+      const radius = 0.55;
+      const tubeRadius = 0.1;
+      const radialSegments = 3;
+      const tubularSegments = 100;
+      const geometry = new Three.TorusGeometry( radius, tubeRadius, radialSegments, tubularSegments );
 
       //----------------------------------------------------------------------------------------------------
       // PARTICLE
@@ -57,8 +49,6 @@ export default {
       const posArray = new Float32Array(particlesCnt * 3);
 
       for (let i = 0; i < particlesCnt * 3; i++) {
-        // posArray[i] = Math.random();
-        // posArray[i] = Math.random() - 0.5;
         posArray[i] = (Math.random() - 0.5) * (Math.random() * 8);
       }
 
@@ -68,26 +58,64 @@ export default {
       // MATERIAL
       //----------------------------------------------------------------------------------------------------
 
-      let material = new Three.PointsMaterial({
+      const material = new Three.PointsMaterial({
         size: 0.005,
         color: 'black'
       });
 
-      let particlesMaterial = new Three.PointsMaterial({
+      const particlesMaterial = new Three.PointsMaterial({
         size: 0.005,
         // transparent: true,
-        color: 'black',
-        // blending: Three.AdditiveBlending,
+        color: '#d25d5f',
       });
-      // material.color = new Three.Color(0xff0000)
 
       //----------------------------------------------------------------------------------------------------
       // MESH
       //----------------------------------------------------------------------------------------------------
 
       this.mesh = new Three.Points(geometry, material);
-      const particlesMesh = new Three.Points(particlesGeometry, particlesMaterial);
-      this.scene.add(this.mesh, particlesMesh);
+      this.particlesMesh = new Three.Points(particlesGeometry, particlesMaterial);
+      this.scene.add(this.mesh, this.particlesMesh);
+
+      //----------------------------------------------------------------------------------------------------
+      // SIZE
+      //----------------------------------------------------------------------------------------------------
+
+      const sizes = {
+        width: this.container.clientWidth,
+        height: this.container.clientHeight,
+      }
+
+      window.addEventListener("resize", () => {
+        // Update sizes
+        sizes.width = this.container.clientWidth;
+        sizes.height = this.container.clientHeight;
+
+        //Update camera
+        this.camera.aspect = sizes.width / sizes.height;
+        // this.camera.updateProjectMatrix();
+
+        //Update renderer
+        this.renderer.setSize(sizes.width, sizes.height);
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      })
+
+      //----------------------------------------------------------------------------------------------------
+      // CAMERA
+      //----------------------------------------------------------------------------------------------------
+
+      this.camera = new Three.PerspectiveCamera(70, sizes.width / sizes.height, 0.1, 100);
+      this.camera.position.x = 0;
+      this.camera.position.y = 0;
+      this.camera.position.z = 1;
+
+      //----------------------------------------------------------------------------------------------------
+      // MOUSE
+      //----------------------------------------------------------------------------------------------------
+
+      // window.addEventListener("mousemove", animateParticles);
+
+
 
       //----------------------------------------------------------------------------------------------------
       // RENDERER
@@ -97,37 +125,37 @@ export default {
         antialias: true,
         alpha: true,
       });
-      this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+      this.renderer.setSize(sizes.width, sizes.height);
+      this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       this.container.appendChild(this.renderer.domElement);
 
     },
-    // getCanvasRelativePosition(event) {
-    //   let container = document.getElementById('container');
-    //
-    //   const rect = container.getBoundingClientRect();
-    //   return {
-    //     x: (event.clientX - rect.left) * container.width / rect.width,
-    //     y: (event.clientY - rect.top) * container.height / rect.height,
-    //   };
-    // },
-    // setPosition(e) {
-    //   const temp = new Three.Vector3();
-    //   let container = document.getElementById('container');
-    //   const state = { x: 0, y: 0 };
-    //   const camera = new Three.OrthographicCamera(-2, 2, 1, -1, -1, 1);
-    //
-    //   const pos = this.getCanvasRelativePosition(e);
-    //   const x = pos.x / container.width * 2 - 1;
-    //   const y = pos.y / container.height * -2 + 1;
-    //   temp.set(x, y, 0).unproject(camera);
-    //   state.x = temp.x;
-    //   state.y = temp.y;
-    // },
     animate() {
       requestAnimationFrame(this.animate);
+      // const clock = new Three.clock();
+
+      // const tick = () => {
+
+        // const elapsedTime = clock.getElapsedTime();
+
+        //Update objects
+        // this.mesh.rotation.y = .5 * elapsedTime;
+        this.particlesMesh.rotation.y = this.mouseY * 0.01;
+      // }
+
+      // requestAnimationFrame(this.animate);
       // this.mesh.rotation.x += 0.01;
       // this.mesh.rotation.y += 0.01;
       this.mesh.rotation.z -= 0.001;
+      this.renderer.render(this.scene, this.camera);
+    },
+    animateParticles() {
+      requestAnimationFrame(this.animateParticles);
+      const event = window.event;
+      this.mouseX = event.clientX;
+      this.mouseY = event.clientY;
+
+      // requestAnimationFrame(this.animateParticles);
       this.renderer.render(this.scene, this.camera);
     }
   },
@@ -135,6 +163,7 @@ export default {
     this.container = document.getElementById('container');
 
     this.init();
+    // this.animateParticles();
     this.animate();
   }
 }
