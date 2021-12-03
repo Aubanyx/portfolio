@@ -41,9 +41,9 @@ export default {
       //----------------------------------------------------------------------------------------------------
 
       // let geometry = new Three.BoxGeometry(0.2, 0.2, 0.2);
-      const radius = 0.5;  // ui: radius
-      const tubeRadius = 0.15;  // ui: tubeRadius
-      const radialSegments = 16;  // ui: radialSegments
+      const radius = 0.55;  // ui: radius
+      const tubeRadius = 0.1;  // ui: tubeRadius
+      const radialSegments = 3;  // ui: radialSegments
       const tubularSegments = 100;  // ui: tubularSegments
       let geometry = new Three.TorusGeometry( radius, tubeRadius, radialSegments, tubularSegments );
 
@@ -59,7 +59,7 @@ export default {
       for (let i = 0; i < particlesCnt * 3; i++) {
         // posArray[i] = Math.random();
         // posArray[i] = Math.random() - 0.5;
-        posArray[i] = (Math.random() - 0.5) * 5;
+        posArray[i] = (Math.random() - 0.5) * (Math.random() * 8);
       }
 
       particlesGeometry.setAttribute('position', new Three.BufferAttribute(posArray, 3));
@@ -69,7 +69,15 @@ export default {
       //----------------------------------------------------------------------------------------------------
 
       let material = new Three.PointsMaterial({
-        size: 0.005
+        size: 0.005,
+        color: 'black'
+      });
+
+      let particlesMaterial = new Three.PointsMaterial({
+        size: 0.005,
+        // transparent: true,
+        color: 'black',
+        // blending: Three.AdditiveBlending,
       });
       // material.color = new Three.Color(0xff0000)
 
@@ -78,7 +86,7 @@ export default {
       //----------------------------------------------------------------------------------------------------
 
       this.mesh = new Three.Points(geometry, material);
-      const particlesMesh = new Three.Points(particlesGeometry, material);
+      const particlesMesh = new Three.Points(particlesGeometry, particlesMaterial);
       this.scene.add(this.mesh, particlesMesh);
 
       //----------------------------------------------------------------------------------------------------
@@ -87,7 +95,7 @@ export default {
 
       this.renderer = new Three.WebGLRenderer({
         antialias: true,
-        // alpha: true,
+        alpha: true,
       });
       this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
       this.container.appendChild(this.renderer.domElement);
@@ -118,8 +126,8 @@ export default {
     animate() {
       requestAnimationFrame(this.animate);
       // this.mesh.rotation.x += 0.01;
-      this.mesh.rotation.y += 0.01;
-      // this.mesh.rotation.z += 0.02;
+      // this.mesh.rotation.y += 0.01;
+      this.mesh.rotation.z -= 0.001;
       this.renderer.render(this.scene, this.camera);
     }
   },
@@ -137,9 +145,9 @@ export default {
   width: 100%;
   height: 100vh;
   background: transparent;
-  //position: absolute;
-  //top: 0;
-  //right: 0;
-  //z-index: 999;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 999;
 }
 </style>
