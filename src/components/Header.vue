@@ -124,7 +124,7 @@ export default {
     justify-content: space-between;
     padding: 4rem 3.5rem;
     //background: green;
-    z-index: 2;
+    z-index: 3;
     transition: 0.2s all ease-out;
     transform: translate3d(0, 0, 0);
 
