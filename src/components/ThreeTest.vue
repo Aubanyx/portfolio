@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="container" @mousemove="animateParticles()"></div>
+    <div id="container" @mousemove="particlesMove()"></div>
   </div>
 </template>
 
@@ -19,6 +19,7 @@ export default {
       particlesMesh: null,
       mouseX: 0,
       mouseY: 0,
+      position: null,
     }
   },
   methods: {
@@ -140,7 +141,8 @@ export default {
 
         //Update objects
         // this.mesh.rotation.y = .5 * elapsedTime;
-        this.particlesMesh.rotation.y = this.mouseY * 0.01;
+        this.particlesMesh.rotation.x = -this.mouseY * 0.001;
+        this.particlesMesh.rotation.y = -this.mouseX * 0.001;
       // }
 
       // requestAnimationFrame(this.animate);
@@ -150,12 +152,17 @@ export default {
       this.renderer.render(this.scene, this.camera);
     },
     animateParticles() {
-      requestAnimationFrame(this.animateParticles);
+      // requestAnimationFrame(this.animateParticles);
+
       const event = window.event;
       this.mouseX = event.clientX;
       this.mouseY = event.clientY;
 
       // requestAnimationFrame(this.animateParticles);
+      // this.renderer.render(this.scene, this.camera);
+    },
+    particlesMove() {
+      this.position = this.animateParticles();
       this.renderer.render(this.scene, this.camera);
     }
   },
@@ -177,6 +184,6 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 999;
+  z-index: 0;
 }
 </style>

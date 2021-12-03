@@ -23,6 +23,7 @@ export default {
   height: 100vh;
   width: 100%;
   position: relative;
+  z-index: -1;
 
   .hero {
     display: flex;
@@ -45,6 +46,7 @@ export default {
     bottom: 0;
     right: 0;
     margin: 3.5rem;
+    z-index: 2;
 
     .follow--text {
       font-size: 2rem;
