@@ -16,22 +16,74 @@ export default {
       renderer: null,
       mesh: null,
       container: null,
+      canvas: null,
     }
   },
   methods: {
     init() {
       // let container = document.getElementById('container');
 
+      //----------------------------------------------------------------------------------------------------
+      // CAMERA
+      //----------------------------------------------------------------------------------------------------
+
       this.camera = new Three.PerspectiveCamera(70, this.container.clientWidth / this.container.clientHeight, 0.01, 10);
       this.camera.position.z = 1;
 
+      //----------------------------------------------------------------------------------------------------
+      // SCENE
+      //----------------------------------------------------------------------------------------------------
+
       this.scene = new Three.Scene();
 
-      let geometry = new Three.BoxGeometry(0.2, 0.2, 0.2);
-      let material = new Three.MeshNormalMaterial();
+      //----------------------------------------------------------------------------------------------------
+      // GEOMETRY
+      //----------------------------------------------------------------------------------------------------
 
-      this.mesh = new Three.Mesh(geometry, material);
-      this.scene.add(this.mesh);
+      // let geometry = new Three.BoxGeometry(0.2, 0.2, 0.2);
+      const radius = 0.5;  // ui: radius
+      const tubeRadius = 0.15;  // ui: tubeRadius
+      const radialSegments = 16;  // ui: radialSegments
+      const tubularSegments = 100;  // ui: tubularSegments
+      let geometry = new Three.TorusGeometry( radius, tubeRadius, radialSegments, tubularSegments );
+
+      //----------------------------------------------------------------------------------------------------
+      // PARTICLE
+      //----------------------------------------------------------------------------------------------------
+
+      const particlesGeometry = new Three.BufferGeometry;
+      const particlesCnt = 5000;
+
+      const posArray = new Float32Array(particlesCnt * 3);
+
+      for (let i = 0; i < particlesCnt * 3; i++) {
+        // posArray[i] = Math.random();
+        // posArray[i] = Math.random() - 0.5;
+        posArray[i] = (Math.random() - 0.5) * 5;
+      }
+
+      particlesGeometry.setAttribute('position', new Three.BufferAttribute(posArray, 3));
+
+      //----------------------------------------------------------------------------------------------------
+      // MATERIAL
+      //----------------------------------------------------------------------------------------------------
+
+      let material = new Three.PointsMaterial({
+        size: 0.005
+      });
+      // material.color = new Three.Color(0xff0000)
+
+      //----------------------------------------------------------------------------------------------------
+      // MESH
+      //----------------------------------------------------------------------------------------------------
+
+      this.mesh = new Three.Points(geometry, material);
+      const particlesMesh = new Three.Points(particlesGeometry, material);
+      this.scene.add(this.mesh, particlesMesh);
+
+      //----------------------------------------------------------------------------------------------------
+      // RENDERER
+      //----------------------------------------------------------------------------------------------------
 
       this.renderer = new Three.WebGLRenderer({
         antialias: true,
@@ -65,8 +117,9 @@ export default {
     // },
     animate() {
       requestAnimationFrame(this.animate);
-      this.mesh.rotation.x += 0.01;
-      this.mesh.rotation.y += 0.02;
+      // this.mesh.rotation.x += 0.01;
+      this.mesh.rotation.y += 0.01;
+      // this.mesh.rotation.z += 0.02;
       this.renderer.render(this.scene, this.camera);
     }
   },
