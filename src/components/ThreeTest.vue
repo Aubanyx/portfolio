@@ -15,8 +15,8 @@ export default {
       scene: null,
       renderer: null,
       mesh: null,
-      container: null,
       particlesMesh: null,
+      container: null,
       mouseX: 0,
       mouseY: 0,
       position: null,
@@ -111,14 +111,6 @@ export default {
       this.camera.position.z = 1;
 
       //----------------------------------------------------------------------------------------------------
-      // MOUSE
-      //----------------------------------------------------------------------------------------------------
-
-      // window.addEventListener("mousemove", animateParticles);
-
-
-
-      //----------------------------------------------------------------------------------------------------
       // RENDERER
       //----------------------------------------------------------------------------------------------------
 
@@ -133,19 +125,13 @@ export default {
     },
     animate() {
       requestAnimationFrame(this.animate);
-      // const clock = new Three.clock();
 
-      // const tick = () => {
+      //Update objects
+      this.particlesMesh.rotation.x = -this.mouseY * 0.001;
+      this.particlesMesh.rotation.y = -this.mouseX * 0.001;
+      // this.mesh.rotation.x = this.mouseY * 0.0001;
+      // this.mesh.rotation.y = this.mouseX * 0.0001;
 
-        // const elapsedTime = clock.getElapsedTime();
-
-        //Update objects
-        // this.mesh.rotation.y = .5 * elapsedTime;
-        this.particlesMesh.rotation.x = -this.mouseY * 0.001;
-        this.particlesMesh.rotation.y = -this.mouseX * 0.001;
-      // }
-
-      // requestAnimationFrame(this.animate);
       // this.mesh.rotation.x += 0.01;
       // this.mesh.rotation.y += 0.01;
       this.mesh.rotation.z -= 0.001;
