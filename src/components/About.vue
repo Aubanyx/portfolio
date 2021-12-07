@@ -13,8 +13,8 @@
           <p class="about__box__numbers__text__title">Projets complétés</p>
         </div>
         <div class="about__box__numbers__text">
-          <p class="about__box__numbers__text__number">01+</p>
-          <p class="about__box__numbers__text__title">test</p>
+          <p class="about__box__numbers__text__number">99+</p>
+          <p class="about__box__numbers__text__title">Cafés consommés</p>
         </div>
       </div>
       <p class="about__box__description">Salut ! Je m'appelle Auban Labie, jeune belge de 27 ans, développeur web junior. J'habite Vottem dans la province de Liège. Mes hobbies sont évidemment la programmation, le fitness / la musculation et les jeu-vidéos. Motivé, proactif, toujours prêt à apprendre. Calme et réfléchi, je m'efforce de m'adapter à toutes situations. J'adore donner vie à la fois aux aspects techniques et visuels sur des produits numériques. L'expérience utilisateur est extrêmement importante à mes yeux.</p>
@@ -53,15 +53,17 @@ export default {
 .container {
   //background: red;
   //height: auto;
-  height: 100vh;
+  //height: 100vh;
   //padding: 10rem 0;
   display: flex;
+  flex-direction: column;
 
   .about__box {
-    width: 50%;
+    width: 100%;
     background: $firstColor;
-    padding: 10rem 0;
-    padding-top: 0;
+    //padding: 10rem 0;
+    //padding-top: 0;
+    padding-bottom: 10rem;
     //z-index: 0;
 
     .about__box__numbers {
@@ -143,7 +145,7 @@ export default {
   }
 
   .about__infos {
-    width: 50%;
+    width: 100%;
     padding: 10rem;
     display: flex;
     flex-direction: column;
@@ -283,67 +285,77 @@ export default {
 
 @media only screen and (min-width: 768px) {
   .container {
-    .about {
-      .about__divInfo {
-        flex-direction: row;
-
-        .about__img {
-          width: 40%;
-          border-right: 2px solid #d25d5f;
-          text-align: right;
-          padding-right: 5rem;
-
-          &::before {
-            width: 20rem;
-            height: 20rem;
-            right: 7rem;
-          }
-
-          .about__img--img {
-            margin-bottom: 0;
-            width: 20rem;
-          }
-        }
-
-        .about__info {
-          width: 60%;
-          align-items: flex-start;
-          padding-left: 5rem;
-          height: 25rem;
-          justify-content: space-around;
-
-          .about__info__description {
-            padding: 0;
-            text-align: left;
-          }
-        }
-      }
-    }
+    //.about {
+    //  .about__divInfo {
+    //    flex-direction: row;
+    //
+    //    .about__img {
+    //      width: 40%;
+    //      border-right: 2px solid #d25d5f;
+    //      text-align: right;
+    //      padding-right: 5rem;
+    //
+    //      &::before {
+    //        width: 20rem;
+    //        height: 20rem;
+    //        right: 7rem;
+    //      }
+    //
+    //      .about__img--img {
+    //        margin-bottom: 0;
+    //        width: 20rem;
+    //      }
+    //    }
+    //
+    //    .about__info {
+    //      width: 60%;
+    //      align-items: flex-start;
+    //      padding-left: 5rem;
+    //      height: 25rem;
+    //      justify-content: space-around;
+    //
+    //      .about__info__description {
+    //        padding: 0;
+    //        text-align: left;
+    //      }
+    //    }
+    //  }
+    //}
   }
 }
 
 @media only screen and (min-width: 1224px) {
   .container {
-    .about {
-      .about__divInfo {
-        .about__img {
-          &::before {
-            width: 30rem;
-            height: 30rem;
-          }
+    flex-direction: row;
+    height: 100vh;
 
-          .about__img--img {
-            width: 30rem;
-          }
-        }
-
-        .about__info {
-          .about__info__description {
-            width: 70%;
-          }
-        }
-      }
+    .about__box {
+      width: 50%;
     }
+
+    .about__infos {
+      width: 50%;
+    }
+    //.about {
+    //  .about__divInfo {
+    //    .about__img {
+    //      &::before {
+    //        width: 30rem;
+    //        height: 30rem;
+    //      }
+    //
+    //      .about__img--img {
+    //        width: 30rem;
+    //      }
+    //    }
+    //
+    //    .about__info {
+    //      .about__info__description {
+    //        width: 70%;
+    //      }
+    //    }
+    //  }
+    //}
   }
 }
 </style>
