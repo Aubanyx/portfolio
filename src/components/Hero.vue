@@ -5,8 +5,8 @@
     </div>
     <div class="follow">
       <p class="follow--text">Follow me</p>
-      <a href="https://github.com/Aubanyx"><img src="../assets/img/github.svg" alt="Logo Github"></a>
-      <a href="https://www.linkedin.com/in/aubanlabie/"><img src="../assets/img/linkedin.svg" alt="Logo LinkedIn"></a>
+      <a class="hero__github" href="https://github.com/Aubanyx"><img src="../assets/img/github.svg" alt="Logo Github"></a>
+      <a class="hero__linkedin" href="https://www.linkedin.com/in/aubanlabie/"><img src="../assets/img/linkedin.svg" alt="Logo LinkedIn"></a>
     </div>
   </section>
 </template>
@@ -50,10 +50,19 @@ export default {
     margin: 3.5rem;
     z-index: 2;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+
     .follow--text {
       font-size: 2rem;
       writing-mode: vertical-rl;
       text-orientation: mixed;
+
+      width: 3rem;
+      display: flex;
+      align-items: center;
 
       &::after {
         background-color: #000;
@@ -63,6 +72,59 @@ export default {
         position: relative;
         width: 1px;
         margin: 1rem 0;
+      }
+    }
+
+    .hero__github {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      //overflow: hidden;
+
+      &::before {
+        content: "GitHub";
+        font-size: 1.6rem;
+        color: black;
+        //background: chartreuse;
+        width: 0;
+        left: 0;
+        overflow: hidden;
+        margin-right: 1rem;
+        transition: .2s ease;
+      }
+
+      &:hover::before {
+        width: 100%;
+      }
+
+      img {
+        width: 3rem;
+      }
+    }
+
+    .hero__linkedin {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      &::before {
+        content: "LinkedIn";
+        font-size: 1.6rem;
+        color: black;
+        //background: chartreuse;
+        width: 0;
+        left: 0;
+        overflow: hidden;
+        margin-right: 1rem;
+        transition: .2s ease;
+      }
+
+      &:hover::before {
+        width: 100%;
+      }
+
+      img {
+        width: 3rem;
       }
     }
   }
