@@ -129,11 +129,13 @@ export default {
       //Update objects
       this.particlesMesh.rotation.x = -this.mouseY * 0.001;
       this.particlesMesh.rotation.y = -this.mouseX * 0.001;
-      // this.mesh.rotation.x = this.mouseY * 0.0001;
-      // this.mesh.rotation.y = this.mouseX * 0.0001;
+      this.mesh.rotation.x = this.mouseY * 0.00008;
+      this.mesh.rotation.y = this.mouseX * 0.00008;
 
       // this.mesh.rotation.x += 0.01;
       // this.mesh.rotation.y += 0.01;
+
+      this.particlesMesh.rotation.z += 0.0005;
       this.mesh.rotation.z -= 0.001;
       this.renderer.render(this.scene, this.camera);
     },
