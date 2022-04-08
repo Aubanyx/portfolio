@@ -33,7 +33,7 @@ export default {
           subtitle: "More than 4 years",
           open: false,
           subSkills: [
-            "Html", "Css", "Scss", "Javascript"
+            "Html", "Css", "Sass / Scss", "Javascript", "Vue.js", "Vuetify", "React", "Bootstrap"
           ]
         },
         {
@@ -42,7 +42,7 @@ export default {
           subtitle: "More than 4 years",
           open: false,
           subSkills: [
-            "Html", "Css", "Javascript"
+            "Php", "MySQL", "MongoDB", "Node.js", "Symfony"
           ]
         },
         {
@@ -51,16 +51,25 @@ export default {
           subtitle: "More than 4 years",
           open: false,
           subSkills: [
-            "Html", "Css", "Javascript"
+            "Photoshop", "Illustrator", "Figma"
           ]
         },
         {
-          img: "layout",
+          img: "skills",
           title: "Soft Skills",
           subtitle: "More than 4 years",
           open: false,
           subSkills: [
-            "Html", "Css", "Javascript"
+            "Team Player", "Reliable", "Solution Oriented", "Change Enthusiast", "Continuous Learner"
+          ]
+        },
+        {
+          img: "tools",
+          title: "Tools",
+          subtitle: "More than 4 years",
+          open: false,
+          subSkills: [
+            "Npm", "Webpack", "Terminal", "Git"
           ]
         },
         {
@@ -69,7 +78,7 @@ export default {
           subtitle: "More than 4 years",
           open: false,
           subSkills: [
-            "Html", "Css", "Javascript"
+            "Wordpress", "Windows", "Linux"
           ]
         },
       ]

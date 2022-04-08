@@ -3,6 +3,10 @@
     <div class="hero">
       <h4 class="title">I love coding good shit</h4>
     </div>
+    <div class="scrollDown">
+      <a class="scrollDownIcon" href="#about"><span></span></a>
+<!--      <p>Scroll2</p>-->
+    </div>
     <div class="follow">
       <p class="follow--text">Follow me</p>
       <a class="hero__github" href="https://github.com/Aubanyx"><img src="../assets/img/github.svg" alt="Logo Github"></a>
@@ -37,6 +41,66 @@ export default {
       font-size: 5rem;
       color: black;
       z-index: 2;
+    }
+  }
+
+  .scrollDown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 3.7rem;
+    z-index: 2;
+
+    .scrollDownIcon {
+      display: flex;
+      //align-self: center;
+
+      span {
+        position: relative;
+        width: 3rem;
+        height: 5rem;
+        //margin-left: -15px;
+        border: 2px solid black;
+        border-radius: 50px;
+        box-sizing: border-box;
+        //background: green;
+
+        &::before {
+          content: '';
+          width: 0.8rem;
+          height: 0.8rem;
+          position: absolute;
+          top: 0.8rem;
+          right: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: $firstColor;
+          border-radius: 100%;
+          animation: scrollAnimation 2s infinite;
+          box-sizing: border-box;
+        }
+
+        @keyframes scrollAnimation {
+          0% {
+            transform: translate(-50%, 0);
+            opacity: 0;
+          }
+          40% {
+            opacity: 1;
+          }
+          80% {
+            transform: translate(-50%, 2.5rem);
+            opacity: 0;
+          }
+          100% {
+            opacity: 0;
+          }
+        }
+      }
     }
   }
 

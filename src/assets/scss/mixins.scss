@@ -24,6 +24,12 @@
     height: 1px;
     background: #a6a6a6;
     margin-top: 1rem;
+    transition: .3s ease;
+  }
+
+  &:hover::after {
+    background: $firstColor;
+    width: 30rem;
   }
 }
 
