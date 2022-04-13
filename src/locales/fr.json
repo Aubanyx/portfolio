@@ -1,18 +1,19 @@
 {
   "menu": {
-    "home": "Home",
-    "about": "About",
-    "skills": "Skills",
-    "projects": "Projects",
-    "contact": "Contact"
+    "home": "Accueil",
+    "about": "À propos",
+    "skills": "Compétences",
+    "projects": "Projets",
+    "contact": "Contact",
+    "question": "Une question ?"
   },
   "hero": {
     "title": "I love coding good shit",
-    "follow": "Follow me"
+    "follow": "Suis-moi"
   },
   "about": {
-    "title": "About me",
-    "subtitle": "My introduction",
+    "title": "À propos de moi",
+    "subtitle": "Mon introduction",
     "years": "Années d'expériences",
     "completed": "Projets complétés",
     "coffees": "Cafés consommés",

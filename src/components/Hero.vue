@@ -8,7 +8,7 @@
       <!--      <p>Scroll2</p>-->
     </div>
     <div class="follow">
-      <p class="follow--text">Follow me</p>
+      <p class="follow--text">{{ $t("hero.follow") }}</p>
       <a class="hero__github" href="https://github.com/Aubanyx"><img src="../assets/img/github.svg" alt="Logo Github"></a>
       <a class="hero__linkedin" href="https://www.linkedin.com/in/aubanlabie/"><img src="../assets/img/linkedin.svg" alt="Logo LinkedIn"></a>
     </div>

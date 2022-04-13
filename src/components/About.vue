@@ -1,52 +1,70 @@
 <template>
   <section id="about" class="container">
-
     <div class="about__box">
-      <div class="about__img"><img class="about__img--img" src="../assets/img/photo.png" alt="picture"></div>
+      <div class="about__img">
+        <img
+          class="about__img--img"
+          src="../assets/img/photo.png"
+          alt="picture"
+        />
+      </div>
       <div class="about__box__numbers">
         <div class="about__box__numbers__text">
           <p class="about__box__numbers__text__number">01+</p>
-          <p class="about__box__numbers__text__title">Années d'expériences</p>
+          <p class="about__box__numbers__text__title">
+            {{ $t("about.years") }}
+          </p>
         </div>
         <div class="about__box__numbers__text">
           <p class="about__box__numbers__text__number">01+</p>
-          <p class="about__box__numbers__text__title">Projets complétés</p>
+          <p class="about__box__numbers__text__title">
+            {{ $t("about.completed") }}
+          </p>
         </div>
         <div class="about__box__numbers__text">
           <p class="about__box__numbers__text__number">99+</p>
-          <p class="about__box__numbers__text__title">Cafés consommés</p>
+          <p class="about__box__numbers__text__title">
+            {{ $t("about.coffees") }}
+          </p>
         </div>
       </div>
-      <p class="about__box__description">Salut ! Je m'appelle Auban Labie, jeune belge de 27 ans, développeur web junior. J'habite Vottem dans la province de Liège. Mes hobbies sont évidemment la programmation, le fitness / la musculation et les jeu-vidéos. Motivé, proactif, toujours prêt à apprendre. Calme et réfléchi, je m'efforce de m'adapter à toutes situations. J'adore donner vie à la fois aux aspects techniques et visuels sur des produits numériques. L'expérience utilisateur est extrêmement importante à mes yeux.</p>
+      <p class="about__box__description">{{ $t("about.description01") }}</p>
       <!--      <div class="about__divInfo">-->
-<!--        <div class="about__info">-->
-<!--          <p class="about__info__description">Web developer, with extensive knowledge and years of experience, working-->
-<!--            in web technologies and Ui / Ux design, delivering quality work.</p>-->
-<!--          <a class="about__info__btn" href="../assets/pdf/Labie_Auban_CV.pdf" download="">Download CV<img-->
-<!--              class="about__info__btn__icon" src="../assets/img/download.svg" alt="Icône de téléchargement"></a>-->
-<!--        </div>-->
-<!--      </div>-->
+      <!--        <div class="about__info">-->
+      <!--          <p class="about__info__description">Web developer, with extensive knowledge and years of experience, working-->
+      <!--            in web technologies and Ui / Ux design, delivering quality work.</p>-->
+      <!--          <a class="about__info__btn" href="../assets/pdf/Labie_Auban_CV.pdf" download="">Download CV<img-->
+      <!--              class="about__info__btn__icon" src="../assets/img/download.svg" alt="Icône de téléchargement"></a>-->
+      <!--        </div>-->
+      <!--      </div>-->
     </div>
 
     <div class="about__infos">
-      <h2 class="about__infos__title">About me</h2>
-      <h3 class="about__infos__subtitle">My introduction</h3>
+      <h2 class="about__infos__title">{{ $t("about.title") }}</h2>
+      <h3 class="about__infos__subtitle">{{ $t("about.subtitle") }}</h3>
 
-      <p class="about__infos__description">Passionné par le développement web, j'ai eu l'honneur d'acquérir plusieurs expériences enrichissantes au IEPSCF Namur Cadets, où j'ai pu suivre un cursus exemplaire et sein de différents établissements tels que l’une formation sans égal chez BeCode, ce qui m'a permis d'amplifier mes connaissances et mes compétences liées au métier de développeur web.</p>
+      <p class="about__infos__description">{{ $t("about.description02") }}</p>
 
-      <p class="about__infos__description">Mon expérience en tant qu'indépendant m'a appris à faire des choix et de me concentrer sur les priorités du moment. Chaque tâche doit être découpée et organisée afin d'optimiser son rendement. Tout comme dans une entreprise, le goal de la semaine via le sprint backlog est une compréhension capitale au sein de l’équipe pour produire la plus haute valeur ajoutée.</p>
+      <p class="about__infos__description">{{ $t("about.description03") }}</p>
 
-      <a class="about__infos__btn" href="../assets/pdf/Labie_Auban_CV.pdf" download="">Download CV<img
-          class="about__infos__btn__icon" src="../assets/img/download.svg" alt="Icône de téléchargement"></a>
+      <a
+        class="about__infos__btn"
+        href="../assets/pdf/Labie_Auban_CV.pdf"
+        download=""
+        >{{ $t("about.download")
+        }}<img
+          class="about__infos__btn__icon"
+          src="../assets/img/download.svg"
+          alt="Icône de téléchargement"
+      /></a>
     </div>
-
   </section>
 </template>
 
 <script>
 export default {
-  name: "About"
-}
+  name: "About",
+};
 </script>
 
 <style lang="scss" scoped>
@@ -132,7 +150,7 @@ export default {
         object-fit: cover;
         position: relative;
         filter: grayscale(1);
-        transition: .2s ease;
+        transition: 0.2s ease;
         //margin-bottom: 3rem;
         //border: 3px solid white;
         //border-radius: 30% 5% 30% 5%;
@@ -204,19 +222,19 @@ export default {
   //  flex-direction: column;
   //  align-items: center;
 
-    //.about__title {
-    //  //font-size: 3rem;
-    //  //font-weight: bold;
-    //  @include Title;
-    //  margin-bottom: 1rem;
-    //}
-    //
-    //.about__subtitle {
-    //  //font-size: 2rem;
-    //  //font-weight: 100;
-    //  @include Subtitle;
-    //  margin-bottom: 10rem;
-    //}
+  //.about__title {
+  //  //font-size: 3rem;
+  //  //font-weight: bold;
+  //  @include Title;
+  //  margin-bottom: 1rem;
+  //}
+  //
+  //.about__subtitle {
+  //  //font-size: 2rem;
+  //  //font-weight: 100;
+  //  @include Subtitle;
+  //  margin-bottom: 10rem;
+  //}
 
   //  .about__divInfo {
   //    display: flex;

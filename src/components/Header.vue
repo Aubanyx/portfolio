@@ -8,15 +8,25 @@
           <div class="sidebar__menu">
             <p class="sidebar--title">Menu</p>
             <ul class="sidebar-panel-nav">
-              <li><a href="#hero">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#skills">Skills</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li>
+                <a href="#hero">{{ $t("menu.home") }}</a>
+              </li>
+              <li>
+                <a href="#about">{{ $t("menu.about") }}</a>
+              </li>
+              <li>
+                <a href="#skills">{{ $t("menu.skills") }}</a>
+              </li>
+              <li>
+                <a href="#projects">{{ $t("menu.projects") }}</a>
+              </li>
+              <li>
+                <a href="#contact">{{ $t("menu.contact") }}</a>
+              </li>
             </ul>
           </div>
           <div class="sidebar__boxMail">
-            <p class="sidebar__boxMail--title">A question ?</p>
+            <p class="sidebar__boxMail--title">{{ $t("menu.question") }}</p>
             <a class="sidebar__boxMail--mail" href="mailto:aubanlabie@gmail.com"
               >aubanlabie@gmail.com</a
             >
@@ -34,7 +44,12 @@
           <!--          <option v-for="locale in locales" :key="locale.lang">-->
           <!--            {{ locale.lang }}-->
           <!--          </option>-->
-          <option class="lang__locale" v-for="(locale, i) in locales" :key="`locale${i}`" :value="locale">
+          <option
+            class="lang__locale"
+            v-for="(locale, i) in locales"
+            :key="`locale${i}`"
+            :value="locale"
+          >
             {{ locale }}
           </option>
         </select>
