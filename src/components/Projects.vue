@@ -27,7 +27,7 @@ export default {
       projects: [
         {
           logo: "photo.png",
-          name: "Portfolio",
+          name: this.$i18n.t("about.title"),
           description: "Mon portfolio, réalisé avec le framework vue.js.",
           techUse: ["Html", "Scss", "Javascript", "Vue.js"],
           linkRepo: "https://github.com/Aubanyx/portfolio",
