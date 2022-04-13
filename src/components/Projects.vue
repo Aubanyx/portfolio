@@ -4,10 +4,22 @@
     <h3 class="projects__subtitle">Most recent work</h3>
     <div class="hover-content">
       <ul class="listProject">
-        <li class="project__element" v-for="(item, index) in projects" :key="'item'+index" :style="{'background-color': item.backColor}">
-          <div class="project__subElement"
-               :style="{'background-image': 'url(' + require('../assets/img/'+ item.img[0]) +')'}">
-            <span class="project--linkView" @click="updateModal(item)">{{ item.name }}</span>
+        <li
+          class="project__element"
+          v-for="(item, index) in projects"
+          :key="'item' + index"
+          :style="{ 'background-color': item.backColor }"
+        >
+          <div
+            class="project__subElement"
+            :style="{
+              'background-image':
+                'url(' + require('../assets/img/' + item.img[0]) + ')',
+            }"
+          >
+            <span class="project--linkView" @click="updateModal(item)">{{
+              item.name
+            }}</span>
           </div>
         </li>
       </ul>
@@ -17,7 +29,7 @@
 </template>
 
 <script>
-import ProjectsModal from "@/components/ProjectsModal.vue"
+import ProjectsModal from "@/components/ProjectsModal.vue";
 
 export default {
   name: "Projects",
@@ -27,114 +39,169 @@ export default {
       projects: [
         {
           logo: "photo.png",
-          name: this.$i18n.t("about.title"),
-          description: "Mon portfolio, réalisé avec le framework vue.js.",
+          name: this.$i18n.t("projects.modal.portfolio.name"),
+          description: this.$i18n.t("projects.modal.portfolio.description"),
           techUse: ["Html", "Scss", "Javascript", "Vue.js"],
           linkRepo: "https://github.com/Aubanyx/portfolio",
           linkSite: "#",
-          img: ["Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png", "bcbbTheWho.png", "Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png"],
+          img: [
+            "Egypt_Historical_Museum.png",
+            "Egypt_Historical_Museum.png",
+            "bcbbTheWho.png",
+            "Egypt_Historical_Museum.png",
+            "Egypt_Historical_Museum.png",
+          ],
           backColor: "green",
-          state: "online",
+          state: this.$i18n.t("projects.modal.portfolio.online"),
           open: false,
         },
         {
           logo: "egypt.png",
-          name: "Museum Project",
-          description: "Ce projet a été réalisé en groupe et dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec les langages Html et Css.",
+          name: this.$i18n.t("projects.modal.museum.name"),
+          description: this.$i18n.t("projects.modal.museum.description"),
           techUse: ["Html", "Css"],
           linkRepo: "https://github.com/Aubanyx/museum-project",
           linkSite: "https://aubanyx.github.io/museum-project/",
-          img: ["egyptMockup.jpg", "Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png", "bcbbTheWho.png", "Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png"],
+          img: [
+            "egyptMockup.jpg",
+            "Egypt_Historical_Museum.png",
+            "Egypt_Historical_Museum.png",
+            "bcbbTheWho.png",
+            "Egypt_Historical_Museum.png",
+            "Egypt_Historical_Museum.png",
+          ],
           backColor: "blue",
-          state: "online",
+          state: this.$i18n.t("projects.modal.museum.online"),
           open: false,
-
         },
         {
           logo: "bcbb.svg",
-          name: "Forum bcbb the who",
-          description: "Ce projet a été réalisé en groupe et dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec le langage Php et MySQL, afin de créer et gérer une base de données de manière fonctionnelle.",
+          name: this.$i18n.t("projects.modal.forum.name"),
+          description: this.$i18n.t("projects.modal.forum.description"),
           techUse: ["Html", "Scss", "Javascript", "Php", "MySQL", "PhpMyAdmin"],
           linkRepo: "https://github.com/Aubanyx/Forum-bcbb-the-who",
           linkSite: "https://bcbb-thewho.herokuapp.com/index.php",
-          img: ["bcbbTheWho.png", "Egypt_Historical_Museum.png", "bcbbTheWho.png", "Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png"],
+          img: [
+            "bcbbTheWho.png",
+            "Egypt_Historical_Museum.png",
+            "bcbbTheWho.png",
+            "Egypt_Historical_Museum.png",
+            "Egypt_Historical_Museum.png",
+          ],
           backColor: "violet",
-          state: "online",
+          state: this.$i18n.t("projects.modal.forum.online"),
           open: false,
         },
         {
           logo: "burger.png",
-          name: "Chaos Coffee Restaurant",
-          description: "Ce projet a été réalisé en groupe et dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec le CMS Wordpress.",
+          name: this.$i18n.t("projects.modal.chaos.name"),
+          description: this.$i18n.t("projects.modal.chaos.description"),
           techUse: ["Html", "Css", "Wordpress", "Php"],
           linkRepo: "https://github.com/Aubanyx/ChaosCoffeeRestaurant",
           linkSite: "#",
-          img: ["bcbbTheWho.png", "Egypt_Historical_Museum.png", "bcbbTheWho.png", "Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png"],
+          img: [
+            "bcbbTheWho.png",
+            "Egypt_Historical_Museum.png",
+            "bcbbTheWho.png",
+            "Egypt_Historical_Museum.png",
+            "Egypt_Historical_Museum.png",
+          ],
           backColor: "beige",
-          state: "offline",
+          state: this.$i18n.t("projects.modal.chaos.online"),
           open: false,
         },
         {
           logo: "leaf.png",
-          name: "Mwenbwa Corses",
-          description: "Ce projet a été réalisé en groupe et dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec la MERN stack.",
-          techUse: ["Html", "Scss", "MongoDB", "Express.js", "React.js", "Node.js"],
+          name: this.$i18n.t("projects.modal.leaf.name"),
+          description: this.$i18n.t("projects.modal.leaf.description"),
+          techUse: [
+            "Html",
+            "Scss",
+            "MongoDB",
+            "Express.js",
+            "React.js",
+            "Node.js",
+          ],
           linkRepo: "https://github.com/Aubanyx/mwenbwa-corses",
           linkSite: "#",
-          img: ["bcbbTheWho.png", "Egypt_Historical_Museum.png", "bcbbTheWho.png", "Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png"],
+          img: [
+            "bcbbTheWho.png",
+            "Egypt_Historical_Museum.png",
+            "bcbbTheWho.png",
+            "Egypt_Historical_Museum.png",
+            "Egypt_Historical_Museum.png",
+          ],
           backColor: "cyan",
-          state: "offline",
+          state: this.$i18n.t("projects.modal.leaf.online"),
           open: false,
         },
         {
           logo: "pomodoro.png",
-          name: "React Pomodoro",
-          description: "Ce projet a été réalisé dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec le framework React.js.",
+          name: this.$i18n.t("projects.modal.pomodoro.name"),
+          description: this.$i18n.t("projects.modal.pomodoro.description"),
           techUse: ["Html", "Scss", "React.js"],
           linkRepo: "https://github.com/Aubanyx/react-pomodoro",
           linkSite: "https://auban-react-pomodoro.netlify.app\n",
-          img: ["reactPomodoro.png", "Egypt_Historical_Museum.png", "bcbbTheWho.png", "Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png"],
+          img: [
+            "reactPomodoro.png",
+            "Egypt_Historical_Museum.png",
+            "bcbbTheWho.png",
+            "Egypt_Historical_Museum.png",
+            "Egypt_Historical_Museum.png",
+          ],
           backColor: "red",
-          state: "online",
+          state: this.$i18n.t("projects.modal.pomodoro.online"),
           open: false,
         },
         {
           logo: "terminal.svg",
-          name: "Holidays CLI",
-          description: "Ce projet a été réalisé dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec Npm et le terminal.",
+          name: this.$i18n.t("projects.modal.holidays.name"),
+          description: this.$i18n.t("projects.modal.holidays.description"),
           techUse: ["Terminal"],
           linkRepo: "https://github.com/Aubanyx/holidays-CLI",
           linkSite: "#",
-          img: ["Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png", "bcbbTheWho.png", "Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png"],
+          img: [
+            "Egypt_Historical_Museum.png",
+            "Egypt_Historical_Museum.png",
+            "bcbbTheWho.png",
+            "Egypt_Historical_Museum.png",
+            "Egypt_Historical_Museum.png",
+          ],
           backColor: "purple",
-          state: "offline",
+          state: this.$i18n.t("projects.modal.holidays.online"),
           open: false,
         },
         {
           logo: "terminal.svg",
-          name: "Npx Card",
-          description: "Ce projet a été réalisé dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec Npm et le terminal.",
+          name: this.$i18n.t("projects.modal.card.name"),
+          description: this.$i18n.t("projects.modal.card.description"),
           techUse: ["Terminal"],
           linkRepo: "https://github.com/Aubanyx/npx-card",
           linkSite: "#",
-          img: ["Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png", "bcbbTheWho.png", "Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png"],
+          img: [
+            "Egypt_Historical_Museum.png",
+            "Egypt_Historical_Museum.png",
+            "bcbbTheWho.png",
+            "Egypt_Historical_Museum.png",
+            "Egypt_Historical_Museum.png",
+          ],
           backColor: "yellow",
-          state: "offline",
+          state: this.$i18n.t("projects.modal.card.online"),
           open: false,
-        }
-      ]
-    }
+        },
+      ],
+    };
   },
   methods: {
     updateModal(item) {
       this.$store.state.selectedProjects = item;
       this.$store.state.openModal = true;
-    }
+    },
   },
   mounted() {
     this.$store.state.selectedProjects = this.projects[0];
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -193,7 +260,7 @@ export default {
           background-size: cover;
           //background-size: 8rem;
           background-repeat: no-repeat;
-          transition: .2s ease-out;
+          transition: 0.2s ease-out;
 
           &:hover {
             transform: scale(1.2);
@@ -241,7 +308,7 @@ export default {
             //border-radius: 100%;
             background: #aeaeae;
             opacity: 0.5;
-            transition: .2s ease-out;
+            transition: 0.2s ease-out;
           }
 
           //&:hover::after {
@@ -273,7 +340,7 @@ export default {
             align-items: center;
             z-index: 1;
             opacity: 0;
-            transition: .2s ease-out;
+            transition: 0.2s ease-out;
             cursor: pointer;
 
             //&:hover {
@@ -334,7 +401,6 @@ export default {
 }
 
 @media only screen and (min-width: 768px) {
-
 }
 
 @media only screen and (min-width: 1024px) {

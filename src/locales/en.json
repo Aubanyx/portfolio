@@ -54,8 +54,46 @@
     "title": "My projects",
     "subtitle": "Most recent work",
     "modal": {
-      "online": "Online",
-      "description": "blabla",
+      "portfolio": {
+        "name": "Portfolio",
+        "online": "online",
+        "description": "Mon portfolio, réalisé avec le framework vue.js."
+      },
+      "museum": {
+        "name": "Museum Project",
+        "online": "online",
+        "description": "Ce projet a été réalisé en groupe et dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec les langages Html et Css."
+      },
+      "forum": {
+        "name": "Forum bcbb the who",
+        "online": "online",
+        "description": "Ce projet a été réalisé en groupe et dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec le langage Php et MySQL, afin de créer et gérer une base de données de manière fonctionnelle."
+      },
+      "chaos": {
+        "name": "Chaos Coffee Restaurant",
+        "online": "offline",
+        "description": "Ce projet a été réalisé en groupe et dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec le CMS Wordpress."
+      },
+      "leaf": {
+        "name": "Mwenbwa Corses",
+        "online": "offline",
+        "description": "Ce projet a été réalisé en groupe et dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec la MERN stack."
+      },
+      "pomodoro": {
+        "name": "React Pomodoro",
+        "online": "Online",
+        "description": "Ce projet a été réalisé dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec le framework React.js."
+      },
+      "holidays": {
+        "name": "Holidays CLI",
+        "online": "offline",
+        "description": "Ce projet a été réalisé dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec Npm et le terminal."
+      },
+      "card": {
+        "name": "Npx Card",
+        "online": "offline",
+        "description": "Ce projet a été réalisé dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec Npm et le terminal."
+      },
       "TechnologiesUsed": "Technologies used",
       "website": "Website"
     }
