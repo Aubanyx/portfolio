@@ -44,7 +44,7 @@ export default {
           techUse: ["Html", "Css"],
           linkRepo: "https://github.com/Aubanyx/museum-project",
           linkSite: "https://aubanyx.github.io/museum-project/",
-          img: ["Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png", "bcbbTheWho.png", "Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png"],
+          img: ["egyptMockup.jpg", "Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png", "bcbbTheWho.png", "Egypt_Historical_Museum.png", "Egypt_Historical_Museum.png"],
           backColor: "blue",
           state: "online",
           open: false,

@@ -1,0 +1,71 @@
+{
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "I love coding good shit",
+    "follow": "Follow me"
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "My introduction",
+    "years": "Années d'expériences",
+    "completed": "Projets complétés",
+    "coffees": "Cafés consommés",
+    "description01": "Salut ! Je m'appelle Auban Labie, jeune belge de 27 ans, développeur web junior. J'habite Vottem dans la province de Liège. Mes hobbies sont évidemment la programmation mais aussi le fitness / la musculation et les jeu-vidéos. Motivé, proactif, toujours prêt à apprendre. Calme et réfléchi, je m'efforce de m'adapter à toutes situations. J'adore donner vie à la fois aux aspects techniques et visuels sur des produits numériques. L'expérience utilisateur est extrêmement importante à mes yeux.\n",
+    "description02": "Passionné par le développement web, j'ai eu l'honneur d'acquérir plusieurs expériences enrichissantes au IEPSCF Namur Cadets, où j'ai pu suivre un cursus exemplaire et sein de différents établissements tels que l’une formation sans égal chez BeCode, ce qui m'a permis d'amplifier mes connaissances et mes compétences liées au métier de développeur web.\n\n",
+    "description03": "Mon expérience en tant qu'indépendant m'a appris à faire des choix et de me concentrer sur les priorités du moment. Chaque tâche doit être découpée et organisée afin d'optimiser son rendement. Tout comme dans une entreprise, le goal de la semaine via le sprint backlog est une compréhension capitale au sein de l’équipe pour produire la plus haute valeur ajoutée.\n\n",
+    "download": "Télécharger CV"
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "My technical level",
+    "front": {
+      "title": "Front-End Developer",
+      "subtitle": "More than 4 years"
+    },
+    "back": {
+      "title": "Back-End Developer",
+      "subtitle": "More than 4 years"
+    },
+    "designer": {
+      "title": "Designer",
+      "subtitle": "More than 4 years"
+    },
+    "soft": {
+      "title": "Soft Skills",
+      "subtitle": "More than 4 years"
+    },
+    "tools": {
+      "title": "Tools",
+      "subtitle": "More than 4 years"
+    },
+    "others": {
+      "title": "Others",
+      "subtitle": "More than 4 years"
+    }
+  },
+  "projects": {
+    "title": "My projects",
+    "subtitle": "Most recent work",
+    "modal": {
+      "online": "Online",
+      "description": "blabla",
+      "TechnologiesUsed": "Technologies used",
+      "website": "Website"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Contact me",
+    "name": "Name",
+    "subject": "Subject",
+    "email": "Email",
+    "message": "Message",
+    "sendMessage": "Send Message"
+  }
+}

@@ -3,31 +3,41 @@
     <section class="header" :class="{ 'hidden-header': !showNavbar }">
       <a class="name" href="#">Auban Labie</a>
       <nav class="nav">
-        <Burger/>
+        <Burger />
         <Sidebar>
           <div class="sidebar__menu">
-              <p class="sidebar--title">Menu</p>
-              <ul class="sidebar-panel-nav">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-              </ul>
+            <p class="sidebar--title">Menu</p>
+            <ul class="sidebar-panel-nav">
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
           </div>
           <div class="sidebar__boxMail">
             <p class="sidebar__boxMail--title">A question ?</p>
-            <a class="sidebar__boxMail--mail" href="mailto:aubanlabie@gmail.com">aubanlabie@gmail.com</a>
+            <a class="sidebar__boxMail--mail" href="mailto:aubanlabie@gmail.com"
+              >aubanlabie@gmail.com</a
+            >
           </div>
-<!--          <ul class="sidebar-panel-nav">-->
-<!--            <li><a href="#hero">Home</a></li>-->
-<!--            <li><a href="#about">About</a></li>-->
-<!--            <li><a href="#skills">Skills</a></li>-->
-<!--            <li><a href="#projects">Projects</a></li>-->
-<!--            <li><a href="#contact">Contact</a></li>-->
-<!--          </ul>-->
+          <!--          <ul class="sidebar-panel-nav">-->
+          <!--            <li><a href="#hero">Home</a></li>-->
+          <!--            <li><a href="#about">About</a></li>-->
+          <!--            <li><a href="#skills">Skills</a></li>-->
+          <!--            <li><a href="#projects">Projects</a></li>-->
+          <!--            <li><a href="#contact">Contact</a></li>-->
+          <!--          </ul>-->
         </Sidebar>
-        <p class="lang">EN</p>
+        <!--        <p class="lang">EN</p>-->
+        <select v-model="$i18n.locale" class="lang">
+          <!--          <option v-for="locale in locales" :key="locale.lang">-->
+          <!--            {{ locale.lang }}-->
+          <!--          </option>-->
+          <option class="lang__locale" v-for="(locale, i) in locales" :key="`locale${i}`" :value="locale">
+            {{ locale }}
+          </option>
+        </select>
       </nav>
     </section>
   </header>
@@ -41,7 +51,7 @@ export default {
   name: "header",
   components: {
     Burger,
-    Sidebar
+    Sidebar,
   },
   data() {
     return {
@@ -49,7 +59,10 @@ export default {
       lastScrollPosition: 0,
       scrollValue: 0,
       offset: 30,
-    }
+      // currentLocale: "FR",
+      // locales: [{ lang: "EN" }, { lang: "NL" }, { lang: "FR" }],
+      locales: ["en", "fr", "nl"],
+    };
   },
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
@@ -69,7 +82,9 @@ export default {
       if (window.pageYOffset < 0) {
         return;
       }
-      if (Math.abs(window.pageYOffset - this.lastScrollPosition) < this.offset) {
+      if (
+        Math.abs(window.pageYOffset - this.lastScrollPosition) < this.offset
+      ) {
         return;
       }
       if (!this.isPanelOpen) {
@@ -80,10 +95,10 @@ export default {
       // this.lastScrollPosition = window.pageYOffset;
     },
     toHero() {
-      document.querySelector('#hero').scrollIntoView({
-        behavior: 'smooth'
+      document.querySelector("#hero").scrollIntoView({
+        behavior: "smooth",
       });
-    }
+    },
     // toAbout() {
     //   document.querySelector('#about').scrollIntoView({
     //     behavior: 'smooth'
@@ -108,9 +123,9 @@ export default {
   computed: {
     isPanelOpen() {
       return this.$store.state.isNavOpen;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -221,10 +236,17 @@ export default {
         }
       }
       .lang {
-        color: black;
+        //color: black;
         font-size: 1.3rem;
         align-self: center;
         margin-left: 1rem;
+        background: transparent;
+        border: none;
+        text-transform: uppercase;
+
+        .lang__locale {
+          text-transform: uppercase;
+        }
       }
     }
   }
@@ -235,7 +257,6 @@ export default {
 }
 
 @media only screen and (min-width: 768px) {
-
 }
 
 @media only screen and (min-width: 1024px) {
@@ -249,10 +270,8 @@ export default {
           left: 12rem;
 
           .sidebar__boxMail--title {
-
           }
           .sidebar__boxMail--mail {
-
           }
         }
       }

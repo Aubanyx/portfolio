@@ -1,11 +1,11 @@
 <template>
   <section id="hero" class="container">
     <div class="hero">
-      <h4 class="title">I love coding good shit</h4>
+      <h4 class="title">{{ $t("hero.title") }}</h4>
     </div>
     <div class="scrollDown">
       <a class="scrollDownIcon" href="#about"><span></span></a>
-<!--      <p>Scroll2</p>-->
+      <!--      <p>Scroll2</p>-->
     </div>
     <div class="follow">
       <p class="follow--text">Follow me</p>
