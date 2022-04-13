@@ -81,7 +81,7 @@
       },
       "pomodoro": {
         "name": "React Pomodoro",
-        "online": "Online",
+        "online": "online",
         "description": "Ce projet a été réalisé dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec le framework React.js."
       },
       "holidays": {
