@@ -260,6 +260,7 @@ export default {
         text-transform: uppercase;
         appearance: none;
         padding: 1rem;
+        cursor: pointer;
 
         &:hover {
           background: #d25d5f;
