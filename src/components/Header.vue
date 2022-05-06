@@ -254,10 +254,17 @@ export default {
         //color: black;
         font-size: 1.3rem;
         align-self: center;
-        margin-left: 1rem;
+        //margin-left: 1rem;
         background: transparent;
         border: none;
         text-transform: uppercase;
+        appearance: none;
+        padding: 1rem;
+
+        &:hover {
+          background: #d25d5f;
+          color: white;
+        }
 
         .lang__locale {
           text-transform: uppercase;

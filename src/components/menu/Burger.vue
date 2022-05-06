@@ -1,10 +1,8 @@
 <template>
-  <div id="burger"
-       :class="{ 'active' : isBurgerActive }"
-       @click.prevent="toggle">
+  <div id="burger" :class="{ active: isBurgerActive }" @click.prevent="toggle">
     <slot>
       <button type="button" class="burger-button" title="Menu">
-<!--        <span class="hidden">Toggle menu</span>-->
+        <!--        <span class="hidden">Toggle menu</span>-->
         <span class="burger-bar burger-bar--1"></span>
         <span class="burger-bar burger-bar--2"></span>
         <span class="burger-bar burger-bar--3"></span>
@@ -14,20 +12,19 @@
 </template>
 
 <script>
-
 export default {
   name: "Burger",
   computed: {
     isBurgerActive() {
       return this.$store.state.isNavOpen;
-    }
+    },
   },
   methods: {
     toggle() {
       this.$store.commit("toggleNav");
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -54,7 +51,7 @@ button:focus {
   border-radius: 0;
   background-color: transparent;
   pointer-events: all;
-  transition: transform .6s cubic-bezier(.165, .84, .44, 1);
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .burger-bar {
@@ -66,7 +63,9 @@ button:focus {
   height: 2px;
   width: auto;
   margin-top: -1px;
-  transition: transform .6s cubic-bezier(.165, .84, .44, 1), opacity .3s cubic-bezier(.165, .84, .44, 1), background-color .6s cubic-bezier(.165, .84, .44, 1);
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
+    opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    background-color 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .burger-bar--1 {
@@ -76,7 +75,7 @@ button:focus {
 
 .burger-bar--2 {
   transform-origin: 100% 50%;
-  transform: scaleX(.8);
+  transform: scaleX(0.8);
 }
 
 .burger-button:hover .burger-bar--2 {
@@ -91,22 +90,25 @@ button:focus {
   transform: translateY(6px);
 }
 
+#burger {
+  align-self: center;
+}
+
 #burger.active .burger-button {
   transform: rotate(-180deg);
 }
 
 #burger.active .burger-bar {
   background-color: black;
-  transition: .2s ease;
+  transition: 0.2s ease;
 }
 
 #burger.active:hover .burger-bar {
   background-color: $firstColor;
 }
 
-
 #burger.active .burger-bar--1 {
-  transform: rotate(45deg)
+  transform: rotate(45deg);
 }
 
 #burger.active .burger-bar--2 {
@@ -114,6 +116,6 @@ button:focus {
 }
 
 #burger.active .burger-bar--3 {
-  transform: rotate(-45deg)
+  transform: rotate(-45deg);
 }
 </style>
