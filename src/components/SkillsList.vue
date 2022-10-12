@@ -80,7 +80,7 @@ export default {
       height: 2rem;
       width: 2rem;
       //border-radius: 100%;
-      //background: $firstColor;
+      //background: var(--firstColor);
       margin-right: 1rem;
     }
   }

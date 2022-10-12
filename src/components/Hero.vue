@@ -78,7 +78,7 @@ export default {
           right: 0;
           left: 50%;
           transform: translateX(-50%);
-          background-color: $firstColor;
+          background-color: var(--firstColor);
           border-radius: 100%;
           animation: scrollAnimation 2s infinite;
           box-sizing: border-box;

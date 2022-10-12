@@ -2,9 +2,9 @@
   <main id="app">
     <Loader v-if="$store.state.loading" />
     <!--    <div id="nav">-->
-<!--      <router-link to="/">Home</router-link> |-->
-<!--      <router-link to="/about">About</router-link>-->
-<!--    </div>-->
+    <!--      <router-link to="/">Home</router-link> |-->
+    <!--      <router-link to="/about">About</router-link>-->
+    <!--    </div>-->
     <router-view />
   </main>
 </template>
@@ -20,7 +20,7 @@ export default {
   mounted() {
     this.$store.commit("offLoading");
   }
-}
+};
 </script>
 
 <style lang="scss">
@@ -34,6 +34,21 @@ export default {
   //color: $primaryColor;
   //color: #3D4280;
   color: black;
+}
+
+:root {
+  --firstColor: #d25d5f;
+  --title: #000000;
+  --subTitle: #a6a6a6;
+  --text: #ffffff;
+}
+
+[data-theme="darkTheme"] {
+  --backgroundColor: #202023;
+  --firstColor: #6a5acd;
+  --title: #000000;
+  --subTitle: #a6a6a6;
+  --text: #ffffff;
 }
 
 //* {

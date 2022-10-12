@@ -36,7 +36,7 @@ export default {
 #footer {
   display: flex;
   flex-direction: column;
-  background: $firstColor;
+  background: var(--firstColor);
   width: 100%;
   justify-content: center;
   margin-top: 10rem;

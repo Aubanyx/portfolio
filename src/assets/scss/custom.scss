@@ -12,7 +12,7 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: $firstColor;
+    background-color: var(--firstColor);
     //border-radius: 2rem;
   }
 

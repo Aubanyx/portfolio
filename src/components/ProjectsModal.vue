@@ -223,7 +223,7 @@ export default {
         transition: .2s ease;
 
         &:hover {
-          border-color: $firstColor;
+          border-color: var(--firstColor);
         }
 
         &:last-child {
@@ -242,7 +242,7 @@ export default {
 
       .modal__img__main__zoom {
         position: absolute;
-        background-color: $firstColor;
+        background-color: var(--firstColor);
         opacity: 0.8;
         width: 6rem;
         height: 6rem;
@@ -299,14 +299,14 @@ export default {
 
     .modal__infos--state-off {
       margin-bottom: 2rem;
-      color: $firstColor;
-      border: 1px solid $firstColor;
+      color: var(--firstColor);
+      border: 1px solid var(--firstColor);
       border-radius: 1rem;
       font-size: 1.2rem;
       padding: 0.5rem;
 
       &:hover {
-        background: $firstColor;
+        background: var(--firstColor);
         color: white;
       }
     }
@@ -356,8 +356,8 @@ export default {
 
       .modal__infos__links--linkWeb, .modal__infos__links--linkRepo {
         padding: 1rem;
-        color: $firstColor;
-        border: 1px solid $firstColor;
+        color: var(--firstColor);
+        border: 1px solid var(--firstColor);
         font-size: 1.5rem;
         display: flex;
         justify-content: center;
@@ -366,7 +366,7 @@ export default {
         transition: .2s ease;
 
         &:hover {
-          background: $firstColor;
+          background: var(--firstColor);
           color: white;
         }
 

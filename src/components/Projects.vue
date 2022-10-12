@@ -235,7 +235,7 @@ export default {
         overflow: hidden;
 
         &:nth-child(even) .project__subElement span:hover {
-          background: $firstColor;
+          background: var(--firstColor);
           opacity: 0.9;
           color: antiquewhite;
           //width: 100%;
@@ -268,7 +268,7 @@ export default {
 
           &:hover .project--linkView {
             opacity: 1;
-            //border: 1px solid $firstColor;
+            //border: 1px solid var(--firstColor);
             width: 100%;
             height: 100%;
             //font-size: 1rem;
@@ -352,7 +352,7 @@ export default {
           //  //left: 7rem;
           //
           //  &:nth-child(even):hover {
-          //    background: $firstColor;
+          //    background: var(--firstColor);
           //    //background: antiquewhite;
           //    opacity: 0.9;
           //    //width: 100%;
@@ -364,7 +364,7 @@ export default {
             //left: 7rem;
 
             //&:nth-of-type(even):hover {
-            //  background: $firstColor;
+            //  background: var(--firstColor);
             //  opacity: 0.9;
             //  //width: 100%;
             //}

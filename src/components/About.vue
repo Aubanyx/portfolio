@@ -78,7 +78,7 @@ export default {
 
   .about__box {
     width: 100%;
-    background: $firstColor;
+    background: var(--firstColor);
     //padding: 10rem 0;
     //padding-top: 0;
     padding-bottom: 10rem;
@@ -123,7 +123,7 @@ export default {
 
       //&::before {
       //  content: "";
-      //  background: $firstColor;
+      //  background: var(--firstColor);
       //  width: 30rem;
       //  height: 30rem;
       //  border-radius: 30% 5% 30% 5%;
@@ -195,7 +195,7 @@ export default {
     }
 
     .about__infos__btn {
-      background: $firstColor;
+      background: var(--firstColor);
       padding: 2rem;
       font-size: 1.5rem;
       font-weight: bold;
@@ -205,7 +205,7 @@ export default {
       align-items: center;
 
       &:hover {
-        background: $firstColorDark;
+        background: var(--firstColor);
       }
 
       .about__infos__btn__icon {
@@ -247,7 +247,7 @@ export default {
   //
   //      &::before {
   //        content: "";
-  //        background: $firstColor;
+  //        background: var(--firstColor);
   //        width: 30rem;
   //        height: 30rem;
   //        border-radius: 30% 5% 30% 5%;
@@ -278,7 +278,7 @@ export default {
   //      }
   //
   //      .about__info__btn {
-  //        background: $firstColor;
+  //        background: var(--firstColor);
   //        padding: 2rem;
   //        font-size: 1.5rem;
   //        font-weight: bold;
@@ -288,7 +288,7 @@ export default {
   //        align-items: center;
   //
   //        &:hover {
-  //          background: $firstColorDark;
+  //          background: var(--firstColor)Dark;
   //        }
   //
   //        .about__info__btn__icon {

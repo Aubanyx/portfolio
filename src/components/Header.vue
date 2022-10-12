@@ -55,6 +55,7 @@
             {{ locale }}
           </option>
         </select>
+        <ThemeToggleButton />
       </nav>
     </section>
   </header>
@@ -63,12 +64,14 @@
 <script>
 import Burger from "@/components/menu/Burger.vue";
 import Sidebar from "@/components/menu/Sidebar.vue";
+import ThemeToggleButton from "@/components/themeToggleButton.vue";
 
 export default {
   name: "header",
   components: {
     Burger,
     Sidebar,
+    ThemeToggleButton,
   },
   data() {
     return {
@@ -93,7 +96,6 @@ export default {
   beforeDestroy() {
     window.removeEventListener("scroll", this.onScroll);
   },
-
   methods: {
     onScroll() {
       if (window.pageYOffset < 0) {
@@ -184,7 +186,7 @@ export default {
         padding-left: 5rem;
 
         .sidebar--title {
-          color: $firstColor;
+          color: var(--firstColor);
           margin-bottom: 4rem;
           font-size: 1.7rem;
         }
@@ -213,7 +215,7 @@ export default {
             left: 0;
             width: 0;
             height: 2px;
-            background: $firstColor;
+            background: var(--firstColor);
             transition: 0.3s ease;
           }
         }

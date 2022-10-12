@@ -28,7 +28,7 @@
   }
 
   &:hover::after {
-    background: $firstColor;
+    background: var(--firstColor);
     width: 30rem;
   }
 }

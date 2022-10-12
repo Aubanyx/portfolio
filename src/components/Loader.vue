@@ -46,7 +46,7 @@ export default {
     border-top: 0.5em solid white;
     border-right: 0.5em solid white;
     border-bottom: 0.5em solid white;
-    border-left: 0.5em solid $firstColor;
+    border-left: 0.5em solid var(--firstColor);
     border-radius: 50%;
     animation: loadingRotate 1s infinite linear;
   }

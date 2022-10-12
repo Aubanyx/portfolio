@@ -121,7 +121,7 @@ export default {
           //  left: 0;
           //  width: 0;
           //  height: 2px;
-          //  background: $firstColor;
+          //  background: var(--firstColor);
           //  transition: 0.3s ease;
           //}
         }
@@ -136,9 +136,9 @@ export default {
           padding: 1.5rem 2rem;
           font-size: 1.5rem;
           font-weight: bold;
-          color: $firstColor;
-          //border-left: 2px solid $firstColor;
-          border: 2px solid $firstColor;
+          color: var(--firstColor);
+          //border-left: 2px solid var(--firstColor);
+          border: 2px solid var(--firstColor);
           //border-radius: 0.8rem;
           display: flex;
           align-items: center;
@@ -147,7 +147,7 @@ export default {
           transition: .2s ease;
 
           &:hover {
-            background: $firstColor;
+            background: var(--firstColor);
             color: white;
           }
         }
@@ -188,10 +188,10 @@ export default {
           bottom: 2rem;
           left: 2rem;
           line-height: 1.5rem;
-          border: 2px solid $firstColor;
+          border: 2px solid var(--firstColor);
 
           .prefix {
-            color: $firstColor;
+            color: var(--firstColor);
           }
         }
       }
