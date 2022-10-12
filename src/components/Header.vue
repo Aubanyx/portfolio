@@ -1,7 +1,9 @@
 <template>
   <header class="container">
     <section class="header" :class="{ 'hidden-header': !showNavbar }">
-      <a class="name" href="#">Auban Labie</a>
+      <a class="name" href="#"
+        ><img class="logo" src="../assets/img/logo.svg" alt="logo"
+      /></a>
       <nav class="nav">
         <Burger />
         <Sidebar>
@@ -161,6 +163,11 @@ export default {
     .name {
       color: black;
       font-size: 1.6rem;
+      height: inherit;
+
+      .logo {
+        height: inherit;
+      }
     }
 
     .nav {
@@ -224,6 +231,7 @@ export default {
           margin-bottom: 1rem;
           color: black;
         }
+
         .sidebar__boxMail--mail {
           //position: absolute;
           //bottom: 3rem;
@@ -250,6 +258,7 @@ export default {
           }
         }
       }
+
       .lang {
         //color: black;
         font-size: 1.3rem;
@@ -289,11 +298,13 @@ export default {
         .sidebar__menu {
           padding-left: 10rem;
         }
+
         .sidebar__boxMail {
           left: 12rem;
 
           .sidebar__boxMail--title {
           }
+
           .sidebar__boxMail--mail {
           }
         }
