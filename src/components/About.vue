@@ -97,12 +97,12 @@ export default {
         .about__box__numbers__text__number {
           font-size: 6rem;
           font-weight: bold;
-          color: antiquewhite;
+          color: var(--secondaryColor);
         }
 
         .about__box__numbers__text__title {
           font-size: 2rem;
-          color: white;
+          color: var(--quaternaryColor);
           margin-top: 1rem;
         }
       }
@@ -111,7 +111,7 @@ export default {
     .about__box__description {
       font-size: 1.7rem;
       line-height: normal;
-      color: white;
+      color: var(--quaternaryColor);
       font-weight: 200;
       text-align: justify;
       padding: 0 10rem;
@@ -169,6 +169,7 @@ export default {
     flex-direction: column;
     //justify-content: center;
     align-items: center;
+    background: var(--backgroundColor);
 
     .about__infos__title {
       //font-size: 3rem;
@@ -199,7 +200,7 @@ export default {
       padding: 2rem;
       font-size: 1.5rem;
       font-weight: bold;
-      color: white;
+      color: var(--quaternaryColor);
       border-radius: 0.8rem;
       display: flex;
       align-items: center;

@@ -23,7 +23,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  background: antiquewhite;
+  background: var(--secondaryColor);
   height: 100vh;
   width: 100%;
   position: relative;
@@ -39,7 +39,7 @@ export default {
 
     .title {
       font-size: 5rem;
-      color: black;
+      color: var(--tertiaryColor);
       z-index: 2;
     }
   }
@@ -64,7 +64,7 @@ export default {
         width: 3rem;
         height: 5rem;
         //margin-left: -15px;
-        border: 2px solid black;
+        border: 2px solid var(--tertiaryColor);
         border-radius: 50px;
         box-sizing: border-box;
         //background: green;
@@ -123,13 +123,14 @@ export default {
       font-size: 2rem;
       writing-mode: vertical-rl;
       text-orientation: mixed;
+      color: var(--tertiaryColor);
 
       width: 3rem;
       display: flex;
       align-items: center;
 
       &::after {
-        background-color: #000;
+        background-color: var(--tertiaryColor);
         content: "";
         display: inline-block;
         height: 5rem;
@@ -148,7 +149,7 @@ export default {
       &::before {
         content: "GitHub";
         font-size: 1.6rem;
-        color: black;
+        color: var(--tertiaryColor);
         //background: chartreuse;
         width: 0;
         left: 0;
@@ -163,6 +164,7 @@ export default {
 
       img {
         width: 3rem;
+        filter: var(--img);
       }
     }
 
@@ -174,7 +176,7 @@ export default {
       &::before {
         content: "LinkedIn";
         font-size: 1.6rem;
-        color: black;
+        color: var(--tertiaryColor);
         //background: chartreuse;
         width: 0;
         left: 0;
@@ -189,6 +191,7 @@ export default {
 
       img {
         width: 3rem;
+        filter: var(--img);
       }
     }
   }

@@ -51,7 +51,7 @@ export default {
 .sidebar-panel {
   overflow-y: auto;
   //background-color: #130f40;
-  background: white;
+  background: var(--backgroundColor);
   position: fixed;
   right: 0;
   top: 0;

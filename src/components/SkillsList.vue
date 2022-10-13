@@ -1,12 +1,16 @@
 <template>
   <transition
-      name="expand"
-      @enter="enter"
-      @after-enter="afterEnter"
-      @leave="leave">
+    name="expand"
+    @enter="enter"
+    @after-enter="afterEnter"
+    @leave="leave"
+  >
     <ul v-show="skills.open" class="skills-item">
-      <li class="sub-items"
-          v-for="(item, index) in skills.subSkills" :key="index">
+      <li
+        class="sub-items"
+        v-for="(item, index) in skills.subSkills"
+        :key="index"
+      >
         {{ item }}
       </li>
     </ul>
@@ -14,15 +18,12 @@
 </template>
 
 <script>
-
 export default {
   name: "SkillsList",
-  props: [
-    'skills'
-  ],
+  props: ["skills"],
   methods: {
     enter(el) {
-      el.style.height = 'auto';
+      el.style.height = "auto";
       const height = getComputedStyle(el).height;
       el.style.height = 0;
       getComputedStyle(el);
@@ -32,7 +33,7 @@ export default {
     },
 
     afterEnter(el) {
-      el.style.height = 'auto';
+      el.style.height = "auto";
     },
 
     leave(el) {
@@ -41,19 +42,18 @@ export default {
       setTimeout(() => {
         el.style.height = 0;
       });
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
 .skills-item {
   //margin-top: 2rem;
-  color: black;
+  color: var(--tertiaryColor);
   text-transform: uppercase;
   font-size: 1.5rem;
-  
+
   .sub-items {
     margin-bottom: 1rem;
     display: flex;
@@ -82,12 +82,14 @@ export default {
       //border-radius: 100%;
       //background: var(--firstColor);
       margin-right: 1rem;
+      filter: var(--imgfilter);
     }
   }
 }
 
-.expand-enter-active, .expand-leave-active {
-  transition: height .5s ease-in-out;
+.expand-enter-active,
+.expand-leave-active {
+  transition: height 0.5s ease-in-out;
   overflow: hidden;
 }
 </style>

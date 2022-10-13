@@ -3,15 +3,28 @@
     <h2 class="skills__title">Skills</h2>
     <h3 class="skills__subtitle">My technical level</h3>
     <div class="skills__container">
-      <div class="skills__section" v-for="(item, index) in skills" :key="'item'+index">
+      <div
+        class="skills__section"
+        v-for="(item, index) in skills"
+        :key="'item' + index"
+      >
         <div class="skills__box" @click="item.open = !item.open">
-          <img class="skills__img" :src="require('../assets/img/'+ item.img +'.svg')" :alt="item.img">
+          <img
+            class="skills__img"
+            :src="require('../assets/img/' + item.img + '.svg')"
+            :alt="item.img"
+          />
           <div class="skills__content">
             <p class="skills__content--title">{{ item.title }}</p>
             <p class="skills__content--subtitle">{{ item.subtitle }}</p>
-            <SkillsList :skills="item"/>
+            <SkillsList :skills="item" />
           </div>
-          <img :class="{'open':item.open}" class="skills__arrow" src="../assets/img/arrow.svg" alt="Arrow">
+          <img
+            :class="{ open: item.open }"
+            class="skills__arrow"
+            src="../assets/img/arrow.svg"
+            alt="Arrow"
+          />
         </div>
       </div>
     </div>
@@ -19,7 +32,7 @@
 </template>
 
 <script>
-import SkillsList from "@/components/SkillsList.vue"
+import SkillsList from "@/components/SkillsList.vue";
 
 export default {
   name: "Skills",
@@ -33,26 +46,29 @@ export default {
           subtitle: "More than 4 years",
           open: false,
           subSkills: [
-            "Html", "Css", "Sass / Scss", "Javascript", "Vue.js", "Vuetify", "React", "Bootstrap"
-          ]
+            "Html",
+            "Css",
+            "Sass / Scss",
+            "Javascript",
+            "Vue.js",
+            "Vuetify",
+            "React",
+            "Bootstrap",
+          ],
         },
         {
           img: "gears",
           title: "Back-End Developer",
           subtitle: "More than 4 years",
           open: false,
-          subSkills: [
-            "Php", "MySQL", "MongoDB", "Node.js", "Symfony"
-          ]
+          subSkills: ["Php", "MySQL", "MongoDB", "Node.js", "Symfony"],
         },
         {
           img: "layout",
           title: "Designer",
           subtitle: "More than 4 years",
           open: false,
-          subSkills: [
-            "Photoshop", "Illustrator", "Figma"
-          ]
+          subSkills: ["Photoshop", "Illustrator", "Figma"],
         },
         {
           img: "skills",
@@ -60,31 +76,31 @@ export default {
           subtitle: "More than 4 years",
           open: false,
           subSkills: [
-            "Team Player", "Reliable", "Solution Oriented", "Change Enthusiast", "Continuous Learner"
-          ]
+            "Team Player",
+            "Reliable",
+            "Solution Oriented",
+            "Change Enthusiast",
+            "Continuous Learner",
+          ],
         },
         {
           img: "tools",
           title: "Tools",
           subtitle: "More than 4 years",
           open: false,
-          subSkills: [
-            "Npm", "Webpack", "Terminal", "Git"
-          ]
+          subSkills: ["Npm", "Webpack", "Terminal", "Git"],
         },
         {
           img: "others",
           title: "Others",
           subtitle: "More than 4 years",
           open: false,
-          subSkills: [
-            "Wordpress", "Windows", "Linux"
-          ]
+          subSkills: ["Wordpress", "Windows", "Linux"],
         },
-      ]
-    }
-  }
-}
+      ],
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -92,6 +108,7 @@ export default {
   //background: violet;
   //height: 100vh;
   padding: 10rem 0;
+  background: var(--backgroundColor);
 
   .skills__title {
     @include Title;
@@ -121,6 +138,7 @@ export default {
         .skills__img {
           width: 4rem;
           margin-top: 0.3rem;
+          filter: var(--imgfilter);
         }
         .skills__content {
           text-align: left;
@@ -138,13 +156,13 @@ export default {
         }
         .skills__arrow {
           width: 4rem;
-          transition: .4s;
+          transition: 0.4s;
           margin-left: auto;
+          filter: var(--imgfilter);
 
           &.open {
             transform: rotateZ(-180deg);
-            transition: .4s;
-
+            transition: 0.4s;
           }
         }
       }

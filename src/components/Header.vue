@@ -163,12 +163,13 @@ export default {
     transform: translate3d(0, 0, 0);
 
     .name {
-      color: black;
+      color: var(--tertiaryColor);
       font-size: 1.6rem;
       height: inherit;
 
       .logo {
         height: inherit;
+        filter: var(--img);
       }
     }
 
@@ -196,7 +197,7 @@ export default {
         }
 
         ul.sidebar-panel-nav > li > a {
-          color: black;
+          color: var(--tertiaryColor);
           text-decoration: none;
           font-size: 3rem;
           display: block;
@@ -231,7 +232,7 @@ export default {
           font-size: 1.7rem;
           font-weight: 100;
           margin-bottom: 1rem;
-          color: black;
+          color: var(--tertiaryColor);
         }
 
         .sidebar__boxMail--mail {
@@ -239,7 +240,7 @@ export default {
           //bottom: 3rem;
           //left: 12rem;
           font-size: 1.7rem;
-          color: black;
+          color: var(--tertiaryColor);
           padding-bottom: 1rem;
           border-bottom: 1px solid #bcbcbc;
 
@@ -255,14 +256,14 @@ export default {
             left: 50%;
             width: 0;
             height: 1px;
-            background: black;
+            background: var(--tertiaryColor);
             transition: 0.3s ease;
           }
         }
       }
 
       .lang {
-        //color: black;
+        color: var(--tertiaryColor);
         font-size: 1.3rem;
         align-self: center;
         //margin-left: 1rem;
@@ -274,8 +275,8 @@ export default {
         cursor: pointer;
 
         &:hover {
-          background: #d25d5f;
-          color: white;
+          background: var(--firstColor);
+          color: var(--quaternaryColor);
         }
 
         .lang__locale {

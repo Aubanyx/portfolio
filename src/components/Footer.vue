@@ -52,7 +52,7 @@ export default {
       line-height: 1.5;
 
       li:first-child {
-        color: black;
+        color: var(--tertiaryColor);
         font-size: 2rem;
       }
 
@@ -67,7 +67,7 @@ export default {
       line-height: 1.5;
 
       li:first-child {
-        color: black;
+        color: var(--tertiaryColor);
         font-size: 2rem;
       }
 
@@ -75,17 +75,18 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
-        color: black;
+        color: var(--tertiaryColor);
         font-size: 1.4rem;
         font-weight: 100;
         transition: .2s ease;
 
         &:hover {
-          color: white;
+          color: var(--quaternaryColor);
         }
 
         img {
           width: 1.5rem;
+          filter: var(--img);
         }
       }
     }
@@ -95,18 +96,18 @@ export default {
       line-height: 1.5;
 
       li:first-child {
-        color: black;
+        color: var(--tertiaryColor);
         font-size: 2rem;
       }
 
       li > a {
-        color: black;
+        color: var(--tertiaryColor);
         font-size: 1.4rem;
         font-weight: 100;
         transition: .2s ease;
 
         &:hover {
-          color: white;
+          color: var(--quaternaryColor);
         }
       }
     }

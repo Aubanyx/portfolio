@@ -19,12 +19,11 @@ export default {
   },
   mounted() {
     this.$store.commit("offLoading");
-  }
+  },
 };
 </script>
 
 <style lang="scss">
-
 #app {
   font-family: Sora, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,18 +36,35 @@ export default {
 }
 
 :root {
+  --backgroundColor: #ffffff;
   --firstColor: #d25d5f;
+  --secondaryColor: #faebd7;
+  --tertiaryColor: #000000;
+  --quaternaryColor: #ffffff;
   --title: #000000;
   --subTitle: #a6a6a6;
-  --text: #ffffff;
+  --text: #000000;
+  --img: invert(0);
+  --imgfilter: invert(0);
+  --skillTitle: #000000;
+  --skillSubTitle: #000000;
+  --backgroundInput: #fcfcfc;
 }
 
 [data-theme="darkTheme"] {
   --backgroundColor: #202023;
   --firstColor: #6a5acd;
-  --title: #000000;
+  --secondaryColor: #2f4f4f;
+  --tertiaryColor: #ffffff;
+  --quaternaryColor: #ffffff;
+  --title: #6a5acd;
   --subTitle: #a6a6a6;
   --text: #ffffff;
+  --img: invert(1);
+  --imgfilter: invert(35%) sepia(100%) saturate(571%) hue-rotate(213deg) brightness(89%) contrast(88%);
+  --skillTitle: #ffffff;
+  --skillSubTitle: #ffffff;
+  --backgroundInput: #202023;
 }
 
 //* {

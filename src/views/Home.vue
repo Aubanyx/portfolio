@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-<!--    <img alt="Vue logo" src="../assets/logo.png" />-->
-<!--    <HelloWorld msg="Welcome to Your Vue.js App" />-->
+    <!--    <img alt="Vue logo" src="../assets/logo.png" />-->
+    <!--    <HelloWorld msg="Welcome to Your Vue.js App" />-->
     <Header class="header" />
     <ThreeTest class="threeTest" />
     <Hero class="hero" />
@@ -9,7 +9,7 @@
     <Skills class="skills" />
     <Projects class="projects" />
     <Contact class="contact" />
-<!--    <Footer class="footer" />-->
+    <!--    <Footer class="footer" />-->
     <ScrollToUp class="scrollToUp" />
   </div>
 </template>
@@ -48,5 +48,4 @@ export default {
 .home {
   height: 100%;
 }
-
 </style>

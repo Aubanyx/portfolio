@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import * as Three from 'three';
+import * as Three from "three";
 
 export default {
   name: "ThreeTest",
@@ -20,7 +20,7 @@ export default {
       mouseX: 0,
       mouseY: 0,
       position: null,
-    }
+    };
   },
   methods: {
     init() {
@@ -33,18 +33,50 @@ export default {
       //----------------------------------------------------------------------------------------------------
       // GEOMETRY
       //----------------------------------------------------------------------------------------------------
+      // const style = getComputedStyle(document.body).getPropertyValue(
+      //   "--firstColor"
+      // );
+
+      let colorValue = getComputedStyle(document.body).getPropertyValue(
+        "--firstColor"
+      );
+
+      console.log(colorValue, "test -1");
+
+      let style = new Three.Color(parseInt(colorValue));
+
+      console.log(colorValue, "test 0");
+      console.log(style, "test 1");
+
+      // if (style === "#d25d5f".toString()) {
+      //   console.log("OK", "test 2");
+      // }
+      //
+      // if (style === parseInt("#d25d5f")) {
+      //   console.log("OK", "test 3");
+      // }
+      //
+      // if (style === "#d25d5f") {
+      //   console.log("OK", "test 4");
+      // }
 
       const radius = 0.55;
       const tubeRadius = 0.1;
       const radialSegments = 3;
       const tubularSegments = 100;
-      const geometry = new Three.TorusGeometry( radius, tubeRadius, radialSegments, tubularSegments );
+      const geometry = new Three.TorusGeometry(
+        radius,
+        tubeRadius,
+        radialSegments,
+        tubularSegments
+      );
+
 
       //----------------------------------------------------------------------------------------------------
       // PARTICLE
       //----------------------------------------------------------------------------------------------------
 
-      const particlesGeometry = new Three.BufferGeometry;
+      const particlesGeometry = new Three.BufferGeometry();
       const particlesCnt = 5000;
 
       const posArray = new Float32Array(particlesCnt * 3);
@@ -53,7 +85,10 @@ export default {
         posArray[i] = (Math.random() - 0.5) * (Math.random() * 8);
       }
 
-      particlesGeometry.setAttribute('position', new Three.BufferAttribute(posArray, 3));
+      particlesGeometry.setAttribute(
+        "position",
+        new Three.BufferAttribute(posArray, 3)
+      );
 
       //----------------------------------------------------------------------------------------------------
       // MATERIAL
@@ -61,13 +96,13 @@ export default {
 
       const material = new Three.PointsMaterial({
         size: 0.005,
-        color: 'black'
+        color: "black",
       });
 
       const particlesMaterial = new Three.PointsMaterial({
         size: 0.005,
         // transparent: true,
-        color: '#d25d5f',
+        color: style,
       });
 
       //----------------------------------------------------------------------------------------------------
@@ -75,7 +110,10 @@ export default {
       //----------------------------------------------------------------------------------------------------
 
       this.mesh = new Three.Points(geometry, material);
-      this.particlesMesh = new Three.Points(particlesGeometry, particlesMaterial);
+      this.particlesMesh = new Three.Points(
+        particlesGeometry,
+        particlesMaterial
+      );
       this.scene.add(this.mesh, this.particlesMesh);
 
       //----------------------------------------------------------------------------------------------------
@@ -85,7 +123,7 @@ export default {
       const sizes = {
         width: this.container.clientWidth,
         height: this.container.clientHeight,
-      }
+      };
 
       window.addEventListener("resize", () => {
         // Update sizes
@@ -99,13 +137,18 @@ export default {
         //Update renderer
         this.renderer.setSize(sizes.width, sizes.height);
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      })
+      });
 
       //----------------------------------------------------------------------------------------------------
       // CAMERA
       //----------------------------------------------------------------------------------------------------
 
-      this.camera = new Three.PerspectiveCamera(70, sizes.width / sizes.height, 0.1, 100);
+      this.camera = new Three.PerspectiveCamera(
+        70,
+        sizes.width / sizes.height,
+        0.1,
+        100
+      );
       this.camera.position.x = 0;
       this.camera.position.y = 0;
       this.camera.position.z = 1;
@@ -121,7 +164,6 @@ export default {
       this.renderer.setSize(sizes.width, sizes.height);
       this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       this.container.appendChild(this.renderer.domElement);
-
     },
     animate() {
       requestAnimationFrame(this.animate);
@@ -152,16 +194,16 @@ export default {
     particlesMove() {
       this.position = this.animateParticles();
       this.renderer.render(this.scene, this.camera);
-    }
+    },
   },
   mounted() {
-    this.container = document.getElementById('container');
+    this.container = document.getElementById("container");
 
     this.init();
     // this.animateParticles();
     this.animate();
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>

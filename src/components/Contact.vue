@@ -56,7 +56,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  //background: brown;
+  background: var(--backgroundColor);
   height: 100%;
   padding-top: 10rem;
 
@@ -98,11 +98,11 @@ export default {
           height: 4rem;
           width: 100%;
           border: none;
-          border-left: 2px solid #d25d5f;
-          border-bottom: 2px solid #d25d5f;
+          border-left: 2px solid var(--firstColor);
+          border-bottom: 2px solid var(--firstColor);
           margin: 1rem 0;
           padding-left: 1rem;
-          background: #fcfcfc;
+          background: var(--backgroundInput);
           outline: none;
           position: relative;
 
@@ -132,7 +132,7 @@ export default {
         }
 
         .contact__container__boxForm__form--button {
-          background: white;
+          background: var(--backgroundColor);
           padding: 1.5rem 2rem;
           font-size: 1.5rem;
           font-weight: bold;
@@ -148,7 +148,7 @@ export default {
 
           &:hover {
             background: var(--firstColor);
-            color: white;
+            color: var(--quaternaryColor);
           }
         }
 

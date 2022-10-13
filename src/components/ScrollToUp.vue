@@ -1,6 +1,8 @@
 <template>
   <transition name="fade">
-    <button id="button" v-show="this.scY > 300" @click="toUp"><img src="../assets/img/arrow.svg" alt="arrow"></button>
+    <button id="button" v-show="this.scY > 300" @click="toUp">
+      <img src="../assets/img/arrow.svg" alt="arrow" />
+    </button>
   </transition>
 </template>
 
@@ -11,10 +13,10 @@ export default {
     return {
       scTimer: 0,
       scY: 0,
-    }
+    };
   },
   mounted() {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll);
   },
   methods: {
     handleScroll() {
@@ -32,9 +34,9 @@ export default {
         top: 0,
         // behavior: "smooth"
       });
-    }
+    },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -56,13 +58,16 @@ export default {
   img {
     width: inherit;
     transform: rotateZ(180deg);
+    filter: var(--imgfilter);
   }
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 </style>

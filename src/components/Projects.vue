@@ -206,7 +206,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  //background: orange;
+  background: var(--backgroundColor);
   //height: 100vh;
   padding-top: 10rem;
 
