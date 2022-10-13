@@ -40,7 +40,7 @@ export default new Vuex.Store({
     },
     toggleTheme(state) {
       state.darkTheme = !state.darkTheme;
-    }
+    },
   },
   actions: {},
   modules: {},

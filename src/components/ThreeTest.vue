@@ -20,8 +20,17 @@ export default {
       mouseX: 0,
       mouseY: 0,
       position: null,
+      currentColor: null,
+      color: null,
     };
   },
+  // computed: {
+  //   changeColor() {
+  //     return this.currentColor = getComputedStyle(document.body).getPropertyValue(
+  //       "--firstColor"
+  //     );
+  //   },
+  // },
   methods: {
     init() {
       //----------------------------------------------------------------------------------------------------
@@ -37,28 +46,32 @@ export default {
       //   "--firstColor"
       // );
 
-      let colorValue = getComputedStyle(document.body).getPropertyValue(
+      // let colorValue = getComputedStyle(document.body).getPropertyValue(
+      //   "--firstColor"
+      // );
+      //
+      // console.log(colorValue, "test -1");
+      //
+      // let currentColor = colorValue;
+      // let hex = parseInt(currentColor.replace(/#/, ""), 16);
+      // // let style = new Three.Color(0xd25d5f);
+      // console.log(hex.toString(16), "test ?");
+      //
+      // if (hex.toString(16) === "d25d5f") {
+      //   console.log("ok ok", "test ok");
+      // } else if (hex.toString(16) === "6a5acd") {
+      //   console.log("no no", "test no");
+      // } else {
+      //   console.log("NAN NAN", "test NAN");
+      // }
+      //
+      // console.log(currentColor, "test 0");
+      // console.log(style, "test 1");
+
+      this.currentColor = getComputedStyle(document.body).getPropertyValue(
         "--firstColor"
       );
-
-      console.log(colorValue, "test -1");
-
-      let style = new Three.Color(parseInt(colorValue));
-
-      console.log(colorValue, "test 0");
-      console.log(style, "test 1");
-
-      // if (style === "#d25d5f".toString()) {
-      //   console.log("OK", "test 2");
-      // }
-      //
-      // if (style === parseInt("#d25d5f")) {
-      //   console.log("OK", "test 3");
-      // }
-      //
-      // if (style === "#d25d5f") {
-      //   console.log("OK", "test 4");
-      // }
+      this.color = parseInt(this.currentColor.replace(/#/, ""), 16);
 
       const radius = 0.55;
       const tubeRadius = 0.1;
@@ -70,7 +83,6 @@ export default {
         radialSegments,
         tubularSegments
       );
-
 
       //----------------------------------------------------------------------------------------------------
       // PARTICLE
@@ -102,8 +114,10 @@ export default {
       const particlesMaterial = new Three.PointsMaterial({
         size: 0.005,
         // transparent: true,
-        color: style,
+        // color: "#d25d5f",
+        color: this.color,
       });
+      // particlesMaterial.color.setHex(0x6a5acd);
 
       //----------------------------------------------------------------------------------------------------
       // MESH
