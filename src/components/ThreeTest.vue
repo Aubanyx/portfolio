@@ -231,19 +231,27 @@ export default {
     // },
   },
   created() {
-    //1
-    if (localStorage.getItem("currentTheme") === "darkTheme") {
-      Event.$on("changeParticlesColor", () =>
-        this.particlesMaterial.color.setHex(0x6a5acd)
-      );
-    } else if (localStorage.getItem("currentTheme") === "lightTheme") {
-      Event.$on("changeParticlesColor", () =>
-        this.particlesMaterial.color.setHex(0xd25d5f)
-      );
-    } else {
-      Event.$on("changeParticlesColor", () => console.log("test 3"));
-    }
-    //
+    Event.$on("changeParticlesColor", () => {
+      if (localStorage.getItem("currentTheme") === "lightTheme") {
+        this.particlesMaterial.color.setHex(0x6a5acd);
+      } else if (localStorage.getItem("currentTheme") === "darkTheme"){
+        this.particlesMaterial.color.setHex(0xd25d5f);
+      } else {
+        console.log("wtf");
+      }
+    });
+    // if (localStorage.getItem("currentTheme") === "darkTheme") {
+    //   Event.$on("changeParticlesColor", () =>
+    //     this.particlesMaterial.color.setHex(0x6a5acd)
+    //   );
+    // } else if (localStorage.getItem("currentTheme") === "lightTheme") {
+    //   Event.$on("changeParticlesColor", () =>
+    //     this.particlesMaterial.color.setHex(0xd25d5f)
+    //   );
+    // } else {
+    //   Event.$on("changeParticlesColor", () => console.log("test 3"));
+    // }
+    // //1
     // if (localStorage.getItem("currentTheme") == "darkTheme") {
     //   Event.$on("changeParticlesColor", () =>
     //     this.particlesMaterial.color.setHex(0x6a5acd)
