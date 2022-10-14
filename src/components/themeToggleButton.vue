@@ -22,7 +22,7 @@ export default {
       this.$store.commit("toggleTheme");
 
       // this.$root.$refs.ThreeTest.changeParticlesColor();
-      // this.$emit("changeParticlesColor");
+      Event.$emit("changeParticlesColor");
       // this.$el.component("ThreeTest").changeParticlesColor();
       // const storedTheme = localStorage.getItem("themeColor");
       // if (storedTheme === "darkTheme") {
@@ -34,7 +34,7 @@ export default {
       //   this.currentTheme = localStorage.getItem("themeColor");
       // }
 
-      this.currentTheme = this.currentTheme === "darkTheme" ? "" : "darkTheme"; //toggles theme value
+      this.currentTheme = this.currentTheme === "darkTheme" ? "lightTheme" : "darkTheme"; //toggles theme value
       document.documentElement.setAttribute("data-theme", this.currentTheme); // sets the data-theme attribute
       localStorage.setItem("currentTheme", this.currentTheme); // stores theme value on local storage
     },

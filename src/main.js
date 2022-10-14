@@ -8,6 +8,8 @@ import "@/assets/scss/reset.scss";
 import "@/assets/scss/custom.scss";
 import "@/assets/scss/fonts.scss";
 
+window.Event = new Vue();
+
 Vue.config.productionTip = false;
 Vue.use(VueI18n);
 

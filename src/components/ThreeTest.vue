@@ -230,22 +230,53 @@ export default {
     //   this.particlesMaterial.color.setStyle("--firstColor");
     // },
   },
-  // created() {
-  //   this.$on("changeParticlesColor", () => console.log("alert message"));
-  // },
+  created() {
+    //1
+    if (localStorage.getItem("currentTheme") === "darkTheme") {
+      Event.$on("changeParticlesColor", () =>
+        this.particlesMaterial.color.setHex(0x6a5acd)
+      );
+    } else if (localStorage.getItem("currentTheme") === "lightTheme") {
+      Event.$on("changeParticlesColor", () =>
+        this.particlesMaterial.color.setHex(0xd25d5f)
+      );
+    } else {
+      Event.$on("changeParticlesColor", () => console.log("test 3"));
+    }
+    //
+    // if (localStorage.getItem("currentTheme") == "darkTheme") {
+    //   Event.$on("changeParticlesColor", () =>
+    //     this.particlesMaterial.color.setHex(0x6a5acd)
+    //   );
+    // } else {
+    //   Event.$on("changeParticlesColor", () => console.log("test 1"));
+    // }
+    // //2
+    // if (localStorage.getItem("currentTheme") == "") {
+    //   Event.$on("changeParticlesColor", () =>
+    //     this.particlesMaterial.color.setHex(0xd25d5f)
+    //   );
+    // } else {
+    //   Event.$on("changeParticlesColor", () => console.log("test 2"));
+    // }
+    // Event.$on("changeParticlesColor", () =>
+    //   this.particlesMaterial.color.setHex(0xd25d5f)
+    // );
+  },
   mounted() {
     this.container = document.getElementById("container");
-    this.currentColor = getComputedStyle(document.body).getPropertyValue(
-      "--firstColor"
-    );
-    this.color = parseInt(this.currentColor.replace(/#/, ""), 16);
+    // this.currentColor = getComputedStyle(document.body).getPropertyValue(
+    //   "--firstColor"
+    // );
+    // this.color = parseInt(this.currentColor.replace(/#/, ""), 16);
     this.particlesMaterial = new Three.PointsMaterial({
       size: 0.005,
       // transparent: true,
       // color: "#d25d5f",
-      color: this.color,
+      color: "#d25d5f",
     });
-
+    // console.log(this.particlesMaterial.color.setStyle("--firstColor"));
+    // console.log(this.particlesMaterial.color.setHex(0xd25d5f));
     this.init();
     // this.animateParticles();
     this.animate();
