@@ -19,7 +19,11 @@ export default {
   // },
   methods: {
     toggle() {
-      // this.$store.commit("toggleTheme");
+      this.$store.commit("toggleTheme");
+
+      // this.$root.$refs.ThreeTest.changeParticlesColor();
+      // this.$emit("changeParticlesColor");
+      // this.$el.component("ThreeTest").changeParticlesColor();
       // const storedTheme = localStorage.getItem("themeColor");
       // if (storedTheme === "darkTheme") {
       //   localStorage.setItem("themeColor", "lightTheme");

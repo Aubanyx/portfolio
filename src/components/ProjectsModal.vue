@@ -5,22 +5,68 @@
       <div class="modal">
         <div class="modal__img">
           <div class="modal__img__pictures">
-            <img id="pic1" class="picture" v-for="(image, index) in modal.img" :key="image.id" @mouseover="changeImage(index)" :src="require('../assets/img/' + image)" alt="image" >
+            <img
+              id="pic1"
+              class="picture"
+              v-for="(image, index) in modal.img"
+              :key="image.id"
+              @mouseover="changeImage(index)"
+              :src="require('../assets/img/' + image)"
+              alt="image"
+            />
           </div>
-          <div id="containerMainPic" class="modal__img__main" @mousemove="bertrandMove()" @mouseleave="zoomOut()">
+          <div
+            id="containerMainPic"
+            class="modal__img__main"
+            @mousemove="bertrandMove()"
+            @mouseleave="zoomOut()"
+          >
             <div id="zoomRect" class="modal__img__main__zoom"></div>
-            <img id="pic" class="img" :src="require('../assets/img/' + this.modal.img[this.myImageIndex])" alt="image">
+            <img
+              id="pic"
+              class="img"
+              :src="
+                require('../assets/img/' + this.modal.img[this.myImageIndex])
+              "
+              alt="image"
+            />
           </div>
         </div>
         <div class="modal__infos">
           <div id="preview" class="preview"></div>
           <h3 class="modal__infos--title">{{ modal.name }}</h3>
-          <p class="modal__infos--state" :class="{ 'modal__infos--state-off' : modal.state === 'offline' }">{{ modal.state }}</p>
+          <p
+            class="modal__infos--state"
+            :class="{ 'modal__infos--state-off': modal.state === 'offline' }"
+          >
+            {{ modal.state }}
+          </p>
           <p class="modal__infos--description">{{ modal.description }}</p>
-          <p class="modal__infos--techs">Technologies used : <span class="modal__infos--techs--tech" v-for="tech in modal.techUse" :key="tech.id">{{ tech }}</span></p>
+          <p class="modal__infos--techs">
+            Technologies used :
+            <span
+              class="modal__infos--techs--tech"
+              v-for="tech in modal.techUse"
+              :key="tech.id"
+              >{{ tech }}</span
+            >
+          </p>
           <div class="modal__infos__links">
-            <a class="modal__infos__links--linkRepo" :href="modal.linkRepo">GitHub<img class="imgGithub" src="../assets/img/githubRed.svg" alt="Link Github project"></a>
-            <a class="modal__infos__links--linkWeb" v-if="modal.state === 'online'" :href="modal.linkSite">Website<img class="imgWebsite" src="../assets/img/websiteRed.svg" alt="Link website project"></a>
+            <a class="modal__infos__links--linkRepo" :href="modal.linkRepo"
+              >GitHub<img
+                class="imgGithub"
+                src="../assets/img/githubRed.svg"
+                alt="Link Github project"
+            /></a>
+            <a
+              class="modal__infos__links--linkWeb"
+              v-if="modal.state === 'online'"
+              :href="modal.linkSite"
+              >Website<img
+                class="imgWebsite"
+                src="../assets/img/websiteRed.svg"
+                alt="Link website project"
+            /></a>
           </div>
         </div>
       </div>
@@ -51,7 +97,7 @@ export default {
       yMove: "",
       position: "",
       zoom: 6,
-    }
+    };
   },
   computed: {
     modal() {
@@ -59,11 +105,11 @@ export default {
     },
     openModal() {
       return this.$store.state.openModal;
-    }
+    },
   },
   methods: {
     modalClose() {
-      this.$store.state.openModal = false ;
+      this.$store.state.openModal = false;
     },
     changeImage(newImageIndex) {
       this.myImageIndex = newImageIndex;
@@ -79,7 +125,7 @@ export default {
       this.xCursor = event.clientX - this.c.left;
       this.yCursor = event.clientY - this.c.top;
 
-      return {x:this.xCursor, y:this.yCursor};
+      return { x: this.xCursor, y: this.yCursor };
     },
     bertrandMove() {
       if (screen.width < 1024) {
@@ -89,8 +135,15 @@ export default {
       this.preview.style.display = "block";
       this.zoomRect.style.display = "block";
 
-      this.preview.style.backgroundImage = 'url(' + require('../assets/img/' + this.modal.img[this.myImageIndex]) + ')';
-      this.preview.style.backgroundSize = (this.picture.width * this.zoom) + "px " + (this.picture.height * this.zoom) + "px";
+      this.preview.style.backgroundImage =
+        "url(" +
+        require("../assets/img/" + this.modal.img[this.myImageIndex]) +
+        ")";
+      this.preview.style.backgroundSize =
+        this.picture.width * this.zoom +
+        "px " +
+        this.picture.height * this.zoom +
+        "px";
 
       this.position = this.cursorPos();
 
@@ -123,17 +176,20 @@ export default {
       // this.preview.style.width = "42rem";
       // this.preview.style.height = "42rem";
 
-      this.xMove = this.position.x - (parseInt(this.zoomRect.style.width) * 5);
-      this.yMove = this.position.y - (parseInt(this.zoomRect.style.height) * 5);
+      this.xMove = this.position.x - parseInt(this.zoomRect.style.width) * 5;
+      this.yMove = this.position.y - parseInt(this.zoomRect.style.height) * 5;
 
-      this.xPreview = this.position.x * this.zoom - (parseInt(this.zoomRect.offsetWidth) * 3);
-      this.yPreview = this.position.y * this.zoom - (parseInt(this.zoomRect.offsetHeight) * 3);
+      this.xPreview =
+        this.position.x * this.zoom - parseInt(this.zoomRect.offsetWidth) * 3;
+      this.yPreview =
+        this.position.y * this.zoom - parseInt(this.zoomRect.offsetHeight) * 3;
 
       this.zoomRect.style.left = this.xMove + "px";
       this.zoomRect.style.top = this.yMove + "px";
 
-      this.preview.style.backgroundPosition = "-" + (this.xPreview) + "px -" + (this.yPreview) + "px";
-    }
+      this.preview.style.backgroundPosition =
+        "-" + this.xPreview + "px -" + this.yPreview + "px";
+    },
   },
 
   mounted() {
@@ -147,7 +203,6 @@ export default {
 
     // this.preview.style.backgroundImage = 'url(' + require('../assets/img/' + this.modal.img[this.myImageIndex]) +')';
     // this.preview.style.backgroundImage = 'url(../assets/img/' + this.modal.img[this.myImageIndex] + ')';
-
 
     // this.w1 = this.picture.offsetWidth;
     // this.h1 = this.picture.offsetHeight;
@@ -166,8 +221,8 @@ export default {
     // let picList = [this.picture, picture1, picture2, picture3, picture4, picture5];
     //
     // let picActive = 1;
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -220,7 +275,7 @@ export default {
         margin-bottom: 1rem;
         margin-right: 2rem;
         object-fit: cover;
-        transition: .2s ease;
+        transition: 0.2s ease;
 
         &:hover {
           border-color: var(--firstColor);
@@ -289,7 +344,7 @@ export default {
       border-radius: 1rem;
       font-size: 1.2rem;
       padding: 0.5rem;
-      transition: .2s ease;
+      transition: 0.2s ease;
 
       &:hover {
         background: darkseagreen;
@@ -334,7 +389,7 @@ export default {
         padding: 0.5rem;
         color: dodgerblue;
         margin-top: 1rem;
-        transition: .2s ease;
+        transition: 0.2s ease;
 
         &:hover {
           background: dodgerblue;
@@ -354,7 +409,8 @@ export default {
         //margin-right: 2rem;
       }
 
-      .modal__infos__links--linkWeb, .modal__infos__links--linkRepo {
+      .modal__infos__links--linkWeb,
+      .modal__infos__links--linkRepo {
         padding: 1rem;
         color: var(--firstColor);
         border: 1px solid var(--firstColor);
@@ -363,25 +419,28 @@ export default {
         justify-content: center;
         align-items: center;
         width: 100%;
-        transition: .2s ease;
+        transition: 0.2s ease;
 
         &:hover {
           background: var(--firstColor);
           color: white;
         }
 
-        .imgGithub, .imgWebsite {
+        .imgGithub,
+        .imgWebsite {
           width: 3rem;
           margin-left: 1rem;
-          transition: .2s ease;
+          transition: 0.2s ease;
         }
       }
       .modal__infos__links--linkRepo:hover .imgGithub {
-        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(318deg) brightness(250%) contrast(107%);
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(318deg)
+          brightness(250%) contrast(107%);
       }
 
       .modal__infos__links--linkWeb:hover .imgWebsite {
-        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(318deg) brightness(250%) contrast(107%);
+        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(318deg)
+          brightness(250%) contrast(107%);
       }
     }
   }
@@ -421,7 +480,6 @@ export default {
 }
 
 @media only screen and (min-width: 768px) {
-
 }
 
 @media only screen and (min-width: 1024px) {
@@ -471,7 +529,8 @@ export default {
           margin-bottom: 0;
           margin-right: 2rem;
         }
-        .modal__infos__links--linkWeb, .modal__infos__links--linkRepo {
+        .modal__infos__links--linkWeb,
+        .modal__infos__links--linkRepo {
           width: fit-content;
         }
       }

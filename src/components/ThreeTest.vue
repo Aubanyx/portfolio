@@ -22,13 +22,15 @@ export default {
       position: null,
       currentColor: null,
       color: null,
+      particlesMaterial: null,
     };
   },
   // computed: {
-  //   changeColor() {
-  //     return this.currentColor = getComputedStyle(document.body).getPropertyValue(
-  //       "--firstColor"
-  //     );
+  //   isDarkThemeActive() {
+  //     return this.$store.state.darkTheme;
+  //   },
+  //   test() {
+  //     return this.color;
   //   },
   // },
   methods: {
@@ -68,10 +70,17 @@ export default {
       // console.log(currentColor, "test 0");
       // console.log(style, "test 1");
 
-      this.currentColor = getComputedStyle(document.body).getPropertyValue(
-        "--firstColor"
-      );
-      this.color = parseInt(this.currentColor.replace(/#/, ""), 16);
+      // this.currentColor = getComputedStyle(document.body).getPropertyValue(
+      //   "--firstColor"
+      // );
+      // this.color = parseInt(this.currentColor.replace(/#/, ""), 16);
+
+      // console.log(this.isDarkThemeActive, "test computed");
+      // if (this.isDarkThemeActive) {
+      //   console.log("true");
+      // } else if (!this.isDarkThemeActive) {
+      //   console.log("false");
+      // }
 
       const radius = 0.55;
       const tubeRadius = 0.1;
@@ -111,12 +120,20 @@ export default {
         color: "black",
       });
 
-      const particlesMaterial = new Three.PointsMaterial({
-        size: 0.005,
-        // transparent: true,
-        // color: "#d25d5f",
-        color: this.color,
-      });
+      // const particlesMaterial = new Three.PointsMaterial({
+      //   size: 0.005,
+      //   // transparent: true,
+      //   // color: "#d25d5f",
+      //   color: this.color,
+      // });
+
+      console.log(localStorage.getItem("currentTheme"), "help ?");
+
+      // if (localStorage.getItem("currentTheme") === "darkTheme") {
+      //   particlesMaterial.color.setHex(0x6a5acd);
+      // } else {
+      //   particlesMaterial.color.setHex(0xd25d5f);
+      // }
       // particlesMaterial.color.setHex(0x6a5acd);
 
       //----------------------------------------------------------------------------------------------------
@@ -126,7 +143,7 @@ export default {
       this.mesh = new Three.Points(geometry, material);
       this.particlesMesh = new Three.Points(
         particlesGeometry,
-        particlesMaterial
+        this.particlesMaterial
       );
       this.scene.add(this.mesh, this.particlesMesh);
 
@@ -209,9 +226,25 @@ export default {
       this.position = this.animateParticles();
       this.renderer.render(this.scene, this.camera);
     },
+    // changeParticlesColor() {
+    //   this.particlesMaterial.color.setStyle("--firstColor");
+    // },
   },
+  // created() {
+  //   this.$on("changeParticlesColor", () => console.log("alert message"));
+  // },
   mounted() {
     this.container = document.getElementById("container");
+    this.currentColor = getComputedStyle(document.body).getPropertyValue(
+      "--firstColor"
+    );
+    this.color = parseInt(this.currentColor.replace(/#/, ""), 16);
+    this.particlesMaterial = new Three.PointsMaterial({
+      size: 0.005,
+      // transparent: true,
+      // color: "#d25d5f",
+      color: this.color,
+    });
 
     this.init();
     // this.animateParticles();
