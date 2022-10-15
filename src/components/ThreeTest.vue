@@ -233,7 +233,7 @@ export default {
   created() {
     Event.$on("changeParticlesColor", () => {
       if (localStorage.getItem("currentTheme") === "lightTheme") {
-        this.particlesMaterial.color.setHex(0x6a5acd);
+        this.particlesMaterial.color.setHex(0xffffff);
       } else if (localStorage.getItem("currentTheme") === "darkTheme"){
         this.particlesMaterial.color.setHex(0xd25d5f);
       } else {
