@@ -242,6 +242,7 @@ export default {
     });
     // if (localStorage.getItem("currentTheme") === "darkTheme") {
     //   Event.$on("changeParticlesColor", () =>
+
     //     this.particlesMaterial.color.setHex(0x6a5acd)
     //   );
     // } else if (localStorage.getItem("currentTheme") === "lightTheme") {
