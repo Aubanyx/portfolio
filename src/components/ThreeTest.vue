@@ -231,13 +231,20 @@ export default {
     // },
   },
   created() {
+    // if (localStorage.getItem("currentTheme") === "lightTheme") {
+    //   this.color = 0xffffff;
+    // } else if (localStorage.getItem("currentTheme") === "darkTheme"){
+    //   this.color = 0xd25d5f;
+    // }
+
     Event.$on("changeParticlesColor", () => {
-      if (localStorage.getItem("currentTheme") === "lightTheme") {
+      // if (localStorage.getItem("currentTheme") === "lightTheme") {
+      if (localStorage.getItem("themeColor") === "lightTheme") {
         this.particlesMaterial.color.setHex(0xffffff);
-      } else if (localStorage.getItem("currentTheme") === "darkTheme"){
+      } else if (localStorage.getItem("themeColor") === "darkTheme"){
         this.particlesMaterial.color.setHex(0xd25d5f);
       } else {
-        console.log("wtf");
+        console.log(this.color);
       }
     });
     // if (localStorage.getItem("currentTheme") === "darkTheme") {
@@ -274,6 +281,12 @@ export default {
   },
   mounted() {
     this.container = document.getElementById("container");
+    if (localStorage.getItem("themeColor") === "lightTheme") {
+      this.color = 0xd25d5f;
+    } else if (localStorage.getItem("themeColor") === "darkTheme"){
+      this.color = 0xffffff;
+    }
+    console.log(this.color);
     // this.currentColor = getComputedStyle(document.body).getPropertyValue(
     //   "--firstColor"
     // );
@@ -282,7 +295,7 @@ export default {
       size: 0.005,
       // transparent: true,
       // color: "#d25d5f",
-      color: "#d25d5f",
+      color: this.color,
     });
     // console.log(this.particlesMaterial.color.setStyle("--firstColor"));
     // console.log(this.particlesMaterial.color.setHex(0xd25d5f));

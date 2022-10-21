@@ -66,6 +66,9 @@ export default {
   --skillSubTitle: #ffffff;
   --backgroundInput: #202023;
 }
+// #6FEFE1
+// #E732AF
+// #fcee0c
 
 //* {
 //  margin: 0;

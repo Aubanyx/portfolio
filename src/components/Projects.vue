@@ -161,7 +161,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/holidays-CLI",
           linkSite: "#",
           img: [
-            "Egypt_Historical_Museum.png",
+            "terminal.svg",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
             "Egypt_Historical_Museum.png",
@@ -179,7 +179,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/npx-card",
           linkSite: "#",
           img: [
-            "Egypt_Historical_Museum.png",
+            "terminal.svg",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
             "Egypt_Historical_Museum.png",
