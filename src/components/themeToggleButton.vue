@@ -85,6 +85,7 @@ export default {
 
     .themeIcon {
       width: 2rem;
+      filter: var(--img);
     }
   }
 

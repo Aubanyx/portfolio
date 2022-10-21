@@ -230,14 +230,18 @@ export default {
       //background-image: url('../assets/img/design.svg');
 
       .project__element {
-        width: 50%;
+        width: 100%;
         height: 50vw;
         overflow: hidden;
 
         &:nth-child(even) .project__subElement span:hover {
           background: var(--firstColor);
           opacity: 0.9;
-          color: antiquewhite;
+          color: var(--quaternaryColor);
+          /* height: fit-content; */
+          /* padding: 1rem 0; */
+          text-decoration: underline overline 0.3rem;
+          font-size: 2rem;
           //width: 100%;
         }
 
@@ -261,9 +265,11 @@ export default {
           //background-size: 8rem;
           background-repeat: no-repeat;
           transition: 0.2s ease-out;
+          filter: grayscale(1);
 
           &:hover {
             transform: scale(1.2);
+            filter: grayscale(0);
           }
 
           &:hover .project--linkView {
@@ -408,8 +414,13 @@ export default {
     .hover-content {
       .listProject {
         .project__element {
-          width: 25%;
+          width: 50%;
           height: 25vw;
+
+          &:nth-child(even) .project__subElement span:hover {
+            font-size: 5rem;
+            //width: 100%;
+          }
 
           .project__subElement {
             //width: 25%;
