@@ -45,6 +45,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/portfolio",
           linkSite: "#",
           img: [
+            "mockup.jpg",
             "Egypt_Historical_Museum.png",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
@@ -82,6 +83,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/Forum-bcbb-the-who",
           linkSite: "https://bcbb-thewho.herokuapp.com/index.php",
           img: [
+            "mockup.jpg",
             "bcbbTheWho.png",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
@@ -100,6 +102,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/ChaosCoffeeRestaurant",
           linkSite: "#",
           img: [
+            "mockup.jpg",
             "bcbbTheWho.png",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
@@ -125,6 +128,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/mwenbwa-corses",
           linkSite: "#",
           img: [
+            "mockup.jpg",
             "bcbbTheWho.png",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
@@ -143,6 +147,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/react-pomodoro",
           linkSite: "https://auban-react-pomodoro.netlify.app\n",
           img: [
+            "mockupPomodoro.jpg",
             "reactPomodoro.png",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
@@ -161,6 +166,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/holidays-CLI",
           linkSite: "#",
           img: [
+            "mockup.jpg",
             "terminal.svg",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
@@ -179,6 +185,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/npx-card",
           linkSite: "#",
           img: [
+            "mockup.jpg",
             "terminal.svg",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
