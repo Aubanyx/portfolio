@@ -45,7 +45,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/portfolio",
           linkSite: "#",
           img: [
-            "mockup.jpg",
+            "mockup.png",
             "Egypt_Historical_Museum.png",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
@@ -83,7 +83,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/Forum-bcbb-the-who",
           linkSite: "https://bcbb-thewho.herokuapp.com/index.php",
           img: [
-            "mockup.jpg",
+            "mockup.png",
             "bcbbTheWho.png",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
@@ -102,7 +102,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/ChaosCoffeeRestaurant",
           linkSite: "#",
           img: [
-            "mockup.jpg",
+            "mockup.png",
             "bcbbTheWho.png",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
@@ -128,7 +128,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/mwenbwa-corses",
           linkSite: "#",
           img: [
-            "mockup.jpg",
+            "mockup.png",
             "bcbbTheWho.png",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
@@ -166,7 +166,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/holidays-CLI",
           linkSite: "#",
           img: [
-            "mockup.jpg",
+            "mockup.png",
             "terminal.svg",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
@@ -185,7 +185,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/npx-card",
           linkSite: "#",
           img: [
-            "mockup.jpg",
+            "mockup.png",
             "terminal.svg",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
