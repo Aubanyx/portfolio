@@ -243,8 +243,10 @@ export default {
   //top: 2%;
   position: absolute;
   top: 280rem;
-  left: 15%;
-  width: 70%;
+  left: 10%;
+  width: 80%;
+  //left: 15%;
+  //width: 70%;
   //height: 96%;
   //height: 70%;
   background: white;
@@ -327,14 +329,26 @@ export default {
       width: 40rem;
       height: 40rem;
       margin-left: 5rem;
-      background: aqua;
+      //background: aqua;
     }
 
     .modal__infos--title {
       font-size: 4rem;
       margin-top: 5rem;
       margin-bottom: 2rem;
-      font-weight: bold;
+      text-transform: uppercase;
+      position: relative;
+      //font-weight: bold;
+
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -1rem;
+        left: 0;
+        width: 10rem;
+        height: 0.1rem;
+        background: black;
+      }
     }
 
     .modal__infos--state {
@@ -489,7 +503,7 @@ export default {
 
     .modal__img {
       flex-direction: row;
-      width: 50%;
+      width: 70%;
 
       .modal__img__pictures {
         flex-direction: column;
@@ -498,6 +512,8 @@ export default {
 
         .picture {
           margin-right: 0;
+          width: 10rem;
+          height: 10rem;
         }
       }
     }
@@ -505,8 +521,16 @@ export default {
     .modal__infos {
       padding-left: 5rem;
 
+      .modal__infos--state, .modal__infos--state-off{
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-bottom: 0;
+      }
+
       .modal__infos--title {
         margin-top: 0;
+        font-size: 6rem;
       }
 
       .modal__infos--techs {
