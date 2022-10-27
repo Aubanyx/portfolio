@@ -61,7 +61,8 @@ export default {
   --subTitle: #a6a6a6;
   --text: #ffffff;
   --img: invert(1);
-  --imgfilter: invert(35%) sepia(100%) saturate(571%) hue-rotate(213deg) brightness(89%) contrast(88%);
+  --imgfilter: invert(35%) sepia(100%) saturate(571%) hue-rotate(213deg)
+    brightness(89%) contrast(88%);
   --skillTitle: #ffffff;
   --skillSubTitle: #ffffff;
   --backgroundInput: #202023;

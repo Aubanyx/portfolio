@@ -9,16 +9,20 @@
     </div>
     <div class="follow">
       <p class="follow--text">{{ $t("hero.follow") }}</p>
-      <a class="hero__github" href="https://github.com/Aubanyx"><img src="../assets/img/github.svg" alt="Logo Github"></a>
-      <a class="hero__linkedin" href="https://www.linkedin.com/in/aubanlabie/"><img src="../assets/img/linkedin.svg" alt="Logo LinkedIn"></a>
+      <a class="hero__github" href="https://github.com/Aubanyx"
+        ><img src="../assets/img/github.svg" alt="Logo Github"
+      /></a>
+      <a class="hero__linkedin" href="https://www.linkedin.com/in/aubanlabie/"
+        ><img src="../assets/img/linkedin.svg" alt="Logo LinkedIn"
+      /></a>
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: "Hero"
-}
+  name: "Hero",
+};
 </script>
 
 <style lang="scss" scoped>
@@ -70,7 +74,7 @@ export default {
         //background: green;
 
         &::before {
-          content: '';
+          content: "";
           width: 0.8rem;
           height: 0.8rem;
           position: absolute;
@@ -155,7 +159,7 @@ export default {
         left: 0;
         overflow: hidden;
         margin-right: 1rem;
-        transition: .2s ease;
+        transition: 0.2s ease;
       }
 
       &:hover::before {
@@ -182,7 +186,7 @@ export default {
         left: 0;
         overflow: hidden;
         margin-right: 1rem;
-        transition: .2s ease;
+        transition: 0.2s ease;
       }
 
       &:hover::before {

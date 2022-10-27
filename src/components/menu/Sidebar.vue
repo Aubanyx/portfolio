@@ -1,9 +1,12 @@
 <template>
   <div class="sidebar">
-    <div class="sidebar-backdrop" @click="closeSidebarPanel" v-if="isPanelOpen"></div>
+    <div
+      class="sidebar-backdrop"
+      @click="closeSidebarPanel"
+      v-if="isPanelOpen"
+    ></div>
     <transition name="slide">
-      <div v-if="isPanelOpen"
-           class="sidebar-panel">
+      <div v-if="isPanelOpen" class="sidebar-panel">
         <slot></slot>
       </div>
     </transition>
@@ -16,14 +19,14 @@ export default {
   methods: {
     closeSidebarPanel() {
       this.$store.commit("toggleNav");
-    }
+    },
   },
   computed: {
     isPanelOpen() {
       return this.$store.state.isNavOpen;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -35,11 +38,11 @@ export default {
 .slide-enter,
 .slide-leave-to {
   transform: translateX(100%);
-  transition: all 150ms ease-in 0s
+  transition: all 150ms ease-in 0s;
 }
 
 .sidebar-backdrop {
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -63,7 +66,6 @@ export default {
 }
 
 @media only screen and (min-width: 768px) {
-
 }
 
 @media only screen and (min-width: 1024px) {

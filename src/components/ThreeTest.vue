@@ -241,7 +241,7 @@ export default {
       // if (localStorage.getItem("currentTheme") === "lightTheme") {
       if (localStorage.getItem("themeColor") === "lightTheme") {
         this.particlesMaterial.color.setHex(0xffffff);
-      } else if (localStorage.getItem("themeColor") === "darkTheme"){
+      } else if (localStorage.getItem("themeColor") === "darkTheme") {
         this.particlesMaterial.color.setHex(0xd25d5f);
       } else {
         console.log(this.color);
@@ -283,7 +283,7 @@ export default {
     this.container = document.getElementById("container");
     if (localStorage.getItem("themeColor") === "lightTheme") {
       this.color = 0xd25d5f;
-    } else if (localStorage.getItem("themeColor") === "darkTheme"){
+    } else if (localStorage.getItem("themeColor") === "darkTheme") {
       this.color = 0xffffff;
     }
     console.log(this.color);

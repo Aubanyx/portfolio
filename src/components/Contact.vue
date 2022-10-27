@@ -1,38 +1,55 @@
 <template>
   <section id="contact" class="container">
-<!--    <h2 class="contact__title">Contact</h2>-->
-<!--    <h3 class="contact__subtitle">Contact me</h3>-->
+    <!--    <h2 class="contact__title">Contact</h2>-->
+    <!--    <h3 class="contact__subtitle">Contact me</h3>-->
     <div class="contact__container">
       <div class="contact__container__boxForm">
         <h2 class="contact__title">Contact</h2>
         <h3 class="contact__subtitle">Contact me</h3>
-        <form class="contact__container__boxForm__form" action="https://formsubmit.co/aubanlabie@gmail.com"
-              method="POST">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="text" name="name" placeholder="Name" required>
+        <form
+          class="contact__container__boxForm__form"
+          action="https://formsubmit.co/aubanlabie@gmail.com"
+          method="POST"
+        >
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="name" placeholder="Name" required />
           <div class="contact__container__boxForm__form__box">
-            <input type="text" name="subject" placeholder="Subject" required>
-            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="subject" placeholder="Subject" required />
+            <input type="email" name="email" placeholder="Email" required />
           </div>
-          <input type="hidden" name="_next" value="http://localhost:8080/#contact">
-          <textarea placeholder="Message" name="message" rows="10" required></textarea>
-          <button class="contact__container__boxForm__form--button" type="submit">Send message</button>
+          <input
+            type="hidden"
+            name="_next"
+            value="http://localhost:8080/#contact"
+          />
+          <textarea
+            placeholder="Message"
+            name="message"
+            rows="10"
+            required
+          ></textarea>
+          <button
+            class="contact__container__boxForm__form--button"
+            type="submit"
+          >
+            Send message
+          </button>
         </form>
         <Footer class="footer" />
       </div>
       <div class="contact__container__boxMap">
         <div class="contact__container__boxMap__map">
           <p class="contact__container__boxMap__map--infos">
-            LABIE Auban<br/>
-            Rue de Liège<br/>
-            4041 Vottem<br/>
-            <br/>
+            LABIE Auban<br />
+            Rue de Liège<br />
+            4041 Vottem<br />
+            <br />
             <span>
               <span class="prefix">@</span>
               : aubanlabie@gmail.com
             </span>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <span class="prefix">☎</span>
             <span> : 0474/54.84.14</span>
           </p>
@@ -50,8 +67,8 @@ export default {
   components: {
     // HelloWorld,
     Footer,
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -93,8 +110,9 @@ export default {
         width: 100%;
         margin-bottom: 5rem;
 
-        input, textarea {
-          font-family: 'Sora', sans-serif;
+        input,
+        textarea {
+          font-family: "Sora", sans-serif;
           height: 4rem;
           width: 100%;
           border: none;
@@ -144,7 +162,7 @@ export default {
           align-items: center;
           align-self: flex-end;
           cursor: pointer;
-          transition: .2s ease;
+          transition: 0.2s ease;
 
           &:hover {
             background: var(--firstColor);
@@ -201,13 +219,9 @@ export default {
 
 @media only screen and (min-width: 768px) {
   .container {
-
     .contact__container {
-
       .contact__container__boxForm {
-
         .contact__container__boxForm__form {
-
           .contact__container__boxForm__form__box {
             display: flex;
             justify-content: space-between;
@@ -224,7 +238,6 @@ export default {
         height: 60vw;
 
         .contact__container__boxMap__map {
-
         }
       }
     }

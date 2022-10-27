@@ -8,8 +8,17 @@
 
       <ul class="footer__social">
         <li>Social</li>
-        <li><a href="https://github.com/Aubanyx"><img src="../assets/img/github.svg" alt="Logo Github"> Github</a></li>
-        <li><a href="https://www.linkedin.com/in/aubanlabie/"><img src="../assets/img/linkedin.svg" alt="Logo LinkedIn"> LinkedIn</a></li>
+        <li>
+          <a href="https://github.com/Aubanyx"
+            ><img src="../assets/img/github.svg" alt="Logo Github" /> Github</a
+          >
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/aubanlabie/"
+            ><img src="../assets/img/linkedin.svg" alt="Logo LinkedIn" />
+            LinkedIn</a
+          >
+        </li>
       </ul>
 
       <ul class="footer__menu">
@@ -22,14 +31,14 @@
       </ul>
     </div>
 
-<!--    <p class="footer__copyright">© 2021 LABIE Auban</p>-->
+    <!--    <p class="footer__copyright">© 2021 LABIE Auban</p>-->
   </footer>
 </template>
 
 <script>
 export default {
-  name: "Footer"
-}
+  name: "Footer",
+};
 </script>
 
 <style lang="scss" scoped>
@@ -78,7 +87,7 @@ export default {
         color: var(--tertiaryColor);
         font-size: 1.4rem;
         font-weight: 100;
-        transition: .2s ease;
+        transition: 0.2s ease;
 
         &:hover {
           color: var(--quaternaryColor);
@@ -104,7 +113,7 @@ export default {
         color: var(--tertiaryColor);
         font-size: 1.4rem;
         font-weight: 100;
-        transition: .2s ease;
+        transition: 0.2s ease;
 
         &:hover {
           color: var(--quaternaryColor);
