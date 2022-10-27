@@ -521,7 +521,8 @@ export default {
     .modal__infos {
       padding-left: 5rem;
 
-      .modal__infos--state, .modal__infos--state-off{
+      .modal__infos--state,
+      .modal__infos--state-off {
         position: absolute;
         top: 0;
         right: 0;
