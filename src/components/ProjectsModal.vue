@@ -6,14 +6,25 @@
         <!--        <ThreeTest class="threeTest" />-->
         <div class="modal__img">
           <div class="modal__img__pictures">
-            <img
+<!--            <img-->
+<!--              id="pic1"-->
+<!--              class="picture"-->
+<!--              v-for="(image, index) in modal.img"-->
+<!--              :key="image.id"-->
+<!--              @mouseover="changeImage(index)"-->
+<!--              :src="require('../assets/img/' + image)"-->
+<!--              alt="image"-->
+<!--            />-->
+            <div
               id="pic1"
               class="picture"
               v-for="(image, index) in modal.img"
               :key="image.id"
               @mouseover="changeImage(index)"
-              :src="require('../assets/img/' + image)"
-              alt="image"
+              :style="{
+                'background-image':
+                  'url(' + require('../assets/img/' + image) + ')',
+              }"
             />
           </div>
           <div
@@ -90,6 +101,7 @@ export default {
     return {
       myImageIndex: 0,
       picture: "",
+      beforePicture: "",
       containerMain: "",
       zoomRect: "",
       w1: "",
@@ -297,6 +309,26 @@ export default {
         margin-right: 2rem;
         object-fit: cover;
         transition: 0.2s ease;
+        cursor: pointer;
+        position: relative;
+        background-size: cover;
+        background-position: top;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: -2rem;
+          width: 0.2rem;
+          height: 0;
+          background: var(--firstColor);
+          transition: 0.3s ease;
+        }
+
+        &:hover::before {
+          top: 25%;
+          height: 5rem;
+        }
 
         &:hover {
           border-color: var(--firstColor);
@@ -349,6 +381,7 @@ export default {
       height: 40rem;
       margin-left: 5rem;
       //background: aqua;
+      z-index: 1;
     }
 
     .modal__infos--title {
@@ -400,7 +433,7 @@ export default {
     }
 
     .modal__infos--description {
-      margin-bottom: 2rem;
+      margin: 2rem 0;
       font-size: 2rem;
       font-weight: 100;
     }
