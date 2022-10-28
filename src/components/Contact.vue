@@ -12,7 +12,8 @@
           method="POST"
         >
           <input type="hidden" name="_captcha" value="false" />
-          <input type="text" name="name" placeholder="Name" required />
+          <input class="inputText" type="text" name="name" placeholder="Name" required />
+          <span class="inputSpan"/>
           <div class="contact__container__boxForm__form__box">
             <input type="text" name="subject" placeholder="Subject" required />
             <input type="email" name="email" placeholder="Email" required />
@@ -116,8 +117,8 @@ export default {
           height: 4rem;
           width: 100%;
           border: none;
-          border-left: 2px solid var(--firstColor);
-          border-bottom: 2px solid var(--firstColor);
+          border-left: 0.2rem solid var(--firstColor);
+          border-bottom: 0.2rem solid var(--firstColor);
           margin: 1rem 0;
           padding-left: 1rem;
           background: var(--backgroundInput);
@@ -142,6 +143,44 @@ export default {
           //  background: var(--firstColor);
           //  transition: 0.3s ease;
           //}
+        }
+
+        //.inputText {
+        //
+        //}
+
+        .inputSpan {
+          position: relative;
+        }
+
+        .inputText + .inputSpan::before {
+          content: "";
+          position: absolute;
+          bottom: 1rem;
+          right: 0;
+          width: 0.2rem;
+          height: 0;
+          background: var(--firstColor);
+          transition: 0.3s ease;
+        }
+
+        .inputText + .inputSpan::after {
+          content: "";
+          position: absolute;
+          bottom: 5rem;
+          left: 0;
+          width: 0;
+          height: 0.2rem;
+          background: var(--firstColor);
+          transition: 0.3s ease;
+        }
+
+        .inputText:focus + .inputSpan::after {
+          width: 100%;
+        }
+
+        .inputText:focus + .inputSpan::before {
+          height: 4rem;
         }
 
         textarea {
