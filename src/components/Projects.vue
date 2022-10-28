@@ -8,7 +8,7 @@
           class="project__element"
           v-for="(item, index) in projects"
           :key="'item' + index"
-          :style="{ 'background-color': item.backColor }"
+          style="{ 'background-color': 'white' }"
         >
           <div
             class="project__subElement"
@@ -319,7 +319,7 @@ export default {
             justify-content: center;
             align-items: center;
             //border-radius: 100%;
-            background: #aeaeae;
+            //background: #aeaeae;
             opacity: 0.5;
             transition: 0.2s ease-out;
           }

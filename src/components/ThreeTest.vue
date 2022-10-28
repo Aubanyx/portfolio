@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="container" @mousemove="particlesMove()"></div>
+    <div class="threeContainer" @mousemove="particlesMove()"></div>
   </div>
 </template>
 
@@ -280,7 +280,7 @@ export default {
     // );
   },
   mounted() {
-    this.container = document.getElementById("container");
+    this.container = document.querySelector(".threeContainer");
     if (localStorage.getItem("themeColor") === "lightTheme") {
       this.color = 0xd25d5f;
     } else if (localStorage.getItem("themeColor") === "darkTheme") {
@@ -307,7 +307,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#container {
+.threeContainer {
   width: 100%;
   height: 100vh;
   background: transparent;

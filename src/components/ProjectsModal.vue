@@ -3,6 +3,7 @@
     <div v-show="this.openModal">
       <div class="overlay" @click="modalClose()"></div>
       <div class="modal">
+        <!--        <ThreeTest class="threeTest" />-->
         <div class="modal__img">
           <div class="modal__img__pictures">
             <img
@@ -75,8 +76,13 @@
 </template>
 
 <script>
+// import ThreeTest from "@/components/ThreeTest.vue";
+
 export default {
   name: "ProjectsModal",
+  // components: {
+  //   ThreeTest,
+  // },
   // props: [
   //   'projects'
   // ],
@@ -256,6 +262,19 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 2rem;
+
+  &::before {
+    content: "";
+    background-image: url("../assets/img/topography.svg");
+    filter: invert(82%) sepia(4%) saturate(2230%) hue-rotate(325deg)
+      brightness(120%) contrast(96%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
 
   .modal__img {
     display: flex;
