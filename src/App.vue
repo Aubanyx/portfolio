@@ -19,6 +19,9 @@ export default {
   },
   mounted() {
     this.$store.commit("offLoading");
+    // setTimeout(() => {
+    //   this.$store.commit("offLoading");
+    // }, 2000);
   },
 };
 </script>
