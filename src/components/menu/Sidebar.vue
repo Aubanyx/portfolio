@@ -62,7 +62,8 @@ export default {
   z-index: 998;
   padding: 3rem 20px 2rem 20px;
   //width: 300px;
-  width: 70%;
+  //width: 70%;
+  width: 100%;
 }
 
 @media only screen and (min-width: 768px) {

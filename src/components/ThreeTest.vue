@@ -127,7 +127,7 @@ export default {
       //   color: this.color,
       // });
 
-      console.log(localStorage.getItem("currentTheme"), "help ?");
+      // console.log(localStorage.getItem("currentTheme"), "help ?");
 
       // if (localStorage.getItem("currentTheme") === "darkTheme") {
       //   particlesMaterial.color.setHex(0x6a5acd);
@@ -163,7 +163,7 @@ export default {
 
         //Update camera
         this.camera.aspect = sizes.width / sizes.height;
-        // this.camera.updateProjectMatrix();
+        this.camera.updateProjectionMatrix();
 
         //Update renderer
         this.renderer.setSize(sizes.width, sizes.height);
@@ -226,6 +226,17 @@ export default {
       this.position = this.animateParticles();
       this.renderer.render(this.scene, this.camera);
     },
+    // resizeRendererToDisplaySize() {
+    //   const canvas = this.renderer.domElement;
+    //   const pixelRatio = window.devicePixelRatio;
+    //   const width = (canvas.clientWidth * pixelRatio) | 0;
+    //   const height = (canvas.clientHeight * pixelRatio) | 0;
+    //   const needResize = canvas.width !== width || canvas.height !== height;
+    //   if (needResize) {
+    //     this.renderer.setSize(width, height, false);
+    //   }
+    //   return needResize;
+    // },
     // changeParticlesColor() {
     //   this.particlesMaterial.color.setStyle("--firstColor");
     // },

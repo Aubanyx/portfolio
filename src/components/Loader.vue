@@ -28,7 +28,7 @@ export default {
 }
 .slide-fade-enter, .slide-fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   transform: translateX(-100%);
-  opacity: 0;
+  opacity: 0.5;
 }
 
 .loader {
