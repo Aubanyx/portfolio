@@ -87,7 +87,7 @@
 </template>
 
 <script>
-// import ThreeTest from "@/components/ThreeTest.vue";
+// import ThreeTest from "@/components/ThreeJs.vue";
 
 export default {
   name: "ProjectsModal",

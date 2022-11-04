@@ -254,8 +254,6 @@ export default {
         this.particlesMaterial.color.setHex(0xffffff);
       } else if (localStorage.getItem("themeColor") === "darkTheme") {
         this.particlesMaterial.color.setHex(0xd25d5f);
-      } else {
-        console.log(this.color);
       }
     });
     // if (localStorage.getItem("currentTheme") === "darkTheme") {
@@ -297,7 +295,6 @@ export default {
     } else if (localStorage.getItem("themeColor") === "darkTheme") {
       this.color = 0xffffff;
     }
-    console.log(this.color);
     // this.currentColor = getComputedStyle(document.body).getPropertyValue(
     //   "--firstColor"
     // );

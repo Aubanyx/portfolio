@@ -66,8 +66,8 @@ export default {
     const localTheme = localStorage.getItem("currentTheme"); //gets stored theme value if any
     document.documentElement.setAttribute("data-theme", localTheme); // updates the data-theme attribute
 
-    console.log(localStorage.getItem("currentTheme"), "test 1");
-    console.log(localStorage.getItem("themeColor"), "test 2");
+    // console.log(localStorage.getItem("currentTheme"), "test 1");
+    // console.log(localStorage.getItem("themeColor"), "test 2");
   },
 };
 </script>

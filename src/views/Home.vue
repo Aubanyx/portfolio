@@ -3,7 +3,7 @@
     <!--    <img alt="Vue logo" src="../assets/logo.png" />-->
     <!--    <HelloWorld msg="Welcome to Your Vue.js App" />-->
     <Header class="header" />
-    <ThreeTest class="threeTest" />
+    <ThreeJs class="ThreeJs" />
     <Hero class="hero" />
     <About class="about" />
     <Skills class="skills" />
@@ -25,7 +25,7 @@ import Projects from "@/components/Projects.vue";
 import Contact from "@/components/Contact.vue";
 // import Footer from "@/components/Footer.vue";
 import ScrollToUp from "@/components/ScrollToUp.vue";
-import ThreeTest from "@/components/ThreeTest.vue";
+import ThreeJs from "@/components/ThreeJs.vue";
 
 export default {
   name: "Home",
@@ -39,7 +39,7 @@ export default {
     Contact,
     // Footer,
     ScrollToUp,
-    ThreeTest,
+    ThreeJs,
   },
 };
 </script>
