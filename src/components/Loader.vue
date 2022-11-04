@@ -114,22 +114,9 @@ export default {
 
   @keyframes loading {
     0% {
-      //-webkit-transform: rotate(0deg);
       width: 0;
     }
     100% {
-      //-webkit-transform: rotate(360deg);
-      width: 100%;
-    }
-  }
-
-  @keyframes beforeLoadingTest {
-    0% {
-      //-webkit-transform: rotate(0deg);
-      width: 0;
-    }
-    100% {
-      //-webkit-transform: rotate(360deg);
       width: 100%;
     }
   }
