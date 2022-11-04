@@ -1,7 +1,9 @@
 <template>
-  <transition name="fade">
+  <transition name="slide-fade">
     <div class="loader">
-      <div class="loading"></div>
+      <img class="logo" src="../assets/img/logo.svg" alt="logo" />
+      <div class="loading">
+      </div>
     </div>
   </transition>
 </template>
@@ -20,18 +22,19 @@ export default {
 //  display: none;
 //}
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.5s ease-in;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.slide-fade-enter, .slide-fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transform: translateX(-100%);
   opacity: 0;
 }
 
 .loader {
   width: 100%;
   height: 100%;
-  background: white;
+  background: var(--backgroundColor);
   position: fixed;
   z-index: 999;
   top: 0;
@@ -39,35 +42,95 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+
+  .logo {
+    //height: inherit;
+    //position: absolute;
+    //top: 30%;
+    //left: 45%;
+    //width: 10%;
+    width: 10rem;
+    margin-bottom: 5rem;
+    filter: var(--img);
+  }
 
   .loading {
-    width: 10em;
-    height: 10em;
-    border-top: 0.5em solid white;
-    border-right: 0.5em solid white;
-    border-bottom: 0.5em solid white;
-    border-left: 0.5em solid var(--firstColor);
-    border-radius: 50%;
-    animation: loadingRotate 1s infinite linear;
+    width: 30%;
+    height: 0.2rem;
+    //background: var(--firstColor);
+    position: relative;
+    //border-top: 0.5em solid white;
+    //border-right: 0.5em solid white;
+    //border-bottom: 0.5em solid white;
+    //border-left: 0.5em solid var(--firstColor);
+    //border-radius: 50%;
+    //animation: loadingRotate 1s infinite linear;
+
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0.2rem;
+      background: var(--secondaryColor);
+      animation: 1s linear 1s forwards loading;
+      //animation-delay: 1s;
+      z-index: 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 0.2rem;
+      background: var(--firstColor);
+      animation: 1s linear 2s forwards loading;
+      z-index: 1;
+    }
   }
-  @-webkit-keyframes loadingRotate {
+  //@-webkit-keyframes loadingRotate {
+  //  0% {
+  //    -webkit-transform: rotate(0deg);
+  //    transform: rotate(0deg);
+  //  }
+  //  100% {
+  //    -webkit-transform: rotate(360deg);
+  //    transform: rotate(360deg);
+  //  }
+  //}
+  //@keyframes loadingRotate {
+  //  0% {
+  //    -webkit-transform: rotate(0deg);
+  //    transform: rotate(0deg);
+  //  }
+  //  100% {
+  //    -webkit-transform: rotate(360deg);
+  //    transform: rotate(360deg);
+  //  }
+  //}
+
+  @keyframes loading {
     0% {
-      -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
+      //-webkit-transform: rotate(0deg);
+      width: 0;
     }
     100% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
+      //-webkit-transform: rotate(360deg);
+      width: 100%;
     }
   }
-  @keyframes loadingRotate {
+
+  @keyframes beforeLoadingTest {
     0% {
-      -webkit-transform: rotate(0deg);
-      transform: rotate(0deg);
+      //-webkit-transform: rotate(0deg);
+      width: 0;
     }
     100% {
-      -webkit-transform: rotate(360deg);
-      transform: rotate(360deg);
+      //-webkit-transform: rotate(360deg);
+      width: 100%;
     }
   }
 }
