@@ -32,7 +32,7 @@
 import ProjectsModal from "@/components/ProjectsModal.vue";
 
 export default {
-  name: "Projects",
+  name: "ProjectsComponent",
   components: { ProjectsModal },
   data() {
     return {

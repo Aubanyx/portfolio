@@ -6,15 +6,15 @@
         <!--        <ThreeTest class="threeTest" />-->
         <div class="modal__img">
           <div class="modal__img__pictures">
-<!--            <img-->
-<!--              id="pic1"-->
-<!--              class="picture"-->
-<!--              v-for="(image, index) in modal.img"-->
-<!--              :key="image.id"-->
-<!--              @mouseover="changeImage(index)"-->
-<!--              :src="require('../assets/img/' + image)"-->
-<!--              alt="image"-->
-<!--            />-->
+            <!--            <img-->
+            <!--              id="pic1"-->
+            <!--              class="picture"-->
+            <!--              v-for="(image, index) in modal.img"-->
+            <!--              :key="image.id"-->
+            <!--              @mouseover="changeImage(index)"-->
+            <!--              :src="require('../assets/img/' + image)"-->
+            <!--              alt="image"-->
+            <!--            />-->
             <div
               id="pic1"
               class="picture"

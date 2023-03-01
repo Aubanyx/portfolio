@@ -48,22 +48,26 @@
       <p class="about__infos__description">{{ $t("about.description03") }}</p>
 
       <a
-        class="about__infos__btn"
+        class="about__infos__btn btnGlitch"
         href="../assets/pdf/Labie_Auban_CV.pdf"
         download=""
         >{{ $t("about.download")
-        }}<img
-          class="about__infos__btn__icon"
-          src="../assets/img/download.svg"
-          alt="Icône de téléchargement"
-      /></a>
+        }}<span aria-hidden class="btnGlitchGlitch"
+          >{{ $t("about.download") }} </span
+        ><span aria-hidden class="btnGlitchGlitchTag">R25</span>
+        <!--        <img-->
+        <!--          class="about__infos__btn__icon"-->
+        <!--          src="../assets/img/download.svg"-->
+        <!--          alt="Icône de téléchargement"-->
+        <!--      />-->
+      </a>
     </div>
   </section>
 </template>
 
 <script>
 export default {
-  name: "About",
+  name: "AboutComponent",
 };
 </script>
 
@@ -87,12 +91,18 @@ export default {
     .about__box__numbers {
       display: flex;
       justify-content: space-evenly;
-      margin: 10rem 0;
+      margin: 5rem 0;
+      flex-direction: column;
+      align-items: center;
 
       .about__box__numbers__text {
         display: flex;
         flex-direction: column;
         width: min-content;
+
+        &:nth-child(2) {
+          padding: 2rem 0;
+        }
 
         .about__box__numbers__text__number {
           font-size: 6rem;
@@ -114,7 +124,7 @@ export default {
       color: var(--quaternaryColor);
       font-weight: 200;
       text-align: justify;
-      padding: 0 10rem;
+      padding: 0 7rem;
     }
 
     .about__img {
@@ -164,12 +174,13 @@ export default {
 
   .about__infos {
     width: 100%;
-    padding: 10rem;
+    padding: 10rem 7rem;
     display: flex;
     flex-direction: column;
     //justify-content: center;
     align-items: center;
     background: var(--backgroundColor);
+    z-index: 0;
 
     .about__infos__title {
       //font-size: 3rem;
@@ -195,27 +206,369 @@ export default {
       margin: 10rem 0;
     }
 
-    .about__infos__btn {
-      background: var(--firstColor);
-      padding: 2rem;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--quaternaryColor);
-      border-radius: 0.8rem;
-      display: flex;
-      align-items: center;
+    //.about__infos__btn {
+    //  background: var(--firstColor);
+    //  padding: 2rem;
+    //  font-size: 1.5rem;
+    //  font-weight: bold;
+    //  color: var(--quaternaryColor);
+    //  border-radius: 0.8rem;
+    //  display: flex;
+    //  align-items: center;
+    //
+    //  &:hover {
+    //    background: var(--firstColor);
+    //  }
+    //
+    //  .about__infos__btn__icon {
+    //    width: 3rem;
+    //    padding-left: 1rem;
+    //  }
+    //}
 
-      &:hover {
+    .btnGlitch {
+      //--primary: hsl(0, 85%, calc(50 * 1%));
+      //--shadow-primary: hsl(180, 90%, 50%);
+      //--primary-hue: 0;
+      //--primary-lightness: 50;
+      //--color: hsl(0, 0%, 100%);
+      //--font-size: 26px;
+      //--shadow-primary-hue: 180;
+      //--label-size: 9px;
+      //--shadow-secondary-hue: 60;
+      //--shadow-secondary: hsl(60, 90%, 60%);
+      //--clip: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 70%);
+      //--border: 4px;
+      //--shimmy-distance: 5;
+      //--clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+      //--clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+      //--clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
+      //--clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+      //--clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+      //--clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
+      //--clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
+      //font-family: 'Cyber', sans-serif;
+
+      color: var(--quaternaryColor);
+      background: transparent;
+      text-transform: uppercase;
+      font-size: 26px;
+      outline: transparent;
+      letter-spacing: 2px;
+      position: relative;
+      font-weight: 700;
+      border: 0;
+      min-width: 300px;
+      height: 75px;
+      line-height: 75px;
+
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% 100%,
+          95% 100%,
+          95% 90%,
+          85% 90%,
+          85% 100%,
+          8% 100%,
+          0 70%
+        );
+        z-index: -1;
+      }
+
+      &::before {
+        background: var(--secondaryColor);
+        transform: translate(4px, 0);
+      }
+
+      &::after {
         background: var(--firstColor);
       }
 
-      .about__infos__btn__icon {
-        width: 3rem;
-        padding-left: 1rem;
+      .btnGlitchGlitch {
+        position: absolute;
+        top: calc(4px * -1);
+        left: calc(4px * -1);
+        right: calc(4px * -1);
+        bottom: calc(4px * -1);
+        background: var(--secondaryColor);
+        text-shadow: 2px 2px var(--secondaryColor),
+          -2px -2px var(--backgroundColor);
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% 100%,
+          95% 100%,
+          95% 90%,
+          85% 90%,
+          85% 100%,
+          8% 100%,
+          0 70%
+        );
+        animation: glitch 2s infinite;
+        display: none;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: calc(4px * 1);
+          right: calc(4px * 1);
+          bottom: calc(4px * 1);
+          left: calc(4px * 1);
+          clip-path: polygon(
+            0 0,
+            100% 0,
+            100% 100%,
+            95% 100%,
+            95% 90%,
+            85% 90%,
+            85% 100%,
+            8% 100%,
+            0 70%
+          );
+          background: var(--firstColor);
+          z-index: -1;
+        }
       }
+      .btnGlitchGlitchTag {
+        position: absolute;
+        padding: 1px 4px;
+        letter-spacing: 1px;
+        line-height: 1;
+        bottom: -5%;
+        right: 5%;
+        color: var(--tertiaryColor);
+        font-size: 9px;
+      }
+    }
+    .btnGlitch:hover .btnGlitchGlitch {
+      display: block;
     }
   }
 
+  @keyframes glitch {
+    0% {
+      clip-path: polygon(
+        0 2%,
+        100% 2%,
+        100% 95%,
+        95% 95%,
+        95% 90%,
+        85% 90%,
+        85% 95%,
+        8% 95%,
+        0 70%
+      );
+    }
+    2%,
+    8% {
+      clip-path: polygon(
+        0 78%,
+        100% 78%,
+        100% 100%,
+        95% 100%,
+        95% 90%,
+        85% 90%,
+        85% 100%,
+        8% 100%,
+        0 78%
+      );
+      transform: translate(calc(5 * -1%), 0);
+    }
+    6% {
+      clip-path: polygon(
+        0 78%,
+        100% 78%,
+        100% 100%,
+        95% 100%,
+        95% 90%,
+        85% 90%,
+        85% 100%,
+        8% 100%,
+        0 78%
+      );
+      transform: translate(calc(5 * 1%), 0);
+    }
+    9% {
+      clip-path: polygon(
+        0 78%,
+        100% 78%,
+        100% 100%,
+        95% 100%,
+        95% 90%,
+        85% 90%,
+        85% 100%,
+        8% 100%,
+        0 78%
+      );
+      transform: translate(0, 0);
+    }
+    10% {
+      clip-path: polygon(
+        0 44%,
+        100% 44%,
+        100% 54%,
+        95% 54%,
+        95% 54%,
+        85% 54%,
+        85% 54%,
+        8% 54%,
+        0 54%
+      );
+      transform: translate(calc(5 * 1%), 0);
+    }
+    13% {
+      clip-path: polygon(
+        0 44%,
+        100% 44%,
+        100% 54%,
+        95% 54%,
+        95% 54%,
+        85% 54%,
+        85% 54%,
+        8% 54%,
+        0 54%
+      );
+      transform: translate(0, 0);
+    }
+    14%,
+    21% {
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 0,
+        95% 0,
+        95% 0,
+        85% 0,
+        85% 0,
+        8% 0,
+        0 0
+      );
+      transform: translate(calc(5 * 1%), 0);
+    }
+    25% {
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 0,
+        95% 0,
+        95% 0,
+        85% 0,
+        85% 0,
+        8% 0,
+        0 0
+      );
+      transform: translate(calc(5 * 1%), 0);
+    }
+    30% {
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 0,
+        95% 0,
+        95% 0,
+        85% 0,
+        85% 0,
+        8% 0,
+        0 0
+      );
+      transform: translate(calc(5 * -1%), 0);
+    }
+    35%,
+    45% {
+      clip-path: polygon(
+        0 40%,
+        100% 40%,
+        100% 85%,
+        95% 85%,
+        95% 85%,
+        85% 85%,
+        85% 85%,
+        8% 85%,
+        0 70%
+      );
+      transform: translate(calc(5 * -1%));
+    }
+    40% {
+      clip-path: polygon(
+        0 40%,
+        100% 40%,
+        100% 85%,
+        95% 85%,
+        95% 85%,
+        85% 85%,
+        85% 85%,
+        8% 85%,
+        0 70%
+      );
+      transform: translate(calc(5 * 1%));
+    }
+    50% {
+      clip-path: polygon(
+        0 40%,
+        100% 40%,
+        100% 85%,
+        95% 85%,
+        95% 85%,
+        85% 85%,
+        85% 85%,
+        8% 85%,
+        0 70%
+      );
+      transform: translate(0, 0);
+    }
+    55% {
+      clip-path: polygon(
+        0 63%,
+        100% 63%,
+        100% 80%,
+        95% 80%,
+        95% 80%,
+        85% 80%,
+        85% 80%,
+        8% 80%,
+        0 70%
+      );
+      transform: translate(calc(5 * 1%), 0);
+    }
+    60% {
+      clip-path: polygon(
+        0 63%,
+        100% 63%,
+        100% 80%,
+        95% 80%,
+        95% 80%,
+        85% 80%,
+        85% 80%,
+        8% 80%,
+        0 70%
+      );
+      transform: translate(0, 0);
+    }
+    31%,
+    61%,
+    100% {
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 0,
+        95% 0,
+        95% 0,
+        85% 0,
+        85% 0,
+        8% 0,
+        0 0
+      );
+    }
+  }
   //.about {
   //  //background: yellow;
   //  //margin: 10rem 0;
@@ -304,6 +657,11 @@ export default {
 
 @media only screen and (min-width: 768px) {
   .container {
+    .about__box {
+      .about__box__numbers {
+        flex-direction: row;
+      }
+    }
     //.about {
     //  .about__divInfo {
     //    flex-direction: row;
@@ -343,10 +701,11 @@ export default {
   }
 }
 
-@media only screen and (min-width: 1224px) {
+@media only screen and (min-width: 1024px) {
   .container {
     flex-direction: row;
-    height: 100vh;
+    //height: 100vh;
+    height: 100%;
 
     .about__box {
       width: 50%;

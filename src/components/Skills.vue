@@ -35,7 +35,7 @@
 import SkillsList from "@/components/SkillsList.vue";
 
 export default {
-  name: "Skills",
+  name: "SkillsComponent",
   components: { SkillsList },
   data() {
     return {

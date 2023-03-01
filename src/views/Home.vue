@@ -2,7 +2,7 @@
   <div class="home">
     <!--    <img alt="Vue logo" src="../assets/logo.png" />-->
     <!--    <HelloWorld msg="Welcome to Your Vue.js App" />-->
-    <Header class="header" />
+    <HeaderComponent class="header" />
     <ThreeJs class="ThreeJs" />
     <Hero class="hero" />
     <About class="about" />
@@ -17,7 +17,7 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
-import Header from "@/components/Header.vue";
+import HeaderComponent from "@/components/Header.vue";
 import Hero from "@/components/Hero.vue";
 import About from "@/components/About.vue";
 import Skills from "@/components/Skills.vue";
@@ -28,10 +28,10 @@ import ScrollToUp from "@/components/ScrollToUp.vue";
 import ThreeJs from "@/components/ThreeJs.vue";
 
 export default {
-  name: "Home",
+  name: "HomeView",
   components: {
     // HelloWorld,
-    Header,
+    HeaderComponent,
     Hero,
     About,
     Skills,

@@ -67,7 +67,7 @@ import Sidebar from "@/components/menu/Sidebar.vue";
 import ThemeToggleButton from "@/components/themeToggleButton.vue";
 
 export default {
-  name: "header",
+  name: "HeaderComponent",
   components: {
     Burger,
     Sidebar,

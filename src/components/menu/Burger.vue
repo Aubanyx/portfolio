@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: "Burger",
+  name: "BurgerComponent",
   computed: {
     isBurgerActive() {
       return this.$store.state.isNavOpen;

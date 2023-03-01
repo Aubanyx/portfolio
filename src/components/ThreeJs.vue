@@ -82,16 +82,16 @@ export default {
       //   console.log("false");
       // }
 
-      const radius = 0.55;
-      const tubeRadius = 0.1;
-      const radialSegments = 3;
-      const tubularSegments = 100;
-      const geometry = new Three.TorusGeometry(
-        radius,
-        tubeRadius,
-        radialSegments,
-        tubularSegments
-      );
+      // const radius = 0.55;
+      // const tubeRadius = 0.1;
+      // const radialSegments = 3;
+      // const tubularSegments = 100;
+      // const geometry = new Three.TorusGeometry(
+      //   radius,
+      //   tubeRadius,
+      //   radialSegments,
+      //   tubularSegments
+      // );
 
       //----------------------------------------------------------------------------------------------------
       // PARTICLE
@@ -115,10 +115,10 @@ export default {
       // MATERIAL
       //----------------------------------------------------------------------------------------------------
 
-      const material = new Three.PointsMaterial({
-        size: 0.005,
-        color: "black",
-      });
+      // const material = new Three.PointsMaterial({
+      //   size: 0.005,
+      //   color: "black",
+      // });
 
       // const particlesMaterial = new Three.PointsMaterial({
       //   size: 0.005,
@@ -140,12 +140,12 @@ export default {
       // MESH
       //----------------------------------------------------------------------------------------------------
 
-      this.mesh = new Three.Points(geometry, material);
+      // this.mesh = new Three.Points(geometry, material);
       this.particlesMesh = new Three.Points(
         particlesGeometry,
         this.particlesMaterial
       );
-      this.scene.add(this.mesh, this.particlesMesh);
+      this.scene.add(this.particlesMesh);
 
       //----------------------------------------------------------------------------------------------------
       // SIZE
@@ -202,14 +202,14 @@ export default {
       //Update objects
       this.particlesMesh.rotation.x = -this.mouseY * 0.001;
       this.particlesMesh.rotation.y = -this.mouseX * 0.001;
-      this.mesh.rotation.x = this.mouseY * 0.00008;
-      this.mesh.rotation.y = this.mouseX * 0.00008;
+      // this.mesh.rotation.x = this.mouseY * 0.00008;
+      // this.mesh.rotation.y = this.mouseX * 0.00008;
 
       // this.mesh.rotation.x += 0.01;
       // this.mesh.rotation.y += 0.01;
 
       this.particlesMesh.rotation.z += 0.0005;
-      this.mesh.rotation.z -= 0.001;
+      // this.mesh.rotation.z -= 0.001;
       this.renderer.render(this.scene, this.camera);
     },
     animateParticles() {

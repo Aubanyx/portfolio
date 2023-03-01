@@ -2,15 +2,14 @@
   <transition name="slide-fade">
     <div class="loader">
       <img class="logo" src="../assets/img/logo.svg" alt="logo" />
-      <div class="loading">
-      </div>
+      <div class="loading"></div>
     </div>
   </transition>
 </template>
 
 <script>
 export default {
-  name: "Loader",
+  name: "LoaderComponent",
 };
 </script>
 
@@ -27,8 +26,9 @@ export default {
   transition: all 0.5s ease-in;
 }
 .slide-fade-enter, .slide-fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: translateX(-100%);
+  transform: translateY(-100%);
   opacity: 0.5;
+  border-radius: 0 0 100% 100%;
 }
 
 .loader {
@@ -66,7 +66,6 @@ export default {
     //border-left: 0.5em solid var(--firstColor);
     //border-radius: 50%;
     //animation: loadingRotate 1s infinite linear;
-
 
     &::before {
       content: "";

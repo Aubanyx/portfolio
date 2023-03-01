@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: "Sidebar",
+  name: "SidebarComponent",
   methods: {
     closeSidebarPanel() {
       this.$store.commit("toggleNav");

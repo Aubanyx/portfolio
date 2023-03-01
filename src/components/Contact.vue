@@ -12,8 +12,14 @@
           method="POST"
         >
           <input type="hidden" name="_captcha" value="false" />
-          <input class="inputText" type="text" name="name" placeholder="Name" required />
-          <span class="inputSpan"/>
+          <input
+            class="inputText"
+            type="text"
+            name="name"
+            placeholder="Name"
+            required
+          />
+          <span class="inputSpan" />
           <div class="contact__container__boxForm__form__box">
             <input type="text" name="subject" placeholder="Subject" required />
             <input type="email" name="email" placeholder="Email" required />
@@ -36,7 +42,7 @@
             Send message
           </button>
         </form>
-        <Footer class="footer" />
+        <FooterComponent class="footer" />
       </div>
       <div class="contact__container__boxMap">
         <div class="contact__container__boxMap__map">
@@ -61,13 +67,13 @@
 </template>
 
 <script>
-import Footer from "@/components/Footer.vue";
+import FooterComponent from "@/components/Footer.vue";
 
 export default {
-  name: "Contact",
+  name: "ContactComponent",
   components: {
     // HelloWorld,
-    Footer,
+    FooterComponent,
   },
 };
 </script>
