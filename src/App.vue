@@ -19,11 +19,11 @@ export default {
     // document.body.style.overflow = "hidden";
   },
   mounted() {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     setTimeout(() => {
       this.$store.commit("offLoading");
       // document.body.style.overflow = "overlay";
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
     }, 3000);
   },
 };

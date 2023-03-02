@@ -23,12 +23,12 @@
 export default {
   name: "HeroComponent",
   mounted() {
-    const hero = document.querySelector("#hero");
-    hero.style.transform = "translateY(100%)";
-    setTimeout(() => {
-      hero.style.transform = "translateY(0)";
-      hero.style.transition = "all 0.7s ease-in-out";
-    }, 2900);
+    // const hero = document.querySelector("#hero");
+    // hero.style.transform = "translateY(100%)";
+    // setTimeout(() => {
+    //   hero.style.transform = "translateY(0)";
+    //   hero.style.transition = "all 0.7s ease-in-out";
+    // }, 2900);
   },
 };
 </script>
