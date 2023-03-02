@@ -1,22 +1,24 @@
 <template>
-  <section id="hero" class="container">
-    <div class="hero">
-      <h4 class="title">{{ $t("hero.title") }}</h4>
-    </div>
-    <div class="scrollDown">
-      <a class="scrollDownIcon" href="#about"><span></span></a>
-      <!--      <p>Scroll2</p>-->
-    </div>
-    <div class="follow">
-      <p class="follow--text">{{ $t("hero.follow") }}</p>
-      <a class="hero__github" href="https://github.com/Aubanyx"
-        ><img src="../assets/img/github.svg" alt="Logo Github"
-      /></a>
-      <a class="hero__linkedin" href="https://www.linkedin.com/in/aubanlabie/"
-        ><img src="../assets/img/linkedin.svg" alt="Logo LinkedIn"
-      /></a>
-    </div>
-  </section>
+  <transition name="slide">
+    <section id="hero" class="container">
+      <div class="hero">
+        <h4 class="title">{{ $t("hero.title") }}</h4>
+      </div>
+      <div class="scrollDown">
+        <a class="scrollDownIcon" href="#about"><span></span></a>
+        <!--      <p>Scroll2</p>-->
+      </div>
+      <div class="follow">
+        <p class="follow--text">{{ $t("hero.follow") }}</p>
+        <a class="hero__github" href="https://github.com/Aubanyx"
+          ><img src="../assets/img/github.svg" alt="Logo Github"
+        /></a>
+        <a class="hero__linkedin" href="https://www.linkedin.com/in/aubanlabie/"
+          ><img src="../assets/img/linkedin.svg" alt="Logo LinkedIn"
+        /></a>
+      </div>
+    </section>
+  </transition>
 </template>
 
 <script>
@@ -41,6 +43,17 @@ export default {
 //  transform: translateY(0);
 //  transition: all 0.5s ease-out;
 //}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 20s ease-in-out;
+}
+.slide-enter {
+  transform: translateY(-100%);
+}
+.slide-leave-to {
+  transform: translateY(100%);
+}
 
 .container {
   background: var(--secondaryColor);

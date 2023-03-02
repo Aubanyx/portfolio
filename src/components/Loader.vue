@@ -1,5 +1,5 @@
 <template>
-  <transition name="slide-fade">
+  <transition name="slide-out">
     <div class="loader">
       <img class="logo" src="../assets/img/logo.svg" alt="logo" />
       <div class="loading"></div>
@@ -21,34 +21,17 @@ export default {
 //  display: none;
 //}
 
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: all 0.7s ease-in-out;
+.slide-out-enter-active,
+.slide-out-leave-active {
+  transition: transform 0.7s ease-in-out;
 }
-.slide-fade-enter, .slide-fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.slide-out-enter,
+.slide-out-leave-to {
   transform: translateY(-100%);
+  animation: 0.8s ease-in-out roundTransition;
 }
-
-//.loaderGroup {
-//  //position: relative;
-//}
 
 .loader {
-  //width: 100%;
-  //height: 100%;
-  ////height: 115vh;
-  //background: var(--backgroundColor);
-  //position: fixed;
-  ////position: relative;
-  //z-index: 999;
-  //top: 0;
-  //left: 0;
-  //display: flex;
-  //justify-content: center;
-  //align-items: center;
-  //flex-direction: column;
-  ////border-radius: 0 0 50% 50%;
-
   width: 150%;
   height: 120%;
   background: var(--backgroundColor);
@@ -61,7 +44,7 @@ export default {
   align-items: center;
   flex-direction: column;
   //border-radius: 0 0 50% 50%;
-  animation: 0.8s ease-in-out 2.5s forwards roundTransition;
+  //animation: 0.8s ease-in-out 2.5s roundTransition;
 
   .logo {
     //height: inherit;
@@ -146,7 +129,7 @@ export default {
     0% {
       border-radius: 0 0 50% 50%;
     }
-    70% {
+    60% {
       border-radius: 0 0 50% 50%;
     }
     100% {
