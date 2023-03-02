@@ -16,7 +16,6 @@
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
 import HeaderComponent from "@/components/Header.vue";
 import Hero from "@/components/Hero.vue";
 import About from "@/components/About.vue";
@@ -30,7 +29,6 @@ import ThreeJs from "@/components/ThreeJs.vue";
 export default {
   name: "HomeView",
   components: {
-    // HelloWorld,
     HeaderComponent,
     Hero,
     About,

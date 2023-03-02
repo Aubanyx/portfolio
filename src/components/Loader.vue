@@ -23,26 +23,45 @@ export default {
 
 .slide-fade-enter-active,
 .slide-fade-leave-active {
-  transition: all 0.5s ease-in;
+  transition: all 0.7s ease-in-out;
 }
 .slide-fade-enter, .slide-fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   transform: translateY(-100%);
-  opacity: 0.5;
-  border-radius: 0 0 100% 100%;
 }
 
+//.loaderGroup {
+//  //position: relative;
+//}
+
 .loader {
-  width: 100%;
-  height: 100%;
+  //width: 100%;
+  //height: 100%;
+  ////height: 115vh;
+  //background: var(--backgroundColor);
+  //position: fixed;
+  ////position: relative;
+  //z-index: 999;
+  //top: 0;
+  //left: 0;
+  //display: flex;
+  //justify-content: center;
+  //align-items: center;
+  //flex-direction: column;
+  ////border-radius: 0 0 50% 50%;
+
+  width: 150%;
+  height: 120%;
   background: var(--backgroundColor);
   position: fixed;
   z-index: 999;
   top: 0;
-  left: 0;
+  left: -25%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  //border-radius: 0 0 50% 50%;
+  animation: 0.8s ease-in-out 2.5s forwards roundTransition;
 
   .logo {
     //height: inherit;
@@ -53,6 +72,8 @@ export default {
     width: 10rem;
     margin-bottom: 5rem;
     filter: var(--img);
+    position: relative;
+    bottom: 10vh;
   }
 
   .loading {
@@ -60,6 +81,7 @@ export default {
     height: 0.2rem;
     //background: var(--firstColor);
     position: relative;
+    bottom: 10vh;
     //border-top: 0.5em solid white;
     //border-right: 0.5em solid white;
     //border-bottom: 0.5em solid white;
@@ -86,7 +108,7 @@ export default {
       left: 0;
       height: 0.2rem;
       background: var(--firstColor);
-      animation: 1s linear 2s forwards loading;
+      animation: 0.5s linear 2s forwards loading;
       z-index: 1;
     }
   }
@@ -117,6 +139,18 @@ export default {
     }
     100% {
       width: 100%;
+    }
+  }
+
+  @keyframes roundTransition {
+    0% {
+      border-radius: 0 0 50% 50%;
+    }
+    70% {
+      border-radius: 0 0 50% 50%;
+    }
+    100% {
+      border-radius: 0;
     }
   }
 }

@@ -16,11 +16,14 @@ export default {
   components: { Loader },
   beforeCreate() {
     this.$store.commit("onLoading");
+    // document.body.style.overflow = "hidden";
   },
   mounted() {
-    // this.$store.commit("offLoading");
+    window.scrollTo(0, 0);
     setTimeout(() => {
       this.$store.commit("offLoading");
+      // document.body.style.overflow = "overlay";
+      window.scrollTo(0, 0);
     }, 3000);
   },
 };

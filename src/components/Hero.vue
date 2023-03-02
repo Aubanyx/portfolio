@@ -22,16 +22,33 @@
 <script>
 export default {
   name: "HeroComponent",
+  mounted() {
+    const hero = document.querySelector("#hero");
+    hero.style.transform = "translateY(100%)";
+    setTimeout(() => {
+      hero.style.transform = "translateY(0)";
+      hero.style.transition = "all 0.7s ease-in-out";
+    }, 2900);
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+//.SlideHero {
+//  transform: translateY(100%);
+//}
+//.SlideHero--off {
+//  transform: translateY(0);
+//  transition: all 0.5s ease-out;
+//}
+
 .container {
   background: var(--secondaryColor);
   height: 100vh;
   width: 100%;
   position: relative;
   //z-index: -1;
+  //transform: translateY(100%);
 
   .hero {
     display: flex;
