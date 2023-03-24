@@ -2,7 +2,26 @@
   <transition name="slide">
     <section id="hero" class="container">
       <div class="hero">
-        <h4 class="title">{{ $t("hero.title") }}</h4>
+        <!--        <div class="title__Box">-->
+        <!--          <h4 class="title">{{ $t("hero.title") }}</h4>-->
+        <!--        </div>-->
+        <div class="hero__describe">
+          <h4 class="hero__describe__welcome">Welcome to my site</h4>
+          <h1 class="hero__describe__presentation">
+            Hi ! I'm <strong class="accent">Auban</strong><br />Developer Front-End<br />
+            & UI UX Designer
+          </h1>
+          <!--          <p></p>-->
+          <a class="hero__button" href="#">Get it touch</a>
+        </div>
+        <div class="hero__box">
+          <img
+            class="hero__box--img"
+            src="../assets/img/photo1Rec.png"
+            alt="picture"
+          />
+          <!--          <div class="hero__box&#45;&#45;img"></div>-->
+        </div>
       </div>
       <div class="scrollDown">
         <a class="scrollDownIcon" href="#about"><span></span></a>
@@ -48,33 +67,127 @@ export default {
 .slide-leave-active {
   transition: transform 20s ease-in-out;
 }
+
 .slide-enter {
   transform: translateY(-100%);
 }
+
 .slide-leave-to {
   transform: translateY(100%);
 }
 
 .container {
-  background: var(--secondaryColor);
+  background: var(--backgroundColor);
   height: 100vh;
   width: 100%;
   position: relative;
-  //z-index: -1;
-  //transform: translateY(100%);
+  display: flex;
+  align-items: center;
 
   .hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    z-index: 2;
+    //display: flex;
+    ////flex-direction: column;
+    //justify-content: center;
+    //align-items: center;
+    //height: 100%;
+    //width: 100%;
+    //z-index: 2;
 
-    .title {
-      font-size: 5rem;
-      color: var(--tertiaryColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+    z-index: 1;
+    margin: 0 15rem;
+
+    //.title__Box {
+    //  background: #202023;
+    //  width: 80%;
+    //  text-align: left;
+    //
+    //  .title {
+    //    font-size: 5rem;
+    //    color: var(--tertiaryColor);
+    //    padding: 2rem;
+    //    z-index: 2;
+    //  }
+    //}
+
+    .hero__describe {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 50%;
+      height: 100%;
+      text-align: left;
+
+      .hero__describe__welcome {
+        font-size: 2rem;
+        color: var(--firstColor);
+      }
+
+      .hero__describe__presentation {
+        font-size: 5rem;
+        font-weight: bold;
+        color: var(--tertiaryColor);
+        margin: 1.6rem 0 5rem;
+        line-height: 1.2;
+        //z-index: -1;
+
+        .accent {
+          color: var(--firstColor);
+        }
+      }
+
+      .hero__button {
+        background: var(--firstColor);
+        color: white;
+        width: fit-content;
+        padding: 1.6rem 2.4rem;
+        font-size: 2rem;
+        border-radius: 5rem;
+        z-index: 2;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: var(--backgroundColor);
+          border: 1px solid var(--firstColor);
+          color: var(--firstColor);
+        }
+      }
+    }
+
+    .hero__box {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 50%;
+      height: 100%;
+      //position: relative;
       z-index: 2;
+
+      //&::before {
+      //  content: "";
+      //  position: absolute;
+      //  top: -3rem;
+      //  right: 0;
+      //  background: var(--firstColor);
+      //  height: 90%;
+      //  width: 57%;
+      //  z-index: 0;
+      //  border-radius: 0 0 0 10%;
+      //}
+
+      .hero__box--img {
+        height: 100vh;
+        position: absolute;
+        transform: scaleX(-1);
+        z-index: 0;
+        bottom: 0;
+        right: 0;
+        filter: grayscale(1);
+      }
     }
   }
 
@@ -86,7 +199,8 @@ export default {
     bottom: 0;
     left: 0;
     right: 0;
-    margin-bottom: 3.7rem;
+    //margin-bottom: 3.7rem;
+    margin-bottom: 5rem;
     z-index: 2;
 
     .scrollDownIcon {

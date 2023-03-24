@@ -5,11 +5,13 @@
     <div class="hover-content">
       <ul class="listProject">
         <li
+          @mousemove="projectHover"
           class="project__element"
+          :data-index="index"
           v-for="(item, index) in projects"
           :key="'item' + index"
-          style="{ 'background-color': 'white' }"
         >
+          <div :ref="`hoverCircle-${index}`" class="projectHover"><span class="projectHoverText">View</span></div>
           <div
             class="project__subElement"
             :style="{
@@ -17,13 +19,15 @@
                 'url(' + require('../assets/img/' + item.img[0]) + ')',
             }"
           >
-            <span class="project--linkView" @click="updateModal(item)">{{
-              item.name
-            }}</span>
+<!--            <div :ref="`hoverCircle-${index}`" class="projectHover"></div>-->
+<!--            <span class="project&#45;&#45;linkView" @click="updateModal(item)">{{-->
+<!--              item.name-->
+<!--            }}</span>-->
           </div>
         </li>
       </ul>
     </div>
+    <a class="projects__button" href="#">More work on Github</a>
     <ProjectsModal />
   </section>
 </template>
@@ -45,7 +49,8 @@ export default {
           linkRepo: "https://github.com/Aubanyx/portfolio",
           linkSite: "#",
           img: [
-            "mockup.png",
+            // "mockup.png",
+            "project1.png",
             "Egypt_Historical_Museum.png",
             "Egypt_Historical_Museum.png",
             "bcbbTheWho.png",
@@ -64,6 +69,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/museum-project",
           linkSite: "https://aubanyx.github.io/museum-project/",
           img: [
+            "project2.jpg",
             "egyptMockup.jpg",
             "Egypt_Historical_Museum.png",
             "Egypt_Historical_Museum.png",
@@ -83,6 +89,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/Forum-bcbb-the-who",
           linkSite: "https://bcbb-thewho.herokuapp.com/index.php",
           img: [
+            "projectM.jpg",
             "mockup.png",
             "bcbbTheWho.png",
             "Egypt_Historical_Museum.png",
@@ -102,6 +109,7 @@ export default {
           linkRepo: "https://github.com/Aubanyx/ChaosCoffeeRestaurant",
           linkSite: "#",
           img: [
+            "projectD.png",
             "mockup.png",
             "bcbbTheWho.png",
             "Egypt_Historical_Museum.png",
@@ -200,6 +208,44 @@ export default {
     };
   },
   methods: {
+    hideCircle(index) {
+      const circle = this.$refs[`hoverCircle-${index}`][0];
+      const child = circle.children[0];
+
+      circle.style.width = "0";
+      circle.style.height = "0";
+      setTimeout(() => {
+        child.style.display = "none";
+      }, 150);
+      setTimeout(() => {
+        circle.style.display = "none";
+      }, 300);
+    },
+    projectHover(event) {
+      const index = event.target.closest('.project__element').getAttribute('data-index');
+      const circle = this.$refs[`hoverCircle-${index}`][0];
+      const parent = circle.parentElement;
+      const parentRect = parent.getBoundingClientRect();
+      const child = circle.children[0];
+
+      // circle.style.display = "flex";
+      // child.style.display = "block";
+
+      circle.style.width = "100px";
+      circle.style.height = "100px";
+
+      setTimeout(() => {
+        circle.style.left = event.clientX - parentRect.left + "px";
+        circle.style.top = event.clientY - parentRect.top + "px";
+      }, 50);
+
+      circle.style.display = "flex";
+      child.style.display = "block";
+
+      parent.addEventListener("mouseleave", () => {
+        this.hideCircle(index);
+      });
+    },
     updateModal(item) {
       this.$store.state.selectedProjects = item;
       this.$store.state.openModal = true;
@@ -216,6 +262,8 @@ export default {
   background: var(--backgroundColor);
   //height: 100vh;
   padding-top: 10rem;
+  display: flex;
+  flex-direction: column;
 
   .projects__title {
     @include Title;
@@ -234,33 +282,69 @@ export default {
     .listProject {
       display: flex;
       flex-wrap: wrap;
-      //background-image: url('../assets/img/design.svg');
 
       .project__element {
         width: 100%;
         height: 50vw;
+        background: var(--firstColor);
         overflow: hidden;
+        position: relative;
 
-        &:nth-child(even) .project__subElement span:hover {
-          background: var(--firstColor);
-          opacity: 0.9;
-          color: var(--quaternaryColor);
-          /* height: fit-content; */
-          /* padding: 1rem 0; */
-          text-decoration: underline overline 0.3rem;
-          font-size: 2rem;
-          //width: 100%;
+        //&:nth-child(even) .project__subElement span:hover {
+        //  background: var(--firstColor);
+        //  opacity: 0.9;
+        //  color: var(--quaternaryColor);
+        //  /* height: fit-content; */
+        //  /* padding: 1rem 0; */
+        //  text-decoration: underline overline 0.3rem;
+        //  font-size: 2rem;
+        //  //width: 100%;
+        //}
+
+        //&:nth-child(odd) .project__subElement span:hover {
+        //  background: antiquewhite;
+        //  opacity: 0.9;
+        //  color: rgba(0, 0, 0, 0.98);
+        //  //width: 100%;
+        //}
+
+        .projectHover {
+          width: 0;
+          height: 0;
+          border-radius: 50%;
+          background-color: var(--firstColor);
+          position: absolute;
+          left: 0;
+          top: 0;
+          transform: translate(-50%, -50%);
+          z-index: 1;
+          cursor: pointer;
+          //display: flex;
+          display: none;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          box-shadow: 0 0 20px 0 #272727;
+          transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+
+          &:hover ~ .project__subElement {
+            transform: scale(1.2);
+            filter: grayscale(0);
+          }
         }
 
-        &:nth-child(odd) .project__subElement span:hover {
-          background: antiquewhite;
-          opacity: 0.9;
-          color: rgba(0, 0, 0, 0.98);
-          //width: 100%;
+        .projectHover:hover ~ .project__subElement,
+        .project__subElement:hover {
+          transform: scale(1.2);
+          filter: grayscale(0);
         }
+
+        //.project__subElement:hover .projectHover {
+        //  transform: scale(1.2);
+        //  filter: grayscale(0);
+        //}
 
         .project__subElement {
-          //background: yellow;
           width: 100%;
           height: 100%;
           display: flex;
@@ -269,15 +353,15 @@ export default {
           position: relative;
           background-position: center;
           background-size: cover;
-          //background-size: 8rem;
           background-repeat: no-repeat;
           transition: 0.2s ease-out;
           filter: grayscale(1);
+          cursor: pointer;
 
-          &:hover {
-            transform: scale(1.2);
-            filter: grayscale(0);
-          }
+          //&:hover {
+          //  transform: scale(1.2);
+          //  filter: grayscale(0);
+          //}
 
           &:hover .project--linkView {
             opacity: 1;
@@ -288,21 +372,6 @@ export default {
             font-size: 2rem;
             color: white;
           }
-
-          //&:hover .project--linkRepo, &:hover .project--linkSite {
-          //  opacity: 1;
-          //  width: 20%;
-          //  height: 20%;
-          //  font-size: 1rem;
-          //}
-
-          //&:hover .project--linkRepo {
-          //  border: 1px solid green;
-          //}
-          //
-          //&:hover .project--linkSite {
-          //  border: 1px solid red;
-          //}
 
           &:hover::before {
             //background: blue;
@@ -324,23 +393,15 @@ export default {
             transition: 0.2s ease-out;
           }
 
-          //&:hover::after {
-          //  background: orange;
-          //  width: 40%;
-          //  height: 40%;
-          //}
-
-          //&::after {
-          //  content: "";
+          //.projectHover {
+          //  width: 100px;
+          //  height: 100px;
+          //  border-radius: 50%;
+          //  background-color: red;
           //  position: absolute;
-          //  width: 0;
-          //  height: 0;
-          //  display: flex;
-          //  justify-content: center;
-          //  align-items: center;
-          //  //background: red;
-          //  border-radius: 100%;
-          //  transition: .2s ease-out;
+          //  left: 0;
+          //  top: 0;
+          //  transform: translate(-50%, -50%);
           //}
 
           .project--linkView/*, .project--linkRepo, .project--linkSite*/ {
@@ -411,6 +472,24 @@ export default {
       }
     }
   }
+  .projects__button {
+    background: var(--firstColor);
+    color: white;
+    width: fit-content;
+    padding: 1.6rem 2.4rem;
+    font-size: 2rem;
+    border-radius: 5rem;
+    z-index: 2;
+    transition: all 0.2s ease;
+    align-self: center;
+    margin: 10rem 0;
+
+    &:hover {
+      background: var(--backgroundColor);
+      border: 1px solid var(--firstColor);
+      color: var(--firstColor);
+    }
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -420,9 +499,12 @@ export default {
   .container {
     .hover-content {
       .listProject {
+        padding: 0 15rem;
+
         .project__element {
-          width: 50%;
-          height: 25vw;
+          width: 100%;
+          height: 50vh;
+          margin: 2.5rem 0;
 
           &:nth-child(even) .project__subElement span:hover {
             font-size: 5rem;

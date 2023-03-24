@@ -253,7 +253,8 @@ export default {
       if (localStorage.getItem("themeColor") === "lightTheme") {
         this.particlesMaterial.color.setHex(0xffffff);
       } else if (localStorage.getItem("themeColor") === "darkTheme") {
-        this.particlesMaterial.color.setHex(0xd25d5f);
+        // this.particlesMaterial.color.setHex(0xd25d5f);
+        this.particlesMaterial.color.setHex(0x272727);
       }
     });
     // if (localStorage.getItem("currentTheme") === "darkTheme") {

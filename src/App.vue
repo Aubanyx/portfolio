@@ -43,7 +43,8 @@ export default {
 
 :root {
   --backgroundColor: #ffffff;
-  --firstColor: #d25d5f;
+  //--firstColor: #d25d5f;
+  --firstColor: #4fb477;
   --secondaryColor: #faebd7;
   --tertiaryColor: #000000;
   --quaternaryColor: #ffffff;
@@ -58,17 +59,21 @@ export default {
 }
 
 [data-theme="darkTheme"] {
-  --backgroundColor: #202023;
-  --firstColor: #6a5acd;
+  //--backgroundColor: #202023;
+  --backgroundColor: #272727;
+  //--firstColor: #6a5acd;
+  --firstColor: #4fb477;
   --secondaryColor: #2f4f4f;
   --tertiaryColor: #ffffff;
   --quaternaryColor: #ffffff;
-  --title: #6a5acd;
+  //--title: #6a5acd;
+  --title: #4fb477;
   --subTitle: #a6a6a6;
   --text: #ffffff;
   --img: invert(1);
-  --imgfilter: invert(35%) sepia(100%) saturate(571%) hue-rotate(213deg)
-    brightness(89%) contrast(88%);
+  //--imgfilter: invert(35%) sepia(100%) saturate(571%) hue-rotate(213deg)
+  //  brightness(89%) contrast(88%);
+  --imgfilter: filter: invert(67%) sepia(26%) saturate(807%) hue-rotate(91deg) brightness(88%) contrast(83%);;
   --skillTitle: #ffffff;
   --skillSubTitle: #ffffff;
   --backgroundInput: #202023;

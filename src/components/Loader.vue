@@ -28,7 +28,7 @@ export default {
 .slide-out-enter,
 .slide-out-leave-to {
   transform: translateY(-100%);
-  animation: 0.8s ease-in-out roundTransition;
+  animation: 0.7s ease-in-out roundTransition;
 }
 
 .loader {

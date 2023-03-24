@@ -90,8 +90,8 @@ export default {
 
     .about__box__numbers {
       display: flex;
-      justify-content: space-evenly;
-      margin: 5rem 0;
+      justify-content: space-between;
+      margin: 5rem 10rem;
       flex-direction: column;
       align-items: center;
 
@@ -124,7 +124,7 @@ export default {
       color: var(--quaternaryColor);
       font-weight: 200;
       text-align: justify;
-      padding: 0 7rem;
+      padding: 0 10rem;
     }
 
     .about__img {
@@ -174,7 +174,7 @@ export default {
 
   .about__infos {
     width: 100%;
-    padding: 10rem 7rem;
+    padding: 10rem 10rem;
     display: flex;
     flex-direction: column;
     //justify-content: center;
@@ -705,7 +705,8 @@ export default {
   .container {
     flex-direction: row;
     //height: 100vh;
-    height: 100%;
+    //height: 100%;
+    height: 100vh;
 
     .about__box {
       width: 50%;
