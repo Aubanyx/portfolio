@@ -19,7 +19,6 @@
                 'url(' + require('../assets/img/' + item.img[0]) + ')',
             }"
           >
-<!--            <div :ref="`hoverCircle-${index}`" class="projectHover"></div>-->
 <!--            <span class="project&#45;&#45;linkView" @click="updateModal(item)">{{-->
 <!--              item.name-->
 <!--            }}</span>-->
@@ -214,6 +213,8 @@ export default {
 
       circle.style.width = "0";
       circle.style.height = "0";
+      // circle.style.left = "unset";
+      // circle.style.top = "unset";
       setTimeout(() => {
         child.style.display = "none";
       }, 150);
@@ -222,25 +223,52 @@ export default {
       }, 300);
     },
     projectHover(event) {
+      // const index = event.target.closest('.project__element').getAttribute('data-index');
+      // const circle = this.$refs[`hoverCircle-${index}`][0];
+      // const parent = circle.parentElement;
+      // const parentRect = parent.getBoundingClientRect();
+      // const child = circle.children[0];
+      //
+      // circle.style.width = "100px";
+      // circle.style.height = "100px";
+      // circle.style.display = "flex";
+      // child.style.display = "block";
+      //
+      // // setTimeout(() => {
+      // //   circle.style.left = event.clientX - parentRect.left + "px";
+      // //   circle.style.top = event.clientY - parentRect.top + "px";
+      // // }, 50);
+      //
+      // circle.style.left = event.clientX - parentRect.left + "px";
+      // circle.style.top = event.clientY - parentRect.top + "px";
+      //
+      //
+      //
+      // parent.addEventListener("mouseleave", () => {
+      //   this.hideCircle(index);
+      // });
+
       const index = event.target.closest('.project__element').getAttribute('data-index');
       const circle = this.$refs[`hoverCircle-${index}`][0];
       const parent = circle.parentElement;
       const parentRect = parent.getBoundingClientRect();
       const child = circle.children[0];
 
-      // circle.style.display = "flex";
-      // child.style.display = "block";
-
+      circle.style.display = "flex";
+      child.style.display = "block";
       circle.style.width = "100px";
       circle.style.height = "100px";
 
-      setTimeout(() => {
-        circle.style.left = event.clientX - parentRect.left + "px";
-        circle.style.top = event.clientY - parentRect.top + "px";
-      }, 50);
+      let circleX = event.clientX - parentRect.left;
+      let circleY = event.clientY - parentRect.top;
 
-      circle.style.display = "flex";
-      child.style.display = "block";
+      const animateCircle = () => {
+        circle.style.left = circleX + "px";
+        circle.style.top = circleY + "px";
+        requestAnimationFrame(animateCircle);
+      };
+
+      requestAnimationFrame(animateCircle);
 
       parent.addEventListener("mouseleave", () => {
         this.hideCircle(index);
@@ -314,8 +342,8 @@ export default {
           border-radius: 50%;
           background-color: var(--firstColor);
           position: absolute;
-          left: 0;
-          top: 0;
+          //left: 0;
+          //top: 0;
           transform: translate(-50%, -50%);
           z-index: 1;
           cursor: pointer;
@@ -325,7 +353,9 @@ export default {
           align-items: center;
           color: white;
           box-shadow: 0 0 20px 0 #272727;
-          transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+          //transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+          transition: width 0.3s ease-in-out, height 0.3s ease-in-out, left 0.05s linear, top 0.05s linear;
+          will-change: left, top;
 
           &:hover ~ .project__subElement {
             transform: scale(1.2);
