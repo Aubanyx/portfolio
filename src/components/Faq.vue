@@ -40,28 +40,28 @@ export default {
     return {
       questions: [
         {
-          title: "Question 1",
-          answer: "Réponse 1",
+          title: "Suis-je ouvert à de nouvelles possibilitées proffessionnelle ?",
+          answer: "Oui, je suis à l'écoute à de nouvelles possibilitées",
           open: false,
         },
         {
-          title: "Question 2",
+          title: "Quels sont vos outils de développement web préférés ? Pourquoi les utilisez-vous ?",
           answer: "Réponse 2",
           open: false,
         },
         {
-          title: "Question 3",
+          title: "Comment abordez-vous la résolution de problèmes lors de la construction d'un site web ou d'une application ?",
           answer: "Réponse 3",
           open: false,
         },
         {
-          title: "Question 4",
+          title: "Comment collaborez-vous avec d'autres développeurs et membres de l'équipe pour garantir le succès d'un projet de développement web ?",
           answer: "Réponse 4",
           open: false,
         },
         {
-          title: "Question 5",
-          answer: "Réponse 5",
+          title: "Combien de cafés est-ce que je bois ?",
+          answer: "Erreur.",
           open: false,
         },
       ],
@@ -128,13 +128,13 @@ export default {
       //margin: 5rem 0;
       text-align: left;
       border-bottom: 1px solid #27272740;
-      font-size: 2rem;
+      font-size: 1.6rem;
       //transition: all 0.2s ease;
 
       .faq__question--text {
         display: flex;
         position: relative;
-        justify-content: space-between;
+        //justify-content: space-between;
         align-items: center;
         color: #808080;
         font-weight: bold;
@@ -146,8 +146,8 @@ export default {
           content: url("../assets/img/plus.svg");
           position: absolute;
           left: 0;
-          width: 2rem;
-          height: 2rem;
+          width: 1.6rem;
+          height: 1.6rem;
           filter: invert(61%) sepia(39%) saturate(520%) hue-rotate(91deg) brightness(94%) contrast(91%);
         }
 
@@ -173,6 +173,13 @@ export default {
     .faq__question:last-of-type {
       border: none;
     }
+  }
+}
+@media only screen and (min-width: 768px) {
+}
+@media only screen and (min-width: 1024px) {
+  #faq {
+    padding: 10rem 15rem;
   }
 }
 </style>
