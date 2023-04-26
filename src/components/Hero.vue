@@ -180,7 +180,7 @@ export default {
       //}
 
       .hero__box--img {
-        height: 100vh;
+        height: 90vh;
         position: absolute;
         transform: scaleX(-1);
         z-index: 0;

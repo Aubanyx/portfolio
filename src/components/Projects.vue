@@ -11,7 +11,9 @@
           v-for="(item, index) in projects"
           :key="'item' + index"
         >
-          <div :ref="`hoverCircle-${index}`" class="projectHover"><span class="projectHoverText">View</span></div>
+          <div :ref="`hoverCircle-${index}`" class="projectHover" @click="updateModal(item)">
+            <span class="projectHoverText">View</span>
+          </div>
           <div
             class="project__subElement"
             :style="{
@@ -19,7 +21,7 @@
                 'url(' + require('../assets/img/' + item.img[0]) + ')',
             }"
           >
-<!--            <span class="project&#45;&#45;linkView" @click="updateModal(item)">{{-->
+<!--            <span class="project&#45;&#45;linkView">{{-->
 <!--              item.name-->
 <!--            }}</span>-->
           </div>
@@ -277,6 +279,7 @@ export default {
     updateModal(item) {
       this.$store.state.selectedProjects = item;
       this.$store.state.openModal = true;
+      document.body.style.overflowY = "hidden";
     },
   },
   mounted() {

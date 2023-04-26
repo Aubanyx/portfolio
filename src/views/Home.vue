@@ -8,6 +8,7 @@
     <About class="about" />
     <Skills class="skills" />
     <Projects class="projects" />
+    <Faq class="faq" />
     <Contact class="contact" />
     <!--    <Footer class="footer" />-->
     <ScrollToUp class="scrollToUp" />
@@ -21,6 +22,7 @@ import Hero from "@/components/Hero.vue";
 import About from "@/components/About.vue";
 import Skills from "@/components/Skills.vue";
 import Projects from "@/components/Projects.vue";
+import Faq from "@/components/Faq.vue";
 import Contact from "@/components/Contact.vue";
 // import Footer from "@/components/Footer.vue";
 import ScrollToUp from "@/components/ScrollToUp.vue";
@@ -34,6 +36,7 @@ export default {
     About,
     Skills,
     Projects,
+    Faq,
     Contact,
     // Footer,
     ScrollToUp,

@@ -43,6 +43,8 @@
       <h2 class="about__infos__title">{{ $t("about.title") }}</h2>
       <h3 class="about__infos__subtitle">{{ $t("about.subtitle") }}</h3>
 
+      <p class="about__infos__description">{{ $t("about.description01") }}</p>
+
       <p class="about__infos__description">{{ $t("about.description02") }}</p>
 
       <p class="about__infos__description">{{ $t("about.description03") }}</p>
@@ -200,10 +202,14 @@ export default {
       @include Text;
       font-weight: 200;
       text-align: justify;
+
+      &:nth-of-type(2) {
+        margin: 5rem 0;
+      }
     }
 
     .about__infos__description:last-of-type {
-      margin: 10rem 0;
+      margin-bottom: 10rem;
     }
 
     //.about__infos__btn {

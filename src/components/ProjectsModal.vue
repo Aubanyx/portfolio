@@ -1,8 +1,9 @@
 <template>
-  <transition>
-    <div v-show="this.openModal">
-      <div class="overlay" @click="modalClose()"></div>
-      <div class="modal">
+  <div>
+    <div class="overlay" @click="modalClose()" v-show="this.openModal"></div>
+    <transition name="slide">
+      <div class="modal" v-show="this.openModal">
+        <div id="preview" class="preview"></div>
         <!--        <ThreeTest class="threeTest" />-->
         <div class="modal__img">
           <div class="modal__img__pictures">
@@ -45,7 +46,7 @@
           </div>
         </div>
         <div class="modal__infos">
-          <div id="preview" class="preview"></div>
+  <!--          <div id="preview" class="preview"></div>-->
           <h3 class="modal__infos--title">{{ modal.name }}</h3>
           <p
             class="modal__infos--state"
@@ -82,8 +83,8 @@
           </div>
         </div>
       </div>
-    </div>
-  </transition>
+    </transition>
+  </div>
 </template>
 
 <script>
@@ -128,6 +129,10 @@ export default {
   methods: {
     modalClose() {
       this.$store.state.openModal = false;
+      document.body.style.overflowY = "";
+      // window.scrollTo({
+      //   top: 0,
+      // });
     },
     changeImage(newImageIndex) {
       this.myImageIndex = newImageIndex;
@@ -244,6 +249,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.2s ease;
+}
+
+.slide-enter,
+.slide-leave-to {
+  transform: translateX(-100%);
+  transition: all 150ms ease-in 0s;
+}
+
 .overlay {
   position: fixed;
   width: 100%;
@@ -268,25 +284,36 @@ export default {
   //height: 96%;
   //height: 70%;
   background: white;
-  border: 1rem solid black;
-  border-radius: 1rem;
+  //border: 1rem solid black;
+  //border-radius: 1rem;
   z-index: 99;
   display: flex;
-  flex-direction: column;
-  padding: 2rem;
+  flex-direction: column-reverse;
+  //padding: 2rem;
 
-  &::before {
-    content: "";
-    background-image: url("../assets/img/topography.svg");
-    filter: invert(82%) sepia(4%) saturate(2230%) hue-rotate(325deg)
-      brightness(120%) contrast(96%);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+  .preview {
+    position: fixed;
+    top: 20%;
+    left: 80rem;
+    width: 40rem;
+    height: 40rem;
+    //margin-left: 5rem;
+    //background: aqua;
+    z-index: 1;
   }
+
+  //&::before {
+  //  content: "";
+  //  background-image: url("../assets/img/topography.svg");
+  //  filter: invert(82%) sepia(4%) saturate(2230%) hue-rotate(325deg)
+  //    brightness(120%) contrast(96%);
+  //  position: absolute;
+  //  top: 0;
+  //  left: 0;
+  //  width: 100%;
+  //  height: 100%;
+  //  z-index: -1;
+  //}
 
   .modal__img {
     display: flex;
@@ -317,17 +344,17 @@ export default {
         &::before {
           content: "";
           position: absolute;
-          top: 50%;
-          left: -2rem;
-          width: 0.2rem;
-          height: 0;
+          left: 50%;
+          top: -2rem;
+          height: 0.2rem;
+          width: 0;
           background: var(--firstColor);
           transition: 0.3s ease;
         }
 
         &:hover::before {
-          top: 25%;
-          height: 5rem;
+          left: 25%;
+          width: 5rem;
         }
 
         &:hover {
@@ -373,16 +400,16 @@ export default {
     //padding-left: 5rem;
     position: relative;
 
-    .preview {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 40rem;
-      height: 40rem;
-      margin-left: 5rem;
-      //background: aqua;
-      z-index: 1;
-    }
+    //.preview {
+    //  position: absolute;
+    //  top: 0;
+    //  left: 0;
+    //  width: 40rem;
+    //  height: 40rem;
+    //  margin-left: 5rem;
+    //  //background: aqua;
+    //  z-index: 1;
+    //}
 
     .modal__infos--title {
       font-size: 4rem;
@@ -550,17 +577,40 @@ export default {
 
 @media only screen and (min-width: 1024px) {
   .modal {
-    flex-direction: row;
-    padding: 5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70rem;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--firstColor);
+      //border-radius: 2rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      //border-radius: 0.5rem;
+      //box-shadow: inset 0 0 1rem rgba(0, 0, 0, 0.25);
+      background-color: #484848;
+    }
 
     .modal__img {
-      flex-direction: row;
-      width: 70%;
+      //flex-direction: row;
+      //width: 70%;
+      padding: 5rem;
+      background: var(--backgroundColor);
 
       .modal__img__pictures {
-        flex-direction: column;
-        flex-wrap: nowrap;
-        margin-right: 2rem;
+        //flex-direction: column;
+        //flex-wrap: nowrap;
+        //margin-right: 2rem;
+        justify-content: space-between;
 
         .picture {
           margin-right: 0;
@@ -571,7 +621,10 @@ export default {
     }
 
     .modal__infos {
-      padding-left: 5rem;
+      //margin-bottom: 5rem;
+      //padding-left: 5rem;
+      padding: 5rem;
+      background: #3d5343ff;
 
       .modal__infos--state,
       .modal__infos--state-off {
