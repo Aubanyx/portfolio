@@ -40,7 +40,7 @@ export default {
     return {
       questions: [
         {
-          title: "Suis-je ouvert à de nouvelles possibilitées proffessionnelle ?",
+          title: "Suis-je ouvert à de nouvelles possibilitées professionnelle ?",
           answer: "Oui, je suis à l'écoute à de nouvelles possibilitées",
           open: false,
         },
@@ -127,7 +127,7 @@ export default {
     .faq__question {
       //margin: 5rem 0;
       text-align: left;
-      border-bottom: 1px solid #27272740;
+      border-bottom: 1px solid rgba(39, 39, 39, 0.25);
       font-size: 1.6rem;
       //transition: all 0.2s ease;
 

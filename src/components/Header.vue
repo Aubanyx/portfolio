@@ -187,7 +187,7 @@ export default {
         padding-left: 5rem;
 
         .sidebar--title {
-          color: var(--firstColor);
+          color: var(--color-primary);
           margin-bottom: 4rem;
           font-size: 1.7rem;
         }
@@ -216,7 +216,7 @@ export default {
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--firstColor);
+            background: var(--color-primary);
             transition: 0.3s ease;
           }
         }
@@ -275,7 +275,7 @@ export default {
         cursor: pointer;
 
         &:hover {
-          background: var(--firstColor);
+          background: var(--color-primary);
           color: var(--quaternaryColor);
         }
 

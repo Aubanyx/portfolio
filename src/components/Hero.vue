@@ -77,12 +77,13 @@ export default {
 }
 
 .container {
-  background: var(--backgroundColor);
+  background: var(--color-background-primary);
   height: 100vh;
   width: 100%;
   position: relative;
   display: flex;
   align-items: center;
+  border: 5rem solid var(--color-background-secondary);
 
   .hero {
     //display: flex;
@@ -94,7 +95,7 @@ export default {
     //z-index: 2;
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 50%;
     width: 100%;
@@ -124,7 +125,7 @@ export default {
 
       .hero__describe__welcome {
         font-size: 2rem;
-        color: var(--firstColor);
+        color: var(--color-primary);
       }
 
       .hero__describe__presentation {
@@ -136,12 +137,12 @@ export default {
         //z-index: -1;
 
         .accent {
-          color: var(--firstColor);
+          color: var(--color-primary);
         }
       }
 
       .hero__button {
-        background: var(--firstColor);
+        background: var(--color-primary);
         color: white;
         width: fit-content;
         padding: 1.6rem 2.4rem;
@@ -151,15 +152,15 @@ export default {
         transition: all 0.2s ease;
 
         &:hover {
-          background: var(--backgroundColor);
-          border: 1px solid var(--firstColor);
-          color: var(--firstColor);
+          background: var(--color-background-primary);
+          border: 1px solid var(--color-primary);
+          color: var(--color-primary);
         }
       }
     }
 
     .hero__box {
-      display: flex;
+      display: none;
       justify-content: flex-end;
       align-items: center;
       width: 50%;
@@ -172,7 +173,7 @@ export default {
       //  position: absolute;
       //  top: -3rem;
       //  right: 0;
-      //  background: var(--firstColor);
+      //  background: var(--color-primary);
       //  height: 90%;
       //  width: 57%;
       //  z-index: 0;
@@ -187,6 +188,8 @@ export default {
         bottom: 0;
         right: 0;
         filter: grayscale(1);
+
+        display: none;
       }
     }
   }
@@ -226,7 +229,7 @@ export default {
           right: 0;
           left: 50%;
           transform: translateX(-50%);
-          background-color: var(--firstColor);
+          background-color: var(--color-primary);
           border-radius: 100%;
           animation: scrollAnimation 2s infinite;
           box-sizing: border-box;

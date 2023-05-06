@@ -31,8 +31,8 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: Sora, Avenir, Helvetica, Arial, sans-serif;
-  //font-family: Inter, Sora, Avenir, Helvetica, Arial, sans-serif;
+  //font-family: Sora, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, Sora, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -43,6 +43,21 @@ export default {
 }
 
 :root {
+  //#455CE9 Blue
+  //#334BD3 Dark blue
+  //#1C1D20 Dark
+  //#141517 Dark dark
+  --color-primary: #455CE9;
+  --color-primary-dark: #334BD3;
+  --color-background-primary: #FFFFFF;
+  --color-background-secondary: #F2F2F2;
+  --color-background-tertiary: #141517;
+  --color-background-quaternary: #1C1D20;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #808080;
+  --color-text-tertiary: #1C1D20;
+  --color-border: #27272740;
+
   --backgroundColor: #ffffff;
   //--firstColor: #d25d5f;
   --firstColor: #4fb477;
@@ -60,6 +75,16 @@ export default {
 }
 
 [data-theme="darkTheme"] {
+  --color-primary: #455CE9;
+  --color-primary-dark: #334BD3;
+  --color-background-primary: #1C1D20;
+  --color-background-secondary: #141517;
+  --color-background-tertiary: #F2F2F2;
+  --color-background-quaternary: #FFFFFF;
+  --color-text-primary: #1C1D20;
+  --color-text-secondary: #808080;
+  --color-text-tertiary: #FFFFFF;
+  --color-border: #27272740;
   //--backgroundColor: #202023;
   --backgroundColor: #272727;
   //--firstColor: #6a5acd;

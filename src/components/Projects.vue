@@ -11,7 +11,11 @@
           v-for="(item, index) in projects"
           :key="'item' + index"
         >
-          <div :ref="`hoverCircle-${index}`" class="projectHover" @click="updateModal(item)">
+          <div
+            :ref="`hoverCircle-${index}`"
+            class="projectHover"
+            @click="updateModal(item)"
+          >
             <span class="projectHoverText">View</span>
           </div>
           <div
@@ -21,9 +25,19 @@
                 'url(' + require('../assets/img/' + item.img[0]) + ')',
             }"
           >
-<!--            <span class="project&#45;&#45;linkView">{{-->
-<!--              item.name-->
-<!--            }}</span>-->
+            <!--            <span class="project&#45;&#45;linkView">{{-->
+            <!--              item.name-->
+            <!--            }}</span>-->
+          </div>
+          <div class="project__element__text">
+            <p class="project__element__text--name">{{ item.name }}</p>
+            <img
+              class="project__element__text--participants"
+              :src="
+                require('../assets/img/icons/' + item.participants + '.svg')
+              "
+              :alt="item.participants"
+            />
           </div>
         </li>
       </ul>
@@ -58,7 +72,7 @@ export default {
             "Egypt_Historical_Museum.png",
             "Egypt_Historical_Museum.png",
           ],
-          backColor: "green",
+          participants: "solo",
           state: this.$i18n.t("projects.modal.portfolio.online"),
           open: false,
         },
@@ -78,7 +92,7 @@ export default {
             "Egypt_Historical_Museum.png",
             "Egypt_Historical_Museum.png",
           ],
-          backColor: "blue",
+          participants: "group",
           state: this.$i18n.t("projects.modal.museum.online"),
           open: false,
         },
@@ -98,7 +112,7 @@ export default {
             "Egypt_Historical_Museum.png",
             "Egypt_Historical_Museum.png",
           ],
-          backColor: "violet",
+          participants: "group",
           state: this.$i18n.t("projects.modal.forum.online"),
           open: false,
         },
@@ -118,7 +132,7 @@ export default {
             "Egypt_Historical_Museum.png",
             "Egypt_Historical_Museum.png",
           ],
-          backColor: "beige",
+          participants: "group",
           state: this.$i18n.t("projects.modal.chaos.online"),
           open: false,
         },
@@ -144,7 +158,7 @@ export default {
             "Egypt_Historical_Museum.png",
             "Egypt_Historical_Museum.png",
           ],
-          backColor: "cyan",
+          participants: "group",
           state: this.$i18n.t("projects.modal.leaf.online"),
           open: false,
         },
@@ -163,48 +177,46 @@ export default {
             "Egypt_Historical_Museum.png",
             "Egypt_Historical_Museum.png",
           ],
-          backColor: "red",
+          participants: "solo",
           state: this.$i18n.t("projects.modal.pomodoro.online"),
           open: false,
         },
-        {
-          logo: "terminal.svg",
-          name: this.$i18n.t("projects.modal.holidays.name"),
-          description: this.$i18n.t("projects.modal.holidays.description"),
-          techUse: ["Terminal"],
-          linkRepo: "https://github.com/Aubanyx/holidays-CLI",
-          linkSite: "#",
-          img: [
-            "mockup.png",
-            "terminal.svg",
-            "Egypt_Historical_Museum.png",
-            "bcbbTheWho.png",
-            "Egypt_Historical_Museum.png",
-            "Egypt_Historical_Museum.png",
-          ],
-          backColor: "purple",
-          state: this.$i18n.t("projects.modal.holidays.online"),
-          open: false,
-        },
-        {
-          logo: "terminal.svg",
-          name: this.$i18n.t("projects.modal.card.name"),
-          description: this.$i18n.t("projects.modal.card.description"),
-          techUse: ["Terminal"],
-          linkRepo: "https://github.com/Aubanyx/npx-card",
-          linkSite: "#",
-          img: [
-            "mockup.png",
-            "terminal.svg",
-            "Egypt_Historical_Museum.png",
-            "bcbbTheWho.png",
-            "Egypt_Historical_Museum.png",
-            "Egypt_Historical_Museum.png",
-          ],
-          backColor: "yellow",
-          state: this.$i18n.t("projects.modal.card.online"),
-          open: false,
-        },
+        // {
+        //   logo: "terminal.svg",
+        //   name: this.$i18n.t("projects.modal.holidays.name"),
+        //   description: this.$i18n.t("projects.modal.holidays.description"),
+        //   techUse: ["Terminal"],
+        //   linkRepo: "https://github.com/Aubanyx/holidays-CLI",
+        //   linkSite: "#",
+        //   img: [
+        //     "mockup.png",
+        //     "terminal.svg",
+        //     "Egypt_Historical_Museum.png",
+        //     "bcbbTheWho.png",
+        //     "Egypt_Historical_Museum.png",
+        //     "Egypt_Historical_Museum.png",
+        //   ],
+        //   state: this.$i18n.t("projects.modal.holidays.online"),
+        //   open: false,
+        // },
+        // {
+        //   logo: "terminal.svg",
+        //   name: this.$i18n.t("projects.modal.card.name"),
+        //   description: this.$i18n.t("projects.modal.card.description"),
+        //   techUse: ["Terminal"],
+        //   linkRepo: "https://github.com/Aubanyx/npx-card",
+        //   linkSite: "#",
+        //   img: [
+        //     "mockup.png",
+        //     "terminal.svg",
+        //     "Egypt_Historical_Museum.png",
+        //     "bcbbTheWho.png",
+        //     "Egypt_Historical_Museum.png",
+        //     "Egypt_Historical_Museum.png",
+        //   ],
+        //   state: this.$i18n.t("projects.modal.card.online"),
+        //   open: false,
+        // },
       ],
     };
   },
@@ -250,7 +262,13 @@ export default {
       //   this.hideCircle(index);
       // });
 
-      const index = event.target.closest('.project__element').getAttribute('data-index');
+      if (screen.width < 1024) {
+        return;
+      }
+
+      const index = event.target
+        .closest(".project__element")
+        .getAttribute("data-index");
       const circle = this.$refs[`hoverCircle-${index}`][0];
       const parent = circle.parentElement;
       const parentRect = parent.getBoundingClientRect();
@@ -292,7 +310,8 @@ export default {
 .container {
   background: var(--backgroundColor);
   //height: 100vh;
-  padding-top: 10rem;
+  //padding-top: 10rem;
+  padding: 10rem 5rem;
   display: flex;
   flex-direction: column;
 
@@ -318,26 +337,38 @@ export default {
         width: 100%;
         height: 50vw;
         background: var(--firstColor);
-        overflow: hidden;
+        //overflow: hidden;
         position: relative;
+        margin: 8rem 0;
+        border-radius: 1rem;
 
-        //&:nth-child(even) .project__subElement span:hover {
-        //  background: var(--firstColor);
-        //  opacity: 0.9;
-        //  color: var(--quaternaryColor);
-        //  /* height: fit-content; */
-        //  /* padding: 1rem 0; */
-        //  text-decoration: underline overline 0.3rem;
-        //  font-size: 2rem;
-        //  //width: 100%;
-        //}
+        &:first-of-type {
+          margin-top: 0;
+        }
 
-        //&:nth-child(odd) .project__subElement span:hover {
-        //  background: antiquewhite;
-        //  opacity: 0.9;
-        //  color: rgba(0, 0, 0, 0.98);
-        //  //width: 100%;
-        //}
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+
+        .project__element__text {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          padding: 2rem 0;
+          border-bottom: 1px solid #f2f2f2;
+          justify-content: space-between;
+
+          .project__element__text--name {
+            font-size: 2rem;
+            color: white;
+          }
+
+          .project__element__text--participants {
+            height: 3rem;
+            width: 3rem;
+            filter: invert(1);
+          }
+        }
 
         .projectHover {
           width: 0;
@@ -357,7 +388,8 @@ export default {
           color: white;
           box-shadow: 0 0 20px 0 #272727;
           //transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-          transition: width 0.3s ease-in-out, height 0.3s ease-in-out, left 0.05s linear, top 0.05s linear;
+          transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+            left 0.05s linear, top 0.05s linear;
           will-change: left, top;
 
           &:hover ~ .project__subElement {
@@ -371,11 +403,6 @@ export default {
           transform: scale(1.2);
           filter: grayscale(0);
         }
-
-        //.project__subElement:hover .projectHover {
-        //  transform: scale(1.2);
-        //  filter: grayscale(0);
-        //}
 
         .project__subElement {
           width: 100%;
@@ -538,6 +565,11 @@ export default {
           width: 100%;
           height: 50vh;
           margin: 2.5rem 0;
+          overflow: hidden;
+
+          .project__element__text {
+            display: none;
+          }
 
           &:nth-child(even) .project__subElement span:hover {
             font-size: 5rem;

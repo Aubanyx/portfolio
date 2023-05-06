@@ -1,5 +1,7 @@
 <template>
   <section id="tabs">
+    <h2 class="tabsTitle">Skills</h2>
+    <p class="tabsText">Mes compétences techniques et non techniques sont le fruit d'une formation solide, d'une expérience professionnelle diversifiée et d'un engagement constant envers l'apprentissage et l'amélioration. Découvrez ci-dessous les compétences qui me démarquent en tant que développeur et font de moi un atout précieux pour toute équipe de projet.</p>
     <div class="tabs__container">
       <div class="tabs__header">
         <div class="tab__wrapper">
@@ -141,8 +143,25 @@ export default {
   //height: 20rem;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding: 10rem 5rem;
+
+  .tabsTitle {
+    font-size: 7rem;
+    align-self: flex-start;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+  }
+
+  .tabsText {
+    font-size: 2rem;
+    font-weight: 300;
+    margin-bottom: 8rem;
+    align-self: flex-start;
+    text-align: left;
+    line-height: 1.2;
+  }
 
   .tabs__container {
     display: flex;
@@ -231,6 +250,11 @@ export default {
 }
 @media only screen and (min-width: 768px) {
   #tabs {
+    align-items: center;
+
+    .tabsTitle {
+      font-size: 10rem;
+    }
     .tabs__container {
       display: flex;
       flex-direction: column;
@@ -254,6 +278,10 @@ export default {
 @media only screen and (min-width: 1024px) {
   #tabs {
     padding: 10rem 15rem;
+
+    .tabsText {
+      width: 60%;
+    }
 
     .tabs__container {
       width: 100%;

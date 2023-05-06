@@ -104,7 +104,7 @@ button:focus {
 }
 
 #burger.active:hover .burger-bar {
-  background-color: var(--firstColor);
+  background-color: var(--color-primary);
 }
 
 #burger.active .burger-bar--1 {

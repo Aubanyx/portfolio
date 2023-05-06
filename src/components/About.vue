@@ -27,6 +27,26 @@
             {{ $t("about.coffees") }}
           </p>
         </div>
+<!--        <img-->
+<!--          class="badgr"-->
+<!--          src="https://api.badgr.io/public/assertions/W4Cb_jwhRXKr3RtHnyrkaw/image"-->
+<!--          alt="Change Enthusiast"-->
+<!--        />-->
+<!--        <img-->
+<!--          class="badgr"-->
+<!--          src="https://api.badgr.io/public/assertions/1ivBwIkpQcSl3LzWXdz0nQ/image"-->
+<!--          alt="Solution-Oriented"-->
+<!--        />-->
+<!--        <img-->
+<!--          class="badgr"-->
+<!--          src="https://api.badgr.io/public/assertions/9Jx_NeJVTRCTf1n-ny_KFw/image"-->
+<!--          alt="Continuous Learner"-->
+<!--        />-->
+<!--        <img-->
+<!--          class="badgr"-->
+<!--          src="https://api.badgr.io/public/assertions/KTYONKedTOqIXwiqolImcg/image"-->
+<!--          alt="Team player"-->
+<!--        />-->
       </div>
       <p class="about__box__description">{{ $t("about.description01") }}</p>
       <!--      <div class="about__divInfo">-->
