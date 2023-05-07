@@ -47,7 +47,7 @@
           </p>
           <p class="modal__infos--description">{{ modal.description }}</p>
           <p class="modal__infos--techs">
-            Technologies used :
+<!--            Technologies used :-->
             <span
               class="modal__infos--techs--tech"
               v-for="tech in modal.techUse"
@@ -57,7 +57,7 @@
           </p>
           <div class="modal__infos__links">
             <a class="modal__infos__links--linkRepo" :href="modal.linkRepo"
-              >GitHub<img
+              >Voir le code<img
                 class="imgGithub"
                 src="../assets/img/githubRed.svg"
                 alt="Link Github project"
@@ -66,7 +66,7 @@
               class="modal__infos__links--linkWeb"
               v-if="modal.state === 'online'"
               :href="modal.linkSite"
-              >Website<img
+              >Voir le site<img
                 class="imgWebsite"
                 src="../assets/img/websiteRed.svg"
                 alt="Link website project"
@@ -307,8 +307,8 @@ export default {
       justify-content: space-between;
 
       .picture {
-        width: 5rem;
-        height: 5rem;
+        width: 6rem;
+        height: 6rem;
         border: 1px solid black;
         margin-bottom: 1rem;
         //margin-right: 2rem;
@@ -381,14 +381,15 @@ export default {
       width: 5rem;
       height: 5rem;
       position: absolute;
-      top: 1rem;
-      right: 1rem;
+      top: 0;
+      right: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      border-radius: 50rem;
+      //border-radius: 50rem;
+      border-radius: 0 0 0 5rem;
       color: white;
-      box-shadow: 0 0 20px 0 var(--color-background-primary);
+      //box-shadow: 0 0 20px 0 var(--color-background-primary);
       transition: all 0.2s ease;
 
       &:hover {
@@ -410,21 +411,21 @@ export default {
         left: 0;
         width: 10rem;
         height: 0.1rem;
-        background: black;
+        background: var(--color-text-secondary);
       }
     }
 
     .modal__infos--state {
       //margin-bottom: 2rem;
-      color: darkseagreen;
-      border: 1px solid darkseagreen;
+      color: var(--color-text-secondary);
+      border: 1px solid var(--color-text-secondary);
       border-radius: 1rem;
       font-size: 1.2rem;
       padding: 0.5rem;
       transition: 0.2s ease;
 
       &:hover {
-        background: darkseagreen;
+        background: var(--color-text-secondary);
         color: white;
       }
     }
@@ -454,19 +455,24 @@ export default {
       margin-bottom: 5rem;
 
       display: flex;
-      flex-direction: column;
+      //flex-direction: column;
       justify-content: flex-start;
-      align-items: normal;
+      align-items: center;
       width: 100%;
 
       .modal__infos--techs--tech {
         //margin-right: 1rem;
-        border: 1px solid dodgerblue;
+        border: 1px solid var(--color-text-secondary);
         border-radius: 2rem;
         padding: 0.5rem;
-        color: dodgerblue;
-        margin-top: 1rem;
+        color: var(--color-text-secondary);
+        margin-right: 1rem;
+        width: fit-content;
         transition: 0.2s ease;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
 
         &:hover {
           background: dodgerblue;
@@ -481,11 +487,6 @@ export default {
       width: 100%;
       align-items: center;
 
-      .modal__infos__links--linkRepo {
-        margin-bottom: 2rem;
-        //margin-right: 2rem;
-      }
-
       .modal__infos__links--linkWeb,
       .modal__infos__links--linkRepo {
         padding: 1rem;
@@ -496,6 +497,7 @@ export default {
         justify-content: center;
         align-items: center;
         width: 100%;
+        border-radius: 5rem;
         transition: 0.2s ease;
 
         &:hover {
@@ -507,13 +509,26 @@ export default {
         .imgWebsite {
           width: 3rem;
           margin-left: 1rem;
+          filter: var(--imgfilter);
           transition: 0.2s ease;
         }
       }
-      .modal__infos__links--linkRepo:hover .imgGithub {
-        filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(318deg)
-          brightness(250%) contrast(107%);
+
+      .modal__infos__links--linkRepo {
+        margin-bottom: 2rem;
+        background: var(--color-primary);
+        color: white;
+
+        .imgGithub {
+          filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(318deg)
+            brightness(250%) contrast(107%);
+        }
       }
+
+      //.modal__infos__links--linkRepo:hover .imgGithub {
+      //  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(318deg)
+      //    brightness(250%) contrast(107%);
+      //}
 
       .modal__infos__links--linkWeb:hover .imgWebsite {
         filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(318deg)
@@ -639,6 +654,7 @@ export default {
         .modal__infos__links--linkWeb,
         .modal__infos__links--linkRepo {
           width: fit-content;
+          padding: 1.6rem 2.4rem;
         }
       }
     }

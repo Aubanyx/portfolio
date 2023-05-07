@@ -68,7 +68,8 @@ export default {
   --subTitle: #a6a6a6;
   --text: #000000;
   --img: invert(0);
-  --imgfilter: invert(0);
+  //--imgfilter: invert(0);
+  --imgfilter: invert(38%) sepia(40%) saturate(1461%) hue-rotate(202deg) brightness(93%) contrast(114%);
   --skillTitle: #000000;
   --skillSubTitle: #000000;
   --backgroundInput: #fcfcfc;
@@ -99,7 +100,10 @@ export default {
   --img: invert(1);
   //--imgfilter: invert(35%) sepia(100%) saturate(571%) hue-rotate(213deg)
   //  brightness(89%) contrast(88%);
-  --imgfilter: filter: invert(67%) sepia(26%) saturate(807%) hue-rotate(91deg) brightness(88%) contrast(83%);;
+  //--imgfilter: filter: invert(67%) sepia(26%) saturate(807%) hue-rotate(91deg) brightness(88%) contrast(83%);
+  --imgfilter: invert(38%) sepia(40%) saturate(1461%) hue-rotate(202deg) brightness(93%) contrast(114%);
+
+
   --skillTitle: #ffffff;
   --skillSubTitle: #ffffff;
   --backgroundInput: #202023;
