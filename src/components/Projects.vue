@@ -24,11 +24,8 @@
               'background-image':
                 'url(' + require('../assets/img/' + item.img[0]) + ')',
             }"
-          >
-            <!--            <span class="project&#45;&#45;linkView">{{-->
-            <!--              item.name-->
-            <!--            }}</span>-->
-          </div>
+            @click="updateModal(item)"
+          ></div>
           <div class="project__element__text">
             <p class="project__element__text--name">{{ item.name }}</p>
             <img
@@ -42,7 +39,7 @@
         </li>
       </ul>
     </div>
-    <a class="projects__button" href="#">More work on Github</a>
+    <a v-magnetic="{ strength: 0.5, maxDistance: 40 }" class="projects__button" href="#"><div v-magnetic>More work on Github</div></a>
     <ProjectsModal />
   </section>
 </template>
@@ -371,38 +368,41 @@ export default {
         }
 
         .projectHover {
-          width: 0;
-          height: 0;
-          border-radius: 50%;
-          background-color: var(--firstColor);
-          position: absolute;
-          //left: 0;
-          //top: 0;
-          transform: translate(-50%, -50%);
-          z-index: 1;
-          cursor: pointer;
-          //display: flex;
+          //width: 0;
+          //height: 0;
+          //border-radius: 50%;
+          //background-color: var(--firstColor);
+          //position: absolute;
+          ////left: 0;
+          ////top: 0;
+          //transform: translate(-50%, -50%);
+          //z-index: 1;
+          //cursor: pointer;
+          ////display: flex;
           display: none;
-          justify-content: center;
-          align-items: center;
-          color: white;
-          box-shadow: 0 0 20px 0 #272727;
-          //transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
-          transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
-            left 0.05s linear, top 0.05s linear;
-          will-change: left, top;
+          //justify-content: center;
+          //align-items: center;
+          //color: white;
+          //box-shadow: 0 0 20px 0 #272727;
+          ////transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+          //transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+          //  left 0.05s linear, top 0.05s linear;
+          //will-change: left, top;
 
-          &:hover ~ .project__subElement {
-            transform: scale(1.2);
-            filter: grayscale(0);
+          //  &:hover ~ .project__subElement {
+          //    transform: scale(1.2);
+          //    filter: grayscale(0);
+          //  }
+          .projectHoverText {
+            display: none;
           }
         }
 
-        .projectHover:hover ~ .project__subElement,
-        .project__subElement:hover {
-          transform: scale(1.2);
-          filter: grayscale(0);
-        }
+        //.projectHover:hover ~ .project__subElement,
+        //.project__subElement:hover {
+        //  transform: scale(1.2);
+        //  filter: grayscale(0);
+        //}
 
         .project__subElement {
           width: 100%;
@@ -423,35 +423,35 @@ export default {
           //  filter: grayscale(0);
           //}
 
-          &:hover .project--linkView {
-            opacity: 1;
-            //border: 1px solid var(--firstColor);
-            width: 100%;
-            height: 100%;
-            //font-size: 1rem;
-            font-size: 2rem;
-            color: white;
-          }
+          //&:hover .project--linkView {
+          //  opacity: 1;
+          //  //border: 1px solid var(--firstColor);
+          //  width: 100%;
+          //  height: 100%;
+          //  //font-size: 1rem;
+          //  font-size: 2rem;
+          //  color: white;
+          //}
 
-          &:hover::before {
-            //background: blue;
-            opacity: 0.1;
-          }
-
-          &::before {
-            content: "";
-            position: absolute;
-            //background: orange;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            //border-radius: 100%;
-            //background: #aeaeae;
-            opacity: 0.5;
-            transition: 0.2s ease-out;
-          }
+          //&:hover::before {
+          //  //background: blue;
+          //  opacity: 0.1;
+          //}
+          //
+          //&::before {
+          //  content: "";
+          //  position: absolute;
+          //  //background: orange;
+          //  width: 100%;
+          //  height: 100%;
+          //  display: flex;
+          //  justify-content: center;
+          //  align-items: center;
+          //  //border-radius: 100%;
+          //  //background: #aeaeae;
+          //  opacity: 0.5;
+          //  transition: 0.2s ease-out;
+          //}
 
           //.projectHover {
           //  width: 100px;
@@ -536,17 +536,17 @@ export default {
     background: var(--firstColor);
     color: white;
     width: fit-content;
-    padding: 1.6rem 2.4rem;
+    padding: 2.4rem;
     font-size: 2rem;
     border-radius: 5rem;
     z-index: 2;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease !important;
     align-self: center;
     margin: 10rem 0;
+    border: 1px solid var(--firstColor);
 
     &:hover {
       background: var(--backgroundColor);
-      border: 1px solid var(--firstColor);
       color: var(--firstColor);
     }
   }
@@ -567,18 +567,54 @@ export default {
           margin: 2.5rem 0;
           overflow: hidden;
 
+          .projectHover {
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background-color: var(--firstColor);
+            position: absolute;
+            //left: 0;
+            //top: 0;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            cursor: pointer;
+            //display: flex;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            box-shadow: 0 0 20px 0 #272727;
+            //transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+            transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+              left 0.05s linear, top 0.05s linear;
+            will-change: left, top;
+
+            &:hover ~ .project__subElement {
+              transform: scale(1.2);
+              filter: grayscale(0);
+            }
+
+            .projectHoverText {
+              display: block;
+            }
+          }
+
+          .projectHover:hover ~ .project__subElement,
+          .project__subElement:hover {
+            transform: scale(1.2);
+            filter: grayscale(0);
+          }
+
           .project__element__text {
             display: none;
           }
 
           &:nth-child(even) .project__subElement span:hover {
             font-size: 5rem;
-            //width: 100%;
           }
 
           .project__subElement {
-            //width: 25%;
-            //height: 25vw;
+
           }
         }
       }

@@ -7,15 +7,6 @@
         <!--        <ThreeTest class="threeTest" />-->
         <div class="modal__img">
           <div class="modal__img__pictures">
-            <!--            <img-->
-            <!--              id="pic1"-->
-            <!--              class="picture"-->
-            <!--              v-for="(image, index) in modal.img"-->
-            <!--              :key="image.id"-->
-            <!--              @mouseover="changeImage(index)"-->
-            <!--              :src="require('../assets/img/' + image)"-->
-            <!--              alt="image"-->
-            <!--            />-->
             <div
               id="pic1"
               class="picture"
@@ -46,7 +37,7 @@
           </div>
         </div>
         <div class="modal__infos">
-  <!--          <div id="preview" class="preview"></div>-->
+          <span class="closeModal" @click="modalClose()">X</span>
           <h3 class="modal__infos--title">{{ modal.name }}</h3>
           <p
             class="modal__infos--state"
@@ -88,16 +79,8 @@
 </template>
 
 <script>
-// import ThreeTest from "@/components/ThreeJs.vue";
-
 export default {
   name: "ProjectsModal",
-  // components: {
-  //   ThreeTest,
-  // },
-  // props: [
-  //   'projects'
-  // ],
   data() {
     return {
       myImageIndex: 0,
@@ -273,23 +256,17 @@ export default {
 }
 
 .modal {
-  //position: fixed;
-  //top: 2%;
-  position: absolute;
-  top: 280rem;
-  left: 10%;
-  width: 80%;
-  //left: 15%;
-  //width: 70%;
-  //height: 96%;
-  //height: 70%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: white;
-  //border: 1rem solid black;
-  //border-radius: 1rem;
   z-index: 99;
   display: flex;
   flex-direction: column-reverse;
-  //padding: 2rem;
+  overflow-x: hidden;
+  overflow-y: scroll;
 
   .preview {
     position: fixed;
@@ -297,8 +274,6 @@ export default {
     left: 80rem;
     width: 40rem;
     height: 40rem;
-    //margin-left: 5rem;
-    //background: aqua;
     z-index: 1;
   }
 
@@ -319,6 +294,8 @@ export default {
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding: 5rem;
+    background: var(--color-background-primary);
 
     .modal__img__pictures {
       display: flex;
@@ -327,13 +304,14 @@ export default {
       flex-direction: row;
       flex-wrap: wrap;
       margin-bottom: 2rem;
+      justify-content: space-between;
 
       .picture {
         width: 5rem;
         height: 5rem;
         border: 1px solid black;
         margin-bottom: 1rem;
-        margin-right: 2rem;
+        //margin-right: 2rem;
         object-fit: cover;
         transition: 0.2s ease;
         cursor: pointer;
@@ -368,8 +346,6 @@ export default {
     }
 
     .modal__img__main {
-      //position: relative;
-      //border: 1px solid black;
       width: 100%;
       height: fit-content;
       position: relative;
@@ -394,26 +370,34 @@ export default {
     display: flex;
     flex-direction: column;
     width: 100%;
-    //justify-content: center;
     align-items: flex-start;
     text-align: left;
-    //padding-left: 5rem;
     position: relative;
+    padding: 5rem;
+    background: var(--color-background-tertiary);
 
-    //.preview {
-    //  position: absolute;
-    //  top: 0;
-    //  left: 0;
-    //  width: 40rem;
-    //  height: 40rem;
-    //  margin-left: 5rem;
-    //  //background: aqua;
-    //  z-index: 1;
-    //}
+    .closeModal {
+      background: var(--color-primary);
+      width: 5rem;
+      height: 5rem;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50rem;
+      color: white;
+      box-shadow: 0 0 20px 0 var(--color-background-primary);
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: var(--color-primary-dark);
+      }
+    }
 
     .modal__infos--title {
       font-size: 4rem;
-      margin-top: 5rem;
       margin-bottom: 2rem;
       text-transform: uppercase;
       position: relative;
@@ -431,7 +415,7 @@ export default {
     }
 
     .modal__infos--state {
-      margin-bottom: 2rem;
+      //margin-bottom: 2rem;
       color: darkseagreen;
       border: 1px solid darkseagreen;
       border-radius: 1rem;
@@ -448,13 +432,13 @@ export default {
     .modal__infos--state-off {
       margin-bottom: 2rem;
       color: var(--firstColor);
-      border: 1px solid var(--firstColor);
+      border: 1px solid var(--color-primary);
       border-radius: 1rem;
       font-size: 1.2rem;
       padding: 0.5rem;
 
       &:hover {
-        background: var(--firstColor);
+        background: var(--color-primary);
         color: white;
       }
     }
@@ -505,8 +489,8 @@ export default {
       .modal__infos__links--linkWeb,
       .modal__infos__links--linkRepo {
         padding: 1rem;
-        color: var(--firstColor);
-        border: 1px solid var(--firstColor);
+        color: var(--color-primary);
+        border: 1px solid var(--color-primary);
         font-size: 1.5rem;
         display: flex;
         justify-content: center;
@@ -515,7 +499,7 @@ export default {
         transition: 0.2s ease;
 
         &:hover {
-          background: var(--firstColor);
+          background: var(--color-primary);
           color: white;
         }
 
@@ -582,8 +566,8 @@ export default {
     left: 0;
     width: 70rem;
     height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+    //overflow-x: hidden;
+    //overflow-y: auto;
 
     &::-webkit-scrollbar {
       width: 0.5rem;
@@ -603,17 +587,11 @@ export default {
     .modal__img {
       //flex-direction: row;
       //width: 70%;
-      padding: 5rem;
+      //padding: 5rem;
       background: var(--backgroundColor);
 
       .modal__img__pictures {
-        //flex-direction: column;
-        //flex-wrap: nowrap;
-        //margin-right: 2rem;
-        justify-content: space-between;
-
         .picture {
-          margin-right: 0;
           width: 10rem;
           height: 10rem;
         }
@@ -623,7 +601,7 @@ export default {
     .modal__infos {
       //margin-bottom: 5rem;
       //padding-left: 5rem;
-      padding: 5rem;
+      //padding: 5rem;
       background: #3d5343ff;
 
       .modal__infos--state,
@@ -635,7 +613,6 @@ export default {
       }
 
       .modal__infos--title {
-        margin-top: 0;
         font-size: 6rem;
       }
 

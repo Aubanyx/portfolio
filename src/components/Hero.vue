@@ -12,7 +12,9 @@
             & UI UX Designer
           </h1>
           <!--          <p></p>-->
-          <a class="hero__button" href="#">Get it touch</a>
+          <a v-magnetic="{ strength: 0.5, maxDistance: 40 }" class="hero__button" href="#"
+            ><div v-magnetic>Get it touch</div></a
+          >
         </div>
         <div class="hero__box">
           <img
@@ -100,7 +102,7 @@ export default {
     height: 50%;
     width: 100%;
     z-index: 1;
-    margin: 0 15rem;
+    //margin: 0 15rem;
 
     //.title__Box {
     //  background: #202023;
@@ -145,15 +147,16 @@ export default {
         background: var(--color-primary);
         color: white;
         width: fit-content;
-        padding: 1.6rem 2.4rem;
+        padding: 2.4rem;
         font-size: 2rem;
         border-radius: 5rem;
         z-index: 2;
-        transition: all 0.2s ease;
+        border: 1px solid var(--color-primary);
+        transition: background 0.2s ease, color 0.2s ease !important;
 
         &:hover {
-          background: var(--color-background-primary);
-          border: 1px solid var(--color-primary);
+          //background: var(--color-background-primary);
+          background: transparent;
           color: var(--color-primary);
         }
       }
@@ -344,6 +347,16 @@ export default {
         width: 3rem;
         filter: var(--img);
       }
+    }
+  }
+}
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 1024px) {
+  #hero {
+    .hero {
+      margin: 0 15rem;
     }
   }
 }
