@@ -378,8 +378,8 @@ export default {
 
     .closeModal {
       background: var(--color-primary);
-      width: 5rem;
-      height: 5rem;
+      width: 8rem;
+      height: 8rem;
       position: absolute;
       top: 0;
       right: 0;
@@ -387,7 +387,7 @@ export default {
       justify-content: center;
       align-items: center;
       //border-radius: 50rem;
-      border-radius: 0 0 0 5rem;
+      border-radius: 0 0 0 10rem;
       color: white;
       //box-shadow: 0 0 20px 0 var(--color-background-primary);
       transition: all 0.2s ease;
@@ -475,7 +475,7 @@ export default {
         }
 
         &:hover {
-          background: dodgerblue;
+          background: var(--color-text-secondary);
           color: white;
         }
       }

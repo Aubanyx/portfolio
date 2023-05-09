@@ -152,12 +152,66 @@ export default {
         border-radius: 5rem;
         z-index: 2;
         border: 1px solid var(--color-primary);
-        transition: background 0.2s ease, color 0.2s ease !important;
+        position: relative;
+        overflow: hidden;
+        //transition: background 0.2s ease, color 0.2s ease !important;
 
-        &:hover {
-          //background: var(--color-background-primary);
-          background: transparent;
-          color: var(--color-primary);
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 100%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          background-color: var(--color-primary-dark);
+          border-radius: 50%;
+          transform: translateX(-50%);
+          animation-duration: 1s;
+          animation-timing-function: ease;
+          animation-fill-mode: forwards;
+          z-index: -1;
+        }
+
+        &:hover::before {
+          animation-name: circleHover;
+        }
+
+        &:not(:hover)::before {
+          animation-name: circleRelease;
+        }
+
+        //&:hover {
+        //  //background: var(--color-background-primary);
+        //  background: transparent;
+        //  color: var(--color-primary);
+        //}
+      }
+
+      @keyframes circleHover {
+        0% {
+          top: 150%;
+          width: 0;
+          height: 0;
+        }
+        100% {
+          top: -50%;
+          width: 200%;
+          height: 200%;
+          transform: translate(-100%, -100%) !important;
+        }
+      }
+
+      @keyframes circleRelease {
+        0% {
+          bottom: -50%;
+          width: 200%;
+          height: 200%;
+          transform: translate(-100%, -100%) !important;
+        }
+        100% {
+          bottom: 150%;
+          width: 0;
+          height: 0;
         }
       }
     }
