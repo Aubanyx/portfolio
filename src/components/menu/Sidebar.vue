@@ -19,6 +19,7 @@ export default {
   methods: {
     closeSidebarPanel() {
       this.$store.commit("toggleNav");
+      document.body.style.overflowY = "";
     },
   },
   computed: {

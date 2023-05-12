@@ -6,15 +6,25 @@
         <!--          <h4 class="title">{{ $t("hero.title") }}</h4>-->
         <!--        </div>-->
         <div class="hero__describe">
-          <h4 class="hero__describe__welcome">Welcome to my site</h4>
+          <!--          <h4 class="hero__describe__welcome">Welcome to my site</h4>-->
           <h1 class="hero__describe__presentation">
-            Hi ! I'm <strong class="accent">Auban</strong><br />Developer Front-End<br />
+            Hi ! I'm <strong class="accent">Auban</strong><br />Developer
+            Front-End<br />
             & UI UX Designer
           </h1>
           <!--          <p></p>-->
-          <a v-magnetic="{ strength: 0.5, maxDistance: 40 }" class="hero__button" href="#"
-            ><div v-magnetic>Get it touch</div></a
-          >
+          <a
+            v-magnetic="{ strength: 0.5, maxDistance: 40 }"
+            class="hero__button"
+            href="#"
+            ><div class="buttonSend" v-magnetic>
+              Get it touch
+              <img
+                class="button--send"
+                src="../assets/img/icons/send.svg"
+                alt="icon send"
+              /></div
+          ></a>
         </div>
         <div class="hero__box">
           <img
@@ -125,16 +135,16 @@ export default {
       height: 100%;
       text-align: left;
 
-      .hero__describe__welcome {
-        font-size: 2rem;
-        color: var(--color-primary);
-      }
+      //.hero__describe__welcome {
+      //  font-size: 2rem;
+      //  color: var(--color-primary);
+      //}
 
       .hero__describe__presentation {
         font-size: 5rem;
         font-weight: bold;
         color: var(--tertiaryColor);
-        margin: 1.6rem 0 5rem;
+        margin: 0 0.5rem 1.6rem;
         line-height: 1.2;
         //z-index: -1;
 
@@ -144,6 +154,7 @@ export default {
       }
 
       .hero__button {
+        @include animationCircleHover;
         background: var(--color-primary);
         color: white;
         width: fit-content;
@@ -151,67 +162,13 @@ export default {
         font-size: 2rem;
         border-radius: 5rem;
         z-index: 2;
-        border: 1px solid var(--color-primary);
-        position: relative;
-        overflow: hidden;
-        //transition: background 0.2s ease, color 0.2s ease !important;
 
-        &::before {
-          content: "";
-          position: absolute;
-          bottom: 100%;
-          left: 50%;
-          width: 0;
-          height: 0;
-          background-color: var(--color-primary-dark);
-          border-radius: 50%;
-          transform: translateX(-50%);
-          animation-duration: 1s;
-          animation-timing-function: ease;
-          animation-fill-mode: forwards;
-          z-index: -1;
-        }
+        .buttonSend {
+          display: flex;
 
-        &:hover::before {
-          animation-name: circleHover;
-        }
-
-        &:not(:hover)::before {
-          animation-name: circleRelease;
-        }
-
-        //&:hover {
-        //  //background: var(--color-background-primary);
-        //  background: transparent;
-        //  color: var(--color-primary);
-        //}
-      }
-
-      @keyframes circleHover {
-        0% {
-          top: 150%;
-          width: 0;
-          height: 0;
-        }
-        100% {
-          top: -50%;
-          width: 200%;
-          height: 200%;
-          transform: translate(-100%, -100%) !important;
-        }
-      }
-
-      @keyframes circleRelease {
-        0% {
-          bottom: -50%;
-          width: 200%;
-          height: 200%;
-          transform: translate(-100%, -100%) !important;
-        }
-        100% {
-          bottom: 150%;
-          width: 0;
-          height: 0;
+          .button--send {
+            filter: invert(1);
+          }
         }
       }
     }

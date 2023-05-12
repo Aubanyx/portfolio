@@ -47,7 +47,7 @@ export default {
   //#334BD3 Dark blue
   //#1C1D20 Dark
   //#141517 Dark dark
-  --color-primary: #455CE9;
+  --color-primary: #455ce9;
   --color-primary-dark: #334BD3;
   --color-background-primary: #FFFFFF;
   --color-background-secondary: #F2F2F2;

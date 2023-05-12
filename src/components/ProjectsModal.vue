@@ -12,7 +12,7 @@
               class="picture"
               v-for="(image, index) in modal.img"
               :key="image.id"
-              @mouseover="changeImage(index)"
+              @click="changeImage(index)"
               :style="{
                 'background-image':
                   'url(' + require('../assets/img/' + image) + ')',
@@ -37,7 +37,12 @@
           </div>
         </div>
         <div class="modal__infos">
-          <span class="closeModal" @click="modalClose()">X</span>
+          <span class="closeModal" @click="modalClose()"
+            ><img
+              class="iconClose"
+              src="../assets/img/icons/close.svg"
+              alt="icon close"
+          /></span>
           <h3 class="modal__infos--title">{{ modal.name }}</h3>
           <p
             class="modal__infos--state"
@@ -261,7 +266,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: white;
+  background: var(--color-background-primary);
   z-index: 99;
   display: flex;
   flex-direction: column-reverse;
@@ -326,7 +331,7 @@ export default {
           top: -2rem;
           height: 0.2rem;
           width: 0;
-          background: var(--firstColor);
+          background: var(--color-primary);
           transition: 0.3s ease;
         }
 
@@ -336,7 +341,7 @@ export default {
         }
 
         &:hover {
-          border-color: var(--firstColor);
+          border-color: var(--color-primary);
         }
 
         &:last-child {
@@ -353,7 +358,7 @@ export default {
 
       .modal__img__main__zoom {
         position: absolute;
-        background-color: var(--firstColor);
+        background-color: var(--color-primary);
         opacity: 0.8;
         width: 6rem;
         height: 6rem;
@@ -375,6 +380,7 @@ export default {
     position: relative;
     padding: 5rem;
     background: var(--color-background-tertiary);
+    border-radius: 0 0 5rem 5rem;
 
     .closeModal {
       background: var(--color-primary);
@@ -389,11 +395,20 @@ export default {
       //border-radius: 50rem;
       border-radius: 0 0 0 10rem;
       color: white;
-      //box-shadow: 0 0 20px 0 var(--color-background-primary);
-      transition: all 0.2s ease;
+      //box-shadow: 0 0 5px 0 var(--color-background-primary);
+      //transition: all 0.2s ease;
 
-      &:hover {
-        background: var(--color-primary-dark);
+      //&:hover {
+      //  background: var(--color-primary-dark);
+      //}
+
+      .iconClose {
+        filter: invert(1);
+        width: 5rem;
+        height: 5rem;
+        position: relative;
+        top: -0.75rem;
+        right: -0.75rem;
       }
     }
 
@@ -432,7 +447,7 @@ export default {
 
     .modal__infos--state-off {
       margin-bottom: 2rem;
-      color: var(--firstColor);
+      color: var(--color-primary);
       border: 1px solid var(--color-primary);
       border-radius: 1rem;
       font-size: 1.2rem;
@@ -447,7 +462,8 @@ export default {
     .modal__infos--description {
       margin: 2rem 0;
       font-size: 2rem;
-      font-weight: 100;
+      //font-weight: 100;
+      color: var(--color-text-secondary);
     }
 
     .modal__infos--techs {
@@ -589,7 +605,7 @@ export default {
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: var(--firstColor);
+      background-color: var(--color-primary);
       //border-radius: 2rem;
     }
 
@@ -603,7 +619,7 @@ export default {
       //flex-direction: row;
       //width: 70%;
       //padding: 5rem;
-      background: var(--backgroundColor);
+      //background: var(--backgroundColor);
 
       .modal__img__pictures {
         .picture {
@@ -617,7 +633,7 @@ export default {
       //margin-bottom: 5rem;
       //padding-left: 5rem;
       //padding: 5rem;
-      background: #3d5343ff;
+      //background: #3d5343ff;
 
       .modal__infos--state,
       .modal__infos--state-off {

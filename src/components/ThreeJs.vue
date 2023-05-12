@@ -333,7 +333,6 @@
 
 <script>
 import * as THREE from "three";
-// import imagePath from "@/assets/img/photo1Rec.png";
 
 export default {
   data() {
@@ -378,8 +377,8 @@ export default {
       // Créez les particules et les connexions
       const geometry = new THREE.BufferGeometry();
       const material = new THREE.LineBasicMaterial({
-        color: 0xffffff,
-        opacity: 0.5,
+        color: 0x808080,
+        opacity: 1,
       });
 
       const vertices = [];

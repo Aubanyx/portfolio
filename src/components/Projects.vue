@@ -39,7 +39,12 @@
         </li>
       </ul>
     </div>
-    <a v-magnetic="{ strength: 0.5, maxDistance: 40 }" class="projects__button" href="#"><div v-magnetic>More work on Github</div></a>
+    <a
+      v-magnetic="{ strength: 0.5, maxDistance: 40 }"
+      class="projects__button"
+      href="#"
+      ><div v-magnetic>More work on Github</div></a
+    >
     <ProjectsModal />
   </section>
 </template>
@@ -533,22 +538,23 @@ export default {
     }
   }
   .projects__button {
-    background: var(--firstColor);
+    @include animationCircleHover;
+    background: var(--color-primary);
     color: white;
     width: fit-content;
     padding: 2.4rem;
     font-size: 2rem;
     border-radius: 5rem;
     z-index: 2;
-    transition: background 0.2s ease, color 0.2s ease !important;
+    //transition: background 0.2s ease, color 0.2s ease !important;
     align-self: center;
     margin: 10rem 0;
-    border: 1px solid var(--firstColor);
+    //border: 1px solid var(--color-primary);
 
-    &:hover {
-      background: var(--backgroundColor);
-      color: var(--firstColor);
-    }
+    //&:hover {
+    //  background: var(--backgroundColor);
+    //  color: var(--firstColor);
+    //}
   }
 }
 
@@ -614,7 +620,6 @@ export default {
           }
 
           .project__subElement {
-
           }
         }
       }

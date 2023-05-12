@@ -1,7 +1,17 @@
 <template>
-  <div id="burger" :class="{ active: isBurgerActive }" @click.prevent="toggle">
+  <div
+    v-magnetic="{ strength: 0.5 }"
+    id="burger"
+    :class="{ active: isBurgerActive }"
+    @click.prevent="toggle"
+  >
     <slot>
-      <button v-magnetic="{ strength: 0.5 }" type="button" class="burger-button" title="Menu">
+      <button
+        v-magnetic="{ strength: 0.5 }"
+        type="button"
+        class="burger-button"
+        title="Menu"
+      >
         <!--        <span class="hidden">Toggle menu</span>-->
         <span class="burger-bar burger-bar--1"></span>
         <span class="burger-bar burger-bar--2"></span>
@@ -22,15 +32,25 @@ export default {
   methods: {
     toggle() {
       this.$store.commit("toggleNav");
+
+      if (this.isBurgerActive) {
+        document.body.style.overflowY = "hidden";
+      } else {
+        document.body.style.overflowY = "";
+      }
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-//.hidden {
-//  visibility: hidden;
-//}
+#burger {
+  @include animationCircleHover;
+  background: var(--color-primary);
+  border-radius: 50%;
+  padding: 1rem;
+  z-index: 999;
+}
 
 button {
   cursor: pointer;
@@ -98,14 +118,14 @@ button:focus {
   transform: rotate(-180deg);
 }
 
-#burger.active .burger-bar {
-  background-color: var(--tertiaryColor);
-  transition: 0.2s ease;
-}
+//#burger.active .burger-bar {
+//  background-color: var(--tertiaryColor);
+//  transition: 0.2s ease;
+//}
 
-#burger.active:hover .burger-bar {
-  background-color: var(--color-primary);
-}
+//#burger.active:hover .burger-bar {
+//  background-color: var(--color-primary);
+//}
 
 #burger.active .burger-bar--1 {
   transform: rotate(45deg);

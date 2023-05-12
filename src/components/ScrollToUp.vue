@@ -1,7 +1,16 @@
 <template>
   <transition name="fade">
-    <button id="button" v-show="this.scY > 300" @click="toUp">
-      <img src="../assets/img/arrow.svg" alt="arrow" />
+    <button
+      v-magnetic="{ strength: 0.5 }"
+      id="button"
+      v-show="this.scY > 300"
+      @click="toUp"
+    >
+      <img
+        v-magnetic="{ strength: 0.5 }"
+        src="../assets/img/arrow.svg"
+        alt="arrow"
+      />
     </button>
   </transition>
 </template>
@@ -41,30 +50,28 @@ export default {
 
 <style lang="scss" scoped>
 #button {
+  @include animationCircleHover;
   position: fixed;
-  right: 1rem;
-  bottom: 1rem;
+  right: 3.5rem;
+  bottom: 3.5rem;
   width: 6rem;
   height: 6rem;
-  background: transparent;
-  //opacity: 1;
   cursor: pointer;
-  //transition: transform .3s;
-
-  //&:hover {
-  //  transform: rotateZ(360deg);
-  //}
+  background: var(--color-primary);
+  border-radius: 50%;
 
   img {
-    width: inherit;
-    transform: rotateZ(180deg);
-    filter: var(--imgfilter);
+    width: 4rem;
+    height: 4rem;
+    transform: rotateZ(180deg) !important;
+    //filter: var(--imgfilter);
+    filter: brightness(10);
   }
 }
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.5s !important;
 }
 .fade-enter,
 .fade-leave-to {

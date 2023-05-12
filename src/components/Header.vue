@@ -5,24 +5,23 @@
         ><img class="logo" src="../assets/img/logo.svg" alt="logo"
       /></a>
       <nav class="nav">
-        <Burger />
         <Sidebar>
           <div class="sidebar__menu">
             <p class="sidebar--title">Menu</p>
             <ul class="sidebar-panel-nav">
-              <li>
+              <li @click="closeSidebarPanel">
                 <a href="#hero">{{ $t("menu.home") }}</a>
               </li>
-              <li>
+              <li @click="closeSidebarPanel">
                 <a href="#about">{{ $t("menu.about") }}</a>
               </li>
-              <li>
+              <li @click="closeSidebarPanel">
                 <a href="#skills">{{ $t("menu.skills") }}</a>
               </li>
-              <li>
+              <li @click="closeSidebarPanel">
                 <a href="#projects">{{ $t("menu.projects") }}</a>
               </li>
-              <li>
+              <li @click="closeSidebarPanel">
                 <a href="#contact">{{ $t("menu.contact") }}</a>
               </li>
             </ul>
@@ -33,19 +32,8 @@
               >aubanlabie@gmail.com</a
             >
           </div>
-          <!--          <ul class="sidebar-panel-nav">-->
-          <!--            <li><a href="#hero">Home</a></li>-->
-          <!--            <li><a href="#about">About</a></li>-->
-          <!--            <li><a href="#skills">Skills</a></li>-->
-          <!--            <li><a href="#projects">Projects</a></li>-->
-          <!--            <li><a href="#contact">Contact</a></li>-->
-          <!--          </ul>-->
         </Sidebar>
-        <!--        <p class="lang">EN</p>-->
         <select v-model="$i18n.locale" class="lang">
-          <!--          <option v-for="locale in locales" :key="locale.lang">-->
-          <!--            {{ locale.lang }}-->
-          <!--          </option>-->
           <option
             class="lang__locale"
             v-for="(locale, i) in locales"
@@ -56,6 +44,7 @@
           </option>
         </select>
         <ThemeToggleButton />
+        <Burger />
       </nav>
     </section>
   </header>
@@ -82,6 +71,7 @@ export default {
       // currentLocale: "FR",
       // locales: [{ lang: "EN" }, { lang: "NL" }, { lang: "FR" }],
       locales: ["en", "fr", "nl"],
+      menu: ["Home", "About", "Skills", "Projects", "Contact"],
     };
   },
   mounted() {
@@ -97,6 +87,10 @@ export default {
     window.removeEventListener("scroll", this.onScroll);
   },
   methods: {
+    closeSidebarPanel() {
+      this.$store.commit("toggleNav");
+      document.body.style.overflowY = "";
+    },
     onScroll() {
       if (window.pageYOffset < 0) {
         return;

@@ -52,4 +52,34 @@
   color: var(--skillSubTitle);
 }
 
+@mixin animationCircleHover {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: var(--color-primary-dark);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    animation-name: circleHover;
+  }
+
+  &:not(:hover)::before {
+    animation-name: circleRelease;
+  }
+}
+
+
 /** MIXINS - END **/
