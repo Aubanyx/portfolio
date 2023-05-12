@@ -508,7 +508,7 @@ export default {
         padding: 1rem;
         color: var(--color-primary);
         border: 1px solid var(--color-primary);
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         display: flex;
         justify-content: center;
         align-items: center;
