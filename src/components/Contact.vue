@@ -1,48 +1,88 @@
 <template>
   <section id="contact" class="container">
-    <!--    <h2 class="contact__title">Contact</h2>-->
-    <!--    <h3 class="contact__subtitle">Contact me</h3>-->
     <div class="contact__container">
       <div class="contact__container__boxForm">
         <h2 class="contact__title">Contact</h2>
-        <h3 class="contact__subtitle">Contact me</h3>
-        <form
-          class="contact__container__boxForm__form"
-          action="https://formsubmit.co/aubanlabie@gmail.com"
-          method="POST"
-        >
-          <input type="hidden" name="_captcha" value="false" />
-          <input
-            class="inputText"
-            type="text"
-            name="name"
-            placeholder="Name"
-            required
-          />
-          <span class="inputSpan" />
-          <div class="contact__container__boxForm__form__box">
-            <input type="text" name="subject" placeholder="Subject" required />
-            <input type="email" name="email" placeholder="Email" required />
+        <div class="wrapper">
+          <div class="contact__infos">
+            <p class="contact__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dignissimos doloribus incidunt quam sint sunt? Aspernatur dolore fuga laudantium libero necessitatibus nesciunt odio perspiciatis quas quasi qui quidem, quod unde?</p>
+            <div class="contact__infos__box">
+              <h5 class="contact__infos--h5">Contact details</h5>
+              <a
+                v-magnetic="{ strength: 0.5, distance: 20 }"
+                class="contact__infos--link"
+                href="mailto:aubanlabie@gmail.com"
+                >aubanlabie@gmail.com</a
+              >
+              <a
+                v-magnetic="{ strength: 0.5, distance: 20 }"
+                class="contact__infos--link"
+                href="tel:+32474548414"
+                >+32 4 74 54 84 14</a
+              >
+            </div>
+            <div class="contact__infos__box">
+              <h5 class="contact__infos--h5">Socials</h5>
+              <a
+                v-magnetic="{ strength: 0.5, distance: 20 }"
+                class="contact__infos--link"
+                href="https://github.com/Aubanyx"
+                >Github</a
+              >
+              <a
+                v-magnetic="{ strength: 0.5, distance: 20 }"
+                class="contact__infos--link"
+                href="https://www.linkedin.com/in/aubanlabie/"
+                >LinkedIn</a
+              >
+            </div>
           </div>
-          <input
-            type="hidden"
-            name="_next"
-            value="http://localhost:8080/#contact"
-          />
-          <textarea
-            placeholder="Message"
-            name="message"
-            rows="10"
-            required
-          ></textarea>
-          <button
-            class="contact__container__boxForm__form--button"
-            type="submit"
+          <form
+            class="contact__container__boxForm__form"
+            action="https://formsubmit.co/aubanlabie@gmail.com"
+            method="POST"
           >
-            Send message
-          </button>
-        </form>
-        <FooterComponent class="footer" />
+            <input type="hidden" name="_captcha" value="false" />
+            <label class="labelInputName" for="name">What's your name ?</label>
+            <input
+              class="inputText"
+              type="text"
+              name="name"
+              placeholder="John Doe *"
+              required
+            />
+            <span class="inputSpan" />
+            <label for="subject">What is it about ?</label>
+            <input type="text" name="subject" placeholder="Recruitment *" required />
+            <label for="email">What's your email ?</label>
+            <input type="email" name="email" placeholder="John@doe.com *" required />
+            <input
+              type="hidden"
+              name="_next"
+              value="http://localhost:8080/#contact"
+            />
+            <label class="labelTextarea" for="message">Your message</label>
+            <textarea
+              placeholder="Hello Auban can you help me with ... *"
+              name="message"
+              rows="10"
+              required
+            ></textarea>
+            <button
+              v-magnetic="{ strength: 0.5, maxDistance: 40 }"
+              class="contact__container__boxForm__form--button"
+              type="submit"
+            ><div class="buttonSend" v-magnetic>
+              Send your message
+              <img
+                class="button--send"
+                src="../assets/img/icons/send.svg"
+                alt="icon send"
+              />
+            </div>
+            </button>
+          </form>
+        </div>
       </div>
       <div class="contact__container__boxMap">
         <div class="contact__container__boxMap__map">
@@ -67,22 +107,18 @@
 </template>
 
 <script>
-import FooterComponent from "@/components/Footer.vue";
 
 export default {
   name: "ContactComponent",
   components: {
-    // HelloWorld,
-    FooterComponent,
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .container {
-  background: var(--backgroundColor);
+  background: var(--color-background-primary);
   height: 100%;
-  padding-top: 10rem;
 
   .contact__container {
     display: flex;
@@ -92,147 +128,191 @@ export default {
     padding: 0 4rem;
 
     .contact__container__boxForm {
-      //width: 50%;
-      //background: green;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: flex-start;
       align-items: center;
       overflow-y: hidden;
+      padding: 10rem 5rem;
 
       .contact__title {
         @include Title;
-        margin-bottom: 1rem;
       }
 
-      .contact__subtitle {
-        @include Subtitle;
-        margin-bottom: 10rem;
-      }
+      .wrapper {
+        .contact__infos {
+          text-align: left;
 
-      .contact__container__boxForm__form {
-        display: flex;
-        flex-direction: column;
-        //align-items: center;
-        width: 100%;
-        margin-bottom: 5rem;
+          .contact__text {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: var(--color-text-tertiary);
+            line-height: 1.2;
+            margin-bottom: 5rem;
+          }
 
-        input,
-        textarea {
-          font-family: "Sora", sans-serif;
-          height: 4rem;
-          width: 100%;
-          border: none;
-          border-left: 0.2rem solid var(--firstColor);
-          border-bottom: 0.2rem solid var(--firstColor);
-          margin: 1rem 0;
-          padding-left: 1rem;
-          background: var(--backgroundInput);
-          outline: none;
-          position: relative;
+          .contact__infos__box {
+            margin-top: 3rem;
 
-          //&:focus {
-          //  background: red;
-          //}
+            &:first-of-type {
+              margin-top: 0;
+            }
 
-          //&:focus::after {
-          //  width: 100%;
-          //}
-          //
-          //&::after {
-          //  content: "";
-          //  position: absolute;
-          //  top: 0;
-          //  left: 0;
-          //  width: 0;
-          //  height: 2px;
-          //  background: var(--firstColor);
-          //  transition: 0.3s ease;
-          //}
-        }
+            .contact__infos--h5 {
+              font-size: 1rem;
+              color: var(--color-text-secondary);
+              text-transform: uppercase;
+              //margin: 3rem 0 2rem;
+            }
 
-        //.inputText {
-        //
-        //}
+            .contact__infos--link {
+              font-size: 1.6rem;
+              color: var(--color-text-tertiary);
+              margin-top: 2rem;
+              margin-bottom: 1rem;
+              padding-bottom: 1rem;
+              width: fit-content;
+              cursor: pointer;
+              position: relative;
 
-        .inputSpan {
-          position: relative;
-        }
+              &:last-of-type {
+                margin-top: 0;
+                margin-bottom: 0;
+              }
 
-        .inputText + .inputSpan::before {
-          content: "";
-          position: absolute;
-          bottom: 1rem;
-          right: 0;
-          width: 0.2rem;
-          height: 0;
-          background: var(--firstColor);
-          transition: 0.3s ease;
-        }
+              &::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                width: 0;
+                height: 1px;
+                background: var(--tertiaryColor);
+                transition: 0.3s ease;
+              }
 
-        .inputText + .inputSpan::after {
-          content: "";
-          position: absolute;
-          bottom: 5rem;
-          left: 0;
-          width: 0;
-          height: 0.2rem;
-          background: var(--firstColor);
-          transition: 0.3s ease;
-        }
-
-        .inputText:focus + .inputSpan::after {
-          width: 100%;
-        }
-
-        .inputText:focus + .inputSpan::before {
-          height: 4rem;
-        }
-
-        textarea {
-          height: 15rem;
-          padding-top: 1rem;
-        }
-
-        .contact__container__boxForm__form--button {
-          background: var(--backgroundColor);
-          padding: 1.5rem 2rem;
-          font-size: 1.5rem;
-          font-weight: bold;
-          color: var(--firstColor);
-          //border-left: 2px solid var(--firstColor);
-          border: 2px solid var(--firstColor);
-          //border-radius: 0.8rem;
-          display: flex;
-          align-items: center;
-          align-self: flex-end;
-          cursor: pointer;
-          transition: 0.2s ease;
-
-          &:hover {
-            background: var(--firstColor);
-            color: var(--quaternaryColor);
+              &:hover::before {
+                width: 100%;
+                left: 0;
+              }
+            }
           }
         }
 
-        //.contact__container__boxForm__form__box {
-        //  display: flex;
-        //  justify-content: space-between;
-        //  width: 100%;
-        //
-        //  input {
-        //    width: 40%;
-        //  }
-        //}
+        .contact__container__boxForm__form {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          margin-bottom: 5rem;
+
+          .contact__container__boxForm__form__box {
+            .contact__container__boxForm__form__box--subject {
+              display: flex;
+              flex-direction: column;
+            }
+            .contact__container__boxForm__form__box--email {
+              display: flex;
+              flex-direction: column;
+            }
+          }
+
+          label {
+            align-self: flex-start;
+            color: var(--color-text-tertiary);
+            font-size: 1.6rem;
+            padding-left: 3rem;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+
+            &:first-of-type {
+              margin-top: 0;
+            }
+          }
+
+          input,
+          textarea {
+            font-family: "Inter", sans-serif;
+            font-size: 1.6rem;
+            width: 100%;
+            border: none;
+            background: var(--color-background-primary);
+            //border-bottom: 2px solid var(--color-primary);
+            border-bottom: 2px solid var(--color-background-tertiary);
+            padding-left: 3rem;
+            padding-bottom: 2rem;
+            outline: none;
+            position: relative;
+            transition: border 0.2s ease;
+
+            &:focus {
+              border-bottom: 2px solid var(--color-primary);
+            }
+          }
+
+          //.inputSpan {
+          //  position: relative;
+          //}
+          //
+          //.inputText + .inputSpan::before {
+          //  content: "";
+          //  position: absolute;
+          //  bottom: 1rem;
+          //  right: 0;
+          //  width: 0.2rem;
+          //  height: 0;
+          //  background: var(--firstColor);
+          //  transition: 0.3s ease;
+          //}
+          //
+          //.inputText + .inputSpan::after {
+          //  content: "";
+          //  position: absolute;
+          //  bottom: 5rem;
+          //  left: 0;
+          //  width: 0;
+          //  height: 0.2rem;
+          //  background: var(--firstColor);
+          //  transition: 0.3s ease;
+          //}
+          //
+          //.inputText:focus + .inputSpan::after {
+          //  width: 100%;
+          //}
+          //
+          //.inputText:focus + .inputSpan::before {
+          //  height: 4rem;
+          //}
+
+          textarea {
+            height: 10rem;
+            padding-top: 1rem;
+            margin-bottom: 0;
+          }
+
+          .contact__container__boxForm__form--button {
+            @include animationCircleHover;
+            @include ButtonPrimary;
+            cursor: pointer;
+            align-self: flex-end;
+            margin-top: 7rem;
+
+            .buttonSend {
+              display: flex;
+              align-items: center;
+
+              .button--send {
+                filter: invert(1);
+                margin-left: 1rem;
+              }
+            }
+          }
+        }
       }
     }
 
     .contact__container__boxMap {
-      //width: 50%;
-      //background: orange;
       width: 100%;
       height: 100vw;
-      //padding: 1rem;
 
       .contact__container__boxMap__map {
         position: relative;
@@ -266,14 +346,21 @@ export default {
   .container {
     .contact__container {
       .contact__container__boxForm {
-        .contact__container__boxForm__form {
-          .contact__container__boxForm__form__box {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
+        padding: 7rem;
 
-            input {
-              width: 49%;
+        .wrapper {
+          .contact__infos {
+
+          }
+          .contact__container__boxForm__form {
+            .contact__container__boxForm__form__box {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+
+              input {
+                width: 49%;
+              }
             }
           }
         }
@@ -291,8 +378,6 @@ export default {
 
 @media only screen and (min-width: 1024px) {
   .container {
-    padding-top: 0;
-
     .contact__container {
       flex-direction: row;
       height: 100vh;
@@ -300,20 +385,29 @@ export default {
 
       .contact__container__boxForm {
         //flex-direction: column;
-        width: 50%;
+        width: 70%;
 
-        .contact__container__boxForm__form {
-          padding: 0 4rem;
-          margin-bottom: 0;
+        //.contact__title {
+        //  @include Title;
+        //}
 
-          .contact__container__boxForm__form__box {
-            //display: flex;
-            //justify-content: space-between;
-            //width: 100%;
+        .wrapper {
+          width: 100%;
+          display: flex;
+          flex-direction: row-reverse;
 
-            input {
-              //width: 40%;
+          .contact__infos {
+            width: 40%;
+            padding-left: 7rem;
+
+            .contact__text {
+
             }
+          }
+
+          .contact__container__boxForm__form {
+            width: 60%;
+            margin-bottom: 0;
           }
         }
       }

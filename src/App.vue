@@ -1,10 +1,6 @@
 <template>
   <main id="app">
     <Loader v-if="$store.state.loading" />
-    <!--    <div id="nav">-->
-    <!--      <router-link to="/">Home</router-link> |-->
-    <!--      <router-link to="/about">About</router-link>-->
-    <!--    </div>-->
     <router-view />
   </main>
 </template>
@@ -49,6 +45,7 @@ export default {
   //#141517 Dark dark
   --color-primary: #455ce9;
   --color-primary-dark: #334BD3;
+  --color-secondary: #e8c246;
   --color-background-primary: #FFFFFF;
   --color-background-secondary: #F2F2F2;
   --color-background-tertiary: #141517;
@@ -78,6 +75,7 @@ export default {
 [data-theme="darkTheme"] {
   --color-primary: #455CE9;
   --color-primary-dark: #334BD3;
+  --color-secondary: #e8c246;
   --color-background-primary: #1C1D20;
   --color-background-secondary: #141517;
   --color-background-tertiary: #F2F2F2;

@@ -57,7 +57,7 @@ export default {
     padding: 6rem 0;
 
     .footer__copyright {
-      @include Text;
+      //@include Text;
       line-height: 1.5;
 
       li:first-child {
@@ -72,7 +72,7 @@ export default {
     }
 
     .footer__social {
-      @include Text;
+      //@include Text;
       line-height: 1.5;
 
       li:first-child {
@@ -101,7 +101,7 @@ export default {
     }
 
     .footer__menu {
-      @include Text;
+      //@include Text;
       line-height: 1.5;
 
       li:first-child {

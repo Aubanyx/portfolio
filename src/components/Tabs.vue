@@ -1,7 +1,7 @@
 <template>
   <section id="tabs">
     <h2 class="tabsTitle">Skills</h2>
-    <p class="tabsText">Mes compétences techniques et non techniques sont le fruit d'une formation solide, d'une expérience professionnelle diversifiée et d'un engagement constant envers l'apprentissage et l'amélioration. Découvrez ci-dessous les compétences qui me démarquent en tant que développeur et font de moi un atout précieux pour toute équipe de projet.</p>
+    <p class="tabsText">Mes compétences techniques et non techniques sont le fruit d'une formation solide, d'une expérience professionnelle diversifiée et d'un engagement constant envers l'apprentissage et l'amélioration. Ils font de moi un atout précieux pour toute équipe de projet.</p>
     <div class="tabs__container">
       <div class="tabs__header">
         <div class="tab__wrapper">
@@ -140,6 +140,7 @@ export default {
 
 <style lang="scss" scoped>
 #tabs {
+  background: var(--color-background-primary);
   //height: 20rem;
   width: 100%;
   display: flex;
@@ -148,13 +149,13 @@ export default {
   padding: 10rem 5rem;
 
   .tabsTitle {
-    font-size: 7rem;
+    @include Title;
     align-self: flex-start;
-    margin-bottom: 5rem;
-    text-transform: uppercase;
+    z-index: 0;
   }
 
   .tabsText {
+    color: var(--color-text-tertiary);
     font-size: 2rem;
     font-weight: 300;
     margin-bottom: 8rem;
@@ -194,7 +195,7 @@ export default {
           top: 0;
           left: 0;
           height: 100%;
-          background: #261F22;
+          background: var(--color-primary);
           border-radius: 5rem;
           z-index: 0;
           transition: all 0.2s ease;
@@ -252,9 +253,9 @@ export default {
   #tabs {
     align-items: center;
 
-    .tabsTitle {
-      font-size: 10rem;
-    }
+    //.tabsTitle {
+    //  font-size: 10rem;
+    //}
     .tabs__container {
       display: flex;
       flex-direction: column;
@@ -277,7 +278,20 @@ export default {
 }
 @media only screen and (min-width: 1024px) {
   #tabs {
-    padding: 10rem 15rem;
+    padding: 15rem;
+    position: relative;
+
+    &::before {
+      content: "Skills";
+      position: absolute;
+      top: 5rem;
+      left: 39rem;
+      font-size: 20rem;
+      letter-spacing: 1rem;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 2px var(--color-secondary);
+      z-index: 0;
+    }
 
     .tabsText {
       width: 60%;

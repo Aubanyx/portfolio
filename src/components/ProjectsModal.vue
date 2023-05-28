@@ -52,7 +52,6 @@
           </p>
           <p class="modal__infos--description">{{ modal.description }}</p>
           <p class="modal__infos--techs">
-<!--            Technologies used :-->
             <span
               class="modal__infos--techs--tech"
               v-for="tech in modal.techUse"
@@ -73,7 +72,7 @@
               :href="modal.linkSite"
               >Voir le site<img
                 class="imgWebsite"
-                src="../assets/img/websiteRed.svg"
+                src="../assets/img/icons/link.svg"
                 alt="Link website project"
             /></a>
           </div>

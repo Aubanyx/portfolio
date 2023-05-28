@@ -1,22 +1,17 @@
 <template>
   <div id="themeToggleButton">
-    <div
-      class="toggleButton"
-      :class="{ active: currentTheme === 'darkTheme' }"
-      @click="toggle"
-    >
-      <img
-        class="themeIcon"
-        v-if="this.currentTheme === 'lightTheme'"
-        src="../assets/img/moon.svg"
-        alt="moon icon"
-      />
-      <img
-        class="themeIcon"
-        v-else-if="this.currentTheme === 'darkTheme'"
-        src="../assets/img/sun.svg"
-        alt="sun icon"
-      />
+    <div class="toggleContainer" @click="toggle">
+      <div class="toggleBall" :class="{ active: isDarkThemeActive }">
+        <img
+          class="toggleIcon"
+          :src="
+            this.currentTheme === 'lightTheme'
+              ? require('../assets/img/icons/moon.svg')
+              : require('../assets/img/icons/sun.svg')
+          "
+          :alt="this.currentTheme === 'lightTheme' ? 'moon icon' : 'sun icon'"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -26,48 +21,34 @@ export default {
   name: "themeToggleButton",
   data() {
     return {
-      currentTheme: localStorage.getItem("themeColor"),
+      currentTheme: localStorage.getItem("themeColor") || "lightTheme",
     };
   },
   computed: {
     isDarkThemeActive() {
-      return this.$store.state.darkTheme;
+      return this.currentTheme === "darkTheme";
     },
   },
   methods: {
     toggle() {
+      // Toggle the theme and store the result
+      this.currentTheme = this.currentTheme === "darkTheme" ? "lightTheme" : "darkTheme";
+
+      // Save the new theme value to localStorage
+      localStorage.setItem("themeColor", this.currentTheme);
+      localStorage.setItem("currentTheme", this.currentTheme);
+
+      // Commit the new theme to the store and emit an event
       this.$store.commit("toggleTheme");
-
-      // this.$root.$refs.ThreeTest.changeParticlesColor();
       Event.$emit("changeParticlesColor");
-      // this.$el.component("ThreeTest").changeParticlesColor();
-      const storedTheme = localStorage.getItem("themeColor");
-      if (storedTheme === "darkTheme") {
-        localStorage.setItem("themeColor", "lightTheme");
-        this.currentTheme = localStorage.getItem("themeColor");
-      } else {
-        localStorage.setItem("themeColor", "darkTheme");
-        this.currentTheme = localStorage.getItem("themeColor");
-      }
 
-      // this.currentTheme =
-      //   this.currentTheme === "darkTheme" ? "lightTheme" : "darkTheme"; //toggles theme value
-      document.documentElement.setAttribute("data-theme", this.currentTheme); // sets the data-theme attribute
-      localStorage.setItem("currentTheme", this.currentTheme); // stores theme value on local storage
+      // Update the data-theme attribute
+      document.documentElement.setAttribute("data-theme", this.currentTheme);
     },
   },
-  created() {
-    if (localStorage.getItem("themeColor") === null) {
-      localStorage.setItem("themeColor", "lightTheme");
-      this.currentTheme = localStorage.getItem("themeColor");
-    }
-  },
   mounted() {
-    const localTheme = localStorage.getItem("currentTheme"); //gets stored theme value if any
-    document.documentElement.setAttribute("data-theme", localTheme); // updates the data-theme attribute
-
-    // console.log(localStorage.getItem("currentTheme"), "test 1");
-    // console.log(localStorage.getItem("themeColor"), "test 2");
+    // Set the initial data-theme attribute
+    document.documentElement.setAttribute("data-theme", this.currentTheme);
   },
 };
 </script>
@@ -77,20 +58,37 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 2rem;
 
-  .toggleButton {
-    width: 3rem;
-    //background: red;
+  .toggleContainer {
+    width: 6rem;
+    height: 3rem;
+    background: var(--color-text-tertiary);
+    border-radius: 1.5rem;
+    position: relative;
     cursor: pointer;
 
-    .themeIcon {
-      width: 2rem;
-      filter: var(--img);
-    }
-  }
+    .toggleBall {
+      position: absolute;
+      top: 0.3rem;
+      left: 0.3rem;
+      width: 2.4rem;
+      height: 2.4rem;
+      background: var(--color-primary);
+      border-radius: 50%;
+      transition: left 0.3s ease;
 
-  .toggleButton.active {
-    //background: blue;
+      &.active {
+        left: 3.3rem;
+      }
+
+      .toggleIcon {
+        padding: 0.3rem;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
   }
 }
 </style>

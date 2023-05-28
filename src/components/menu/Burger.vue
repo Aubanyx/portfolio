@@ -75,7 +75,8 @@ button:focus {
 }
 
 .burger-bar {
-  background-color: var(--tertiaryColor);
+  //background-color: var(--tertiaryColor);
+  background: white;
   position: absolute;
   top: 50%;
   right: 6px;

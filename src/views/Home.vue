@@ -7,7 +7,7 @@
     <Hero class="hero" />
     <About class="about" />
     <Process class="process" />
-    <Skills class="skills" />
+<!--    <Skills class="skills" />-->
     <Tabs class="tabs" />
     <Projects class="projects" />
     <Faq class="faq" />
@@ -23,7 +23,7 @@ import HeaderComponent from "@/components/Header.vue";
 import Hero from "@/components/Hero.vue";
 import About from "@/components/About.vue";
 import Process from "@/components/Process.vue";
-import Skills from "@/components/Skills.vue";
+// import Skills from "@/components/Skills.vue";
 import Tabs from "@/components/Tabs.vue";
 import Projects from "@/components/Projects.vue";
 import Faq from "@/components/Faq.vue";
@@ -39,7 +39,7 @@ export default {
     Hero,
     About,
     Process,
-    Skills,
+    // Skills,
     Tabs,
     Projects,
     Faq,

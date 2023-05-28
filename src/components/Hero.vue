@@ -149,25 +149,38 @@ export default {
         //z-index: -1;
 
         .accent {
-          color: var(--color-primary);
+          //color: var(--color-primary);
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
+            width: 100%;
+            height: 25%;
+            background: var(--color-primary);
+            z-index: -1;
+            transition: height 0.2s ease;
+          }
+
+          &:hover::before {
+            height: 70%;
+          }
         }
       }
 
       .hero__button {
         @include animationCircleHover;
-        background: var(--color-primary);
-        color: white;
-        width: fit-content;
-        padding: 2.4rem;
-        font-size: 2rem;
-        border-radius: 5rem;
-        z-index: 2;
+        @include ButtonPrimary;
 
         .buttonSend {
           display: flex;
+          align-items: center;
 
           .button--send {
             filter: invert(1);
+            margin-left: 1rem;
           }
         }
       }

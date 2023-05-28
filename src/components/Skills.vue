@@ -115,11 +115,6 @@ export default {
     margin-bottom: 1rem;
   }
 
-  .skills__subtitle {
-    @include Subtitle;
-    margin-bottom: 10rem;
-  }
-
   .skills__container {
     display: flex;
     flex-wrap: wrap;
