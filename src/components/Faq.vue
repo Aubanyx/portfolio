@@ -112,7 +112,8 @@ export default {
 #faq {
   display: flex;
   flex-direction: column;
-  background: #f3f2f1;
+  //background: #f3f2f1;
+  background: var(--color-background-quinary);
   //height: 100vh;
   padding: 10rem 5rem;
 
@@ -153,7 +154,7 @@ export default {
         }
 
         &--active {
-          color: black;
+          color: var(--color-text-tertiary);
 
           &::before {
             content: url("../assets/img/minus.svg");
@@ -168,6 +169,7 @@ export default {
         transition: height 0.3s ease;
         height: 5rem;
         padding-left: 3rem;
+        color: var(--color-text-tertiary);
       }
     }
 
