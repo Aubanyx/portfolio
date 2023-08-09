@@ -43,13 +43,16 @@ export default {
   //#334BD3 Dark blue
   //#1C1D20 Dark
   //#141517 Dark dark
+  //#2f3137 Dark light
+  //#f2f2f2 Gray light
   --color-primary: #455ce9;
   --color-primary-dark: #334BD3;
   --color-secondary: #e8c246;
   --color-background-primary: #FFFFFF;
   --color-background-secondary: #F2F2F2;
-  --color-background-tertiary: #141517;
+  --color-background-tertiary: #2f3137;
   --color-background-quaternary: #1C1D20;
+  --color-background-quinary: #f2f2f2;
   --color-text-primary: #FFFFFF;
   --color-text-secondary: #808080;
   --color-text-tertiary: #1C1D20;
@@ -80,6 +83,7 @@ export default {
   --color-background-secondary: #141517;
   --color-background-tertiary: #F2F2F2;
   --color-background-quaternary: #FFFFFF;
+  --color-background-quinary: #2f3137;
   --color-text-primary: #1C1D20;
   --color-text-secondary: #808080;
   --color-text-tertiary: #FFFFFF;

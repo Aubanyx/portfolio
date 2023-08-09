@@ -29,14 +29,16 @@ export default {
   margin-top: 5rem;
   .tabList {
     .tabListContent {
-      background: #f2f2f2;
+      //background: #f2f2f2;
+      background: var(--color-background-quinary);
       border-radius: 1rem;
       height: 6rem;
       display: flex;
       font-size: 1.6rem;
       justify-content: flex-start;
       align-items: center;
-      color: black;
+      //color: black;
+      color: var(--color-text-tertiary);
       font-weight: bold;
       margin-bottom: 2rem;
       padding: 1rem 2rem;
@@ -47,7 +49,8 @@ export default {
       }
 
       &:hover {
-        background: #e6e6e6;
+        //background: #e6e6e6;
+        filter: brightness(0.8);
       }
 
       .tabListContent--icon {

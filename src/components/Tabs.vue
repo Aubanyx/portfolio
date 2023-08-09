@@ -173,7 +173,8 @@ export default {
       //display: flex;
       //justify-content: space-between;
       //align-items: center;
-      background: #f2f2f2;
+      //background: #f2f2f2;
+      background: var(--color-background-quinary);
       height: 8rem;
       width: 100%;
       border-radius: 5rem;
@@ -211,6 +212,7 @@ export default {
           cursor: pointer;
           transition: all 0.2s ease;
           position: relative;
+          color: var(--color-text-tertiary);
 
           &--active {
             //background: #261F22;

@@ -5,7 +5,9 @@
         <h2 class="contact__title">Contact</h2>
         <div class="wrapper">
           <div class="contact__infos">
-            <p class="contact__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque dignissimos doloribus incidunt quam sint sunt? Aspernatur dolore fuga laudantium libero necessitatibus nesciunt odio perspiciatis quas quasi qui quidem, quod unde?</p>
+            <p class="contact__text">
+              Des questions, un projet ou simplement l'envie de discuter ? N'hésitez plus, écrivez-moi. J'ai hâte de faire équipe avec vous !
+            </p>
             <div class="contact__infos__box">
               <h5 class="contact__infos--h5">Contact details</h5>
               <a
@@ -53,9 +55,19 @@
             />
             <span class="inputSpan" />
             <label for="subject">What is it about ?</label>
-            <input type="text" name="subject" placeholder="Recruitment *" required />
+            <input
+              type="text"
+              name="subject"
+              placeholder="Recruitment *"
+              required
+            />
             <label for="email">What's your email ?</label>
-            <input type="email" name="email" placeholder="John@doe.com *" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="John@doe.com *"
+              required
+            />
             <input
               type="hidden"
               name="_next"
@@ -72,34 +84,35 @@
               v-magnetic="{ strength: 0.5, maxDistance: 40 }"
               class="contact__container__boxForm__form--button"
               type="submit"
-            ><div class="buttonSend" v-magnetic>
-              Send your message
-              <img
-                class="button--send"
-                src="../assets/img/icons/send.svg"
-                alt="icon send"
-              />
-            </div>
+            >
+              <div class="buttonSend" v-magnetic>
+                Send your message
+                <img
+                  class="button--send"
+                  src="../assets/img/icons/send.svg"
+                  alt="icon send"
+                />
+              </div>
             </button>
           </form>
         </div>
       </div>
       <div class="contact__container__boxMap">
         <div class="contact__container__boxMap__map">
-          <p class="contact__container__boxMap__map--infos">
-            LABIE Auban<br />
-            Rue de Liège<br />
-            4041 Vottem<br />
-            <br />
-            <span>
-              <span class="prefix">@</span>
-              : aubanlabie@gmail.com
-            </span>
-            <br />
-            <br />
-            <span class="prefix">☎</span>
-            <span> : 0474/54.84.14</span>
-          </p>
+<!--          <p class="contact__container__boxMap__map&#45;&#45;infos">-->
+<!--            LABIE Auban<br />-->
+<!--            Rue de Liège<br />-->
+<!--            4041 Vottem<br />-->
+<!--            <br />-->
+<!--            <span>-->
+<!--              <span class="prefix">@</span>-->
+<!--              : aubanlabie@gmail.com-->
+<!--            </span>-->
+<!--            <br />-->
+<!--            <br />-->
+<!--            <span class="prefix">☎</span>-->
+<!--            <span> : 0474/54.84.14</span>-->
+<!--          </p>-->
         </div>
       </div>
     </div>
@@ -107,11 +120,9 @@
 </template>
 
 <script>
-
 export default {
   name: "ContactComponent",
-  components: {
-  },
+  components: {},
 };
 </script>
 
@@ -125,7 +136,7 @@ export default {
     flex-direction: column;
     width: 100%;
     //height: 100vh;
-    padding: 0 4rem;
+    //padding: 0 4rem;
 
     .contact__container__boxForm {
       display: flex;
@@ -140,7 +151,11 @@ export default {
       }
 
       .wrapper {
+        display: flex;
+        flex-direction: column;
+
         .contact__infos {
+          margin-bottom: 5rem;
           text-align: left;
 
           .contact__text {
@@ -220,7 +235,7 @@ export default {
             align-self: flex-start;
             color: var(--color-text-tertiary);
             font-size: 1.6rem;
-            padding-left: 3rem;
+            //padding-left: 3rem;
             margin-top: 3rem;
             margin-bottom: 2rem;
 
@@ -238,7 +253,7 @@ export default {
             background: var(--color-background-primary);
             //border-bottom: 2px solid var(--color-primary);
             border-bottom: 2px solid var(--color-background-tertiary);
-            padding-left: 3rem;
+            //padding-left: 3rem;
             padding-bottom: 2rem;
             outline: none;
             position: relative;
@@ -320,23 +335,23 @@ export default {
         background-size: cover;
         height: 100%;
 
-        .contact__container__boxMap__map--infos {
-          position: absolute;
-          background: #081217;
-          color: white;
-          width: fit-content;
-          padding: 2rem;
-          text-align: left;
-          font-size: 1.5rem;
-          bottom: 2rem;
-          left: 2rem;
-          line-height: 1.5rem;
-          border: 2px solid var(--firstColor);
-
-          .prefix {
-            color: var(--firstColor);
-          }
-        }
+        //.contact__container__boxMap__map--infos {
+        //  position: absolute;
+        //  background: #081217;
+        //  color: white;
+        //  width: fit-content;
+        //  padding: 2rem;
+        //  text-align: left;
+        //  font-size: 1.5rem;
+        //  bottom: 2rem;
+        //  left: 2rem;
+        //  line-height: 1.5rem;
+        //  border: 2px solid var(--firstColor);
+        //
+        //  .prefix {
+        //    color: var(--firstColor);
+        //  }
+        //}
       }
     }
   }
@@ -350,7 +365,6 @@ export default {
 
         .wrapper {
           .contact__infos {
-
           }
           .contact__container__boxForm__form {
             .contact__container__boxForm__form__box {
@@ -381,7 +395,7 @@ export default {
     .contact__container {
       flex-direction: row;
       height: 100vh;
-      padding: 0;
+      //padding: 0;
 
       .contact__container__boxForm {
         //flex-direction: column;
@@ -393,21 +407,27 @@ export default {
 
         .wrapper {
           width: 100%;
-          display: flex;
+          //display: flex;
           flex-direction: row-reverse;
 
           .contact__infos {
             width: 40%;
             padding-left: 7rem;
+            margin-bottom: 0;
 
             .contact__text {
-
             }
           }
 
           .contact__container__boxForm__form {
             width: 60%;
             margin-bottom: 0;
+
+            input,
+            textarea,
+            label {
+              padding-left: 3rem;
+            }
           }
         }
       }
@@ -415,15 +435,15 @@ export default {
       .contact__container__boxMap {
         width: 50%;
         height: 100%;
-        padding: 0;
+        //padding: 0;
 
         .contact__container__boxMap__map {
           height: 100%;
 
-          .contact__container__boxMap__map--infos {
-            top: 2rem;
-            bottom: unset;
-          }
+          //.contact__container__boxMap__map--infos {
+          //  top: 2rem;
+          //  bottom: unset;
+          //}
         }
       }
     }

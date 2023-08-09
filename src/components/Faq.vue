@@ -1,7 +1,7 @@
 <template>
   <section id="faq">
     <h3 class="faq__title">
-      Before sending me a message, here are some things you should know:
+      Before sending me a message, here are some things you should know :
     </h3>
     <ul class="faq__questionsWrapper">
       <li
@@ -121,6 +121,7 @@ export default {
     line-height: 1.2;
     text-align: left;
     margin-bottom: 5rem;
+    color: var(--color-text-tertiary);
   }
 
   .faq__questionsWrapper {
@@ -148,7 +149,7 @@ export default {
           left: 0;
           width: 1.6rem;
           height: 1.6rem;
-          filter: invert(61%) sepia(39%) saturate(520%) hue-rotate(91deg) brightness(94%) contrast(91%);
+          filter: invert(29%) sepia(86%) saturate(2805%) hue-rotate(226deg) brightness(95%) contrast(92%);
         }
 
         &--active {

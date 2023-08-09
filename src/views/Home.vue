@@ -12,7 +12,7 @@
     <Projects class="projects" />
     <Faq class="faq" />
     <Contact class="contact" />
-    <!--    <Footer class="footer" />-->
+<!--    <FooterComponent class="footer" />-->
     <ScrollToUp class="scrollToUp" />
   </div>
 </template>
@@ -28,7 +28,7 @@ import Tabs from "@/components/Tabs.vue";
 import Projects from "@/components/Projects.vue";
 import Faq from "@/components/Faq.vue";
 import Contact from "@/components/Contact.vue";
-// import Footer from "@/components/Footer.vue";
+// import FooterComponent from "@/components/Footer.vue";
 import ScrollToUp from "@/components/ScrollToUp.vue";
 import ThreeJs from "@/components/ThreeJs.vue";
 
@@ -44,7 +44,7 @@ export default {
     Projects,
     Faq,
     Contact,
-    // Footer,
+    // FooterComponent,
     ScrollToUp,
     ThreeJs,
   },
