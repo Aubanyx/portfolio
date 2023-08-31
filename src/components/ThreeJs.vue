@@ -372,7 +372,7 @@ export default {
       this.$refs.container.appendChild(this.renderer.domElement);
 
       // Charger la photo et l'ajouter à la scène
-      this.loadPhoto();
+      // this.loadPhoto();
 
       // Créez les particules et les connexions
       const geometry = new THREE.BufferGeometry();
@@ -445,29 +445,29 @@ export default {
       this.lines.rotation.x = mouseY * 0.5;
       this.lines.rotation.y = mouseX * 0.5;
 
-      this.photo.rotation.y = mouseY * 0.2;
-      this.photo.rotation.x = mouseX * 0.2;
+      // this.photo.rotation.y = mouseY * 0.2;
+      // this.photo.rotation.x = mouseX * 0.2;
 
     },
-    loadPhoto() {
-      // Définir le chemin de la photo à charger
-      const imagePath = require("@/assets/img/photo1Rec.png");
-
-      // Créer une texture à partir de l'image
-      const textureLoader = new THREE.TextureLoader();
-      const texture = textureLoader.load(imagePath);
-
-      // Créer un matériau à partir de la texture
-      const material = new THREE.MeshBasicMaterial({ map: texture });
-
-      // Créer un plan pour la photo
-      const geometry = new THREE.PlaneGeometry(500, 500);
-      this.photo = new THREE.Mesh(geometry, material);
-
-      // Positionner la photo et l'ajouter à la scène
-      this.photo.position.set(350, 0, 500);
-      this.scene.add(this.photo);
-    },
+    // loadPhoto() {
+    //   // Définir le chemin de la photo à charger
+    //   const imagePath = require("@/assets/img/photo1Rec.png");
+    //
+    //   // Créer une texture à partir de l'image
+    //   const textureLoader = new THREE.TextureLoader();
+    //   const texture = textureLoader.load(imagePath);
+    //
+    //   // Créer un matériau à partir de la texture
+    //   const material = new THREE.MeshBasicMaterial({ map: texture });
+    //
+    //   // Créer un plan pour la photo
+    //   const geometry = new THREE.PlaneGeometry(500, 500);
+    //   this.photo = new THREE.Mesh(geometry, material);
+    //
+    //   // Positionner la photo et l'ajouter à la scène
+    //   this.photo.position.set(350, 0, 500);
+    //   this.scene.add(this.photo);
+    // },
   },
 };
 </script>
