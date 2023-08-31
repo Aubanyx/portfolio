@@ -1,5 +1,5 @@
 <template>
-  <section id="process">
+  <section class="process">
     <h2 class="processTitle">Process</h2>
     <p class="processText">Chaque projet est unique, et mon approche s'adapte en conséquence. Cependant, je suis convaincu qu'un processus structuré est essentiel pour garantir la réussite de chaque projet.</p>
 <!--    <p> Voici les étapes clés que je suis généralement lors du développement d'un projet, de l'idée initiale à la mise en production. Ces étapes me permettent de m'assurer que chaque aspect est pris en compte et que le résultat final répond aux attentes et aux besoins du client.</p>-->
@@ -134,7 +134,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#process {
+.process {
   display: flex;
   flex-direction: column;
   background: #F3F2F1;
@@ -232,7 +232,7 @@ export default {
 }
 
 @media only screen and (min-width: 768px) {
-  #process {
+  .process {
     //.processTitle {
     //  font-size: 10rem;
     //}
@@ -261,7 +261,7 @@ export default {
   }
 }
 @media only screen and (min-width: 1024px) {
-  #process {
+  .process {
     padding: 15rem;
     position: relative;
 
@@ -279,7 +279,7 @@ export default {
   }
 }
 @media only screen and (min-width: 1280px) {
-  #process {
+  .process {
     .processText {
       width: 60%;
     }

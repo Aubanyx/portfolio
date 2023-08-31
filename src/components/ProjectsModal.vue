@@ -214,19 +214,19 @@ export default {
       return this.$store.state.openModal;
     },
   },
-  watch: {
-    openModal(newVal) {
-      if (newVal) {
-        this.picture = document.getElementById("pic");
-        this.containerMain = document.getElementById("containerMainPic");
-        this.preview = document.getElementById("preview");
-        this.zoomRect = document.getElementById("zoomRect");
-
-        this.preview.style.display = "none";
-        this.zoomRect.style.display = "none";
-      }
-    },
-  },
+  // watch: {
+  //   openModal(newVal) {
+  //     if (newVal) {
+  //       this.picture = document.getElementById("pic");
+  //       this.containerMain = document.getElementById("containerMainPic");
+  //       this.preview = document.getElementById("preview");
+  //       this.zoomRect = document.getElementById("zoomRect");
+  //
+  //       this.preview.style.display = "none";
+  //       this.zoomRect.style.display = "none";
+  //     }
+  //   },
+  // },
   methods: {
     modalClose() {
       this.$store.state.openModal = false;
@@ -318,25 +318,15 @@ export default {
         "-" + this.xPreview + "px -" + this.yPreview + "px";
     },
   },
-  // mounted() {
-  //   this.picture = document.getElementById("pic");
-  //   this.containerMain = document.getElementById("containerMainPic");
-  //   this.preview = document.getElementById("preview");
-  //   this.zoomRect = document.getElementById("zoomRect");
-  //
-  //   console.log("test 1", this.preview, this.zoomRect);
-  //   console.log("test 1.5", this.picture, this.containerMain);
-  //
-  //   this.preview.style.display = "none";
-  //   this.zoomRect.style.display = "none";
-  //
-  //   // if (this.preview && this.zoomRect) {
-  //   //   this.preview.style.display = "none";
-  //   //   this.zoomRect.style.display = "none";
-  //   // }
-  //
-  //   console.log("test2", this.preview, this.zoomRect);
-  // },
+  mounted() {
+    this.picture = document.getElementById("pic");
+    this.containerMain = document.getElementById("containerMainPic");
+    this.preview = document.getElementById("preview");
+    this.zoomRect = document.getElementById("zoomRect");
+
+    this.preview.style.display = "none";
+    this.zoomRect.style.display = "none";
+  },
 };
 </script>
 
