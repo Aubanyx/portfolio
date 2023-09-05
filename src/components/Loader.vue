@@ -34,7 +34,7 @@ export default {
 .loader {
   width: 150%;
   height: 120%;
-  background: var(--backgroundColor);
+  background: var(--color-background-primary);
   position: fixed;
   z-index: 999;
   top: 0;
@@ -78,7 +78,7 @@ export default {
       top: 0;
       left: 0;
       height: 0.2rem;
-      background: var(--secondaryColor);
+      background: var(--color-text-secondary);
       animation: 1s linear 1s forwards loading;
       //animation-delay: 1s;
       z-index: 0;
@@ -90,7 +90,7 @@ export default {
       top: 0;
       left: 0;
       height: 0.2rem;
-      background: var(--firstColor);
+      background: var(--color-primary);
       animation: 0.5s linear 2s forwards loading;
       z-index: 1;
     }

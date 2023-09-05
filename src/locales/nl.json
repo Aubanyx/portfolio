@@ -57,42 +57,38 @@
       "portfolio": {
         "name": "Portfolio",
         "online": "online",
-        "description": "Mon portfolio, réalisé avec le framework vue.js."
+        "style": "Design & ontwikkeling",
+        "description": "Mijn portfolio, ontworpen met Vue.js en verrijkt met Three.js, toont mijn webontwikkelingsprojecten en -vaardigheden. Het geeft ook een inkijk in mijn persoonlijkheid en bevat een contactsectie voor wie wil samenwerken."
       },
       "museum": {
         "name": "Museum Project",
         "online": "online",
-        "description": "Ce projet a été réalisé en groupe et dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec les langages Html et Css."
+        "style": "Ontwikkeling",
+        "description": "Het 'Museum project' was een teameffort tijdens mijn opleiding bij BeCode. Een project gericht op HTML en CSS, bedoeld om onze beheersing van deze essentiële technologieën te verdiepen."
       },
       "forum": {
         "name": "Forum bcbb the who",
-        "online": "online",
-        "description": "Ce projet a été réalisé en groupe et dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec le langage Php et MySQL, afin de créer et gérer une base de données de manière fonctionnelle."
+        "online": "offline",
+        "style": "Design & ontwikkeling",
+        "description": "Tijdens mijn opleiding bij BeCode heb ik mede het 'Forum bcbb the who' gecreëerd. Een interactief platform voornamelijk ontwikkeld met HTML, SCSS, PHP en mySQL, dat registratie, inloggen en berichten sturen mogelijk maakt voor een volledige gebruikerservaring."
       },
       "chaos": {
         "name": "Chaos Coffee Restaurant",
         "online": "offline",
-        "description": "Ce projet a été réalisé en groupe et dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec le CMS Wordpress."
+        "style": "Design & ontwikkeling",
+        "description": "Tijdens mijn opleiding bij BeCode heeft het 'Chaos Coffee Restaurant' project ons als team uitgedaagd om een showcase site voor een restaurant te bouwen met WordPress. Beginnend met enkele afbeeldingen, hebben we een volledige en professionele website gecreëerd."
       },
       "leaf": {
         "name": "Mwenbwa Corses",
         "online": "offline",
-        "description": "Ce projet a été réalisé en groupe et dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec la MERN stack."
+        "style": "Design & ontwikkeling",
+        "description": "Bij BeCode hebben we 'Mwenbwa Corses' ontwikkeld, een online IDLE-spel gebaseerd in Luik. Met gebruik van HTML, SCSS en M.E.R.N., combineert het project een REST API met een React SPA."
       },
       "pomodoro": {
         "name": "React Pomodoro",
         "online": "online",
-        "description": "Ce projet a été réalisé dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec le framework React.js."
-      },
-      "holidays": {
-        "name": "Holidays CLI",
-        "online": "offline",
-        "description": "Ce projet a été réalisé dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec Npm et le terminal."
-      },
-      "card": {
-        "name": "Npx Card",
-        "online": "offline",
-        "description": "Ce projet a été réalisé dans le cadre de la formation BeCode. Le but de ce projet était de nous familiariser avec Npm et le terminal."
+        "style": "Design & ontwikkeling",
+        "description": "De 'Pomodoro' is gemaakt tijdens mijn opleiding bij BeCode. Als een solo project, stelde dit me in staat om een efficiënte Pomodoro timer te ontwikkelen met het React framework, waarmee ik mijn front-end ontwikkelingsvaardigheden kon tonen."
       },
       "TechnologiesUsed": "Technologies used",
       "website": "Website"

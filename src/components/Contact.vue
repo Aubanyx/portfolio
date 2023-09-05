@@ -331,7 +331,7 @@ export default {
 
       .contact__container__boxMap__map {
         position: relative;
-        background-image: url("../assets/img/map.png");
+        background-image: url("../assets/img/map.jpg");
         background-size: cover;
         height: 100%;
 

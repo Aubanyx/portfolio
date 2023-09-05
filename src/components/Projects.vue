@@ -8,7 +8,7 @@
           @mouseleave="hideCircle(index)"
           class="project"
           :data-index="index"
-          v-for="(item, index) in projects"
+          v-for="(item, index) in translatedProjects"
           :key="'item' + index"
         >
           <div
@@ -210,6 +210,19 @@ export default {
         },
       ],
     };
+  },
+  computed: {
+    translatedProjects() {
+      return this.projects.map((project) => ({
+        ...project,
+        name: this.$i18n.t(`projects.modal.${project.alias}.name`),
+        description: this.$i18n.t(
+          `projects.modal.${project.alias}.description`
+        ),
+        style: this.$i18n.t(`projects.modal.${project.alias}.style`),
+        state: this.$i18n.t(`projects.modal.${project.alias}.online`),
+      }));
+    },
   },
   methods: {
     startAnimation() {
@@ -576,7 +589,13 @@ export default {
         .project {
           flex-direction: row;
           justify-content: space-between;
-          padding-bottom: 5rem;
+          //padding-bottom: 5rem;
+          border-bottom: none;
+          width: 100%;
+          box-shadow: rgb(0 0 0 / 15%) 0 15px 20px -5px,
+            rgb(255 255 255 / 90%) 0 -15px 20px 5px;
+          padding: 5rem;
+          border-radius: 5rem;
 
           .projectHover {
             width: 0;
