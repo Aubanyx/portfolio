@@ -426,6 +426,7 @@ export default {
           width: 3rem;
           height: 3rem;
           margin-right: 0.7rem;
+          filter: var(--filterTechs);
         }
       }
     }

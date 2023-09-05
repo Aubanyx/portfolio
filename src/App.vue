@@ -57,6 +57,9 @@ export default {
   --color-text-secondary: #808080;
   --color-text-tertiary: #1C1D20;
   --color-border: #27272740;
+  --filterTechs: initial;
+  --color-box-shadow: rgb(0 0 0 / 15%) 15px 15px 20px -5px,
+    rgb(255 255 255 / 90%) -15px -15px 20px 5px;
 
   --backgroundColor: #ffffff;
   //--firstColor: #d25d5f;
@@ -88,6 +91,10 @@ export default {
   --color-text-secondary: #808080;
   --color-text-tertiary: #FFFFFF;
   --color-border: #27272740;
+  --filterTechs: brightness(11);
+  --color-box-shadow: rgb(14 15 16 / 50%) 15px 15px 20px -5px,
+    rgb(43 44 49 / 25%) -15px -15px 20px 5px;
+
   //--backgroundColor: #202023;
   --backgroundColor: #272727;
   //--firstColor: #6a5acd;

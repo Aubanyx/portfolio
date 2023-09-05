@@ -20,24 +20,38 @@
           </div>
           <div class="projectInfos" @click="updateModal(item)">
             <h3 class="projectTitle">{{ item.name }}</h3>
-            <h4 class="projectStyle">{{ item.style }}</h4>
+            <div class="projectInfosStyle">
+              <h4 class="projectStyle">{{ item.style }}</h4>
+              <div class="projectInfosTechs">
+                <div
+                  class="projectTechs"
+                  v-for="tech in item.techUse"
+                  :key="tech.id"
+                >
+                  <img
+                    class="tech"
+                    :src="require('../assets/img/icons/techs/' + tech + '.svg')"
+                    :alt="tech"
+                  />
+                </div>
+              </div>
+            </div>
             <div class="projectDesignPhone">
-              <img
-                class="mockupPc"
-                src="../assets/img/mockupPc.png"
-                alt="mockup pc"
-              />
-              <img
-                class="mockupTablet"
-                src="../assets/img/mockupTablet.png"
-                alt="mockup tablet"
-              />
-              <img
-                class="mockupPhone"
-                src="../assets/img/mockupPhone.png"
-                alt="mockup phone"
-              />
-              <span class="projectBackground"></span>
+              <div class="projectBackground">
+                <div class="projectPresentation">
+                  <img
+                    class="projectPresentation--img"
+                    :src="
+                      require('../assets/img/imgProjects/' +
+                        item.alias +
+                        '/presentation/' +
+                        item.presentation)
+                    "
+                    :alt="'presentation' + item.name"
+                  />
+                  <span class="projectNumbers">{{ item.number }}</span>
+                </div>
+              </div>
             </div>
             <p class="projectDescription">{{ item.description }}</p>
             <div class="projectButton">
@@ -50,22 +64,21 @@
             </div>
           </div>
           <div class="projectDesign" @click="updateModal(item)">
-            <img
-              class="mockupPc"
-              src="../assets/img/mockupPc.png"
-              alt="mockup pc"
-            />
-            <img
-              class="mockupTablet"
-              src="../assets/img/mockupTablet.png"
-              alt="mockup tablet"
-            />
-            <img
-              class="mockupPhone"
-              src="../assets/img/mockupPhone.png"
-              alt="mockup phone"
-            />
-            <span class="projectBackground"></span>
+            <div class="projectBackground">
+              <div class="projectPresentation">
+                <img
+                  class="projectPresentation--img"
+                  :src="
+                    require('../assets/img/imgProjects/' +
+                      item.alias +
+                      '/presentation/' +
+                      item.presentation)
+                  "
+                  :alt="'presentation' + item.name"
+                />
+                <span class="projectNumbers">{{ item.number }}</span>
+              </div>
+            </div>
           </div>
         </li>
       </ul>
@@ -101,8 +114,10 @@ export default {
           techUse: ["html", "scss", "javascript", "vue"],
           linkRepo: "https://github.com/Aubanyx/portfolio",
           linkSite: "#",
+          presentation: "portfolio1280.png",
           thumbnail: ["img01.jpg", "img02.jpg", "img03.jpg", "img04.jpg"],
           img: ["img01.png", "img02.png", "img03.png", "img04.png"],
+          number: "01",
           participants: "solo",
           style: "Design & development",
           state: this.$i18n.t("projects.modal.portfolio.online"),
@@ -116,8 +131,10 @@ export default {
           techUse: ["html", "css"],
           linkRepo: "https://github.com/Aubanyx/museum-project",
           linkSite: "https://aubanyx.github.io/museum-project/",
+          presentation: "museum1280.png",
           thumbnail: ["img01.jpg", "img02.jpg", "img03.jpg", "img04.jpg"],
           img: ["img01.png", "img02.png", "img03.png", "img04.png"],
+          number: "02",
           participants: "group",
           style: "Development",
           state: this.$i18n.t("projects.modal.museum.online"),
@@ -131,8 +148,10 @@ export default {
           techUse: ["html", "scss", "javascript", "php", "mysql"],
           linkRepo: "https://github.com/Aubanyx/Forum-bcbb-the-who",
           linkSite: "https://bcbb-thewho.herokuapp.com/index.php",
+          presentation: "forum1280.png",
           thumbnail: ["img01.jpg", "img02.jpg", "img03.jpg", "img04.jpg"],
           img: ["img01.png", "img02.png", "img03.png", "img04.png"],
+          number: "03",
           participants: "group",
           style: "Design & development",
           state: this.$i18n.t("projects.modal.forum.online"),
@@ -147,7 +166,9 @@ export default {
           linkRepo: "https://github.com/Aubanyx/ChaosCoffeeRestaurant",
           thumbnail: ["img01.jpg", "img02.jpg", "img03.jpg", "img04.jpg"],
           linkSite: "#",
+          presentation: "restaurant1280.png",
           img: ["img01.png", "img02.png", "img03.png", "img04.png"],
+          number: "04",
           participants: "group",
           style: "Design & development",
           state: this.$i18n.t("projects.modal.chaos.online"),
@@ -162,7 +183,9 @@ export default {
           linkRepo: "https://github.com/Aubanyx/mwenbwa-corses",
           thumbnail: ["img01.jpg", "img02.jpg", "img03.jpg", "img04.jpg"],
           linkSite: "#",
+          presentation: "mwenbwa1280.png",
           img: ["img01.png", "img02.png", "img03.png", "img04.png"],
+          number: "05",
           participants: "group",
           style: "Design & development",
           state: this.$i18n.t("projects.modal.leaf.online"),
@@ -176,8 +199,10 @@ export default {
           techUse: ["html", "scss", "react"],
           linkRepo: "https://github.com/Aubanyx/react-pomodoro",
           linkSite: "https://auban-react-pomodoro.netlify.app\n",
+          presentation: "pomodoro1280.png",
           thumbnail: ["img01.jpg", "img02.jpg", "img03.jpg", "img04.jpg"],
           img: ["img01.png", "img02.png", "img03.png", "img04.png"],
+          number: "06",
           participants: "solo",
           style: "Design & development",
           state: this.$i18n.t("projects.modal.pomodoro.online"),
@@ -270,7 +295,12 @@ export default {
         this.circleX = event.clientX - parentRect.left;
         this.circleY = event.clientY - parentRect.top;
         // Vérifier si la souris est encore dans le li
-        if (event.clientX < parentRect.left || event.clientX > parentRect.right || event.clientY < parentRect.top || event.clientY > parentRect.bottom) {
+        if (
+          event.clientX < parentRect.left ||
+          event.clientX > parentRect.right ||
+          event.clientY < parentRect.top ||
+          event.clientY > parentRect.bottom
+        ) {
           this.hideCircle(this.currentIndex);
         }
       }
@@ -338,60 +368,105 @@ export default {
           text-align: left;
 
           .projectTitle {
-            font-size: 5rem;
+            //font-size: 5rem;
+            font-size: clamp(4rem, -0.2953rem + 13.4228vw, 7rem);
             font-weight: bold;
             color: var(--color-text-tertiary);
             margin-bottom: 1.5rem;
           }
-          .projectStyle {
-            font-size: 1.6rem;
-            color: var(--color-text-tertiary);
-            margin-bottom: 3rem;
+
+          .projectInfosStyle {
+            display: flex;
+            flex-direction: column;
+
+            .projectStyle {
+              font-size: 1.6rem;
+              color: var(--color-text-tertiary);
+              margin-bottom: 2rem;
+            }
+
+            .projectInfosTechs {
+              display: flex;
+              margin-bottom: 5rem;
+
+              .projectTechs {
+                .tech {
+                  width: 3rem;
+                  height: 3rem;
+                  margin-right: 0.7rem;
+                  filter: var(--filterTechs);
+                }
+              }
+            }
           }
 
           .projectDesignPhone {
             display: flex;
             justify-content: center;
             position: relative;
-            height: 33rem;
-            margin-bottom: 3rem;
+            //height: 33rem;
+            height: clamp(33rem, 50vw, 40rem);
+            //margin-bottom: 3rem;
 
-            .mockupPc {
-              min-height: 23rem;
-              max-height: 40rem;
-              height: 45vw;
-              position: absolute;
-              bottom: 0;
-              right: -6rem;
-              z-index: 1;
-            }
-            .mockupTablet {
-              min-height: 18rem;
-              max-height: 34rem;
-              height: 37vw;
-              position: absolute;
-              bottom: 0;
-              left: -7rem;
-              transform: rotateY(180deg);
-              z-index: 1;
-            }
-            .mockupPhone {
-              min-height: 10rem;
-              max-height: 22rem;
-              height: 22vw;
-              position: absolute;
-              bottom: 2rem;
-              //left: 4.5rem;
-              left: 15%;
-              z-index: 1;
-            }
+            //.mockupPc {
+            //  min-height: 23rem;
+            //  max-height: 40rem;
+            //  height: 45vw;
+            //  position: absolute;
+            //  bottom: 0;
+            //  right: -6rem;
+            //  z-index: 1;
+            //}
+            //.mockupTablet {
+            //  min-height: 18rem;
+            //  max-height: 34rem;
+            //  height: 37vw;
+            //  position: absolute;
+            //  bottom: 0;
+            //  left: -7rem;
+            //  transform: rotateY(180deg);
+            //  z-index: 1;
+            //}
+            //.mockupPhone {
+            //  min-height: 10rem;
+            //  max-height: 22rem;
+            //  height: 22vw;
+            //  position: absolute;
+            //  bottom: 2rem;
+            //  //left: 4.5rem;
+            //  left: 15%;
+            //  z-index: 1;
+            //}
             .projectBackground {
               position: absolute;
-              height: 22rem;
+              //height: 22rem;
+              height: clamp(22rem, 40vw, 30rem);
               width: 85%;
-              background: var(--color-secondary);
+              background: var(--color-background-quinary);
               border-radius: 2rem;
               z-index: 0;
+              box-shadow: var(--color-box-shadow);
+
+              .projectPresentation {
+                .projectPresentation--img {
+                  width: clamp(30rem, 100%, 35rem);
+                  position: absolute;
+                  left: -12rem;
+                  bottom: -6rem;
+                  z-index: 1;
+                  filter: drop-shadow(15px 15px 20px rgb(0%, 0%, 0%, 25%));
+                }
+
+                .projectNumbers {
+                  font-size: clamp(7rem, -0.2953rem + 13.4228vw, 13rem);
+                  font-weight: bold;
+                  color: var(--color-text-tertiary);
+                  position: absolute;
+                  top: 0;
+                  right: -3rem;
+                  z-index: 1;
+                }
+              }
             }
           }
 
@@ -431,31 +506,37 @@ export default {
 
 @media only screen and (min-width: 768px) {
   .container {
-    //.projects__title {
-    //  font-size: 10rem;
-    //}
     .hover-content {
       .listProject {
         .project {
           .projectInfos {
-            .projectDesignPhone {
-              height: 40rem;
+            .projectInfosStyle {
+              flex-direction: row;
+              align-items: center;
+              margin-bottom: 5rem;
 
-              .mockupPc {
-                min-height: 33rem;
-                right: -4rem;
+              .projectStyle {
+                margin-bottom: 0;
+                margin-right: 1rem;
               }
-              .mockupTablet {
-                min-height: 28rem;
-                left: -7rem;
+
+              .projectInfosTechs {
+                margin-bottom: 0;
               }
-              .mockupPhone {
-                min-height: 20rem;
-                //left: 8.5rem;
-              }
+            }
+            .projectDesignPhone {
+              //height: 40rem;
+
               .projectBackground {
-                height: 25rem;
-                width: 80%;
+                //height: 30rem;
+
+                .projectPresentation {
+                  .projectPresentation--img {
+                  }
+
+                  .projectNumbers {
+                  }
+                }
               }
             }
           }
@@ -545,11 +626,15 @@ export default {
           .projectInfos {
             display: flex;
             flex-direction: column;
-            width: 40%;
+            width: 50%;
 
             .projectTitle {
               font-size: 7rem;
               line-height: 1.2;
+            }
+
+            .projectDescription {
+              width: 75%;
             }
 
             .projectStyle {
@@ -561,11 +646,11 @@ export default {
             }
 
             .projectDescription {
-              margin-bottom: 0;
+              //margin-bottom: 0;
             }
 
             .projectButton {
-              display: none;
+              //display: none;
             }
           }
 
@@ -573,43 +658,74 @@ export default {
             display: flex;
             justify-content: center;
             position: relative;
-            height: 37rem;
-            width: 55%;
-            margin-left: 5%;
-
-            .mockupPc {
-              height: 35rem;
-              position: absolute;
-              bottom: 0;
-              right: -10rem;
-              z-index: 1;
-            }
-
-            .mockupTablet {
-              height: 30rem;
-              position: absolute;
-              bottom: 0;
-              left: -13rem;
-              transform: rotateY(180deg);
-              z-index: 1;
-            }
-
-            .mockupPhone {
-              height: 20rem;
-              position: absolute;
-              bottom: 2rem;
-              left: 5rem;
-              z-index: 1;
-            }
+            height: 50rem;
+            width: 30%;
 
             .projectBackground {
               position: absolute;
-              height: 22rem;
+              height: 40rem;
               width: 85%;
-              background: var(--color-secondary);
-              border-radius: 5rem;
+              background: var(--color-background-quinary);
+              border-radius: 2rem;
               z-index: 0;
+              box-shadow: var(--color-box-shadow);
+
+              .projectPresentation {
+                .projectPresentation--img {
+                  position: absolute;
+                  //width: 50rem;
+                  width: clamp(50rem, 200%, 65rem);
+                  left: -25rem;
+                  bottom: -10rem;
+                  z-index: 1;
+                  filter: drop-shadow(15px 15px 20px rgb(0%, 0%, 0%, 25%));
+                }
+
+                .projectNumbers {
+                  font-size: clamp(7rem, -0.2953rem + 13.4228vw, 13rem);
+                  font-weight: bold;
+                  color: var(--color-text-tertiary);
+                  position: absolute;
+                  top: 0;
+                  right: -3rem;
+                  z-index: 1;
+                }
+              }
             }
+
+            //.mockupPc {
+            //  height: 35rem;
+            //  position: absolute;
+            //  bottom: 0;
+            //  right: -10rem;
+            //  z-index: 1;
+            //}
+            //
+            //.mockupTablet {
+            //  height: 30rem;
+            //  position: absolute;
+            //  bottom: 0;
+            //  left: -13rem;
+            //  transform: rotateY(180deg);
+            //  z-index: 1;
+            //}
+            //
+            //.mockupPhone {
+            //  height: 20rem;
+            //  position: absolute;
+            //  bottom: 2rem;
+            //  left: 5rem;
+            //  z-index: 1;
+            //}
+            //
+            //.projectBackground {
+            //  position: absolute;
+            //  height: 22rem;
+            //  width: 85%;
+            //  background: var(--color-secondary);
+            //  border-radius: 5rem;
+            //  z-index: 0;
+            //}
           }
         }
       }
@@ -621,30 +737,20 @@ export default {
     padding: 15rem;
   }
 }
+
 @media only screen and (min-width: 1440px) {
   .container {
     .hover-content {
       .listProject {
         .project {
-
           .projectDesign {
-            height: 27vw;
-
-            .mockupPc {
-              height: 25vw;
-            }
-
-            .mockupTablet {
-              height: 21vw;
-            }
-
-            .mockupPhone {
-              height: 12vw;
-              left: 13%;
-            }
-
             .projectBackground {
-              height: 60%;
+              .projectPresentation {
+                .projectPresentation--img {
+                  left: -30rem;
+                  bottom: -13rem;
+                }
+              }
             }
           }
         }
