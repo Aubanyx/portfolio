@@ -16,10 +16,16 @@
                 <a href="#about">{{ $t("menu.about") }}</a>
               </li>
               <li @click="closeSidebarPanel">
-                <a href="#skills">{{ $t("menu.skills") }}</a>
+                <a href="#processus">{{ $t("menu.process") }}</a>
+              </li>
+              <li @click="closeSidebarPanel">
+                <a href="#tabs">{{ $t("menu.skills") }}</a>
               </li>
               <li @click="closeSidebarPanel">
                 <a href="#projects">{{ $t("menu.projects") }}</a>
+              </li>
+              <li @click="closeSidebarPanel">
+                <a href="#faq">{{ $t("menu.faq") }}</a>
               </li>
               <li @click="closeSidebarPanel">
                 <a href="#contact">{{ $t("menu.contact") }}</a>

@@ -2,8 +2,10 @@
   "menu": {
     "home": "Home",
     "about": "About",
+    "process": "Proces",
     "skills": "Skills",
     "projects": "Projects",
+    "faq": "Faq",
     "contact": "Contact",
     "question": "A question ?"
   },
@@ -84,7 +86,10 @@
         "description": "De 'Pomodoro' is gemaakt tijdens mijn opleiding bij BeCode. Als een solo project, stelde dit me in staat om een efficiënte Pomodoro timer te ontwikkelen met het React framework, waarmee ik mijn front-end ontwikkelingsvaardigheden kon tonen."
       },
       "TechnologiesUsed": "Technologies used",
-      "website": "Website"
+      "link": {
+        "website": "Bekijk de site",
+        "code": "Bekijk de code"
+      }
     },
     "explore": "Verken",
     "more": "Meer projecten op Github",

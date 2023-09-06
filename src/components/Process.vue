@@ -1,5 +1,5 @@
 <template>
-  <section class="process">
+  <section id="processus" class="process">
     <h2 class="processTitle">{{ $t("process.title") }}</h2>
     <p class="processText">{{ $t("process.intro") }}</p>
     <ul class="processWrapper">
@@ -239,10 +239,6 @@ export default {
 
 @media only screen and (min-width: 768px) {
   .process {
-    //.processTitle {
-    //  font-size: 10rem;
-    //}
-
     .processWrapper {
       flex-direction: row;
       flex-wrap: wrap;

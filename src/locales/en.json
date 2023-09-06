@@ -2,8 +2,10 @@
   "menu": {
     "home": "Home",
     "about": "About",
+    "process": "Process",
     "skills": "Skills",
     "projects": "Projects",
+    "faq": "Faq",
     "contact": "Contact",
     "question": "A question ?"
   },
@@ -84,7 +86,10 @@
         "description": "The 'Pomodoro' was crafted during my training at BeCode. Completed solo, this project allowed me to create an efficient Pomodoro timer using the React framework, showcasing my front-end development skills."
       },
       "TechnologiesUsed": "Technologies used",
-      "website": "Website"
+      "link": {
+        "website": "View the site",
+        "code": "View the code"
+      }
     },
     "explore": "Explore",
     "more": "More work on Github",
