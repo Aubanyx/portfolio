@@ -40,7 +40,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   max-width: 1920px;
-  max-height: 1200px;
+  max-height: fit-content;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -125,6 +125,7 @@ export default {
   .container {
     flex-direction: row;
     height: 110vh;
+    max-height: 1200px;
     padding: 0 15rem;
 
     &::before {

@@ -378,6 +378,7 @@ export default {
       .modal__infos__links--linkWeb {
         @include ButtonPrimary;
         font-size: 1.6rem;
+        padding: 2rem;
         width: 100%;
         display: flex;
         justify-content: center;

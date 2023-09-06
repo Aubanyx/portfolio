@@ -119,7 +119,7 @@ export default {
   height: 100%;
 
   .contact__container {
-    max-height: 1200px;
+    max-height: fit-content;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -252,40 +252,6 @@ export default {
             }
           }
 
-          //.inputSpan {
-          //  position: relative;
-          //}
-          //
-          //.inputText + .inputSpan::before {
-          //  content: "";
-          //  position: absolute;
-          //  bottom: 1rem;
-          //  right: 0;
-          //  width: 0.2rem;
-          //  height: 0;
-          //  background: var(--firstColor);
-          //  transition: 0.3s ease;
-          //}
-          //
-          //.inputText + .inputSpan::after {
-          //  content: "";
-          //  position: absolute;
-          //  bottom: 5rem;
-          //  left: 0;
-          //  width: 0;
-          //  height: 0.2rem;
-          //  background: var(--firstColor);
-          //  transition: 0.3s ease;
-          //}
-          //
-          //.inputText:focus + .inputSpan::after {
-          //  width: 100%;
-          //}
-          //
-          //.inputText:focus + .inputSpan::before {
-          //  height: 4rem;
-          //}
-
           textarea {
             height: 10rem;
             padding-top: 1rem;
@@ -322,24 +288,6 @@ export default {
         background-image: url("../assets/img/map.jpg");
         background-size: cover;
         height: 100%;
-
-        //.contact__container__boxMap__map--infos {
-        //  position: absolute;
-        //  background: #081217;
-        //  color: white;
-        //  width: fit-content;
-        //  padding: 2rem;
-        //  text-align: left;
-        //  font-size: 1.5rem;
-        //  bottom: 2rem;
-        //  left: 2rem;
-        //  line-height: 1.5rem;
-        //  border: 2px solid var(--firstColor);
-        //
-        //  .prefix {
-        //    color: var(--firstColor);
-        //  }
-        //}
       }
     }
   }
@@ -381,17 +329,12 @@ export default {
 @media only screen and (min-width: 1024px) {
   .container {
     .contact__container {
+      max-height: 1200px;
       flex-direction: row;
       height: 100vh;
-      //padding: 0;
 
       .contact__container__boxForm {
-        //flex-direction: column;
         width: 70%;
-
-        //.contact__title {
-        //  @include Title;
-        //}
 
         .wrapper {
           width: 100%;
@@ -427,11 +370,6 @@ export default {
 
         .contact__container__boxMap__map {
           height: 100%;
-
-          //.contact__container__boxMap__map--infos {
-          //  top: 2rem;
-          //  bottom: unset;
-          //}
         }
       }
     }
