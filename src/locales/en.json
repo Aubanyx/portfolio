@@ -13,46 +13,39 @@
   },
   "about": {
     "title": "About me",
-    "subtitle": "My introduction",
-    "years": "Years of experience",
-    "completed": "Completed projects",
-    "coffees": "Coffees consumed",
     "description01": "Hi ! My name is Auban Labie, a 27-year-old Belgian, junior web developer. I live in Vottem in the province of Liège. My hobbies are obviously programming but also fitness / bodybuilding and video games. Motivated, proactive, always ready to learn. Calm and thoughtful, I try to adapt to all situations. I love bringing both technical and visual aspects to life on digital products. User experience is extremely important to me.",
     "description02": "Passionate about web development, I had the honor of acquiring several enriching experiences at the IEPSCF Namur Cadets, where I was able to follow an exemplary course and within different establishments such as the unequaled training at BeCode, this which allowed me to amplify my knowledge and my skills related to the job of web developer.",
     "description03": "My experience as a freelancer taught me to make choices and focus on the priorities of the moment. Each task must be broken down and organized in order to optimize its performance. Just like in a company, the goal of the week via the sprint backlog is a capital understanding within the team to produce the highest added value.",
     "download": "Download CV"
   },
+  "process": {
+    "title": "Process",
+    "intro": "Every project is unique, and my approach adjusts accordingly. However, I am convinced that a structured process is essential to ensure the success of every project.",
+    "step01": {
+      "title": "Planning",
+      "description": "Analysis of the project's objectives and requirements based on the provided specifications or available information. Development of a detailed project plan, including a timeline, an estimate of the required resources, and defining responsibilities for each team member."
+    },
+    "step02": {
+      "title": "Design",
+      "description": "Exploration of current design and feature trends to draw inspiration and design an innovative solution tailored to the project's needs. Consulting inspiration sources such as Dribbble, Behance, or Awwwards to identify relevant ideas and approaches. Creating mockups and prototypes for the user interface and user experience, using tools like Figma or Adobe XD. Presenting the concepts to the client and integrating feedback to refine the design."
+    },
+    "step03": {
+      "title": "Development",
+      "description": "Transforming mockups into functional code using technologies such as HTML, CSS, JavaScript, and frameworks like Vue.js or React. Development of the back-end architecture and integration with databases and APIs, as needed."
+    },
+    "step04": {
+      "title": "Deployment",
+      "description": "Launching the site on a production server, using hosting tools and services such as Git, Netlify, or Heroku. Optimizing the site's performance to ensure a smooth user experience. Monitoring and resolving technical issues that may arise after the site's launch."
+    }
+  },
   "skills": {
     "title": "Skills",
-    "subtitle": "My technical level",
-    "front": {
-      "title": "Front-End Developer",
-      "subtitle": "More than 4 years"
-    },
-    "back": {
-      "title": "Back-End Developer",
-      "subtitle": "More than 4 years"
-    },
-    "designer": {
-      "title": "Designer",
-      "subtitle": "More than 4 years"
-    },
-    "soft": {
-      "title": "Soft Skills",
-      "subtitle": "More than 4 years"
-    },
-    "tools": {
-      "title": "Tools",
-      "subtitle": "More than 4 years"
-    },
-    "others": {
-      "title": "Others",
-      "subtitle": "More than 4 years"
-    }
+    "intro": "My technical and non-technical skills are the result of solid training, diverse professional experience, and a constant commitment to learning and improvement. They make me a valuable asset to any project team.",
+    "tab01": "Web development languages",
+    "tab02": "Tools and frameworks"
   },
   "projects": {
     "title": "My projects",
-    "subtitle": "Most recent work",
     "modal": {
       "portfolio": {
         "name": "Portfolio",
@@ -72,13 +65,13 @@
         "style": "Design & development",
         "description": "During my training at BeCode, I co-created the 'Forum bcbb the who'. An interactive platform primarily developed with HTML, SCSS, PHP, and mySQL, allowing registration, login, and message sending for a complete user experience."
       },
-      "chaos": {
+      "restaurant": {
         "name": "Chaos Coffee Restaurant",
         "online": "offline",
         "style": "Design & development",
         "description": "During my training at BeCode, the 'Chaos Coffee Restaurant' project challenged our team to build a showcase site for a restaurant using WordPress. Starting with a few images, we crafted a complete and professional website."
       },
-      "leaf": {
+      "mwenbwa": {
         "name": "Mwenbwa Corses",
         "online": "offline",
         "style": "Design & development",
@@ -92,15 +85,53 @@
       },
       "TechnologiesUsed": "Technologies used",
       "website": "Website"
+    },
+    "explore": "Explore",
+    "more": "More work on Github",
+    "view": "View"
+  },
+  "faq": {
+    "intro": "Before sending me a message, here are some things you should know :",
+    "question01": {
+      "question": "",
+      "answer": ""
+    },
+    "question02": {
+      "question": "",
+      "answer": ""
+    },
+    "question03": {
+      "question": "",
+      "answer": ""
+    },
+    "question04": {
+      "question": "",
+      "answer": ""
+    },
+    "question05": {
+      "question": "",
+      "answer": ""
     }
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "Contact me",
-    "name": "Name",
-    "subject": "Subject",
-    "email": "Email",
-    "message": "Message",
-    "sendMessage": "Send Message"
+    "intro": "Questions, a project, or just want to chat? Don't hesitate, write to me. I'm eager to team up with you !",
+    "details": "Contact details",
+    "socials": "Socials",
+    "name": {
+      "question": "What's your name ?"
+    },
+    "about": {
+      "question": "What is it about ?",
+      "answer": "Recruitment *"
+    },
+    "email": {
+      "question": "What's your email ?"
+    },
+    "message": {
+      "question": "Your message",
+      "answer": "Hello Auban can you help me with ... *"
+    },
+    "send": "Send your message"
   }
 }

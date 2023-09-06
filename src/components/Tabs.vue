@@ -1,7 +1,7 @@
 <template>
   <section id="tabs">
-    <h2 class="tabsTitle">Skills</h2>
-    <p class="tabsText">Mes compétences techniques et non techniques sont le fruit d'une formation solide, d'une expérience professionnelle diversifiée et d'un engagement constant envers l'apprentissage et l'amélioration. Ils font de moi un atout précieux pour toute équipe de projet.</p>
+    <h2 class="tabsTitle">{{ $t("skills.title") }}</h2>
+    <p class="tabsText">{{ $t("skills.intro") }}</p>
     <div class="tabs__container">
       <div class="tabs__header">
         <div class="tab__wrapper">
@@ -11,7 +11,7 @@
             :class="{
               'tab--active': tab.open,
             }"
-            v-for="(tab, index) in tabs"
+            v-for="(tab, index) in translatedTabs"
             :key="index"
             @click="activateTab(index)"
           >
@@ -45,7 +45,7 @@ export default {
       activeTabIndex: 0,
       tabs: [
         {
-          title: "Langages de développement web",
+          title: this.$i18n.t("skills.tab01"),
           img: "code.svg",
           open: true,
           skills: [
@@ -72,7 +72,7 @@ export default {
           ],
         },
         {
-          title: "Outils et frameworks",
+          title: this.$i18n.t("skills.tab02"),
           img: "tools.svg",
           open: false,
           skills: [
@@ -110,6 +110,22 @@ export default {
     };
   },
   computed: {
+    translatedTabs() {
+      return this.tabs.map((tab, index) => {
+        let translationKey;
+
+        if (index === 0) {
+          translationKey = "skills.tab01";
+        } else if (index === 1) {
+          translationKey = "skills.tab02";
+        }
+
+        return {
+          ...tab,
+          title: this.$i18n.t(translationKey),
+        };
+      });
+    },
     tabBackgroundStyle() {
       const translateX = this.activeTabIndex * 100;
       return {

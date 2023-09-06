@@ -13,46 +13,39 @@
   },
   "about": {
     "title": "À propos de moi",
-    "subtitle": "Mon introduction",
-    "years": "Années d'expériences",
-    "completed": "Projets complétés",
-    "coffees": "Cafés consommés",
     "description01": "Salut ! Je m'appelle Auban Labie, jeune belge de 27 ans, développeur web junior. J'habite Vottem dans la province de Liège. Mes hobbies sont évidemment la programmation mais aussi le fitness / la musculation et les jeu-vidéos. Motivé, proactif, toujours prêt à apprendre. Calme et réfléchi, je m'efforce de m'adapter à toutes situations. J'adore donner vie à la fois aux aspects techniques et visuels sur des produits numériques. L'expérience utilisateur est extrêmement importante à mes yeux.\n",
     "description02": "Passionné par le développement web, j'ai eu l'honneur d'acquérir plusieurs expériences enrichissantes au IEPSCF Namur Cadets, où j'ai pu suivre un cursus exemplaire et sein de différents établissements tels que l’une formation sans égal chez BeCode, ce qui m'a permis d'amplifier mes connaissances et mes compétences liées au métier de développeur web.\n\n",
     "description03": "Mon expérience en tant qu'indépendant m'a appris à faire des choix et de me concentrer sur les priorités du moment. Chaque tâche doit être découpée et organisée afin d'optimiser son rendement. Tout comme dans une entreprise, le goal de la semaine via le sprint backlog est une compréhension capitale au sein de l’équipe pour produire la plus haute valeur ajoutée.\n\n",
     "download": "Télécharger CV"
   },
+  "process": {
+    "title": "Processus",
+    "intro": "Chaque projet est unique, et mon approche s'adapte en conséquence. Cependant, je suis convaincu qu'un processus structuré est essentiel pour garantir la réussite de chaque projet.",
+    "step01": {
+      "title": "Planification",
+      "description": "Analyse des objectifs et des exigences du projet en se basant sur le cahier des charges fourni ou les informations disponibles. Élaboration d'un plan de projet détaillé, comprenant un calendrier, une estimation des ressources nécessaires et la définition des responsabilités pour chaque membre de l'équipe."
+    },
+    "step02": {
+      "title": "Design",
+      "description": "Exploration des tendances actuelles en matière de design et de fonctionnalités pour s'inspirer et concevoir une solution innovante et adaptée aux besoins du projet. Consultation de sources d'inspiration telles que Dribbble, Behance ou Awwwards pour identifier des idées et des approches pertinentes. Création de maquettes et de prototypes pour l'interface utilisateur et l'expérience utilisateur, en utilisant des outils tels que Figma ou Adobe XD. Présentation des concepts au client et intégration des retours d'informations pour affiner la conception."
+    },
+    "step03": {
+      "title": "Développement",
+      "description": "Transformation des maquettes en code fonctionnel en utilisant des technologies telles que HTML, CSS, JavaScript, et des frameworks tels que Vue.js ou React. Développement de l'architecture back-end et intégration avec des bases de données et des API, si nécessaire."
+    },
+    "step04": {
+      "title": "Déploiement",
+      "description": "Mise en ligne du site sur un serveur de production, en utilisant des outils et des services d'hébergement tels que Git, Netlify ou Heroku. Optimisation des performances du site pour assurer une expérience utilisateur fluide. Suivi et résolution des problèmes techniques pouvant survenir après le lancement du site."
+    }
+  },
   "skills": {
     "title": "Skills",
-    "subtitle": "My technical level",
-    "front": {
-      "title": "Front-End Developer",
-      "subtitle": "More than 4 years"
-    },
-    "back": {
-      "title": "Back-End Developer",
-      "subtitle": "More than 4 years"
-    },
-    "designer": {
-      "title": "Designer",
-      "subtitle": "More than 4 years"
-    },
-    "soft": {
-      "title": "Soft Skills",
-      "subtitle": "More than 4 years"
-    },
-    "tools": {
-      "title": "Tools",
-      "subtitle": "More than 4 years"
-    },
-    "others": {
-      "title": "Others",
-      "subtitle": "More than 4 years"
-    }
+    "intro": "Mes compétences techniques et non techniques sont le fruit d'une formation solide, d'une expérience professionnelle diversifiée et d'un engagement constant envers l'apprentissage et l'amélioration. Ils font de moi un atout précieux pour toute équipe de projet.",
+    "tab01": "Langages de développement web",
+    "tab02": "Outils et frameworks"
   },
   "projects": {
     "title": "Mes projets",
-    "subtitle": "Most recent work",
     "modal": {
       "portfolio": {
         "name": "Portfolio",
@@ -72,13 +65,13 @@
         "style": "Design & développement",
         "description": "Durant ma formation à BeCode, j'ai co-créé le 'Forum bcbb the who'. Une plateforme interactive développée principalement avec HTML, SCSS, PHP et mySQL, permettant inscription, connexion et envoi de messages pour une expérience utilisateur complète."
       },
-      "chaos": {
+      "restaurant": {
         "name": "Chaos Coffee Restaurant",
         "online": "offline",
         "style": "Design & développement",
         "description": "Durant ma formation à BeCode, le projet 'Chaos Coffee Restaurant' nous a défiés en équipe à construire un site vitrine pour un restaurant via WordPress. À partir de quelques images, nous avons créé un site complet et professionnel."
       },
-      "leaf": {
+      "mwenbwa": {
         "name": "Mwenbwa Corses",
         "online": "offline",
         "style": "Design & développement",
@@ -92,15 +85,53 @@
       },
       "TechnologiesUsed": "Technologies used",
       "website": "Website"
+    },
+    "explore": "Explorer",
+    "more": "Plus de projets sur Github",
+    "view": "Voir"
+  },
+  "faq": {
+    "intro": "Avant de m'envoyer un message, voici quelques choses que vous devriez savoir :",
+    "question01": {
+      "question": "",
+      "answer": ""
+    },
+    "question02": {
+      "question": "",
+      "answer": ""
+    },
+    "question03": {
+      "question": "",
+      "answer": ""
+    },
+    "question04": {
+      "question": "",
+      "answer": ""
+    },
+    "question05": {
+      "question": "",
+      "answer": ""
     }
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "Contact me",
-    "name": "Name",
-    "subject": "Subject",
-    "email": "Email",
-    "message": "Message",
-    "sendMessage": "Send Message"
+    "intro": "Des questions, un projet ou simplement l'envie de discuter ? N'hésitez plus, écrivez-moi. J'ai hâte de faire équipe avec vous !",
+    "details": "Coordonnées",
+    "socials": "Réseaux sociaux",
+    "name": {
+      "question": "Quel est votre nom ?"
+    },
+    "about": {
+      "question": "De quoi s'agit-il ?",
+      "answer": "Recrutement *"
+    },
+    "email": {
+      "question": "Quelle est votre adresse e-mail ?"
+    },
+    "message": {
+      "question": "Votre message",
+      "answer": "Bonjour Auban, peux-tu m'aider avec ... *"
+    },
+    "send": "Envoyez votre message"
   }
 }

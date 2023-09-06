@@ -63,7 +63,7 @@ export default {
   .toggleContainer {
     width: 6rem;
     height: 3rem;
-    background: var(--color-text-tertiary);
+    background: var(--color-primary);
     border-radius: 1.5rem;
     position: relative;
     cursor: pointer;
@@ -74,7 +74,7 @@ export default {
       left: 0.3rem;
       width: 2.4rem;
       height: 2.4rem;
-      background: var(--color-primary);
+      background: white;
       border-radius: 50%;
       transition: left 0.3s ease;
 
@@ -87,6 +87,7 @@ export default {
         width: 100%;
         height: 100%;
         border-radius: 50%;
+        filter: invert(1);
       }
     }
   }

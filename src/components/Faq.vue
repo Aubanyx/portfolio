@@ -1,7 +1,7 @@
 <template>
   <section id="faq">
     <h3 class="faq__title">
-      Before sending me a message, here are some things you should know :
+      {{ $t("faq.intro") }}
     </h3>
     <ul class="faq__questionsWrapper">
       <li

@@ -16,7 +16,7 @@
             class="projectHover"
             @click="updateModal(item)"
           >
-            <span class="projectHoverText">View</span>
+            <span class="projectHoverText">{{ $t("projects.view") }}</span>
           </div>
           <div class="projectInfos" @click="updateModal(item)">
             <h3 class="projectTitle">{{ item.name }}</h3>
@@ -55,7 +55,7 @@
             </div>
             <p class="projectDescription">{{ item.description }}</p>
             <div class="projectButton">
-              <p class="projectExplore">Explore</p>
+              <p class="projectExplore">{{ $t("projects.explore") }}</p>
               <img
                 class="projectArrow"
                 src="../assets/img/icons/projectArrow.svg"
@@ -87,7 +87,7 @@
       v-magnetic="{ strength: 0.5, maxDistance: 40 }"
       class="projects__button"
       href="#"
-      ><div v-magnetic>More work on Github</div></a
+      ><div v-magnetic>{{ $t("projects.more") }}</div></a
     >
     <ProjectsModal />
   </section>
@@ -159,9 +159,9 @@ export default {
         },
         {
           logo: "burger.png",
-          name: this.$i18n.t("projects.modal.chaos.name"),
+          name: this.$i18n.t("projects.modal.restaurant.name"),
           alias: "restaurant",
-          description: this.$i18n.t("projects.modal.chaos.description"),
+          description: this.$i18n.t("projects.modal.restaurant.description"),
           techUse: ["html", "css", "wordpress", "php"],
           linkRepo: "https://github.com/Aubanyx/ChaosCoffeeRestaurant",
           thumbnail: ["img01.jpg", "img02.jpg", "img03.jpg", "img04.jpg"],
@@ -171,14 +171,14 @@ export default {
           number: "04",
           participants: "group",
           style: "Design & development",
-          state: this.$i18n.t("projects.modal.chaos.online"),
+          state: this.$i18n.t("projects.modal.restaurant.online"),
           open: false,
         },
         {
           logo: "leaf.png",
-          name: this.$i18n.t("projects.modal.leaf.name"),
+          name: this.$i18n.t("projects.modal.mwenbwa.name"),
           alias: "mwenbwa",
-          description: this.$i18n.t("projects.modal.leaf.description"),
+          description: this.$i18n.t("projects.modal.mwenbwa.description"),
           techUse: ["html", "scss", "mongodb", "express", "react", "node"],
           linkRepo: "https://github.com/Aubanyx/mwenbwa-corses",
           thumbnail: ["img01.jpg", "img02.jpg", "img03.jpg", "img04.jpg"],
@@ -188,7 +188,7 @@ export default {
           number: "05",
           participants: "group",
           style: "Design & development",
-          state: this.$i18n.t("projects.modal.leaf.online"),
+          state: this.$i18n.t("projects.modal.mwenbwa.online"),
           open: false,
         },
         {

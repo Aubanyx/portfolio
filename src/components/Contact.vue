@@ -2,14 +2,14 @@
   <section id="contact" class="container">
     <div class="contact__container">
       <div class="contact__container__boxForm">
-        <h2 class="contact__title">Contact</h2>
+        <h2 class="contact__title">{{ $t("contact.title") }}</h2>
         <div class="wrapper">
           <div class="contact__infos">
             <p class="contact__text">
-              Des questions, un projet ou simplement l'envie de discuter ? N'hésitez plus, écrivez-moi. J'ai hâte de faire équipe avec vous !
+              {{ $t("contact.intro") }}
             </p>
             <div class="contact__infos__box">
-              <h5 class="contact__infos--h5">Contact details</h5>
+              <h5 class="contact__infos--h5">{{ $t("contact.details") }}</h5>
               <a
                 v-magnetic="{ strength: 0.5, distance: 20 }"
                 class="contact__infos--link"
@@ -24,7 +24,7 @@
               >
             </div>
             <div class="contact__infos__box">
-              <h5 class="contact__infos--h5">Socials</h5>
+              <h5 class="contact__infos--h5">{{ $t("contact.socials") }}</h5>
               <a
                 v-magnetic="{ strength: 0.5, distance: 20 }"
                 class="contact__infos--link"
@@ -45,7 +45,7 @@
             method="POST"
           >
             <input type="hidden" name="_captcha" value="false" />
-            <label class="labelInputName" for="name">What's your name ?</label>
+            <label class="labelInputName" for="name">{{ $t("contact.name.question") }}</label>
             <input
               class="inputText"
               type="text"
@@ -54,14 +54,14 @@
               required
             />
             <span class="inputSpan" />
-            <label for="subject">What is it about ?</label>
+            <label for="subject">{{ $t("contact.about.question") }}</label>
             <input
               type="text"
               name="subject"
-              placeholder="Recruitment *"
+              :placeholder="$t('contact.about.answer')"
               required
             />
-            <label for="email">What's your email ?</label>
+            <label for="email">{{ $t("contact.email.question") }}</label>
             <input
               type="email"
               name="email"
@@ -73,9 +73,9 @@
               name="_next"
               value="http://localhost:8080/#contact"
             />
-            <label class="labelTextarea" for="message">Your message</label>
+            <label class="labelTextarea" for="message">{{ $t("contact.message.question") }}</label>
             <textarea
-              placeholder="Hello Auban can you help me with ... *"
+              :placeholder="$t('contact.message.answer')"
               name="message"
               rows="10"
               required
@@ -86,7 +86,7 @@
               type="submit"
             >
               <div class="buttonSend" v-magnetic>
-                Send your message
+                {{ $t("contact.send") }}
                 <img
                   class="button--send"
                   src="../assets/img/icons/send.svg"
@@ -98,22 +98,7 @@
         </div>
       </div>
       <div class="contact__container__boxMap">
-        <div class="contact__container__boxMap__map">
-<!--          <p class="contact__container__boxMap__map&#45;&#45;infos">-->
-<!--            LABIE Auban<br />-->
-<!--            Rue de Liège<br />-->
-<!--            4041 Vottem<br />-->
-<!--            <br />-->
-<!--            <span>-->
-<!--              <span class="prefix">@</span>-->
-<!--              : aubanlabie@gmail.com-->
-<!--            </span>-->
-<!--            <br />-->
-<!--            <br />-->
-<!--            <span class="prefix">☎</span>-->
-<!--            <span> : 0474/54.84.14</span>-->
-<!--          </p>-->
-        </div>
+        <div class="contact__container__boxMap__map"></div>
       </div>
     </div>
   </section>

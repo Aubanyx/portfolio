@@ -13,46 +13,39 @@
   },
   "about": {
     "title": "About me",
-    "subtitle": "My introduction",
-    "years": "Years of experience",
-    "completed": "Completed projects",
-    "coffees": "Coffees consumed",
     "description01": "Hi ! My name is Auban Labie, a 27-year-old Belgian, junior web developer. I live in Vottem in the province of Liège. My hobbies are obviously programming but also fitness / bodybuilding and video games. Motivated, proactive, always ready to learn. Calm and thoughtful, I try to adapt to all situations. I love bringing both technical and visual aspects to life on digital products. User experience is extremely important to me.",
     "description02": "Passionate about web development, I had the honor of acquiring several enriching experiences at the IEPSCF Namur Cadets, where I was able to follow an exemplary course and within different establishments such as the unequaled training at BeCode, this which allowed me to amplify my knowledge and my skills related to the job of web developer.",
     "description03": "My experience as a freelancer taught me to make choices and focus on the priorities of the moment. Each task must be broken down and organized in order to optimize its performance. Just like in a company, the goal of the week via the sprint backlog is a capital understanding within the team to produce the highest added value.",
     "download": "Download CV"
   },
+  "process": {
+    "title": "Proces",
+    "intro": "Elk project is uniek en mijn aanpak past zich dienovereenkomstig aan. Echter, ik ben ervan overtuigd dat een gestructureerd proces essentieel is om het succes van elk project te garanderen.",
+    "step01": {
+      "title": "Planning",
+      "description": "Analyse van de projectdoelstellingen en -eisen op basis van het verstrekte bestek of de beschikbare informatie. Uitwerking van een gedetailleerd projectplan, inclusief een tijdschema, een inschatting van de benodigde middelen en de definitie van verantwoordelijkheden voor elk teamlid."
+    },
+    "step02": {
+      "title": "Ontwerp",
+      "description": "Verkenning van de huidige designtrends en functionaliteiten om inspiratie op te doen en een innovatieve oplossing te ontwerpen die aansluit bij de behoeften van het project. Raadplegen van inspiratiebronnen zoals Dribbble, Behance, of Awwwards om relevante ideeën en benaderingen te identificeren. Het maken van mock-ups en prototypes voor de gebruikersinterface en gebruikerservaring, met gebruik van tools zoals Figma of Adobe XD. Het presenteren van de concepten aan de klant en het integreren van feedback om het ontwerp te verfijnen."
+    },
+    "step03": {
+      "title": "Ontwikkeling",
+      "description": "Omzetten van mock-ups naar functionele code met behulp van technologieën zoals HTML, CSS, JavaScript en frameworks zoals Vue.js of React. Ontwikkeling van de back-end architectuur en integratie met databases en API's, indien nodig."
+    },
+    "step04": {
+      "title": "Implementatie",
+      "description": "De site live zetten op een productieserver, met behulp van hostingtools en -diensten zoals Git, Netlify of Heroku. Optimaliseren van de prestaties van de site om een vlotte gebruikerservaring te garanderen. Het monitoren en oplossen van technische problemen die kunnen optreden na de lancering van de site."
+    }
+  },
   "skills": {
     "title": "Skills",
-    "subtitle": "My technical level",
-    "front": {
-      "title": "Front-End Developer",
-      "subtitle": "More than 4 years"
-    },
-    "back": {
-      "title": "Back-End Developer",
-      "subtitle": "More than 4 years"
-    },
-    "designer": {
-      "title": "Designer",
-      "subtitle": "More than 4 years"
-    },
-    "soft": {
-      "title": "Soft Skills",
-      "subtitle": "More than 4 years"
-    },
-    "tools": {
-      "title": "Tools",
-      "subtitle": "More than 4 years"
-    },
-    "others": {
-      "title": "Others",
-      "subtitle": "More than 4 years"
-    }
+    "intro": "Mijn technische en niet-technische vaardigheden zijn het resultaat van solide opleiding, diverse professionele ervaringen en een constante toewijding aan leren en verbeteren. Ze maken mij een waardevolle aanwinst voor elk projectteam.",
+    "tab01": "Talen voor webontwikkeling",
+    "tab02": "Tools en frameworks"
   },
   "projects": {
     "title": "My projects",
-    "subtitle": "Most recent work",
     "modal": {
       "portfolio": {
         "name": "Portfolio",
@@ -72,13 +65,13 @@
         "style": "Design & ontwikkeling",
         "description": "Tijdens mijn opleiding bij BeCode heb ik mede het 'Forum bcbb the who' gecreëerd. Een interactief platform voornamelijk ontwikkeld met HTML, SCSS, PHP en mySQL, dat registratie, inloggen en berichten sturen mogelijk maakt voor een volledige gebruikerservaring."
       },
-      "chaos": {
+      "restaurant": {
         "name": "Chaos Coffee Restaurant",
         "online": "offline",
         "style": "Design & ontwikkeling",
         "description": "Tijdens mijn opleiding bij BeCode heeft het 'Chaos Coffee Restaurant' project ons als team uitgedaagd om een showcase site voor een restaurant te bouwen met WordPress. Beginnend met enkele afbeeldingen, hebben we een volledige en professionele website gecreëerd."
       },
-      "leaf": {
+      "mwenbwa": {
         "name": "Mwenbwa Corses",
         "online": "offline",
         "style": "Design & ontwikkeling",
@@ -92,15 +85,53 @@
       },
       "TechnologiesUsed": "Technologies used",
       "website": "Website"
+    },
+    "explore": "Verken",
+    "more": "Meer projecten op Github",
+    "view": "Bekijk"
+  },
+  "faq": {
+    "intro": "Voordat u mij een bericht stuurt, zijn hier enkele dingen die u moet weten :",
+    "question01": {
+      "question": "",
+      "answer": ""
+    },
+    "question02": {
+      "question": "",
+      "answer": ""
+    },
+    "question03": {
+      "question": "",
+      "answer": ""
+    },
+    "question04": {
+      "question": "",
+      "answer": ""
+    },
+    "question05": {
+      "question": "",
+      "answer": ""
     }
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "Contact me",
-    "name": "Name",
-    "subject": "Subject",
-    "email": "Email",
-    "message": "Message",
-    "sendMessage": "Send Message"
+    "intro": "Vragen, een project of gewoon zin om te praten? Twijfel niet, schrijf me. Ik kijk ernaar uit om met u samen te werken !",
+    "details": "Contactgegevens",
+    "socials": "Socials",
+    "name": {
+      "question": "Wat is uw naam ?"
+    },
+    "about": {
+      "question": "Waar gaat het over ?",
+      "answer": "Rekrutering *"
+    },
+    "email": {
+      "question": "Wat is uw e-mail ?"
+    },
+    "message": {
+      "question": "Uw bericht",
+      "answer": "Hallo Auban, kunt u me helpen met ... *"
+    },
+    "send": "Stuur uw bericht"
   }
 }
