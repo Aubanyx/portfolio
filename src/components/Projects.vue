@@ -339,6 +339,8 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  max-width: 1920px;
+  margin: auto;
   background: var(--color-background-primary);
   padding: 10rem 5rem;
   display: flex;

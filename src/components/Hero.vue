@@ -94,6 +94,9 @@ export default {
 }
 
 .container {
+  max-width: 1920px;
+  max-height: 1200px;
+  margin: auto;
   background: var(--color-background-primary);
   height: 100vh;
   width: 100%;

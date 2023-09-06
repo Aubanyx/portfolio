@@ -39,6 +39,9 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  max-width: 1920px;
+  max-height: 1200px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   position: relative;

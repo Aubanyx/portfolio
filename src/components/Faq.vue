@@ -110,6 +110,8 @@ export default {
 //}
 
 #faq {
+  max-width: 1920px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   //background: #f3f2f1;

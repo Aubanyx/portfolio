@@ -77,4 +77,10 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
+
+@media only screen and (min-width: 1920px) {
+  #button {
+    left: calc(50% + 960px - 6rem - 3.5rem);
+  }
+}
 </style>

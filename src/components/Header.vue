@@ -149,7 +149,12 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  max-width: 1920px;
+  margin: auto;
+
   .header {
+    max-width: 1920px;
+    margin: auto;
     position: fixed;
     display: flex;
     align-items: center;

@@ -156,6 +156,8 @@ export default {
 
 <style lang="scss" scoped>
 #tabs {
+  max-width: 1920px;
+  margin: auto;
   background: var(--color-background-primary);
   //height: 20rem;
   width: 100%;

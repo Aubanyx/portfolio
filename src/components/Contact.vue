@@ -113,10 +113,13 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  max-width: 1920px;
+  margin: auto;
   background: var(--color-background-primary);
   height: 100%;
 
   .contact__container {
+    max-height: 1200px;
     display: flex;
     flex-direction: column;
     width: 100%;
