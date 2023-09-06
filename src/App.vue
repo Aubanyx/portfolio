@@ -62,7 +62,7 @@ export default {
     rgb(255 255 255 / 90%) -15px -15px 20px 5px;
   --color-box-shadow-project: rgb(0 0 0 / 15%) 0 15px 20px -5px,
   rgb(255 255 255 / 90%) 0 -15px 20px 5px;
-  --filter-img: invert(0);
+  --filter-img: invert(1);
 
   --backgroundColor: #ffffff;
   //--firstColor: #d25d5f;
@@ -73,7 +73,7 @@ export default {
   --title: #000000;
   --subTitle: #a6a6a6;
   --text: #000000;
-  --img: invert(1);
+  --img: invert(0);
   //--imgfilter: invert(0);
   --imgfilter: invert(38%) sepia(40%) saturate(1461%) hue-rotate(202deg)
     brightness(93%) contrast(114%);
