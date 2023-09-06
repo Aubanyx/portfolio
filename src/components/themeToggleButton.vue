@@ -74,7 +74,7 @@ export default {
       left: 0.3rem;
       width: 2.4rem;
       height: 2.4rem;
-      background: white;
+      background: var(--color-background-primary);
       border-radius: 50%;
       transition: left 0.3s ease;
 
@@ -87,7 +87,7 @@ export default {
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        filter: invert(1);
+        filter: var(--filter-img);
       }
     }
   }
