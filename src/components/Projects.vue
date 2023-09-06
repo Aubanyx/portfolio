@@ -460,7 +460,7 @@ export default {
               background: var(--color-background-quinary);
               border-radius: 2rem;
               z-index: 0;
-              box-shadow: var(--color-box-shadow);
+              box-shadow: var(--color-box-shadow-back);
 
               .projectPresentation {
                 .projectPresentation--img {
@@ -594,8 +594,7 @@ export default {
           //padding-bottom: 5rem;
           border-bottom: none;
           width: 100%;
-          box-shadow: rgb(0 0 0 / 15%) 0 15px 20px -5px,
-            rgb(255 255 255 / 90%) 0 -15px 20px 5px;
+          box-shadow: var(--color-box-shadow-project);
           padding: 5rem;
           border-radius: 5rem;
 
@@ -689,7 +688,7 @@ export default {
               background: var(--color-background-quinary);
               border-radius: 2rem;
               z-index: 0;
-              box-shadow: var(--color-box-shadow);
+              box-shadow: var(--color-box-shadow-back);
 
               .projectPresentation {
                 .projectPresentation--img {

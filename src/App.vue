@@ -58,9 +58,10 @@ export default {
   --color-text-tertiary: #1c1d20;
   --color-border: #27272740;
   --filterTechs: initial;
-  --color-box-shadow: rgb(0 0 0 / 15%) 15px 15px 20px -5px,
+  --color-box-shadow-back: rgb(0 0 0 / 15%) 15px 15px 20px -5px,
     rgb(255 255 255 / 90%) -15px -15px 20px 5px;
-  --color-loader: #455ce9;
+  --color-box-shadow-project: rgb(0 0 0 / 15%) 0 15px 20px -5px,
+  rgb(255 255 255 / 90%) 0 -15px 20px 5px;
 
   --backgroundColor: #ffffff;
   //--firstColor: #d25d5f;
@@ -94,9 +95,10 @@ export default {
   --color-text-tertiary: #ffffff;
   --color-border: #27272740;
   --filterTechs: brightness(11);
-  --color-box-shadow: rgb(14 15 16 / 50%) 15px 15px 20px -5px,
+  --color-box-shadow-back: rgb(14 15 16 / 50%) 15px 15px 20px -5px,
     rgb(43 44 49 / 25%) -15px -15px 20px 5px;
-  --color-loader: #455ce9;
+  --color-box-shadow-project: rgb(14 15 16 / 75%) 0 15px 20px -5px,
+    rgb(28 29 32 / 90%) 0 -15px 20px 5px;
 
   //--backgroundColor: #202023;
   --backgroundColor: #272727;
