@@ -98,24 +98,24 @@
   "faq": {
     "intro": "Voordat u mij een bericht stuurt, zijn hier enkele dingen die u moet weten :",
     "question01": {
-      "question": "",
-      "answer": ""
+      "question": "Sta ik open voor nieuwe professionele mogelijkheden ?",
+      "answer": "Absoluut ! Ik ben altijd op zoek naar nieuwe kansen om te leren, te groeien en bij te dragen aan het succes van een team."
     },
     "question02": {
-      "question": "",
-      "answer": ""
+      "question": "Wat zijn uw favoriete webontwikkelingstools? Waarom gebruikt u ze ?",
+      "answer": "Ik heb een voorkeur voor Vue.js als het gaat om het maken van responsieve en modulaire gebruikersinterfaces. De eenvoud en flexibiliteit stellen me in staat om snel te ontwikkelen terwijl ik een schone code-structuur behoud. Voor de code-editor gebruik ik WebStorm vanwege de geavanceerde debugfuncties, de ingebouwde ondersteuning voor Vue, en de reeks tools die mijn workflow efficiënter maken."
     },
     "question03": {
-      "question": "",
-      "answer": ""
+      "question": "Hoe gaat u te werk bij het oplossen van problemen bij het bouwen van een website of een applicatie ?",
+      "answer": "Wanneer ik een probleem tegenkom, begin ik het op te splitsen in kleinere stappen of componenten om het te begrijpen. Vervolgens gebruik ik documentatie, ontwikkelaarsforums en andere bronnen om oplossingen te vinden. Indien nodig, aarzel ik niet om samen te werken met mijn collega's om verschillende perspectieven te krijgen."
     },
     "question04": {
-      "question": "",
-      "answer": ""
+      "question": "Hoe werkt u samen met andere ontwikkelaars en teamleden om het succes van een webontwikkelingsproject te garanderen ?",
+      "answer": "Communicatie is essentieel voor mij. Ik zorg er altijd voor dat ik de behoeften en feedback van mijn collega's goed begrijp. Ik gebruik tools zoals Git voor versiebeheer, wat de samenwerking vergemakkelijkt. Bovendien sta ik altijd open voor feedback en pas ik me snel aan om ervoor te zorgen dat het project soepel verloopt. Wanneer er belangrijke beslissingen genomen moeten worden, aarzel ik niet om meningen te vragen of oplossingen voor te stellen die gunstig kunnen zijn voor het team en het project."
     },
     "question05": {
-      "question": "",
-      "answer": ""
+      "question": "Hoeveel koffies drink ik om efficiënt te coderen ?",
+      "answer": "Fout 404 - Onmogelijk te tellen, hoeveelheid te hoog !"
     }
   },
   "contact": {

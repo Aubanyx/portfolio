@@ -6,7 +6,7 @@
     <ul class="faq__questionsWrapper">
       <li
         class="faq__question"
-        v-for="(question, index) in questions"
+        v-for="(question, index) in translatedQuestions"
         :key="index"
       >
         <div
@@ -16,7 +16,7 @@
           }"
           @click="toggleAnswer(index)"
         >
-          {{ question.title }}
+          {{ question.question }}
         </div>
         <transition
           @before-enter="beforeEnter"
@@ -40,32 +40,46 @@ export default {
     return {
       questions: [
         {
-          title: "Suis-je ouvert à de nouvelles possibilitées professionnelle ?",
-          answer: "Oui, je suis à l'écoute à de nouvelles possibilitées",
+          question: this.$i18n.t("faq.question01.question"),
+          answer: this.$i18n.t("faq.question01.answer"),
           open: false,
         },
         {
-          title: "Quels sont vos outils de développement web préférés ? Pourquoi les utilisez-vous ?",
-          answer: "Réponse 2",
+          question: this.$i18n.t("faq.question02.question"),
+          answer: this.$i18n.t("faq.question02.answer"),
           open: false,
         },
         {
-          title: "Comment abordez-vous la résolution de problèmes lors de la construction d'un site web ou d'une application ?",
-          answer: "Réponse 3",
+          question: this.$i18n.t("faq.question03.question"),
+          answer: this.$i18n.t("faq.question03.answer"),
           open: false,
         },
         {
-          title: "Comment collaborez-vous avec d'autres développeurs et membres de l'équipe pour garantir le succès d'un projet de développement web ?",
-          answer: "Réponse 4",
+          question: this.$i18n.t("faq.question04.question"),
+          answer: this.$i18n.t("faq.question04.answer"),
           open: false,
         },
         {
-          title: "Combien de cafés est-ce que je bois ?",
-          answer: "Erreur.",
+          question: this.$i18n.t("faq.question05.question"),
+          answer: this.$i18n.t("faq.question05.answer"),
           open: false,
         },
       ],
     };
+  },
+  computed: {
+    translatedQuestions() {
+      return this.questions.map((q, index) => {
+        const questionKey = `faq.question${String(index + 1).padStart(2, '0')}.question`;
+        const answerKey = `faq.question${String(index + 1).padStart(2, '0')}.answer`;
+
+        return {
+          ...q,
+          question: this.$i18n.t(questionKey),
+          answer: this.$i18n.t(answerKey),
+        };
+      });
+    },
   },
   methods: {
     toggleAnswer(index) {
@@ -152,7 +166,8 @@ export default {
           left: 0;
           width: 1.6rem;
           height: 1.6rem;
-          filter: invert(29%) sepia(86%) saturate(2805%) hue-rotate(226deg) brightness(95%) contrast(92%);
+          filter: invert(29%) sepia(86%) saturate(2805%) hue-rotate(226deg)
+            brightness(95%) contrast(92%);
         }
 
         &--active {
@@ -172,6 +187,7 @@ export default {
         height: 5rem;
         padding-left: 3rem;
         color: var(--color-text-tertiary);
+        line-height: 1.2;
       }
     }
 

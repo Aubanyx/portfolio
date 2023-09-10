@@ -98,24 +98,24 @@
   "faq": {
     "intro": "Before sending me a message, here are some things you should know :",
     "question01": {
-      "question": "",
-      "answer": ""
+      "question": "Am I open to new professional opportunities ?",
+      "answer": "Absolutely ! I am always on the lookout for new opportunities to learn, grow, and contribute to a team's success."
     },
     "question02": {
-      "question": "",
-      "answer": ""
+      "question": "What are your favorite web development tools? Why do you use them ?",
+      "answer": "I have a preference for Vue.js when it comes to creating responsive and modular user interfaces. Its simplicity and flexibility allow me to develop quickly while maintaining a clean code structure. For the code editor, I use WebStorm because of its advanced debugging features, built-in support for Vue, and its suite of tools that make my workflow more efficient."
     },
     "question03": {
-      "question": "",
-      "answer": ""
+      "question": "How do you approach problem-solving when building a website or an application ?",
+      "answer": "When I encounter a problem, I start by breaking it down into smaller steps or components to understand it. I then use documentation, developer forums, and other resources to find solutions. If necessary, I do not hesitate to collaborate with my colleagues to get different perspectives."
     },
     "question04": {
-      "question": "",
-      "answer": ""
+      "question": "How do you collaborate with other developers and team members to ensure the success of a web development project ?",
+      "answer": "Communication is key for me. I always make sure to fully understand the needs and feedback of my colleagues. I use tools like Git for versioning, which facilitates collaboration. Moreover, I'm always open to feedback and adapt quickly to ensure the project progresses smoothly. When major decisions need to be made, I don't hesitate to seek opinions or suggest solutions that could be beneficial for the team and the project."
     },
     "question05": {
-      "question": "",
-      "answer": ""
+      "question": "How many coffees do I consume to code efficiently ?",
+      "answer": "Error 404 - Unable to count, quantity too high !"
     }
   },
   "contact": {

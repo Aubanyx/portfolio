@@ -98,24 +98,24 @@
   "faq": {
     "intro": "Avant de m'envoyer un message, voici quelques choses que vous devriez savoir :",
     "question01": {
-      "question": "",
-      "answer": ""
+      "question": "Suis-je ouvert à de nouvelles possibilitées professionnelle ?",
+      "answer": "Absolument ! Je suis toujours en quête de nouvelles opportunités pour apprendre, grandir et contribuer à la réussite d'une équipe."
     },
     "question02": {
-      "question": "",
-      "answer": ""
+      "question": "Quels sont vos outils de développement web préférés ? Pourquoi les utilisez-vous ?",
+      "answer": "J'ai une prédilection pour Vue.js en ce qui concerne la création d'interfaces utilisateurs réactives et modulaires. Sa simplicité et sa flexibilité me permettent de développer rapidement tout en maintenant une structure de code propre. Pour l'éditeur de code, j'utilise WebStorm en raison de ses fonctionnalités avancées de débogage, sa prise en charge intégrée pour Vue, et son ensemble d'outils qui rendent mon flux de travail plus efficace."
     },
     "question03": {
-      "question": "",
-      "answer": ""
+      "question": "Comment abordez-vous la résolution de problèmes lors de la construction d'un site web ou d'une application ?",
+      "answer": "Lorsque je rencontre un problème, je commence par le décomposer en étapes ou éléments plus petits pour le comprendre. J'utilise ensuite la documentation, les forums de développeurs et d'autres ressources pour trouver des solutions. Si nécessaire, je n'hésite pas à collaborer avec mes collègues pour obtenir des perspectives différentes."
     },
     "question04": {
-      "question": "",
-      "answer": ""
+      "question": "Comment collaborez-vous avec d'autres développeurs et membres de l'équipe pour garantir le succès d'un projet de développement web ?",
+      "answer": "La communication est essentielle pour moi. Je m'assure toujours de bien comprendre les besoins et les retours de mes collègues. J'utilise des outils comme Git pour gérer le versionnage, ce qui facilite la collaboration. De plus, je suis toujours ouvert aux feedbacks et je m'adapte rapidement pour veiller à ce que le projet avance harmonieusement. Lorsque des décisions importantes doivent être prises, je n'hésite pas à solliciter des avis ou à proposer des solutions qui pourraient être bénéfiques pour l'équipe et le projet."
     },
     "question05": {
-      "question": "",
-      "answer": ""
+      "question": "Combien de cafés est-ce que je consomme pour coder efficacement ?",
+      "answer": "Erreur 404 - Impossible de compter, quantité trop importante !"
     }
   },
   "contact": {
