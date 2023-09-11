@@ -39,7 +39,7 @@
             >
           </div>
         </Sidebar>
-        <select v-model="$i18n.locale" class="lang">
+        <select v-model="$i18n.locale" @change="saveLanguage" class="lang">
           <option
             class="lang__locale"
             v-for="(locale, i) in locales"
@@ -74,10 +74,7 @@ export default {
       lastScrollPosition: 0,
       scrollValue: 0,
       offset: 30,
-      // currentLocale: "FR",
-      // locales: [{ lang: "EN" }, { lang: "NL" }, { lang: "FR" }],
       locales: ["en", "fr", "nl"],
-      menu: ["Home", "About", "Skills", "Projects", "Contact"],
     };
   },
   mounted() {
@@ -93,6 +90,9 @@ export default {
     window.removeEventListener("scroll", this.onScroll);
   },
   methods: {
+    saveLanguage() {
+      localStorage.setItem("user-locale", this.$i18n.locale);
+    },
     closeSidebarPanel() {
       this.$store.commit("toggleNav");
       document.body.style.overflowY = "";
@@ -110,34 +110,7 @@ export default {
         this.showNavbar = window.pageYOffset < this.lastScrollPosition;
         this.lastScrollPosition = window.pageYOffset;
       }
-      // this.showNavbar = window.pageYOffset < this.lastScrollPosition;
-      // this.lastScrollPosition = window.pageYOffset;
     },
-    toHero() {
-      document.querySelector("#hero").scrollIntoView({
-        behavior: "smooth",
-      });
-    },
-    // toAbout() {
-    //   document.querySelector('#about').scrollIntoView({
-    //     behavior: 'smooth'
-    //   });
-    // },
-    // toSkills() {
-    //   document.querySelector('#skills').scrollIntoView({
-    //     behavior: 'smooth'
-    //   });
-    // },
-    // toProjects() {
-    //   document.querySelector('#projects').scrollIntoView({
-    //     behavior: 'smooth'
-    //   });
-    // },
-    // toContact() {
-    //   document.querySelector('#contact').scrollIntoView({
-    //     behavior: 'smooth'
-    //   });
-    // }
   },
   computed: {
     isPanelOpen() {

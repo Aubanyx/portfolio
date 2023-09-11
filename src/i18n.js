@@ -20,8 +20,17 @@ function loadLocaleMessages() {
   return messages;
 }
 
+const supportedLocales = ["en", "fr", "nl"];
+const savedLocale = localStorage.getItem("user-locale");
+
+// Détectez la langue du navigateur, mais coupez les spécificateurs régionaux, par exemple, "en-US" devient "en"
+const browserLocale = (navigator.language || "en").split("-")[0];
+
+// Utilisez la langue enregistrée s'il y en a une, sinon vérifiez si la langue du navigateur est prise en charge, sinon utilisez "en" par défaut
+const defaultLocale = savedLocale || (supportedLocales.includes(browserLocale) ? browserLocale : "en");
+
 export default new VueI18n({
-  locale: process.env.VUE_APP_I18N_LOCALE || "en",
+  locale: defaultLocale,
   fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || "en",
   messages: loadLocaleMessages(),
 });
