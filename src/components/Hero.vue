@@ -1,10 +1,34 @@
 <template>
   <transition name="slide">
     <section id="hero" class="container">
-      <div class="text">
-        <p class="text__developer">developer</p>
-        <p class="text__and">&</p>
-        <p class="text__designer">designer</p>
+<!--      <div class="text">-->
+<!--        <p class="text__developer">developer</p>-->
+<!--        <p class="text__and">&</p>-->
+<!--        <p class="text__designer">designer</p>-->
+<!--      </div>-->
+      <div class="hero__box">
+        <h1 class="hero__box__name">
+          <span>Auban</span>
+          <span>Labie</span>
+        </h1>
+        <p class="hero__box__text">
+          Creative developer at the intersection of design and technology, I am
+          passionate about crafting inspiring digital experiences. Merging
+          aesthetics with advanced technology, I create elegant digital
+          solutions that capture attention and turn ideas into unique
+          interactions.
+        </p>
+<!--        <div class="hero__box__dev">-->
+<!--          <h2>Developer</h2>-->
+<!--          <h2>Designer</h2>-->
+<!--        </div>-->
+<!--        <p>-->
+<!--          Creative developer at the intersection of design and technology, I am-->
+<!--          passionate about crafting inspiring digital experiences. Merging-->
+<!--          aesthetics with advanced technology, I create elegant digital-->
+<!--          solutions that capture attention and turn ideas into unique-->
+<!--          interactions.-->
+<!--        </p>-->
       </div>
 <!--      <div class="hero">-->
 <!--        &lt;!&ndash;        <div class="title__Box">&ndash;&gt;-->
@@ -105,53 +129,96 @@ export default {
   align-items: center;
   overflow: hidden;
   //border: 5rem solid var(--color-background-secondary);
+  padding: 2rem;
 
-  .text {
+  .hero__box {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 10rem;
+    //width: 100%;
+    width: min-content;
+    z-index: 1;
 
-    .text__developer,
-    .text__and,
-    .text__designer {
-      color: var(--color-text-tertiary);
-      //font-size: 17rem;
-      font-size: clamp(10rem, -1.4286rem + 14.881vw, 20rem);
+    .hero__box__name {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      //font-size: 7rem;
+      font-size: clamp(7rem, 4.3333rem + 8.3333vw, 15rem);
+      //font-size: clamp(7rem, 2.6667rem + 13.5417vw, 20rem);
       font-weight: bold;
       text-transform: uppercase;
-      position: relative;
-      z-index: 1;
+      line-height: 0.85;
+      color: var(--color-text-tertiary);
     }
 
-    .text__developer, .text__designer {
-      &::before {
-        content: "web";
-        position: absolute;
-        bottom: 10rem;
-        left: -10rem;
-        //font-size: 15rem;
-        font-size: clamp(10rem, -1.4286rem + 14.881vw, 20rem);
-        letter-spacing: 1rem;
-        -webkit-text-fill-color: transparent;
-        -webkit-text-stroke: 2px var(--color-secondary);
-        z-index: -1;
-      }
-    }
-
-    .text__developer {
+    .hero__box__text {
+      width: 75%;
+      line-height: 1.2;
+      font-size: 1.2rem;
+      font-weight: 300;
+      text-align: left;
       align-self: flex-start;
+      color: var(--color-text-tertiary);
+      margin-top: 2rem;
     }
 
-    .text__and {
-    }
-
-    .text__designer {
-      align-self: flex-end;
+    .hero__box__dev {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: 4rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-top: 5rem;
     }
   }
+
+  //.text {
+  //  display: flex;
+  //  flex-direction: column;
+  //  justify-content: center;
+  //  align-items: center;
+  //  width: 100%;
+  //  margin: 10rem;
+  //
+  //  .text__developer,
+  //  .text__and,
+  //  .text__designer {
+  //    color: var(--color-text-tertiary);
+  //    //font-size: 17rem;
+  //    font-size: clamp(10rem, -1.4286rem + 14.881vw, 20rem);
+  //    font-weight: bold;
+  //    text-transform: uppercase;
+  //    position: relative;
+  //    z-index: 1;
+  //  }
+  //
+  //  .text__developer, .text__designer {
+  //    &::before {
+  //      content: "web";
+  //      position: absolute;
+  //      bottom: 10rem;
+  //      left: -10rem;
+  //      //font-size: 15rem;
+  //      font-size: clamp(10rem, -1.4286rem + 14.881vw, 20rem);
+  //      letter-spacing: 1rem;
+  //      -webkit-text-fill-color: transparent;
+  //      -webkit-text-stroke: 2px var(--color-secondary);
+  //      z-index: -1;
+  //    }
+  //  }
+  //
+  //  .text__developer {
+  //    align-self: flex-start;
+  //  }
+  //
+  //  .text__and {
+  //  }
+  //
+  //  .text__designer {
+  //    align-self: flex-end;
+  //  }
+  //}
 
   //.hero {
   //  //display: flex;
@@ -347,11 +414,11 @@ export default {
     right: 0;
     margin: 3.5rem;
     z-index: 2;
-
-    display: flex;
+    //display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-end;
+    display: none;
 
     .follow--text {
       font-size: 2rem;
@@ -431,12 +498,17 @@ export default {
   }
 }
 @media only screen and (min-width: 768px) {
+  .container {
+    padding: 5rem;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
-  #hero {
-    .hero {
-      margin: 0 15rem;
+  .container {
+    padding: 15rem;
+
+    .follow {
+      display: flex;
     }
   }
 }
