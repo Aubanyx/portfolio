@@ -1,11 +1,11 @@
 <template>
   <transition name="slide">
     <section id="hero" class="container">
-<!--      <div class="text">-->
-<!--        <p class="text__developer">developer</p>-->
-<!--        <p class="text__and">&</p>-->
-<!--        <p class="text__designer">designer</p>-->
-<!--      </div>-->
+      <!--      <div class="text">-->
+      <!--        <p class="text__developer">developer</p>-->
+      <!--        <p class="text__and">&</p>-->
+      <!--        <p class="text__designer">designer</p>-->
+      <!--      </div>-->
       <div class="hero__box">
         <h1 class="hero__box__name">
           <span>Auban</span>
@@ -18,52 +18,52 @@
           solutions that capture attention and turn ideas into unique
           interactions.
         </p>
-<!--        <div class="hero__box__dev">-->
-<!--          <h2>Developer</h2>-->
-<!--          <h2>Designer</h2>-->
-<!--        </div>-->
-<!--        <p>-->
-<!--          Creative developer at the intersection of design and technology, I am-->
-<!--          passionate about crafting inspiring digital experiences. Merging-->
-<!--          aesthetics with advanced technology, I create elegant digital-->
-<!--          solutions that capture attention and turn ideas into unique-->
-<!--          interactions.-->
-<!--        </p>-->
+        <!--        <div class="hero__box__dev">-->
+        <!--          <h2>Developer</h2>-->
+        <!--          <h2>Designer</h2>-->
+        <!--        </div>-->
+        <!--        <p>-->
+        <!--          Creative developer at the intersection of design and technology, I am-->
+        <!--          passionate about crafting inspiring digital experiences. Merging-->
+        <!--          aesthetics with advanced technology, I create elegant digital-->
+        <!--          solutions that capture attention and turn ideas into unique-->
+        <!--          interactions.-->
+        <!--        </p>-->
       </div>
-<!--      <div class="hero">-->
-<!--        &lt;!&ndash;        <div class="title__Box">&ndash;&gt;-->
-<!--        &lt;!&ndash;          <h4 class="title">{{ $t("hero.title") }}</h4>&ndash;&gt;-->
-<!--        &lt;!&ndash;        </div>&ndash;&gt;-->
-<!--        <div class="hero__describe">-->
-<!--          &lt;!&ndash;          <h4 class="hero__describe__welcome">Welcome to my site</h4>&ndash;&gt;-->
-<!--          <h1 class="hero__describe__presentation">-->
-<!--            Hi ! I'm <strong class="accent">Auban</strong><br />Developer-->
-<!--            Front-End<br />-->
-<!--            & UI UX Designer-->
-<!--          </h1>-->
-<!--          &lt;!&ndash;          <p></p>&ndash;&gt;-->
-<!--          <a-->
-<!--            v-magnetic="{ strength: 0.5, maxDistance: 40 }"-->
-<!--            class="hero__button"-->
-<!--            href="#"-->
-<!--            ><div class="buttonSend" v-magnetic>-->
-<!--              Get it touch-->
-<!--              <img-->
-<!--                class="button&#45;&#45;send"-->
-<!--                src="../assets/img/icons/send.svg"-->
-<!--                alt="icon send"-->
-<!--              /></div-->
-<!--          ></a>-->
-<!--        </div>-->
-<!--        <div class="hero__box">-->
-<!--          <img-->
-<!--            class="hero__box&#45;&#45;img"-->
-<!--            src="../assets/img/photo1Rec.png"-->
-<!--            alt="picture"-->
-<!--          />-->
-<!--          &lt;!&ndash;          <div class="hero__box&#45;&#45;img"></div>&ndash;&gt;-->
-<!--        </div>-->
-<!--      </div>-->
+      <!--      <div class="hero">-->
+      <!--        &lt;!&ndash;        <div class="title__Box">&ndash;&gt;-->
+      <!--        &lt;!&ndash;          <h4 class="title">{{ $t("hero.title") }}</h4>&ndash;&gt;-->
+      <!--        &lt;!&ndash;        </div>&ndash;&gt;-->
+      <!--        <div class="hero__describe">-->
+      <!--          &lt;!&ndash;          <h4 class="hero__describe__welcome">Welcome to my site</h4>&ndash;&gt;-->
+      <!--          <h1 class="hero__describe__presentation">-->
+      <!--            Hi ! I'm <strong class="accent">Auban</strong><br />Developer-->
+      <!--            Front-End<br />-->
+      <!--            & UI UX Designer-->
+      <!--          </h1>-->
+      <!--          &lt;!&ndash;          <p></p>&ndash;&gt;-->
+      <!--          <a-->
+      <!--            v-magnetic="{ strength: 0.5, maxDistance: 40 }"-->
+      <!--            class="hero__button"-->
+      <!--            href="#"-->
+      <!--            ><div class="buttonSend" v-magnetic>-->
+      <!--              Get it touch-->
+      <!--              <img-->
+      <!--                class="button&#45;&#45;send"-->
+      <!--                src="../assets/img/icons/send.svg"-->
+      <!--                alt="icon send"-->
+      <!--              /></div-->
+      <!--          ></a>-->
+      <!--        </div>-->
+      <!--        <div class="hero__box">-->
+      <!--          <img-->
+      <!--            class="hero__box&#45;&#45;img"-->
+      <!--            src="../assets/img/photo1Rec.png"-->
+      <!--            alt="picture"-->
+      <!--          />-->
+      <!--          &lt;!&ndash;          <div class="hero__box&#45;&#45;img"></div>&ndash;&gt;-->
+      <!--        </div>-->
+      <!--      </div>-->
       <div class="scrollDown">
         <a class="scrollDownIcon" href="#about"><span></span></a>
         <!--      <p>Scroll2</p>-->
@@ -85,12 +85,23 @@
 export default {
   name: "HeroComponent",
   mounted() {
-    // const hero = document.querySelector("#hero");
-    // hero.style.transform = "translateY(100%)";
-    // setTimeout(() => {
-    //   hero.style.transform = "translateY(0)";
-    //   hero.style.transition = "all 0.7s ease-in-out";
-    // }, 2900);
+    this.setupParallax();
+  },
+  methods: {
+    setupParallax() {
+      // Assurez-vous que ces sélecteurs correspondent à ceux de votre HTML
+      const title = document.querySelector(".hero__box__name");
+      const subtitle = document.querySelector(".hero__box__text");
+
+      // Écouter l'événement de scroll
+      window.addEventListener("scroll", () => {
+        let scrollPosition = window.scrollY;
+
+        // Appliquer un effet de déplacement différent pour chaque élément
+        this.$gsap.to(title, { y: -scrollPosition * 0.5 });
+        this.$gsap.to(subtitle, { y: -scrollPosition * 0.3 });
+      });
+    },
   },
 };
 </script>

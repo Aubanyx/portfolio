@@ -67,11 +67,21 @@ export default {
       ],
     };
   },
+  mounted() {
+    this.$gsap.registerPlugin(this.$ScrollTrigger);
+    this.animateFaqElements();
+  },
   computed: {
     translatedQuestions() {
       return this.questions.map((q, index) => {
-        const questionKey = `faq.question${String(index + 1).padStart(2, '0')}.question`;
-        const answerKey = `faq.question${String(index + 1).padStart(2, '0')}.answer`;
+        const questionKey = `faq.question${String(index + 1).padStart(
+          2,
+          "0"
+        )}.question`;
+        const answerKey = `faq.question${String(index + 1).padStart(
+          2,
+          "0"
+        )}.answer`;
 
         return {
           ...q,
@@ -83,8 +93,6 @@ export default {
   },
   methods: {
     toggleAnswer(index) {
-      // this.questions[index].open = !this.questions[index].open;
-
       this.questions.forEach((question, i) => {
         if (i === index) {
           question.open = !question.open;
@@ -98,39 +106,62 @@ export default {
     },
     enter(el) {
       el.style.height = 30 + el.scrollHeight + "px";
-      // el.addEventListener("transitionend", done);
     },
     beforeLeave(el) {
       el.style.height = 30 + el.scrollHeight + "px";
     },
     leave(el) {
       el.style.height = "0";
-      // el.addEventListener("transitionend", done);
+    },
+    animateFaqElements() {
+      // Animation pour le titre FAQ
+      this.$gsap.from(".faq__title", {
+        duration: 1.5,
+        y: -50,
+        opacity: 0,
+        delay: 0.5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".faq__title",
+          start: "top 80%",
+          end: "bottom 40%",
+          toggleActions: "restart none none reverse",
+        },
+      });
+
+      // Animation pour les questions
+      const questions = document.querySelectorAll(".faq__question");
+
+      questions.forEach((question) => {
+        this.$gsap.from(question, {
+          duration: 1,
+          y: 30,
+          opacity: 0,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: question,
+            start: "top 85%",
+            end: "bottom 40%",
+            toggleActions: "restart none none reverse",
+          },
+        });
+      });
+
+      // Notez que pour les réponses, nous avons déjà une animation de hauteur.
+      // Si vous souhaitez ajouter une autre animation pour les réponses lorsqu'elles sont visibles, vous pouvez le faire de manière similaire à ce que nous avons fait pour les questions.
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-//.slide-enter-active,
-//.slide-leave-active {
-//  transition: all 0.3s ease;
-//}
-//
-//.slide-enter,
-//.slide-leave-to {
-//  opacity: 0;
-//  transform: translateY(-2rem);
-//}
-
 #faq {
   max-width: 1920px;
   margin: auto;
   display: flex;
   flex-direction: column;
-  //background: #f3f2f1;
   background: var(--color-background-quinary);
-  //height: 100vh;
   padding: 10rem 5rem;
 
   .faq__title {
@@ -143,16 +174,13 @@ export default {
 
   .faq__questionsWrapper {
     .faq__question {
-      //margin: 5rem 0;
       text-align: left;
       border-bottom: 1px solid rgba(39, 39, 39, 0.25);
       font-size: 1.6rem;
-      //transition: all 0.2s ease;
 
       .faq__question--text {
         display: flex;
         position: relative;
-        //justify-content: space-between;
         align-items: center;
         color: #808080;
         font-weight: bold;
@@ -180,8 +208,6 @@ export default {
       }
 
       .faq__answer {
-        //padding-bottom: 3rem;
-        //margin-top: -1rem;
         overflow: hidden;
         transition: height 0.3s ease;
         height: 5rem;

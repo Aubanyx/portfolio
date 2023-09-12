@@ -116,6 +116,8 @@ export default {
   mounted() {
     window.addEventListener("resize", this.onResize);
     this.onResize();
+
+    this.initScrollAnimations();
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);
@@ -134,6 +136,55 @@ export default {
       requestAnimationFrame(() => {
         this.windowWidth = window.innerWidth;
       });
+    },
+    initScrollAnimations() {
+      const tl = this.$gsap.timeline({
+        scrollTrigger: {
+          trigger: ".process",
+          start: "top 70%", // Ajustement du point de déclenchement
+          end: "top 0%",
+          scrub: 1,
+        },
+      });
+
+      // Animation pour le titre et le texte introductif
+      tl.from(".processTitle", { duration: 0.5, y: 30, opacity: 0 }).from(
+        ".processText",
+        { duration: 0.5, y: 30, opacity: 0 }
+      );
+
+      // Animation pour les SVG horizontaux
+      tl.from(".processStep--lineX line", {
+        duration: 0.6,
+        scaleX: 0,
+        transformOrigin: "left",
+        stagger: 0.35, // Légèrement ajusté
+      });
+
+      // Animation pour la flèche SVG
+      tl.from(".arrow path", { duration: 0.3, y: 30, opacity: 0 });
+
+      // Animation pour les cercles numérotés
+      tl.from(".processStep__step--number", {
+        duration: 0.5,
+        opacity: 0,
+        y: 30,
+        stagger: 0.15, // Légèrement ajusté
+      })
+        // Animation pour les SVG verticaux après les cercles
+        .from(".processStep--lineY line", {
+          duration: 0.6,
+          scaleY: 0,
+          transformOrigin: "bottom",
+          stagger: 0.35, // Légèrement ajusté
+        })
+        // Animation pour les titres et descriptions
+        .from([".processStep--title", ".processStep--description"], {
+          duration: 0.5,
+          opacity: 0,
+          y: 30,
+          stagger: { each: 0.15, grid: [1, 2] }, // Légèrement ajusté
+        });
     },
   },
 };

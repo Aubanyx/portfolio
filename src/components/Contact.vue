@@ -45,7 +45,9 @@
             method="POST"
           >
             <input type="hidden" name="_captcha" value="false" />
-            <label class="labelInputName" for="name">{{ $t("contact.name.question") }}</label>
+            <label class="labelInputName" for="name">{{
+              $t("contact.name.question")
+            }}</label>
             <input
               class="inputText"
               type="text"
@@ -73,7 +75,9 @@
               name="_next"
               value="http://localhost:8080/#contact"
             />
-            <label class="labelTextarea" for="message">{{ $t("contact.message.question") }}</label>
+            <label class="labelTextarea" for="message">{{
+              $t("contact.message.question")
+            }}</label>
             <textarea
               :placeholder="$t('contact.message.answer')"
               name="message"
@@ -108,6 +112,103 @@
 export default {
   name: "ContactComponent",
   components: {},
+  mounted() {
+    this.initScrollAnimations();
+
+    const formElements = this.$el.querySelectorAll("input, textarea");
+    formElements.forEach((el) => {
+      el.addEventListener("focus", this.onFocus);
+      el.addEventListener("blur", this.onBlur);
+    });
+  },
+  beforeDestroy() {
+    const formElements = this.$el.querySelectorAll("input, textarea");
+    formElements.forEach((el) => {
+      el.removeEventListener("focus", this.onFocus);
+      el.removeEventListener("blur", this.onBlur);
+    });
+  },
+  methods: {
+    initScrollAnimations() {
+      this.$gsap.registerPlugin(this.$ScrollTrigger);
+
+      // Animation pour le titre
+      this.$gsap.from(".contact__title", {
+        opacity: 0,
+        y: 50,
+        scrollTrigger: {
+          trigger: ".contact__title",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      // Animation pour le texte
+      this.$gsap.from(".contact__text", {
+        opacity: 0,
+        y: 50,
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: ".contact__text",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      // Animation pour les liens
+      this.$gsap.from(".contact__infos--link", {
+        opacity: 0,
+        y: 50,
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: ".contact__infos--link",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      // Animation pour le label
+      this.$gsap.from(".labelInputName", {
+        opacity: 0,
+        y: 50,
+        scrollTrigger: {
+          trigger: ".labelInputName",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      // Animation pour le bouton
+      this.$gsap.from(".contact__container__boxForm__form--button", {
+        opacity: 0,
+        y: 50,
+        scrollTrigger: {
+          trigger: ".contact__container__boxForm__form--button",
+          start: "top 100%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    },
+    onFocus(e) {
+      this.$gsap.to(e.target, {
+        scale: 1.05,
+        borderColor: "var(--color-primary)",
+        duration: 0.3,
+      });
+    },
+    onBlur(e) {
+      this.$gsap.to(e.target, {
+        scale: 1,
+        borderColor: "var(--color-background-tertiary)",
+        duration: 0.3,
+      });
+    },
+  },
 };
 </script>
 
@@ -123,8 +224,6 @@ export default {
     display: flex;
     flex-direction: column;
     width: 100%;
-    //height: 100vh;
-    //padding: 0 4rem;
 
     .contact__container__boxForm {
       display: flex;
@@ -165,7 +264,6 @@ export default {
               font-size: 1rem;
               color: var(--color-text-secondary);
               text-transform: uppercase;
-              //margin: 3rem 0 2rem;
             }
 
             .contact__infos--link {
@@ -239,9 +337,7 @@ export default {
             width: 100%;
             border: none;
             background: var(--color-background-primary);
-            //border-bottom: 2px solid var(--color-primary);
             border-bottom: 2px solid var(--color-background-tertiary);
-            //padding-left: 3rem;
             padding-bottom: 2rem;
             outline: none;
             position: relative;
@@ -338,7 +434,6 @@ export default {
 
         .wrapper {
           width: 100%;
-          //display: flex;
           flex-direction: row-reverse;
 
           .contact__infos {
@@ -366,7 +461,6 @@ export default {
       .contact__container__boxMap {
         width: 50%;
         height: 100%;
-        //padding: 0;
 
         .contact__container__boxMap__map {
           height: 100%;

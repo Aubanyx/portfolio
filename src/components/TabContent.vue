@@ -1,5 +1,5 @@
 <template>
-  <div class="tabContent">
+  <div class="tabContent" ref="tabContentRef">
     <ul class="tabList">
       <li
         v-for="(skill, index) in tab.skills"
@@ -21,6 +21,27 @@
 export default {
   name: "TabContent",
   props: ["tab"],
+  mounted() {
+    this.initTabContentAnimation();
+  },
+  methods: {
+    initTabContentAnimation() {
+      const tabContentRef = this.$refs.tabContentRef;
+
+      this.$gsap.from(tabContentRef.querySelectorAll(".tabListContent"), {
+        scrollTrigger: {
+          trigger: tabContentRef,
+          start: "top 100%",
+          end: "bottom 80%",
+          scrub: 1,
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.2,
+      });
+    },
+  },
 };
 </script>
 

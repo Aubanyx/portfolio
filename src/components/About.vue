@@ -32,8 +32,54 @@
 </template>
 
 <script>
+
 export default {
   name: "AboutComponent",
+  mounted() {
+    this.initScrollAnimations();
+  },
+  methods: {
+    initScrollAnimations() {
+      this.$gsap.registerPlugin(this.$ScrollTrigger);
+
+      // Animation pour l'image
+      this.$gsap.from(".about__img--img", {
+        opacity: 0,
+        y: -50,
+        scrollTrigger: {
+          trigger: ".about__img--img",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        }
+      });
+
+      // Animation pour le titre et la description
+      this.$gsap.from(".about__infos__title, .about__infos__description", {
+        opacity: 0,
+        y: 50,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".about__infos",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        }
+      });
+
+      // Animation pour le bouton
+      this.$gsap.from(".about__infos__btn", {
+        opacity: 0,
+        y: 50,
+        scrollTrigger: {
+          trigger: ".about__infos__btn",
+          start: "top 100%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        }
+      });
+    }
+  }
 };
 </script>
 
@@ -165,16 +211,7 @@ export default {
     .about__infos {
       width: 70%;
       align-items: flex-start;
-      //padding: 10rem 10rem;
       padding: 10rem 0 0 10rem;
-
-      //.about__infos__title {
-      //  font-size: 10rem;
-      //
-      //  &::before {
-      //    top: 11rem;
-      //  }
-      //}
     }
   }
 }

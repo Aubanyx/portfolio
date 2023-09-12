@@ -255,31 +255,6 @@ export default {
       }, 300);
     },
     projectHover(event) {
-      // const index = event.target.closest('.project__element').getAttribute('data-index');
-      // const circle = this.$refs[`hoverCircle-${index}`][0];
-      // const parent = circle.parentElement;
-      // const parentRect = parent.getBoundingClientRect();
-      // const child = circle.children[0];
-      //
-      // circle.style.width = "100px";
-      // circle.style.height = "100px";
-      // circle.style.display = "flex";
-      // child.style.display = "block";
-      //
-      // // setTimeout(() => {
-      // //   circle.style.left = event.clientX - parentRect.left + "px";
-      // //   circle.style.top = event.clientY - parentRect.top + "px";
-      // // }, 50);
-      //
-      // circle.style.left = event.clientX - parentRect.left + "px";
-      // circle.style.top = event.clientY - parentRect.top + "px";
-      //
-      //
-      //
-      // parent.addEventListener("mouseleave", () => {
-      //   this.hideCircle(index);
-      // });
-
       if (screen.width < 1024) {
         return;
       }
@@ -323,6 +298,114 @@ export default {
       this.$store.state.openModal = true;
       document.body.style.overflowY = "hidden";
     },
+    animateElements() {
+      // Animation pour le titre des projets
+      this.$gsap.from(".projects__title", {
+        duration: 1.5,
+        y: -50,
+        opacity: 0,
+        delay: 0.5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".projects__title",
+          start: "top 80%",
+          toggleActions: "restart none none reverse",
+        },
+      });
+
+      // Pour les images des projets
+      document.querySelectorAll(".projectPresentation--img").forEach((img) => {
+        this.$gsap.from(img, {
+          duration: 1,
+          y: 50,
+          opacity: 0,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: img,
+            start: "top 80%",
+            toggleActions: "restart none none reverse",
+          },
+        });
+      });
+
+      // Pour la description du projet
+      document.querySelectorAll(".projectDescription").forEach((desc) => {
+        this.$gsap.from(desc, {
+          duration: 1.2,
+          y: 50,
+          opacity: 0,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: desc,
+            start: "top 85%",
+            toggleActions: "restart none none reverse",
+          },
+        });
+      });
+
+      // Pour les boutons d'exploration
+      document.querySelectorAll(".projectExplore").forEach((btn) => {
+        this.$gsap.from(btn, {
+          duration: 1,
+          y: 30,
+          opacity: 0,
+          stagger: 0.3,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: btn,
+            start: "top 85%",
+            toggleActions: "restart none none reverse",
+          },
+        });
+      });
+
+      // Pour les titres individuels des projets
+      document.querySelectorAll(".projectTitle").forEach((title) => {
+        this.$gsap.from(title, {
+          duration: 1.2,
+          y: -30,
+          opacity: 0,
+          stagger: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: title,
+            start: "top 85%",
+            toggleActions: "restart none none reverse",
+          },
+        });
+      });
+
+      // Pour les détails techniques des projets
+      document.querySelectorAll(".projectTechs .tech").forEach((tech) => {
+        this.$gsap.from(tech, {
+          duration: 1,
+          x: -30,
+          opacity: 0,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: tech,
+            start: "top 85%",
+            toggleActions: "restart none none reverse",
+          },
+        });
+      });
+
+      // Pour les boutons des projets
+      this.$gsap.from(".projects__button", {
+        duration: 0.5,
+        y: 40,
+        opacity: 0,
+        delay: 0.5, // Réduire le délai pour rendre l'animation plus rapide.
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".projects__button",
+          start: "top 90%",
+          toggleActions: "restart none none reverse",
+        },
+      });
+    },
   },
   created() {
     this.startAnimation();
@@ -330,6 +413,7 @@ export default {
   },
   mounted() {
     this.$store.state.selectedProjects = this.projects[0];
+    this.animateElements();
   },
   beforeDestroy() {
     window.removeEventListener("mousemove", this.mouseMove);
@@ -419,39 +503,8 @@ export default {
             display: flex;
             justify-content: center;
             position: relative;
-            //height: 33rem;
             height: clamp(33rem, 50vw, 40rem);
-            //margin-bottom: 3rem;
 
-            //.mockupPc {
-            //  min-height: 23rem;
-            //  max-height: 40rem;
-            //  height: 45vw;
-            //  position: absolute;
-            //  bottom: 0;
-            //  right: -6rem;
-            //  z-index: 1;
-            //}
-            //.mockupTablet {
-            //  min-height: 18rem;
-            //  max-height: 34rem;
-            //  height: 37vw;
-            //  position: absolute;
-            //  bottom: 0;
-            //  left: -7rem;
-            //  transform: rotateY(180deg);
-            //  z-index: 1;
-            //}
-            //.mockupPhone {
-            //  min-height: 10rem;
-            //  max-height: 22rem;
-            //  height: 22vw;
-            //  position: absolute;
-            //  bottom: 2rem;
-            //  //left: 4.5rem;
-            //  left: 15%;
-            //  z-index: 1;
-            //}
             .projectBackground {
               position: absolute;
               //height: 22rem;
@@ -537,21 +590,6 @@ export default {
 
               .projectInfosTechs {
                 margin-bottom: 0;
-              }
-            }
-            .projectDesignPhone {
-              //height: 40rem;
-
-              .projectBackground {
-                //height: 30rem;
-
-                .projectPresentation {
-                  .projectPresentation--img {
-                  }
-
-                  .projectNumbers {
-                  }
-                }
               }
             }
           }
@@ -664,14 +702,6 @@ export default {
             .projectDesignPhone {
               display: none;
             }
-
-            .projectDescription {
-              //margin-bottom: 0;
-            }
-
-            .projectButton {
-              //display: none;
-            }
           }
 
           .projectDesign {
@@ -712,40 +742,6 @@ export default {
                 }
               }
             }
-
-            //.mockupPc {
-            //  height: 35rem;
-            //  position: absolute;
-            //  bottom: 0;
-            //  right: -10rem;
-            //  z-index: 1;
-            //}
-            //
-            //.mockupTablet {
-            //  height: 30rem;
-            //  position: absolute;
-            //  bottom: 0;
-            //  left: -13rem;
-            //  transform: rotateY(180deg);
-            //  z-index: 1;
-            //}
-            //
-            //.mockupPhone {
-            //  height: 20rem;
-            //  position: absolute;
-            //  bottom: 2rem;
-            //  left: 5rem;
-            //  z-index: 1;
-            //}
-            //
-            //.projectBackground {
-            //  position: absolute;
-            //  height: 22rem;
-            //  width: 85%;
-            //  background: var(--color-secondary);
-            //  border-radius: 5rem;
-            //  z-index: 0;
-            //}
           }
         }
       }

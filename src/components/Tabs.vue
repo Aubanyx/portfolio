@@ -109,6 +109,9 @@ export default {
       ],
     };
   },
+  mounted() {
+    this.initTabAnimations();
+  },
   computed: {
     translatedTabs() {
       return this.tabs.map((tab, index) => {
@@ -149,6 +152,22 @@ export default {
           tab.open = false;
         }
       });
+    },
+    initTabAnimations() {
+      const tl = this.$gsap.timeline({
+        scrollTrigger: {
+          trigger: "#tabs",
+          start: "top 90%",
+          end: "bottom 65%",
+          scrub: 1,
+        },
+      });
+
+      tl.from(".tabsTitle", { duration: 0.5, y: -30, opacity: 0 })
+        .from(".tabsText", { duration: 0.5, y: -30, opacity: 0 })
+        .from(".tab__wrapper", { duration: 0.4, x: -50, opacity: 0, stagger: 0.1 })
+        .from(".tab--title", { duration: 0.4, y: 30, opacity: 0, stagger: 0.05 })
+        .from(".tab--img", { duration: 0.4, scale: 0, opacity: 0, stagger: 0.1 });
     },
   },
 };

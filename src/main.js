@@ -8,6 +8,12 @@ import "@/assets/scss/reset.scss";
 import "@/assets/scss/custom.scss";
 import "@/assets/scss/fonts.scss";
 import magnetic from "./directives/magnetic";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+Vue.prototype.$gsap = gsap;
+Vue.prototype.$ScrollTrigger = ScrollTrigger;
+
+gsap.registerPlugin(ScrollTrigger);
 
 window.Event = new Vue();
 
