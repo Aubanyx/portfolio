@@ -131,19 +131,6 @@ export default {
       return this.$store.state.openModal;
     },
   },
-  // watch: {
-  //   openModal(newVal) {
-  //     if (newVal) {
-  //       this.picture = document.getElementById("pic");
-  //       this.containerMain = document.getElementById("containerMainPic");
-  //       this.preview = document.getElementById("preview");
-  //       this.zoomRect = document.getElementById("zoomRect");
-  //
-  //       this.preview.style.display = "none";
-  //       this.zoomRect.style.display = "none";
-  //     }
-  //   },
-  // },
   methods: {
     modalClose() {
       this.$store.state.openModal = false;
