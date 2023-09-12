@@ -166,7 +166,7 @@ export default {
 
         .sidebar--title {
           color: var(--color-primary);
-          margin-bottom: 4rem;
+          margin-bottom: 3rem;
           font-size: 1.7rem;
         }
 
@@ -179,7 +179,7 @@ export default {
           text-decoration: none;
           font-size: 3rem;
           display: block;
-          margin-bottom: 2.5rem;
+          margin-bottom: 1.5em;
           padding-bottom: 0.5em;
           position: relative;
 
@@ -214,9 +214,6 @@ export default {
         }
 
         .sidebar__boxMail--mail {
-          //position: absolute;
-          //bottom: 3rem;
-          //left: 12rem;
           font-size: 1.7rem;
           color: var(--tertiaryColor);
           padding-bottom: 1rem;
@@ -278,16 +275,18 @@ export default {
       .nav {
         .sidebar__menu {
           padding-left: 10rem;
+
+          .sidebar--title {
+            margin-bottom: 4rem;
+          }
+
+          ul.sidebar-panel-nav > li > a {
+            margin-bottom: 2.5rem;
+          }
         }
 
         .sidebar__boxMail {
           left: 12rem;
-
-          .sidebar__boxMail--title {
-          }
-
-          .sidebar__boxMail--mail {
-          }
         }
       }
     }
