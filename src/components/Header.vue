@@ -179,7 +179,7 @@ export default {
           text-decoration: none;
           font-size: 3rem;
           display: block;
-          margin-bottom: 1.5em;
+          margin-bottom: 1.5rem;
           padding-bottom: 0.5em;
           position: relative;
 
