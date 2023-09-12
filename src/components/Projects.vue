@@ -338,7 +338,7 @@ export default {
           ease: "power2.out",
           scrollTrigger: {
             trigger: desc,
-            start: "top 85%",
+            start: "top 95%",
             toggleActions: "restart none none reverse",
           },
         });
@@ -354,7 +354,7 @@ export default {
           ease: "power2.out",
           scrollTrigger: {
             trigger: btn,
-            start: "top 85%",
+            start: "top 95%",
             toggleActions: "restart none none reverse",
           },
         });
