@@ -252,7 +252,7 @@ export default {
 
         &:hover {
           background: var(--color-primary);
-          color: var(--quaternaryColor);
+          color: white;
         }
 
         .lang__locale {
