@@ -189,7 +189,7 @@ export default {
         transition: all 0.2s ease;
 
         &::before {
-          content: url("../assets/img/plus.svg");
+          content: url("../assets/img/icons/plus.svg");
           position: absolute;
           left: 0;
           width: 1.6rem;
@@ -202,7 +202,7 @@ export default {
           color: var(--color-text-tertiary);
 
           &::before {
-            content: url("../assets/img/minus.svg");
+            content: url("../assets/img/icons/minus.svg");
           }
         }
       }

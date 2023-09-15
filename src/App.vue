@@ -27,24 +27,15 @@ export default {
 
 <style lang="scss">
 #app {
-  //font-family: Sora, Avenir, Helvetica, Arial, sans-serif;
-  font-family: Inter, Sora, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  //color: #2c3e50;
-  //color: $primaryColor;
-  //color: #3D4280;
-  color: black;
+
+  color: #1c1d20;
 }
 
 :root {
-  //#455CE9 Blue
-  //#334BD3 Dark blue
-  //#1C1D20 Dark
-  //#141517 Dark dark
-  //#2f3137 Dark light
-  //#f2f2f2 Gray light
   --color-primary: #455ce9;
   --color-primary-dark: #334bd3;
   --color-secondary: #e8c246;

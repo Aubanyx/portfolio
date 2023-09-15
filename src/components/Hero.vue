@@ -80,7 +80,7 @@
           ><img src="../assets/img/icons/github.svg" alt="Logo Github"
         /></a>
         <a class="hero__linkedin" href="https://www.linkedin.com/in/aubanlabie/"
-          ><img src="../assets/img/linkedin.svg" alt="Logo LinkedIn"
+          ><img src="../assets/img/icons/linkedin.svg" alt="Logo LinkedIn"
         /></a>
       </div>
     </section>

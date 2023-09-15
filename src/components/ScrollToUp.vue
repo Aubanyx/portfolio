@@ -8,7 +8,7 @@
     >
       <img
         v-magnetic="{ strength: 0.5 }"
-        src="../assets/img/arrow.svg"
+        src="../assets/img/icons/arrow.svg"
         alt="arrow"
       />
     </button>

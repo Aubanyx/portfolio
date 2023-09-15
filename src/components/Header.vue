@@ -248,6 +248,7 @@ export default {
         appearance: none;
         padding: 1rem;
         cursor: pointer;
+        border-bottom: 2px solid var(--color-primary);
 
         &:hover {
           background: var(--color-primary);
