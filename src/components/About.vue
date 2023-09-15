@@ -18,8 +18,8 @@
       <a
         v-magnetic="{ strength: 0.5, maxDistance: 40 }"
         class="about__infos__btn"
-        href="../assets/pdf/Labie_Auban_CV.pdf"
-        download=""
+        href="/pdf/Labie_Auban_CV.pdf"
+        download
         ><div class="about__infos__btn--div" v-magnetic>
           {{ $t("about.download")
           }}<img
