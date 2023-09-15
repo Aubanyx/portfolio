@@ -186,6 +186,8 @@ export default {
   flex-direction: column;
   justify-content: center;
   padding: 10rem 5rem;
+  overflow: hidden;
+  word-break: break-word;
 
   .tabsTitle {
     @include Title;

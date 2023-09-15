@@ -1,6 +1,6 @@
 <template>
   <section id="projects" class="container">
-    <h2 class="projects__title">Projects</h2>
+    <h2 class="projects__title">{{ $t("projects.title") }}</h2>
     <div class="hover-content">
       <ul class="listProject">
         <li

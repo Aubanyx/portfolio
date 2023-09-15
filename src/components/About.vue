@@ -170,8 +170,8 @@ export default {
 @media only screen and (min-width: 1024px) {
   .container {
     flex-direction: row;
-    height: 110vh;
-    max-height: 1200px;
+    //height: 110vh;
+    //max-height: 1200px;
     padding: 0 15rem;
 
     &::before {
@@ -192,7 +192,7 @@ export default {
 
     .about__box {
       width: 35%;
-      height: 100%;
+      //height: 100%;
 
       .about__img {
         width: 130%;
@@ -211,8 +211,25 @@ export default {
     .about__infos {
       width: 70%;
       align-items: flex-start;
-      padding: 10rem 0 0 10rem;
+      padding: 10rem 0 10rem 10rem;
+    }
+  }
+}
 
+@media only screen and (min-width: 1280px) {
+  .container {
+    //height: 110vh;
+    max-height: 1200px;
+
+    .about__box {
+
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    .about__infos {
       .about__infos__description {
         width: 70%;
       }
