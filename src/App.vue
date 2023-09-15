@@ -61,25 +61,28 @@ export default {
   --color-box-shadow-back: rgb(0 0 0 / 15%) 15px 15px 20px -5px,
     rgb(255 255 255 / 90%) -15px -15px 20px 5px;
   --color-box-shadow-project: rgb(0 0 0 / 15%) 0 15px 20px -5px,
-  rgb(255 255 255 / 90%) 0 -15px 20px 5px;
-  --filter-img: invert(1);
+    rgb(255 255 255 / 90%) 0 -15px 20px 5px;
+  --color-box-shadow-toggle: 0px 0px 15px #2f3137,
+    0px 0px 35px hsl(0deg 0% 100% / 45%);
+  --filter-img: invert(0);
+  --filter-icon: invert(38%) sepia(40%) saturate(1461%) hue-rotate(202deg);
 
-  --backgroundColor: #ffffff;
-  //--firstColor: #d25d5f;
-  --firstColor: #4fb477;
-  --secondaryColor: #faebd7;
-  --tertiaryColor: #000000;
-  --quaternaryColor: #ffffff;
-  --title: #000000;
-  --subTitle: #a6a6a6;
-  --text: #000000;
-  --img: invert(0);
-  //--imgfilter: invert(0);
-  --imgfilter: invert(38%) sepia(40%) saturate(1461%) hue-rotate(202deg)
-    brightness(93%) contrast(114%);
-  --skillTitle: #000000;
-  --skillSubTitle: #000000;
-  --backgroundInput: #fcfcfc;
+  //--backgroundColor: #ffffff;
+  ////--firstColor: #d25d5f;
+  //--firstColor: #4fb477;
+  //--secondaryColor: #faebd7;
+  //--tertiaryColor: #000000;
+  //--quaternaryColor: #ffffff;
+  //--title: #000000;
+  //--subTitle: #a6a6a6;
+  //--text: #000000;
+  //--img: invert(0);
+  ////--imgfilter: invert(0);
+  //--imgfilter: invert(38%) sepia(40%) saturate(1461%) hue-rotate(202deg)
+  //  brightness(93%) contrast(114%);
+  //--skillTitle: #000000;
+  //--skillSubTitle: #000000;
+  //--backgroundInput: #fcfcfc;
 }
 
 [data-theme="darkTheme"] {
@@ -100,29 +103,32 @@ export default {
     rgb(43 44 49 / 25%) -15px -15px 20px 5px;
   --color-box-shadow-project: rgb(14 15 16 / 75%) 0 15px 20px -5px,
     rgb(28 29 32 / 90%) 0 -15px 20px 5px;
-  --filter-img: invert(0);
+  --color-box-shadow-toggle: 0px 0px 15px #f2f2f2,
+    0px 0px 35px hsl(0deg 0% 100% / 45%);
+  --filter-img: invert(1);
+  --filter-icon: invert(38%) sepia(40%) saturate(1461%) hue-rotate(202deg);
 
-  //--backgroundColor: #202023;
-  --backgroundColor: #272727;
-  //--firstColor: #6a5acd;
-  --firstColor: #4fb477;
-  --secondaryColor: #2f4f4f;
-  --tertiaryColor: #ffffff;
-  --quaternaryColor: #ffffff;
-  //--title: #6a5acd;
-  --title: #4fb477;
-  --subTitle: #a6a6a6;
-  --text: #ffffff;
-  --img: invert(1);
-  //--imgfilter: invert(35%) sepia(100%) saturate(571%) hue-rotate(213deg)
-  //  brightness(89%) contrast(88%);
-  //--imgfilter: filter: invert(67%) sepia(26%) saturate(807%) hue-rotate(91deg) brightness(88%) contrast(83%);
-  --imgfilter: invert(38%) sepia(40%) saturate(1461%) hue-rotate(202deg)
-    brightness(93%) contrast(114%);
+  ////--backgroundColor: #202023;
+  //--backgroundColor: #272727;
+  ////--firstColor: #6a5acd;
+  //--firstColor: #4fb477;
+  //--secondaryColor: #2f4f4f;
+  //--tertiaryColor: #ffffff;
+  //--quaternaryColor: #ffffff;
+  ////--title: #6a5acd;
+  //--title: #4fb477;
+  //--subTitle: #a6a6a6;
+  //--text: #ffffff;
+  //--img: invert(1);
+  ////--imgfilter: invert(35%) sepia(100%) saturate(571%) hue-rotate(213deg)
+  ////  brightness(89%) contrast(88%);
+  ////--imgfilter: filter: invert(67%) sepia(26%) saturate(807%) hue-rotate(91deg) brightness(88%) contrast(83%);
+  //--imgfilter: invert(38%) sepia(40%) saturate(1461%) hue-rotate(202deg)
+  //  brightness(93%) contrast(114%);
 
-  --skillTitle: #ffffff;
-  --skillSubTitle: #ffffff;
-  --backgroundInput: #202023;
+  //--skillTitle: #ffffff;
+  //--skillSubTitle: #ffffff;
+  //--backgroundInput: #202023;
 }
 // #6FEFE1
 // #E732AF

@@ -288,7 +288,7 @@ export default {
                 left: 50%;
                 width: 0;
                 height: 1px;
-                background: var(--tertiaryColor);
+                background: var(--color-background-quaternary);
                 transition: 0.3s ease;
               }
 

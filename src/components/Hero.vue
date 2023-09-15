@@ -11,13 +11,19 @@
           <span>Auban</span>
           <span>Labie</span>
         </h1>
-        <p class="hero__box__text">
-          Creative developer at the intersection of design and technology, I am
-          passionate about crafting inspiring digital experiences. Merging
-          aesthetics with advanced technology, I create elegant digital
-          solutions that capture attention and turn ideas into unique
-          interactions.
-        </p>
+        <p class="hero__box__text">{{ $t("hero.text") }}</p>
+<!--        <a-->
+<!--          v-magnetic="{ strength: 0.5, maxDistance: 40 }"-->
+<!--          class="hero__box__btn"-->
+<!--          href="#"-->
+<!--        ><div class="buttonSend" v-magnetic>-->
+<!--          Get it touch-->
+<!--          <img-->
+<!--            class="button&#45;&#45;send"-->
+<!--            src="../assets/img/icons/send.svg"-->
+<!--            alt="icon send"-->
+<!--          /></div-->
+<!--        ></a>-->
         <!--        <div class="hero__box__dev">-->
         <!--          <h2>Developer</h2>-->
         <!--          <h2>Designer</h2>-->
@@ -42,18 +48,18 @@
       <!--            & UI UX Designer-->
       <!--          </h1>-->
       <!--          &lt;!&ndash;          <p></p>&ndash;&gt;-->
-      <!--          <a-->
-      <!--            v-magnetic="{ strength: 0.5, maxDistance: 40 }"-->
-      <!--            class="hero__button"-->
-      <!--            href="#"-->
-      <!--            ><div class="buttonSend" v-magnetic>-->
-      <!--              Get it touch-->
-      <!--              <img-->
-      <!--                class="button&#45;&#45;send"-->
-      <!--                src="../assets/img/icons/send.svg"-->
-      <!--                alt="icon send"-->
-      <!--              /></div-->
-      <!--          ></a>-->
+<!--                <a-->
+<!--                  v-magnetic="{ strength: 0.5, maxDistance: 40 }"-->
+<!--                  class="hero__button"-->
+<!--                  href="#"-->
+<!--                  ><div class="buttonSend" v-magnetic>-->
+<!--                    Get it touch-->
+<!--                    <img-->
+<!--                      class="button&#45;&#45;send"-->
+<!--                      src="../assets/img/icons/send.svg"-->
+<!--                      alt="icon send"-->
+<!--                    /></div-->
+<!--                ></a>-->
       <!--        </div>-->
       <!--        <div class="hero__box">-->
       <!--          <img-->
@@ -171,6 +177,22 @@ export default {
       align-self: flex-start;
       color: var(--color-text-tertiary);
       margin-top: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .hero__box__btn {
+      @include animationCircleHover;
+      @include ButtonPrimary;
+
+      .buttonSend {
+        display: flex;
+        align-items: center;
+
+        .button--send {
+          filter: invert(1);
+          margin-left: 1rem;
+        }
+      }
     }
 
     .hero__box__dev {
@@ -376,7 +398,7 @@ export default {
         width: 3rem;
         height: 5rem;
         //margin-left: -15px;
-        border: 2px solid var(--tertiaryColor);
+        border: 2px solid var(--color-text-tertiary);
         border-radius: 50px;
         box-sizing: border-box;
         //background: green;
@@ -435,14 +457,14 @@ export default {
       font-size: 2rem;
       writing-mode: vertical-rl;
       text-orientation: mixed;
-      color: var(--tertiaryColor);
+      color: var(--color-text-tertiary);
 
       width: 3rem;
       display: flex;
       align-items: center;
 
       &::after {
-        background-color: var(--tertiaryColor);
+        background-color: var(--color-background-quaternary);
         content: "";
         display: inline-block;
         height: 5rem;
@@ -461,7 +483,7 @@ export default {
       &::before {
         content: "GitHub";
         font-size: 1.6rem;
-        color: var(--tertiaryColor);
+        color: var(--color-text-tertiary);
         //background: chartreuse;
         width: 0;
         left: 0;
@@ -476,7 +498,7 @@ export default {
 
       img {
         width: 3rem;
-        filter: var(--img);
+        filter: var(--filter-img);
       }
     }
 
@@ -488,7 +510,7 @@ export default {
       &::before {
         content: "LinkedIn";
         font-size: 1.6rem;
-        color: var(--tertiaryColor);
+        color: var(--color-text-tertiary);
         //background: chartreuse;
         width: 0;
         left: 0;
@@ -503,7 +525,7 @@ export default {
 
       img {
         width: 3rem;
-        filter: var(--img);
+        filter: var(--filter-img);
       }
     }
   }

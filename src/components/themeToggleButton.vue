@@ -74,9 +74,10 @@ export default {
       left: 0.3rem;
       width: 2.4rem;
       height: 2.4rem;
-      background: var(--color-background-primary);
+      background: var(--color-background-quaternary);
       border-radius: 50%;
       transition: left 0.3s ease;
+      box-shadow: var(--color-box-shadow-toggle);
 
       &.active {
         left: 3.3rem;

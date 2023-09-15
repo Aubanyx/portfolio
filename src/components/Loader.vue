@@ -54,7 +54,7 @@ export default {
     //width: 10%;
     width: 10rem;
     margin-bottom: 5rem;
-    filter: var(--img);
+    filter: var(--filter-img);
     position: relative;
     bottom: 10vh;
   }

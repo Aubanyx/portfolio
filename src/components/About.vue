@@ -212,6 +212,10 @@ export default {
       width: 70%;
       align-items: flex-start;
       padding: 10rem 0 0 10rem;
+
+      .about__infos__description {
+        width: 70%;
+      }
     }
   }
 }

@@ -392,7 +392,7 @@ export default {
           transition: 0.2s ease;
 
           img {
-            filter: var(--imgfilter);
+            filter: var(--filter-icon);
             transition: 0.2s ease;
           }
         }
