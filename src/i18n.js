@@ -29,6 +29,9 @@ const browserLocale = (navigator.language || "en").split("-")[0];
 // Utilisez la langue enregistrée s'il y en a une, sinon vérifiez si la langue du navigateur est prise en charge, sinon utilisez "en" par défaut
 const defaultLocale = savedLocale || (supportedLocales.includes(browserLocale) ? browserLocale : "en");
 
+// Mettez à jour l'attribut lang de l'élément HTML pour refléter la langue actuelle
+document.documentElement.lang = defaultLocale;
+
 export default new VueI18n({
   locale: defaultLocale,
   fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE || "en",
