@@ -37,7 +37,7 @@
           </div>
           <p class="infos__description">{{ modal.description }}</p>
           <div class="infos__links">
-            <a class="links__repo" :href="modal.linkRepo">
+            <a class="links__repo" target="_blank" :href="modal.linkRepo">
               <div class="links__content">
                 {{ $t("projects.modal.link.code") }}
                 <img
@@ -51,6 +51,7 @@
             <a
               class="links__website"
               v-if="modal.state === 'online'"
+              target="_blank"
               :href="modal.linkSite"
             >
               <div class="links__content">

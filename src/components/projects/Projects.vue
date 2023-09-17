@@ -86,7 +86,8 @@
     <a
       v-magnetic="{ strength: 0.5, maxDistance: 40 }"
       class="projects__button--more"
-      href="#"
+      target="_blank"
+      href="https://github.com/Aubanyx?tab=repositories"
       ><div v-magnetic>{{ $t("projects.more") }}</div></a
     >
     <ProjectsModal />
