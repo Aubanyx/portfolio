@@ -1,25 +1,22 @@
 <template>
   <main id="app">
     <Loader v-if="$store.state.loading" />
-    <router-view />
+    <Home />
   </main>
 </template>
 
 <script>
 import Loader from "@/components/Loader";
+import Home from "@/views/Home.vue";
 
 export default {
-  components: { Loader },
+  components: { Loader, Home },
   beforeCreate() {
     this.$store.commit("onLoading");
-    // document.body.style.overflow = "hidden";
   },
   mounted() {
-    // window.scrollTo(0, 0);
     setTimeout(() => {
       this.$store.commit("offLoading");
-      // document.body.style.overflow = "overlay";
-      // window.scrollTo(0, 0);
     }, 3000);
   },
 };
@@ -82,23 +79,4 @@ export default {
   --filter-img: invert(1);
   --filter-icon: invert(38%) sepia(40%) saturate(1461%) hue-rotate(202deg);
 }
-
-//* {
-//  margin: 0;
-//  padding: 0;
-//  box-sizing: border-box;
-//}
-
-//#nav {
-//  padding: 30px;
-//
-//  a {
-//    font-weight: bold;
-//    color: #2c3e50;
-//
-//    &.router-link-exact-active {
-//      color: #42b983;
-//    }
-//  }
-//}
 </style>
