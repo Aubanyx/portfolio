@@ -14,13 +14,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-//body::-webkit-scrollbar-thumb {
-//  display: none;
-//}
-//body::-webkit-scrollbar-track {
-//  display: none;
-//}
-
 .slide-out-enter-active,
 .slide-out-leave-active {
   transition: transform 0.7s ease-in-out;
@@ -43,15 +36,8 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  //border-radius: 0 0 50% 50%;
-  //animation: 0.8s ease-in-out 2.5s roundTransition;
 
   .logo {
-    //height: inherit;
-    //position: absolute;
-    //top: 30%;
-    //left: 45%;
-    //width: 10%;
     width: 10rem;
     margin-bottom: 5rem;
     filter: var(--filter-img);
@@ -62,15 +48,8 @@ export default {
   .loading {
     width: 30%;
     height: 0.2rem;
-    //background: var(--firstColor);
     position: relative;
     bottom: 10vh;
-    //border-top: 0.5em solid white;
-    //border-right: 0.5em solid white;
-    //border-bottom: 0.5em solid white;
-    //border-left: 0.5em solid var(--firstColor);
-    //border-radius: 50%;
-    //animation: loadingRotate 1s infinite linear;
 
     &::before {
       content: "";
@@ -80,7 +59,6 @@ export default {
       height: 0.2rem;
       background: var(--color-text-secondary);
       animation: 1s linear 1s forwards loading;
-      //animation-delay: 1s;
       z-index: 0;
     }
 
@@ -95,26 +73,6 @@ export default {
       z-index: 1;
     }
   }
-  //@-webkit-keyframes loadingRotate {
-  //  0% {
-  //    -webkit-transform: rotate(0deg);
-  //    transform: rotate(0deg);
-  //  }
-  //  100% {
-  //    -webkit-transform: rotate(360deg);
-  //    transform: rotate(360deg);
-  //  }
-  //}
-  //@keyframes loadingRotate {
-  //  0% {
-  //    -webkit-transform: rotate(0deg);
-  //    transform: rotate(0deg);
-  //  }
-  //  100% {
-  //    -webkit-transform: rotate(360deg);
-  //    transform: rotate(360deg);
-  //  }
-  //}
 
   @keyframes loading {
     0% {

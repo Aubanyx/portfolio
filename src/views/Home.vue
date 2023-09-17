@@ -1,28 +1,25 @@
 <template>
   <div class="home">
-    <!--    <img alt="Vue logo" src="../assets/logo.png" />-->
-    <!--    <HelloWorld msg="Welcome to Your Vue.js App" />-->
-    <HeaderComponent class="header" />
-    <ThreeJs class="ThreeJs" />
-    <Hero class="hero" />
-    <About class="about" />
-    <Process class="process" />
-    <Tabs class="tabs" />
-    <Projects class="projects" />
-    <Faq class="faq" />
-    <Contact class="contact" />
-    <ScrollToUp class="scrollToUp" />
+    <HeaderComponent />
+    <ThreeJs />
+    <Hero />
+    <About />
+    <Process />
+    <Skills />
+    <Projects />
+    <Faq />
+    <Contact />
+    <ScrollToUp />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import HeaderComponent from "@/components/Header.vue";
 import Hero from "@/components/Hero.vue";
 import About from "@/components/About.vue";
 import Process from "@/components/Process.vue";
-import Tabs from "@/components/Tabs.vue";
-import Projects from "@/components/Projects.vue";
+import Skills from "@/components/skills/Skills.vue";
+import Projects from "@/components/projects/Projects.vue";
 import Faq from "@/components/Faq.vue";
 import Contact from "@/components/Contact.vue";
 import ScrollToUp from "@/components/ScrollToUp.vue";
@@ -35,12 +32,10 @@ export default {
     Hero,
     About,
     Process,
-    // Skills,
-    Tabs,
+    Skills,
     Projects,
     Faq,
     Contact,
-    // FooterComponent,
     ScrollToUp,
     ThreeJs,
   },

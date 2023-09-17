@@ -1,9 +1,9 @@
 <template>
-  <section id="about" class="container">
+  <section id="about" class="about">
     <div class="about__box">
       <div class="about__img">
         <img
-          class="about__img--img"
+          class="about__img-content"
           src="../assets/img/photo1Rec.png"
           alt="picture"
         />
@@ -11,28 +11,26 @@
     </div>
 
     <div class="about__infos">
-      <h2 class="about__infos__title">{{ $t("about.title") }}</h2>
-      <p class="about__infos__description">{{ $t("about.description01") }}</p>
-      <p class="about__infos__description">{{ $t("about.description02") }}</p>
-      <p class="about__infos__description">{{ $t("about.description03") }}</p>
+      <h2 class="about__infos-title">{{ $t("about.title") }}</h2>
+      <p class="about__infos-description">{{ $t("about.description01") }}</p>
+      <p class="about__infos-description">{{ $t("about.description02") }}</p>
+      <p class="about__infos-description">{{ $t("about.description03") }}</p>
       <a
         v-magnetic="{ strength: 0.5, maxDistance: 40 }"
-        class="about__infos__btn"
+        class="about__infos-btn"
         href="/pdf/Labie_Auban_CV.pdf"
         download
-        ><div class="about__infos__btn--div" v-magnetic>
-          {{ $t("about.download")
-          }}<img
-            src="../assets/img/icons/download.svg"
-            alt="icon download"
-          /></div
-      ></a>
+      >
+        <div class="about__infos-btn-content" v-magnetic>
+          {{ $t("about.download") }}
+          <img src="../assets/img/icons/download.svg" alt="icon download" />
+        </div>
+      </a>
     </div>
   </section>
 </template>
 
 <script>
-
 export default {
   name: "AboutComponent",
   mounted() {
@@ -43,19 +41,19 @@ export default {
       this.$gsap.registerPlugin(this.$ScrollTrigger);
 
       // Animation pour l'image
-      this.$gsap.from(".about__img--img", {
+      this.$gsap.from(".about__img-content", {
         opacity: 0,
         y: -50,
         scrollTrigger: {
-          trigger: ".about__img--img",
+          trigger: ".about__img-content",
           start: "top 80%",
           end: "bottom 20%",
           toggleActions: "play none none reverse",
-        }
+        },
       });
 
       // Animation pour le titre et la description
-      this.$gsap.from(".about__infos__title, .about__infos__description", {
+      this.$gsap.from(".about__infos-title, .about__infos-description", {
         opacity: 0,
         y: 50,
         stagger: 0.2,
@@ -64,27 +62,27 @@ export default {
           start: "top 80%",
           end: "bottom 20%",
           toggleActions: "play none none reverse",
-        }
+        },
       });
 
       // Animation pour le bouton
-      this.$gsap.from(".about__infos__btn", {
+      this.$gsap.from(".about__infos-btn", {
         opacity: 0,
         y: 50,
         scrollTrigger: {
-          trigger: ".about__infos__btn",
+          trigger: ".about__infos-btn",
           start: "top 100%",
           end: "bottom 20%",
           toggleActions: "play none none reverse",
-        }
+        },
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.container {
+.about {
   max-width: 1920px;
   max-height: fit-content;
   margin: auto;
@@ -98,7 +96,7 @@ export default {
     background: var(--color-secondary);
 
     .about__img {
-      .about__img--img {
+      .about__img-content {
         width: 100%;
         height: 40rem;
         object-fit: cover;
@@ -112,66 +110,58 @@ export default {
       }
     }
   }
-}
 
-.about__infos {
-  width: 100%;
-  padding: 10rem 5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  .about__infos {
+    width: 100%;
+    padding: 10rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  .about__infos__title {
-    @include Title;
-  }
-
-  .about__infos__description {
-    font-size: 1.6rem;
-    line-height: 1.2;
-    color: var(--color-text-tertiary);
-    font-weight: 300;
-    text-align: left;
-
-    &:nth-of-type(2) {
-      margin: 5rem 0;
+    .about__infos-title {
+      @include Title;
     }
-  }
 
-  .about__infos__description:last-of-type {
-    margin-bottom: 10rem;
-  }
+    .about__infos-description {
+      font-size: 1.6rem;
+      line-height: 1.2;
+      color: var(--color-text-tertiary);
+      font-weight: 300;
+      text-align: left;
 
-  .about__infos__btn {
-    @include animationCircleHover;
-    @include ButtonPrimary;
+      &:nth-of-type(2) {
+        margin: 5rem 0;
+      }
 
-    .about__infos__btn--div {
-      display: flex;
-      align-items: center;
+      &:last-of-type {
+        margin-bottom: 10rem;
+      }
+    }
 
-      img {
-        filter: invert(1);
-        margin-left: 1rem;
+    .about__infos-btn {
+      @include animationCircleHover;
+      @include ButtonPrimary;
+
+      .about__infos-btn-content {
+        display: flex;
+        align-items: center;
+
+        img {
+          filter: invert(1);
+          margin-left: 1rem;
+        }
       }
     }
   }
-}
 
-@media only screen and (min-width: 768px) {
-  .container {
+  @media only screen and (min-width: 768px) {
     .about__box {
-      .about__box__numbers {
-        flex-direction: row;
-      }
+      flex-direction: row;
     }
   }
-}
 
-@media only screen and (min-width: 1024px) {
-  .container {
+  @media only screen and (min-width: 1024px) {
     flex-direction: row;
-    //height: 110vh;
-    //max-height: 1200px;
     padding: 0 15rem;
 
     &::before {
@@ -192,7 +182,6 @@ export default {
 
     .about__box {
       width: 35%;
-      //height: 100%;
 
       .about__img {
         width: 130%;
@@ -200,7 +189,7 @@ export default {
         display: flex;
         align-items: flex-end;
 
-        .about__img--img {
+        .about__img-content {
           width: 95%;
           height: 80%;
           object-position: right;
@@ -214,23 +203,14 @@ export default {
       padding: 10rem 0 10rem 10rem;
     }
   }
-}
 
-@media only screen and (min-width: 1280px) {
-  .container {
-    //height: 110vh;
+  @media only screen and (min-width: 1280px) {
     max-height: 1200px;
-
-    .about__box {
-
-    }
   }
-}
 
-@media only screen and (min-width: 1440px) {
-  .container {
+  @media only screen and (min-width: 1440px) {
     .about__infos {
-      .about__infos__description {
+      .about__infos-description {
         width: 70%;
       }
     }

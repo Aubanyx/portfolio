@@ -1,8 +1,8 @@
 <template>
-  <section id="projects" class="container">
+  <section id="projects" class="projects">
     <h2 class="projects__title">{{ $t("projects.title") }}</h2>
-    <div class="hover-content">
-      <ul class="listProject">
+    <div class="projects__hover-content">
+      <ul class="projects__list">
         <li
           @mouseover="projectHover"
           @mouseleave="hideCircle(index)"
@@ -12,71 +12,71 @@
           :key="'item' + index"
         >
           <div
-            :ref="`hoverCircle-${index}`"
-            class="projectHover"
+            :ref="`hover-circle--${index}`"
+            class="project__hover"
             @click="updateModal(item)"
           >
-            <span class="projectHoverText">{{ $t("projects.view") }}</span>
+            <span class="project__hover--text">{{ $t("projects.view") }}</span>
           </div>
-          <div class="projectInfos" @click="updateModal(item)">
-            <h3 class="projectTitle">{{ item.name }}</h3>
-            <div class="projectInfosStyle">
-              <h4 class="projectStyle">{{ item.style }}</h4>
-              <div class="projectInfosTechs">
+          <div class="project__infos" @click="updateModal(item)">
+            <h3 class="project__infos--title">{{ item.name }}</h3>
+            <div class="project__infos--detail">
+              <h4 class="project__infos--style">{{ item.style }}</h4>
+              <div class="project__techs">
                 <div
-                  class="projectTechs"
+                  class="project__tech"
                   v-for="tech in item.techUse"
                   :key="tech.id"
                 >
                   <img
-                    class="tech"
-                    :src="require('../assets/img/icons/techs/' + tech + '.svg')"
+                    class="project__tech--icon"
+                    :src="require('../../assets/img/icons/techs/' + tech + '.svg')"
                     :alt="tech"
                   />
                 </div>
               </div>
             </div>
-            <div class="projectDesignPhone">
-              <div class="projectBackground">
-                <div class="projectPresentation">
+            <div class="project__design__phone">
+              <div class="project__background">
+                <div class="project__presentation">
                   <img
-                    class="projectPresentation--img"
+                    class="project__presentation--img"
                     :src="
-                      require('../assets/img/imgProjects/' +
+                      require('../../assets/img/imgProjects/' +
                         item.alias +
                         '/presentation/' +
                         item.presentation)
                     "
                     :alt="'presentation' + item.name"
                   />
-                  <span class="projectNumbers">{{ item.number }}</span>
+                  <span class="project__number">{{ item.number }}</span>
                 </div>
               </div>
             </div>
-            <p class="projectDescription">{{ item.description }}</p>
-            <div class="projectButton">
-              <p class="projectExplore">{{ $t("projects.explore") }}</p>
+            <p class="project__description">{{ item.description }}</p>
+            <div class="project__action">
+              <p class="project__action--text">{{ $t("projects.explore") }}</p>
               <img
-                class="projectArrow"
-                src="../assets/img/icons/projectArrow.svg"
+                class="project__action--arrow"
+                src="../../assets/img/icons/projectArrow.svg"
                 alt="right arrow"
               />
             </div>
           </div>
-          <div class="projectDesign" @click="updateModal(item)">
-            <div class="projectBackground">
-              <div class="projectPresentation">
+          <div class="projects__design" @click="updateModal(item)">
+            <div class="project__background">
+              <div class="project__presentation">
                 <img
-                  class="projectPresentation--img"
+                  class="project__presentation--img"
                   :src="
-                    require('../assets/img/imgProjects/' +
+                    require('../../assets/img/imgProjects/' +
                       item.alias +
                       '/presentation/' +
                       item.presentation)
                   "
                   :alt="'presentation' + item.name"
                 />
-                <span class="projectNumbers">{{ item.number }}</span>
+                <span class="project__number">{{ item.number }}</span>
               </div>
             </div>
           </div>
@@ -85,7 +85,7 @@
     </div>
     <a
       v-magnetic="{ strength: 0.5, maxDistance: 40 }"
-      class="projects__button"
+      class="projects__button--more"
       href="#"
       ><div v-magnetic>{{ $t("projects.more") }}</div></a
     >
@@ -94,7 +94,7 @@
 </template>
 
 <script>
-import ProjectsModal from "@/components/ProjectsModal.vue";
+import ProjectsModal from "@/components/projects/ProjectsModal.vue";
 
 export default {
   name: "ProjectsComponent",
@@ -107,7 +107,6 @@ export default {
       currentIndex: null,
       projects: [
         {
-          // logo: "photo.png",
           name: this.$i18n.t("projects.modal.portfolio.name"),
           alias: "portfolio",
           description: this.$i18n.t("projects.modal.portfolio.description"),
@@ -124,7 +123,6 @@ export default {
           open: false,
         },
         {
-          // logo: "egypt.png",
           name: this.$i18n.t("projects.modal.museum.name"),
           alias: "museum",
           description: this.$i18n.t("projects.modal.museum.description"),
@@ -141,7 +139,6 @@ export default {
           open: false,
         },
         {
-          // logo: "bcbb.svg",
           name: this.$i18n.t("projects.modal.forum.name"),
           alias: "forum",
           description: this.$i18n.t("projects.modal.forum.description"),
@@ -158,13 +155,18 @@ export default {
           open: false,
         },
         {
-          // logo: "burger.png",
           name: this.$i18n.t("projects.modal.restaurant.name"),
           alias: "restaurant",
           description: this.$i18n.t("projects.modal.restaurant.description"),
           techUse: ["html", "css", "wordpress", "php"],
           linkRepo: "https://github.com/Aubanyx/ChaosCoffeeRestaurant",
-          thumbnail: ["img01.jpg", "img02.jpg", "img03.jpg", "img04.jpg", "img05.jpg"],
+          thumbnail: [
+            "img01.jpg",
+            "img02.jpg",
+            "img03.jpg",
+            "img04.jpg",
+            "img05.jpg",
+          ],
           linkSite: "#",
           presentation: "restaurant1280.png",
           img: [
@@ -181,7 +183,6 @@ export default {
           open: false,
         },
         {
-          // logo: "leaf.png",
           name: this.$i18n.t("projects.modal.mwenbwa.name"),
           alias: "mwenbwa",
           description: this.$i18n.t("projects.modal.mwenbwa.description"),
@@ -198,7 +199,6 @@ export default {
           open: false,
         },
         {
-          // logo: "pomodoro.png",
           name: this.$i18n.t("projects.modal.pomodoro.name"),
           alias: "pomodoro",
           description: this.$i18n.t("projects.modal.pomodoro.description"),
@@ -246,7 +246,7 @@ export default {
       this.currentIndex = null;
       this.currentCircle = null;
 
-      const circle = this.$refs[`hoverCircle-${index}`][0];
+      const circle = this.$refs[`hover-circle--${index}`][0];
       const child = circle.children[0];
 
       circle.style.width = "0";
@@ -266,7 +266,7 @@ export default {
       }
 
       const index = event.target.closest(".project").getAttribute("data-index");
-      const circle = this.$refs[`hoverCircle-${index}`][0];
+      const circle = this.$refs[`hover-circle--${index}`][0];
       const parent = circle.parentElement;
       const parentRect = parent.getBoundingClientRect();
       const child = circle.children[0];
@@ -320,22 +320,24 @@ export default {
       });
 
       // Pour les images des projets
-      document.querySelectorAll(".projectPresentation--img").forEach((img) => {
-        this.$gsap.from(img, {
-          duration: 1,
-          y: 50,
-          opacity: 0,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: img,
-            start: "top 80%",
-            toggleActions: "restart none none reverse",
-          },
+      document
+        .querySelectorAll(".project__presentation--img")
+        .forEach((img) => {
+          this.$gsap.from(img, {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: img,
+              start: "top 80%",
+              toggleActions: "restart none none reverse",
+            },
+          });
         });
-      });
 
       // Pour la description du projet
-      document.querySelectorAll(".projectDescription").forEach((desc) => {
+      document.querySelectorAll(".project__description").forEach((desc) => {
         this.$gsap.from(desc, {
           duration: 1.2,
           y: 50,
@@ -351,7 +353,7 @@ export default {
       });
 
       // Pour les boutons d'exploration
-      document.querySelectorAll(".projectExplore").forEach((btn) => {
+      document.querySelectorAll(".project__action--text").forEach((btn) => {
         this.$gsap.from(btn, {
           duration: 1,
           y: 30,
@@ -367,7 +369,7 @@ export default {
       });
 
       // Pour les titres individuels des projets
-      document.querySelectorAll(".projectTitle").forEach((title) => {
+      document.querySelectorAll(".project__infos--title").forEach((title) => {
         this.$gsap.from(title, {
           duration: 1.2,
           y: -30,
@@ -383,30 +385,32 @@ export default {
       });
 
       // Pour les détails techniques des projets
-      document.querySelectorAll(".projectTechs .tech").forEach((tech) => {
-        this.$gsap.from(tech, {
-          duration: 1,
-          x: -30,
-          opacity: 0,
-          stagger: 0.1,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: tech,
-            start: "top 85%",
-            toggleActions: "restart none none reverse",
-          },
+      document
+        .querySelectorAll(".project__tech .project__tech--icon")
+        .forEach((tech) => {
+          this.$gsap.from(tech, {
+            duration: 1,
+            x: -30,
+            opacity: 0,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: tech,
+              start: "top 85%",
+              toggleActions: "restart none none reverse",
+            },
+          });
         });
-      });
 
       // Pour les boutons des projets
-      this.$gsap.from(".projects__button", {
+      this.$gsap.from(".projects__button--more", {
         duration: 0.5,
         y: 40,
         opacity: 0,
-        delay: 0.5, // Réduire le délai pour rendre l'animation plus rapide.
+        delay: 0.5,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: ".projects__button",
+          trigger: ".projects__button--more",
           start: "top 90%",
           toggleActions: "restart none none reverse",
         },
@@ -428,7 +432,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.projects {
   max-width: 1920px;
   margin: auto;
   background: var(--color-background-primary);
@@ -437,13 +441,13 @@ export default {
   flex-direction: column;
   overflow: hidden;
 
-  .projects__title {
+  &__title {
     @include Title;
     align-self: flex-start;
   }
 
-  .hover-content {
-    .listProject {
+  &__hover-content {
+    .projects__list {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -458,44 +462,41 @@ export default {
         position: relative;
 
         &:last-of-type {
-          //border-bottom: none;
-          //padding-bottom: 0;
           margin-bottom: 0;
         }
 
-        .projectHover {
-          .projectHoverText {
+        &__hover {
+          &--text {
             display: none;
           }
         }
 
-        .projectInfos {
+        &__infos {
           text-align: left;
 
-          .projectTitle {
-            //font-size: 5rem;
+          &--title {
             font-size: clamp(4rem, -0.2953rem + 13.4228vw, 7rem);
             font-weight: bold;
             color: var(--color-text-tertiary);
             margin-bottom: 1.5rem;
           }
 
-          .projectInfosStyle {
+          &--detail {
             display: flex;
             flex-direction: column;
 
-            .projectStyle {
+            .project__infos--style {
               font-size: 1.6rem;
               color: var(--color-text-tertiary);
               margin-bottom: 2rem;
             }
 
-            .projectInfosTechs {
+            .project__techs {
               display: flex;
               margin-bottom: 5rem;
 
-              .projectTechs {
-                .tech {
+              .project__tech {
+                &--icon {
                   width: 3rem;
                   height: 3rem;
                   margin-right: 0.7rem;
@@ -505,15 +506,14 @@ export default {
             }
           }
 
-          .projectDesignPhone {
+          .project__design__phone {
             display: flex;
             justify-content: center;
             position: relative;
             height: clamp(33rem, 50vw, 40rem);
 
-            .projectBackground {
+            .project__background {
               position: absolute;
-              //height: 22rem;
               height: clamp(22rem, 40vw, 30rem);
               width: 85%;
               background: var(--color-background-quinary);
@@ -521,8 +521,8 @@ export default {
               z-index: 0;
               box-shadow: var(--color-box-shadow-back);
 
-              .projectPresentation {
-                .projectPresentation--img {
+              .project__presentation {
+                &--img {
                   width: clamp(30rem, 100%, 35rem);
                   position: absolute;
                   left: -12rem;
@@ -531,7 +531,7 @@ export default {
                   filter: drop-shadow(15px 15px 20px rgb(0%, 0%, 0%, 25%));
                 }
 
-                .projectNumbers {
+                .project__number {
                   font-size: clamp(7rem, -0.2953rem + 13.4228vw, 13rem);
                   font-weight: bold;
                   color: var(--color-text-tertiary);
@@ -544,33 +544,33 @@ export default {
             }
           }
 
-          .projectDescription {
+          .project__description {
             font-size: 1.8rem;
             font-weight: 300;
             line-height: 1.2;
             color: var(--color-text-tertiary);
             margin-bottom: 5rem;
           }
-          .projectButton {
+          .project__action {
             display: flex;
 
-            .projectExplore {
+            &--text {
               font-size: 2rem;
               font-weight: bold;
               color: var(--color-primary);
               margin-right: 2rem;
             }
-            .projectArrow {
+            &--arrow {
             }
           }
         }
-        .projectDesign {
+        .projects__design {
           display: none;
         }
       }
     }
   }
-  .projects__button {
+  .projects__button--more {
     @include animationCircleHover;
     @include ButtonPrimary;
     align-self: center;
@@ -579,22 +579,22 @@ export default {
 }
 
 @media only screen and (min-width: 768px) {
-  .container {
-    .hover-content {
-      .listProject {
+  .projects {
+    &__hover-content {
+      .projects__list {
         .project {
-          .projectInfos {
-            .projectInfosStyle {
+          &__infos {
+            &--detail {
               flex-direction: row;
               align-items: center;
               margin-bottom: 5rem;
 
-              .projectStyle {
+              .project__infos--style {
                 margin-bottom: 0;
                 margin-right: 1rem;
               }
 
-              .projectInfosTechs {
+              .project__techs {
                 margin-bottom: 0;
               }
             }
@@ -606,7 +606,7 @@ export default {
 }
 
 @media only screen and (min-width: 1024px) {
-  .container {
+  .projects {
     position: relative;
 
     &::before {
@@ -624,25 +624,24 @@ export default {
       justify-content: center;
     }
 
-    .projects__title {
+    &__title {
       align-self: center;
       margin-bottom: 10rem;
       z-index: 0;
     }
 
-    .hover-content {
-      .listProject {
+    &__hover-content {
+      .projects__list {
         .project {
           flex-direction: row;
           justify-content: space-between;
-          //padding-bottom: 5rem;
           border-bottom: none;
           width: 100%;
           box-shadow: var(--color-box-shadow-project);
           padding: 5rem;
           border-radius: 5rem;
 
-          .projectHover {
+          &__hover {
             width: 0;
             height: 0;
             border-radius: 50%;
@@ -659,7 +658,7 @@ export default {
               left 0.05s linear, top 0.05s linear;
             will-change: left, top;
 
-            .projectHoverText {
+            &--text {
               display: block;
               font-size: 1.6rem;
             }
@@ -687,37 +686,33 @@ export default {
             }
           }
 
-          .projectInfos {
+          &__infos {
             display: flex;
             flex-direction: column;
             width: 50%;
 
-            .projectTitle {
+            &--title {
               font-size: 7rem;
               line-height: 1.2;
             }
 
-            .projectDescription {
+            .project__description {
               width: 75%;
             }
 
-            .projectStyle {
-              margin-bottom: 5rem;
-            }
-
-            .projectDesignPhone {
+            .project__design__phone {
               display: none;
             }
           }
 
-          .projectDesign {
+          .projects__design {
             display: flex;
             justify-content: center;
             position: relative;
             height: 50rem;
             width: 30%;
 
-            .projectBackground {
+            .project__background {
               position: absolute;
               height: 40rem;
               width: 85%;
@@ -726,10 +721,9 @@ export default {
               z-index: 0;
               box-shadow: var(--color-box-shadow-back);
 
-              .projectPresentation {
-                .projectPresentation--img {
+              .project__presentation {
+                &--img {
                   position: absolute;
-                  //width: 50rem;
                   width: clamp(50rem, 200%, 65rem);
                   left: -25rem;
                   bottom: -10rem;
@@ -737,7 +731,7 @@ export default {
                   filter: drop-shadow(15px 15px 20px rgb(0%, 0%, 0%, 25%));
                 }
 
-                .projectNumbers {
+                .project__number {
                   font-size: clamp(7rem, -0.2953rem + 13.4228vw, 13rem);
                   font-weight: bold;
                   color: var(--color-text-tertiary);
@@ -755,20 +749,20 @@ export default {
   }
 }
 @media only screen and (min-width: 1280px) {
-  .container {
+  .projects {
     padding: 15rem;
   }
 }
 
 @media only screen and (min-width: 1440px) {
-  .container {
-    .hover-content {
-      .listProject {
+  .projects {
+    &__hover-content {
+      .projects__list {
         .project {
-          .projectDesign {
-            .projectBackground {
-              .projectPresentation {
-                .projectPresentation--img {
+          .projects__design {
+            .project__background {
+              .project__presentation {
+                &--img {
                   left: -30rem;
                   bottom: -13rem;
                 }

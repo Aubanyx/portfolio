@@ -64,7 +64,6 @@ export default {
     width: 4rem;
     height: 4rem;
     transform: rotateZ(180deg) !important;
-    //filter: var(--imgfilter);
     filter: brightness(10);
   }
 }

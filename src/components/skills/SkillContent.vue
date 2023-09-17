@@ -1,17 +1,17 @@
 <template>
-  <div class="tabContent" ref="tabContentRef">
-    <ul class="tabList">
+  <div class="skillContent" ref="skillContentRef">
+    <ul class="skillContent__list">
       <li
         v-for="(skill, index) in tab.skills"
         :key="index"
-        class="tabListContent"
+        class="skillContent__list__item"
       >
         <img
-          class="tabListContent--icon"
-          :src="require('../assets/img/icons/' + skill.img)"
+          class="skillContent__list__item--icon"
+          :src="require('../../assets/img/icons/' + skill.img)"
           :alt="skill.title"
         />
-        <p class="tabListContent--title">{{ skill.title }}</p>
+        <p class="skillContent__list__item--title">{{ skill.title }}</p>
       </li>
     </ul>
   </div>
@@ -19,38 +19,41 @@
 
 <script>
 export default {
-  name: "TabContent",
+  name: "SkillContent",
   props: ["tab"],
   mounted() {
     this.initTabContentAnimation();
   },
   methods: {
     initTabContentAnimation() {
-      const tabContentRef = this.$refs.tabContentRef;
+      const skillContentRef = this.$refs.skillContentRef;
 
-      this.$gsap.from(tabContentRef.querySelectorAll(".tabListContent"), {
-        scrollTrigger: {
-          trigger: tabContentRef,
-          start: "top 100%",
-          end: "bottom 80%",
-          scrub: 1,
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.2,
-      });
+      this.$gsap.from(
+        skillContentRef.querySelectorAll(".skillContent__list__item"),
+        {
+          scrollTrigger: {
+            trigger: skillContentRef,
+            start: "top 100%",
+            end: "bottom 80%",
+            scrub: 1,
+          },
+          y: 30,
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.2,
+        }
+      );
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.tabContent {
+.skillContent {
   margin-top: 5rem;
-  .tabList {
-    .tabListContent {
-      //background: #f2f2f2;
+
+  &__list {
+    &__item {
       background: var(--color-background-quinary);
       border-radius: 1rem;
       height: 6rem;
@@ -58,7 +61,6 @@ export default {
       font-size: 1.6rem;
       justify-content: flex-start;
       align-items: center;
-      //color: black;
       color: var(--color-text-tertiary);
       font-weight: bold;
       margin-bottom: 2rem;
@@ -70,30 +72,29 @@ export default {
       }
 
       &:hover {
-        //background: #e6e6e6;
         filter: brightness(0.8);
       }
 
-      .tabListContent--icon {
+      &--icon {
         width: fit-content;
         height: 100%;
-        //background-repeat: no-repeat;
-        //background-position: left;
-        //background-size: contain;
       }
-      .tabListContent--title {
+
+      &--title {
         padding-left: 2rem;
       }
     }
   }
 }
+
 @media only screen and (min-width: 768px) {
-  .tabContent {
-    .tabList {
+  .skillContent {
+    &__list {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      .tabListContent {
+
+      &__item {
         margin-right: 2rem;
 
         &:last-of-type {
@@ -103,15 +104,15 @@ export default {
     }
   }
 }
+
 @media only screen and (min-width: 1024px) {
-  .tabContent {
+  .skillContent {
     width: 100%;
 
-    .tabList {
-      //flex-wrap: nowrap;
+    &__list {
       justify-content: space-around;
 
-      .tabListContent {
+      &__item {
         flex-direction: column;
         margin: 0 0 3rem 0;
         width: 20rem;
@@ -119,10 +120,11 @@ export default {
         justify-content: center;
         padding: 2rem;
 
-        .tabListContent--icon {
+        &--icon {
           width: 5rem;
         }
-        .tabListContent--title {
+
+        &--title {
           padding: 0;
           margin-top: 2rem;
         }

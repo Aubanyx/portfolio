@@ -1,18 +1,18 @@
 <template>
   <section id="processus" class="process">
-    <h2 class="processTitle">{{ $t("process.title") }}</h2>
-    <p class="processText">{{ $t("process.intro") }}</p>
-    <ul class="processWrapper">
+    <h2 class="process__title">{{ $t("process.title") }}</h2>
+    <p class="process__text">{{ $t("process.intro") }}</p>
+    <ul class="process__wrapper">
       <svg width="4rem" height="2rem" class="arrow">
         <path d="M0 0 L40 0 L20 20 Z" fill="var(--color-secondary)" />
       </svg>
       <li
-        class="processStep"
+        class="process__step"
         v-for="(step, index) in translatedProcess"
         :key="index"
       >
         <svg
-          class="processStep--lineY"
+          class="process__step__lineY"
           :width="windowWidth < 768 ? '1rem' : '1rem'"
           :height="
             windowWidth < 768 && index === 3
@@ -47,7 +47,7 @@
           />
         </svg>
         <svg
-          class="processStep--lineX"
+          class="process__step__lineX"
           :width="
             windowWidth < 768
               ? '100%'
@@ -69,11 +69,11 @@
             style="stroke: var(--color-secondary); stroke-width: 2rem"
           />
         </svg>
-        <div class="processStep__step">
-          <p class="processStep__step--number">{{ step.number }}</p>
+        <div class="process__step__content">
+          <p class="process__step__content__number">{{ step.number }}</p>
         </div>
-        <p class="processStep--title">{{ step.title }}</p>
-        <p class="processStep--description">{{ step.description }}</p>
+        <p class="process__step__title">{{ step.title }}</p>
+        <p class="process__step__description">{{ step.description }}</p>
       </li>
     </ul>
   </section>
@@ -82,6 +82,7 @@
 <script>
 export default {
   name: "ProcessComponent",
+
   data() {
     return {
       windowWidth: window.innerWidth,
@@ -113,15 +114,17 @@ export default {
       ],
     };
   },
+
   mounted() {
     window.addEventListener("resize", this.onResize);
     this.onResize();
-
     this.initScrollAnimations();
   },
+
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);
   },
+
   computed: {
     translatedProcess() {
       return this.process.map((process) => ({
@@ -131,59 +134,50 @@ export default {
       }));
     },
   },
+
   methods: {
     onResize() {
       requestAnimationFrame(() => {
         this.windowWidth = window.innerWidth;
       });
     },
+
     initScrollAnimations() {
       const tl = this.$gsap.timeline({
         scrollTrigger: {
           trigger: ".process",
-          start: "top 70%", // Ajustement du point de déclenchement
+          start: "top 70%",
           end: "top 0%",
           scrub: 1,
         },
       });
 
-      // Animation pour le titre et le texte introductif
-      tl.from(".processTitle", { duration: 0.5, y: 30, opacity: 0 }).from(
-        ".processText",
-        { duration: 0.5, y: 30, opacity: 0 }
-      );
-
-      // Animation pour les SVG horizontaux
-      tl.from(".processStep--lineX line", {
-        duration: 0.6,
-        scaleX: 0,
-        transformOrigin: "left",
-        stagger: 0.35, // Légèrement ajusté
-      });
-
-      // Animation pour la flèche SVG
-      tl.from(".arrow path", { duration: 0.3, y: 30, opacity: 0 });
-
-      // Animation pour les cercles numérotés
-      tl.from(".processStep__step--number", {
-        duration: 0.5,
-        opacity: 0,
-        y: 30,
-        stagger: 0.15, // Légèrement ajusté
-      })
-        // Animation pour les SVG verticaux après les cercles
-        .from(".processStep--lineY line", {
+      tl.from(".process__title", { duration: 0.5, y: 30, opacity: 0 })
+        .from(".process__text", { duration: 0.5, y: 30, opacity: 0 })
+        .from(".arrow path", { duration: 0.3, y: 30, opacity: 0 })
+        .from(".process__step__lineX line", {
+          duration: 0.6,
+          scaleX: 0,
+          transformOrigin: "left",
+          stagger: 0.35,
+        })
+        .from(".process__step__lineY line", {
           duration: 0.6,
           scaleY: 0,
           transformOrigin: "bottom",
-          stagger: 0.35, // Légèrement ajusté
+          stagger: 0.35,
         })
-        // Animation pour les titres et descriptions
-        .from([".processStep--title", ".processStep--description"], {
+        .from(".process__step__content__number", {
           duration: 0.5,
           opacity: 0,
           y: 30,
-          stagger: { each: 0.15, grid: [1, 2] }, // Légèrement ajusté
+          stagger: 0.15,
+        })
+        .from([".process__step__title", ".process__step__description"], {
+          duration: 0.5,
+          opacity: 0,
+          y: 30,
+          stagger: { each: 0.15, grid: [1, 2] },
         });
     },
   },
@@ -201,12 +195,12 @@ export default {
   padding: 10rem 5rem;
   overflow: hidden;
 
-  .processTitle {
+  &__title {
     @include Title;
     align-self: flex-start;
   }
 
-  .processText {
+  &__text {
     font-size: 2rem;
     font-weight: 300;
     margin-bottom: 8rem;
@@ -216,7 +210,7 @@ export default {
     color: var(--color-text-tertiary);
   }
 
-  .processWrapper {
+  &__wrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -228,7 +222,7 @@ export default {
       left: -1.5rem;
     }
 
-    .processStep {
+    .process__step {
       text-align: left;
       padding-bottom: 8rem;
       width: 100%;
@@ -239,25 +233,25 @@ export default {
         padding-bottom: 0;
       }
 
-      .processStep--lineY {
+      &__lineY {
         position: absolute;
         top: 0;
         left: 0;
         z-index: 0;
       }
 
-      .processStep--lineX {
+      &__lineX {
         position: absolute;
         top: 1.5rem;
         left: 0;
         z-index: 0;
       }
 
-      .processStep__step {
+      &__content {
         display: flex;
         align-items: center;
 
-        .processStep__step--number {
+        &__number {
           font-size: 4rem;
           font-weight: bold;
           color: var(--color-text-tertiary);
@@ -272,7 +266,7 @@ export default {
         }
       }
 
-      .processStep--title {
+      &__title {
         margin-bottom: 2rem;
         margin-top: 3rem;
         font-size: 2.4rem;
@@ -280,9 +274,8 @@ export default {
         color: var(--color-text-tertiary);
       }
 
-      .processStep--description {
+      &__description {
         font-size: 1.6rem;
-        //font-weight: 200;
         line-height: 1.6;
         color: #808080;
       }
@@ -292,7 +285,7 @@ export default {
 
 @media only screen and (min-width: 768px) {
   .process {
-    .processWrapper {
+    &__wrapper {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -302,12 +295,12 @@ export default {
         right: -1.5rem;
       }
 
-      .processStep {
+      .process__step {
         width: 40%;
         padding-left: 0;
         padding-right: 3rem;
 
-        .processStep--lineY {
+        &__lineY {
           left: initial;
           right: 0;
         }
@@ -315,6 +308,7 @@ export default {
     }
   }
 }
+
 @media only screen and (min-width: 1024px) {
   .process {
     padding: 15rem;
@@ -333,29 +327,31 @@ export default {
     }
   }
 }
+
 @media only screen and (min-width: 1280px) {
   .process {
-    .processText {
+    &__text {
       width: 60%;
     }
 
-    .processWrapper {
+    &__wrapper {
       .arrow {
         top: 1rem;
         transform: rotateZ(270deg);
       }
-      .processStep {
+
+      .process__step {
         width: 20%;
         padding-right: 0;
         padding-bottom: 0;
 
-        .processStep--lineY {
+        &__lineY {
           left: 1.5rem;
           right: initial;
         }
 
-        .processStep__step {
-          .processStep__step--number {
+        &__content {
+          &__number {
             font-size: 6rem;
           }
         }

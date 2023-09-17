@@ -8,7 +8,6 @@ export default new Vuex.Store({
     isNavOpen: false,
     loading: false,
     selectedProjects: {
-      logo: "photo.png",
       name: "Portfolio",
       alias: "portfolio",
       description: "blabla",
@@ -17,7 +16,6 @@ export default new Vuex.Store({
       linkSite: "#",
       thumbnail: ["img01.jpg"],
       img: ["img01.jpg"],
-      participants: "solo",
       style: "Design & development",
       state: "online",
       open: false,

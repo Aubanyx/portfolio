@@ -1,44 +1,47 @@
 <template>
-  <section id="tabs">
-    <h2 class="tabsTitle">{{ $t("skills.title") }}</h2>
-    <p class="tabsText">{{ $t("skills.intro") }}</p>
-    <div class="tabs__container">
-      <div class="tabs__header">
-        <div class="tab__wrapper">
-          <span class="tab-background" :style="tabBackgroundStyle"></span>
+  <section id="skills" class="skills">
+    <h2 class="skills__title">{{ $t("skills.title") }}</h2>
+    <p class="skills__description">{{ $t("skills.intro") }}</p>
+    <div class="skills__tabs">
+      <div class="skills__tabs__header">
+        <div class="skills__tab__wrapper">
+          <span
+            class="skills__tab--background"
+            :style="tabBackgroundStyle"
+          ></span>
           <div
-            class="tab"
+            class="skills__tab"
             :class="{
-              'tab--active': tab.open,
+              'skills__tab--active': tab.open,
             }"
             v-for="(tab, index) in translatedTabs"
             :key="index"
             @click="activateTab(index)"
           >
             <img
-              class="tab--img"
+              class="skills__tab--image"
               :class="{
-                'tab--img--active': tab.open,
+                'skills__tab--image--active': tab.open,
               }"
-              :src="require('../assets/img/icons/' + tab.img)"
+              :src="require('../../assets/img/icons/' + tab.img)"
               :alt="tab.title"
             />
-            <p class="tab--title">{{ tab.title }}</p>
+            <p class="skills__tab--title">{{ tab.title }}</p>
           </div>
         </div>
       </div>
-      <TabContent :tab="tabs[activeTabIndex]" />
+      <SkillContent :tab="tabs[activeTabIndex]" />
     </div>
   </section>
 </template>
 
 <script>
-import TabContent from "@/components/TabContent.vue";
+import SkillContent from "@/components/skills/SkillContent.vue";
 
 export default {
-  name: "TabsComponent",
+  name: "SkillsComponent",
   components: {
-    TabContent,
+    SkillContent,
   },
   data() {
     return {
@@ -116,13 +119,11 @@ export default {
     translatedTabs() {
       return this.tabs.map((tab, index) => {
         let translationKey;
-
         if (index === 0) {
           translationKey = "skills.tab01";
         } else if (index === 1) {
           translationKey = "skills.tab02";
         }
-
         return {
           ...tab,
           title: this.$i18n.t(translationKey),
@@ -140,11 +141,9 @@ export default {
   methods: {
     activateTab(index) {
       this.activeTabIndex = index;
-
       if (this.tabs[index].open) {
         return;
       }
-
       this.tabs.forEach((tab, tabIndex) => {
         if (tabIndex === index) {
           tab.open = !tab.open;
@@ -156,31 +155,44 @@ export default {
     initTabAnimations() {
       const tl = this.$gsap.timeline({
         scrollTrigger: {
-          trigger: "#tabs",
+          trigger: ".skills",
           start: "top 90%",
           end: "bottom 60%",
           scrub: 1,
         },
       });
+      tl.from(".skills__tab--image", { duration: 0.4, scale: 0, opacity: 0 });
 
-      tl.from(".tab--img", { duration: 0.4, scale: 0, opacity: 0 });
-
-      tl.from(".tabsTitle", { duration: 0.5, y: -30, opacity: 0 })
-        .from(".tabsText", { duration: 0.5, y: -30, opacity: 0 })
-        .from(".tab__wrapper", { duration: 0.4, x: -50, opacity: 0, stagger: 0.1 })
-        .from(".tab--title", { duration: 0.4, y: 30, opacity: 0, stagger: 0.05 })
-        .from(".tab--img", { duration: 0.4, scale: 0, opacity: 0, stagger: 0.1 });
+      tl.from(".skills__title", { duration: 0.5, y: -30, opacity: 0 })
+        .from(".skills__description", { duration: 0.5, y: -30, opacity: 0 })
+        .from(".skills__tab__wrapper", {
+          duration: 0.4,
+          x: -50,
+          opacity: 0,
+          stagger: 0.1,
+        })
+        .from(".skills__tab--title", {
+          duration: 0.4,
+          y: 30,
+          opacity: 0,
+          stagger: 0.05,
+        })
+        .from(".skills__tab--image", {
+          duration: 0.4,
+          scale: 0,
+          opacity: 0,
+          stagger: 0.1,
+        });
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-#tabs {
+.skills {
   max-width: 1920px;
   margin: auto;
   background: var(--color-background-primary);
-  //height: 20rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -189,13 +201,13 @@ export default {
   overflow: hidden;
   word-break: break-word;
 
-  .tabsTitle {
+  &__title {
     @include Title;
     align-self: flex-start;
     z-index: 0;
   }
 
-  .tabsText {
+  &__description {
     color: var(--color-text-tertiary);
     font-size: 2rem;
     font-weight: 300;
@@ -205,34 +217,27 @@ export default {
     line-height: 1.2;
   }
 
-  .tabs__container {
+  &__tabs {
     display: flex;
     flex-direction: column;
     width: 100%;
 
-    .tabs__header {
-      //display: flex;
-      //justify-content: space-between;
-      //align-items: center;
-      //background: #f2f2f2;
+    &__header {
       background: var(--color-background-quinary);
       height: 8rem;
       width: 100%;
       border-radius: 5rem;
       padding: 0.5rem;
-      //position: relative;
 
-      .tab__wrapper {
+      .skills__tab__wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        //background: #F3F2F1;
         height: 100%;
         width: 100%;
-        //border-radius: 5rem;
         position: relative;
 
-        .tab-background {
+        .skills__tab--background {
           position: absolute;
           top: 0;
           left: 0;
@@ -243,7 +248,7 @@ export default {
           transition: all 0.2s ease;
         }
 
-        .tab {
+        .skills__tab {
           display: flex;
           align-items: center;
           justify-content: center;
@@ -256,26 +261,12 @@ export default {
           color: var(--color-text-tertiary);
 
           &--active {
-            //background: #261F22;
             color: white;
-            //border-radius: 5rem;
             position: relative;
             z-index: 0;
-
-            //&::before {
-            //  content: "";
-            //  position: absolute;
-            //  top: 0;
-            //  left: 0;
-            //  width: 100%;
-            //  height: 100%;
-            //  background: #261F22;
-            //  border-radius: 5rem;
-            //  z-index: -1;
-            //  transition: all 0.2s ease;
-            //}
           }
-          .tab--img {
+
+          &--image {
             width: 3rem;
             height: 3rem;
             filter: invert(0.5);
@@ -284,7 +275,8 @@ export default {
               filter: invert(1);
             }
           }
-          .tab--title {
+
+          &--title {
             display: none;
           }
         }
@@ -292,25 +284,21 @@ export default {
     }
   }
 }
+
 @media only screen and (min-width: 768px) {
-  #tabs {
+  .skills {
     align-items: center;
 
-    //.tabsTitle {
-    //  font-size: 10rem;
-    //}
-    .tabs__container {
-      display: flex;
-      flex-direction: column;
+    &__tabs {
       width: 60%;
 
-      .tabs__header {
-        .tab__wrapper {
-          .tab {
-            .tab--img {
+      &__header {
+        .skills__tab__wrapper {
+          .skills__tab {
+            &--image {
               display: none;
             }
-            .tab--title {
+            &--title {
               display: block;
             }
           }
@@ -319,8 +307,9 @@ export default {
     }
   }
 }
+
 @media only screen and (min-width: 1024px) {
-  #tabs {
+  .skills {
     padding: 15rem;
     position: relative;
 
@@ -336,15 +325,15 @@ export default {
       z-index: 0;
     }
 
-    .tabsText {
+    &__description {
       width: 60%;
     }
 
-    .tabs__container {
+    &__tabs {
       width: 100%;
       align-items: center;
 
-      .tabs__header {
+      &__header {
         width: 60%;
       }
     }

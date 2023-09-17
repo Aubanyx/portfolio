@@ -19,7 +19,7 @@
                 <a href="#processus">{{ $t("menu.process") }}</a>
               </li>
               <li @click="closeSidebarPanel">
-                <a href="#tabs">{{ $t("menu.skills") }}</a>
+                <a href="#skills">{{ $t("menu.skills") }}</a>
               </li>
               <li @click="closeSidebarPanel">
                 <a href="#projects">{{ $t("menu.projects") }}</a>
@@ -80,10 +80,6 @@ export default {
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
     window.addEventListener("scroll", this.onScroll);
-    // const viewportMeta = document.createElement("meta");
-    // viewportMeta.name = "viewport";
-    // viewportMeta.content = "width=device-width, initial-scale=1";
-    // document.head.appendChild(viewportMeta);
   },
 
   beforeDestroy() {

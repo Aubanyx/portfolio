@@ -1,73 +1,80 @@
 <template>
   <div>
-    <div class="overlay" @click="modalClose()" v-show="this.openModal"></div>
+    <div
+      class="modal-overlay"
+      @click="modalClose()"
+      v-show="this.openModal"
+    ></div>
     <transition name="slide">
-      <div class="modal" v-show="this.openModal">
-        <div id="preview" class="preview"></div>
+      <div class="modal-container" v-show="this.openModal">
+        <div id="modal-preview" class="modal-container__preview"></div>
         <div
           v-magnetic="{ strength: 0.5 }"
-          class="closeModal"
+          class="modal-container__close"
           @click="modalClose()"
         >
           <img
-            class="iconClose"
-            src="../assets/img/icons/close.svg"
+            class="close__icon"
+            src="../../assets/img/icons/close.svg"
             alt="icon close"
           />
         </div>
-        <div class="modal__infos">
-          <h3 class="modal__infos__title">{{ modal.name }}</h3>
-          <h4 class="modal__infos__style">{{ modal.style }}</h4>
-          <div class="modal__infos__techs">
+        <div class="modal-container__infos">
+          <h3 class="infos__title">{{ modal.name }}</h3>
+          <h4 class="infos__style">{{ modal.style }}</h4>
+          <div class="infos__techs">
             <div
-              class="modal__infos__techs--div"
+              class="infos__techs__item"
               v-for="tech in modal.techUse"
               :key="tech.id"
             >
               <img
-                class="tech"
-                :src="require('../assets/img/icons/techs/' + tech + '.svg')"
+                class="infos__techs__item--img"
+                :src="require('../../assets/img/icons/techs/' + tech + '.svg')"
                 :alt="tech"
               />
             </div>
           </div>
-          <p class="modal__infos__description">{{ modal.description }}</p>
-          <div class="modal__infos__links">
-            <a class="modal__infos__links--linkRepo" :href="modal.linkRepo"
-              ><div class="modal__infos__links--link">
+          <p class="infos__description">{{ modal.description }}</p>
+          <div class="infos__links">
+            <a class="links__repo" :href="modal.linkRepo">
+              <div class="links__content">
                 {{ $t("projects.modal.link.code") }}
                 <img
-                  class="imgGithub"
-                  src="../assets/img/icons/github.svg"
+                  class="content__icon content__icon--github"
+                  src="../../assets/img/icons/github.svg"
                   alt="Link Github project"
-                /></div
-            ></a>
+                />
+              </div>
+            </a>
 
             <a
-              class="modal__infos__links--linkWeb"
+              class="links__website"
               v-if="modal.state === 'online'"
               :href="modal.linkSite"
-              ><div class="modal__infos__links--link">
+            >
+              <div class="links__content">
                 {{ $t("projects.modal.link.website") }}
                 <img
-                  class="imgWebsite"
-                  src="../assets/img/icons/link.svg"
+                  class="content__icon content__icon--link"
+                  src="../../assets/img/icons/link.svg"
                   alt="Link Github project"
-                /></div
-            ></a>
+                />
+              </div>
+            </a>
           </div>
 
-          <div class="modal__infos__pictures">
+          <div class="infos__thumbnails">
             <div
-              id="pic1"
-              class="picture"
+              id="thumbnail-item"
+              class="thumbnail__item"
               v-for="(thumbnail, index) in modal.thumbnail"
               :key="thumbnail.id"
               @click="changeImage(index)"
               :style="{
                 'background-image':
                   'url(' +
-                  require('../assets/img/imgProjects/' +
+                  require('../../assets/img/imgProjects/' +
                     modal.alias +
                     '/thumbnail/' +
                     thumbnail) +
@@ -76,17 +83,17 @@
             />
           </div>
           <div
-            id="containerMainPic"
-            class="modal__infos__imgSelected"
+            id="image-container"
+            class="infos__selected--img"
             @mousemove="bertrandMove()"
             @mouseleave="zoomOut()"
           >
-            <div id="zoomRect" class="modal__infos__imgSelected__zoom"></div>
+            <div id="zoomArea" class="selected-image__zoom"></div>
             <img
-              id="pic"
-              class="img"
+              id="main-image"
+              class="selected-image__img"
               :src="
-                require('../assets/img/imgProjects/' +
+                require('../../assets/img/imgProjects/' +
                   modal.alias +
                   '/images/' +
                   this.modal.img[this.myImageIndex])
@@ -135,9 +142,6 @@ export default {
     modalClose() {
       this.$store.state.openModal = false;
       document.body.style.overflowY = "";
-      // window.scrollTo({
-      //   top: 0,
-      // });
     },
     changeImage(newImageIndex) {
       this.myImageIndex = newImageIndex;
@@ -167,7 +171,7 @@ export default {
 
       this.preview.style.backgroundImage =
         "url(" +
-        require("../assets/img/imgProjects/" +
+        require("../../assets/img/imgProjects/" +
           this.modal.alias +
           "/images/" +
           this.modal.img[this.myImageIndex]) +
@@ -223,10 +227,10 @@ export default {
     },
   },
   mounted() {
-    this.picture = document.getElementById("pic");
-    this.containerMain = document.getElementById("containerMainPic");
-    this.preview = document.getElementById("preview");
-    this.zoomRect = document.getElementById("zoomRect");
+    this.picture = document.getElementById("main-image");
+    this.containerMain = document.getElementById("image-container");
+    this.preview = document.getElementById("modal-preview");
+    this.zoomRect = document.getElementById("zoomArea");
 
     this.preview.style.display = "none";
     this.zoomRect.style.display = "none";
@@ -246,7 +250,7 @@ export default {
   transition: all 150ms ease-in 0s;
 }
 
-.overlay {
+.modal-overlay {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -258,7 +262,7 @@ export default {
   cursor: pointer;
 }
 
-.modal {
+.modal-container {
   position: fixed;
   top: 0;
   left: 0;
@@ -268,7 +272,7 @@ export default {
   z-index: 99;
   overflow-x: hidden;
 
-  .closeModal {
+  &__close {
     background: var(--color-primary);
     width: 5rem;
     height: 5rem;
@@ -282,37 +286,37 @@ export default {
     z-index: 999;
     cursor: pointer;
 
-    .iconClose {
+    .close__icon {
       filter: invert(1);
       width: 3rem;
       height: 3rem;
     }
   }
 
-  .modal__infos {
+  &__infos {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     text-align: left;
     margin: 5rem;
 
-    .modal__infos__title {
+    .infos__title {
       font-size: 5rem;
       font-weight: bold;
       color: var(--color-text-tertiary);
       word-break: break-word;
     }
-    .modal__infos__style {
+    .infos__style {
       font-size: 1.6rem;
       color: var(--color-text-tertiary);
       margin-top: 2rem;
     }
-    .modal__infos__techs {
+    .infos__techs {
       display: flex;
       margin-top: 2rem;
 
-      .modal__infos__techs--div {
-        .tech {
+      &__item {
+        &--img {
           width: 3rem;
           height: 3rem;
           margin-right: 0.7rem;
@@ -320,21 +324,21 @@ export default {
         }
       }
     }
-    .modal__infos__description {
+    .infos__description {
       font-size: 1.8rem;
       font-weight: 300;
       color: var(--color-text-tertiary);
       margin-top: 3rem;
       line-height: 1.2;
     }
-    .modal__infos__pictures {
+    .infos__thumbnails {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
       margin-top: 5rem;
 
-      .picture {
+      .thumbnail__item {
         width: 6rem;
         height: 6rem;
         border: 1px solid #141517;
@@ -355,14 +359,14 @@ export default {
         }
       }
     }
-    .modal__infos__links {
+    .infos__links {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-top: 4rem;
 
-      .modal__infos__links--linkRepo,
-      .modal__infos__links--linkWeb {
+      .links__repo,
+      .links__website {
         @include ButtonPrimary;
         font-size: 1.6rem;
         padding: 2rem;
@@ -370,7 +374,7 @@ export default {
         display: flex;
         justify-content: center;
 
-        .modal__infos__links--link {
+        .links__content {
           display: flex;
           align-items: center;
 
@@ -382,12 +386,12 @@ export default {
         }
       }
 
-      .modal__infos__links--linkWeb {
+      .links__website {
         border: 1px solid var(--color-primary);
         background: var(--color-background-primary);
         margin-top: 2rem;
 
-        .modal__infos__links--link {
+        .links__content {
           color: var(--color-primary);
           transition: 0.2s ease;
 
@@ -398,7 +402,7 @@ export default {
         }
       }
     }
-    .modal__infos__imgSelected {
+    .infos__selected--img {
       width: 100%;
       height: fit-content;
       position: relative;
@@ -417,24 +421,24 @@ export default {
 }
 
 @media only screen and (min-width: 768px) {
-  .modal {
-    .modal__infos {
-      .modal__infos__links {
+  .modal-container {
+    &__infos {
+      .infos__links {
         flex-direction: row;
 
-        .modal__infos__links--linkRepo,
-        .modal__infos__links--linkWeb {
+        .links__repo,
+        .links__website {
           width: fit-content;
         }
 
-        .modal__infos__links--linkWeb {
+        .links__website {
           margin-top: 0;
           margin-left: 2rem;
         }
       }
 
-      .modal__infos__pictures {
-        .picture {
+      .infos__thumbnails {
+        .thumbnail__item {
           width: 10rem;
           height: 10rem;
         }
@@ -444,7 +448,7 @@ export default {
 }
 
 @media only screen and (min-width: 1024px) {
-  .modal {
+  .modal-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -452,7 +456,7 @@ export default {
     height: 100%;
     overflow: hidden;
 
-    .preview {
+    &__preview {
       position: fixed;
       bottom: 5rem;
       left: 62rem;
@@ -461,18 +465,18 @@ export default {
       z-index: 1;
     }
 
-    .closeModal {
+    &__close {
       @include animationCircleHover;
       position: fixed;
       left: 52rem;
     }
 
-    .modal__infos {
-      .modal__infos__title {
+    &__infos {
+      .infos__title {
         font-size: 6rem;
       }
 
-      .modal__infos__imgSelected {
+      .infos__selected--img {
         //width: 30rem;
         width: clamp(
           30rem,
@@ -488,7 +492,7 @@ export default {
         left: 62rem;
         margin-top: 0;
 
-        .modal__infos__imgSelected__zoom {
+        .selected-image__zoom {
           position: absolute;
           background-color: var(--color-primary);
           opacity: 0.8;
@@ -514,27 +518,27 @@ export default {
         }
       }
 
-      .modal__infos__links {
+      .infos__links {
         position: absolute;
         bottom: 5rem;
         margin-top: 0;
 
-        .modal__infos__links--linkRepo,
-        .modal__infos__links--linkWeb {
+        .links__repo,
+        .links__website {
           @include animationCircleHover;
         }
 
-        .modal__infos__links--linkWeb:hover .modal__infos__links--link {
+        .links__website:hover .links__content {
           color: white;
         }
 
-        .modal__infos__links--linkWeb:hover img {
+        .links__website:hover img {
           filter: invert(1);
         }
       }
 
-      .modal__infos__pictures {
-        .picture {
+      .infos__thumbnails {
+        .thumbnail__item {
           width: 11rem;
           height: 11rem;
           margin-bottom: 2rem;
@@ -544,13 +548,13 @@ export default {
   }
 }
 @media only screen and (min-width: 1440px) {
-  .modal {
-    .preview {
+  .modal-container {
+    &__preview {
       top: 5rem;
       left: 105rem;
     }
-    .modal__infos {
-      .modal__infos__imgSelected {
+    &__infos {
+      .infos__selected--img {
         height: auto;
         max-height: calc(100% - 10rem);
         margin-bottom: 5rem;

@@ -1,63 +1,64 @@
 <template>
-  <section id="contact" class="container">
-    <div class="contact__container">
-      <div class="contact__container__boxForm">
-        <h2 class="contact__title">{{ $t("contact.title") }}</h2>
-        <div class="wrapper">
-          <div class="contact__infos">
-            <p class="contact__text">
+  <section id="contact" class="contact">
+    <div class="contact__content">
+      <div class="contact__form-box">
+        <h2 class="form-box__title">{{ $t("contact.title") }}</h2>
+        <div class="form-box__wrapper">
+          <div class="form-box__info">
+            <p class="info__text">
               {{ $t("contact.intro") }}
             </p>
-            <div class="contact__infos__box">
-              <h5 class="contact__infos--h5">{{ $t("contact.details") }}</h5>
+            <div class="info__details-box">
+              <h5 class="details-box__heading">{{ $t("contact.details") }}</h5>
               <a
                 v-magnetic="{ strength: 0.5, distance: 20 }"
-                class="contact__infos--link"
+                class="details-box__link"
                 href="mailto:aubanlabie@gmail.com"
                 >aubanlabie@gmail.com</a
               >
               <a
                 v-magnetic="{ strength: 0.5, distance: 20 }"
-                class="contact__infos--link"
+                class="details-box__link"
                 href="tel:+32474548414"
                 >+32 4 74 54 84 14</a
               >
             </div>
-            <div class="contact__infos__box">
-              <h5 class="contact__infos--h5">{{ $t("contact.socials") }}</h5>
+            <div class="info__socials-box">
+              <h5 class="socials-box__heading">{{ $t("contact.socials") }}</h5>
               <a
                 v-magnetic="{ strength: 0.5, distance: 20 }"
-                class="contact__infos--link"
+                class="socials-box__link"
                 href="https://github.com/Aubanyx"
                 >Github</a
               >
               <a
                 v-magnetic="{ strength: 0.5, distance: 20 }"
-                class="contact__infos--link"
+                class="socials-box__link"
                 href="https://www.linkedin.com/in/aubanlabie/"
                 >LinkedIn</a
               >
             </div>
           </div>
           <form
-            class="contact__container__boxForm__form"
+            class="form-box__form"
             action="https://formsubmit.co/aubanlabie@gmail.com"
             method="POST"
           >
             <input type="hidden" name="_captcha" value="false" />
-            <label class="labelInputName" for="name">{{
+            <label class="form__label-name" for="name">{{
               $t("contact.name.question")
             }}</label>
             <input
-              class="inputText"
+              class="form__input-text"
               type="text"
               name="name"
               placeholder="John Doe *"
               required
             />
-            <span class="inputSpan" />
+            <span class="form__input-span" />
             <label for="subject">{{ $t("contact.about.question") }}</label>
             <input
+              class="form__input-text"
               type="text"
               name="subject"
               :placeholder="$t('contact.about.answer')"
@@ -65,6 +66,7 @@
             />
             <label for="email">{{ $t("contact.email.question") }}</label>
             <input
+              class="form__input-email"
               type="email"
               name="email"
               placeholder="John@doe.com *"
@@ -75,10 +77,11 @@
               name="_next"
               value="http://localhost:8080/#contact"
             />
-            <label class="labelTextarea" for="message">{{
+            <label class="form__label-textarea" for="message">{{
               $t("contact.message.question")
             }}</label>
             <textarea
+              class="form__textarea"
               :placeholder="$t('contact.message.answer')"
               name="message"
               rows="10"
@@ -86,13 +89,13 @@
             ></textarea>
             <button
               v-magnetic="{ strength: 0.5, maxDistance: 40 }"
-              class="contact__container__boxForm__form--button"
+              class="form__button"
               type="submit"
             >
-              <div class="buttonSend" v-magnetic>
+              <div class="button__send" v-magnetic>
                 {{ $t("contact.send") }}
                 <img
-                  class="button--send"
+                  class="send__icon"
                   src="../assets/img/icons/send.svg"
                   alt="icon send"
                 />
@@ -101,8 +104,8 @@
           </form>
         </div>
       </div>
-      <div class="contact__container__boxMap">
-        <div class="contact__container__boxMap__map"></div>
+      <div class="contact__map-box">
+        <div class="map-box__map"></div>
       </div>
     </div>
   </section>
@@ -133,11 +136,11 @@ export default {
       this.$gsap.registerPlugin(this.$ScrollTrigger);
 
       // Animation pour le titre
-      this.$gsap.from(".contact__title", {
+      this.$gsap.from(".form-box__title", {
         opacity: 0,
         y: 50,
         scrollTrigger: {
-          trigger: ".contact__title",
+          trigger: ".form-box__title",
           start: "top 80%",
           end: "bottom 20%",
           toggleActions: "play none none reverse",
@@ -145,12 +148,12 @@ export default {
       });
 
       // Animation pour le texte
-      this.$gsap.from(".contact__text", {
+      this.$gsap.from(".info__text", {
         opacity: 0,
         y: 50,
         stagger: 0.3,
         scrollTrigger: {
-          trigger: ".contact__text",
+          trigger: ".info__text",
           start: "top 80%",
           end: "bottom 20%",
           toggleActions: "play none none reverse",
@@ -158,12 +161,24 @@ export default {
       });
 
       // Animation pour les liens
-      this.$gsap.from(".contact__infos--link", {
+      this.$gsap.from(".details-box__link", {
         opacity: 0,
         y: 50,
         stagger: 0.3,
         scrollTrigger: {
-          trigger: ".contact__infos--link",
+          trigger: ".details-box__link",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      this.$gsap.from(".socials-box__link", {
+        opacity: 0,
+        y: 50,
+        stagger: 0.3,
+        scrollTrigger: {
+          trigger: ".socials-box__link",
           start: "top 80%",
           end: "bottom 20%",
           toggleActions: "play none none reverse",
@@ -171,11 +186,11 @@ export default {
       });
 
       // Animation pour le label
-      this.$gsap.from(".labelInputName", {
+      this.$gsap.from(".form__label-name", {
         opacity: 0,
         y: 50,
         scrollTrigger: {
-          trigger: ".labelInputName",
+          trigger: ".form__label-name",
           start: "top 80%",
           end: "bottom 20%",
           toggleActions: "play none none reverse",
@@ -183,11 +198,11 @@ export default {
       });
 
       // Animation pour le bouton
-      this.$gsap.from(".contact__container__boxForm__form--button", {
+      this.$gsap.from(".form__button", {
         opacity: 0,
         y: 50,
         scrollTrigger: {
-          trigger: ".contact__container__boxForm__form--button",
+          trigger: ".form__button",
           start: "top 100%",
           end: "bottom 20%",
           toggleActions: "play none none reverse",
@@ -213,19 +228,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container {
+.contact {
   max-width: 1920px;
   margin: auto;
   background: var(--color-background-primary);
   height: 100%;
 
-  .contact__container {
+  &__content {
     max-height: fit-content;
     display: flex;
     flex-direction: column;
     width: 100%;
 
-    .contact__container__boxForm {
+    .contact__form-box {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -233,19 +248,19 @@ export default {
       overflow-y: hidden;
       padding: 10rem 5rem;
 
-      .contact__title {
+      .form-box__title {
         @include Title;
       }
 
-      .wrapper {
+      .form-box__wrapper {
         display: flex;
         flex-direction: column;
 
-        .contact__infos {
+        .form-box__info {
           margin-bottom: 5rem;
           text-align: left;
 
-          .contact__text {
+          .info__text {
             font-size: 1.6rem;
             font-weight: 300;
             color: var(--color-text-tertiary);
@@ -253,20 +268,23 @@ export default {
             margin-bottom: 5rem;
           }
 
-          .contact__infos__box {
+          .info__details-box,
+          .info__socials-box {
             margin-top: 3rem;
 
             &:first-of-type {
               margin-top: 0;
             }
 
-            .contact__infos--h5 {
+            .details-box__heading,
+            .socials-box__heading {
               font-size: 1rem;
               color: var(--color-text-secondary);
               text-transform: uppercase;
             }
 
-            .contact__infos--link {
+            .details-box__link,
+            .socials-box__link {
               font-size: 1.6rem;
               color: var(--color-text-tertiary);
               margin-top: 2rem;
@@ -300,7 +318,7 @@ export default {
           }
         }
 
-        .contact__container__boxForm__form {
+        .form-box__form {
           display: flex;
           flex-direction: column;
           width: 100%;
@@ -354,18 +372,18 @@ export default {
             margin-bottom: 0;
           }
 
-          .contact__container__boxForm__form--button {
+          .form__button {
             @include animationCircleHover;
             @include ButtonPrimary;
             cursor: pointer;
             align-self: flex-end;
             margin-top: 7rem;
 
-            .buttonSend {
+            .button__send {
               display: flex;
               align-items: center;
 
-              .button--send {
+              .send__icon {
                 filter: invert(1);
                 margin-left: 1rem;
               }
@@ -375,11 +393,11 @@ export default {
       }
     }
 
-    .contact__container__boxMap {
+    .contact__map-box {
       width: 100%;
       height: 100vw;
 
-      .contact__container__boxMap__map {
+      .map-box__map {
         position: relative;
         background-image: url("../assets/img/map.jpg");
         background-size: cover;
@@ -390,15 +408,15 @@ export default {
 }
 
 @media only screen and (min-width: 768px) {
-  .container {
-    .contact__container {
-      .contact__container__boxForm {
+  .contact {
+    &__content {
+      .contact__form-box {
         padding: 7rem;
 
-        .wrapper {
-          .contact__infos {
+        .form-box__wrapper {
+          .form-box__info {
           }
-          .contact__container__boxForm__form {
+          .form-box__form {
             .contact__container__boxForm__form__box {
               display: flex;
               justify-content: space-between;
@@ -412,10 +430,10 @@ export default {
         }
       }
 
-      .contact__container__boxMap {
+      .contact__map-box {
         height: 60vw;
 
-        .contact__container__boxMap__map {
+        .map-box__map {
         }
       }
     }
@@ -423,29 +441,29 @@ export default {
 }
 
 @media only screen and (min-width: 1024px) {
-  .container {
-    .contact__container {
+  .contact {
+    &__content {
       max-height: 1200px;
       flex-direction: row;
       height: 100vh;
 
-      .contact__container__boxForm {
+      .contact__form-box {
         width: 70%;
 
-        .wrapper {
+        .form-box__wrapper {
           width: 100%;
           flex-direction: row-reverse;
 
-          .contact__infos {
+          .form-box__info {
             width: 40%;
             padding-left: 7rem;
             margin-bottom: 0;
 
-            .contact__text {
+            .info__text {
             }
           }
 
-          .contact__container__boxForm__form {
+          .form-box__form {
             width: 60%;
             margin-bottom: 0;
 
@@ -458,11 +476,11 @@ export default {
         }
       }
 
-      .contact__container__boxMap {
+      .contact__map-box {
         width: 50%;
         height: 100%;
 
-        .contact__container__boxMap__map {
+        .map-box__map {
           height: 100%;
         }
       }

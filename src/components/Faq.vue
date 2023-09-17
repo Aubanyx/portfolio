@@ -1,5 +1,5 @@
 <template>
-  <section id="faq">
+  <section id="faq" class="faq">
     <h3 class="faq__title">
       {{ $t("faq.intro") }}
     </h3>
@@ -147,16 +147,13 @@ export default {
           },
         });
       });
-
-      // Notez que pour les réponses, nous avons déjà une animation de hauteur.
-      // Si vous souhaitez ajouter une autre animation pour les réponses lorsqu'elles sont visibles, vous pouvez le faire de manière similaire à ce que nous avons fait pour les questions.
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-#faq {
+.faq {
   max-width: 1920px;
   margin: auto;
   display: flex;
@@ -164,7 +161,7 @@ export default {
   background: var(--color-background-quinary);
   padding: 10rem 5rem;
 
-  .faq__title {
+  &__title {
     font-size: 2.5rem;
     line-height: 1.2;
     text-align: left;
@@ -172,13 +169,13 @@ export default {
     color: var(--color-text-tertiary);
   }
 
-  .faq__questionsWrapper {
+  &__questionsWrapper {
     .faq__question {
       text-align: left;
       border-bottom: 1px solid rgba(39, 39, 39, 0.25);
       font-size: 1.6rem;
 
-      .faq__question--text {
+      &--text {
         display: flex;
         position: relative;
         align-items: center;
@@ -225,7 +222,7 @@ export default {
 @media only screen and (min-width: 768px) {
 }
 @media only screen and (min-width: 1024px) {
-  #faq {
+  .faq {
     padding: 10rem 15rem;
   }
 }

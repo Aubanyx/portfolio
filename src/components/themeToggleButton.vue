@@ -31,23 +31,18 @@ export default {
   },
   methods: {
     toggle() {
-      // Toggle the theme and store the result
       this.currentTheme = this.currentTheme === "darkTheme" ? "lightTheme" : "darkTheme";
 
-      // Save the new theme value to localStorage
       localStorage.setItem("themeColor", this.currentTheme);
       localStorage.setItem("currentTheme", this.currentTheme);
 
-      // Commit the new theme to the store and emit an event
       this.$store.commit("toggleTheme");
       Event.$emit("changeParticlesColor");
 
-      // Update the data-theme attribute
       document.documentElement.setAttribute("data-theme", this.currentTheme);
     },
   },
   mounted() {
-    // Set the initial data-theme attribute
     document.documentElement.setAttribute("data-theme", this.currentTheme);
   },
 };
