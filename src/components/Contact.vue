@@ -388,7 +388,7 @@ export default {
 
       .map-box__map {
         position: relative;
-        background-image: url("../assets/img/map.jpg");
+        background-image: url("../assets/img/map.webp");
         background-size: cover;
         height: 100%;
       }

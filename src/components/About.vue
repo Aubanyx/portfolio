@@ -4,7 +4,7 @@
       <div class="about__img">
         <img
           class="about__img-content"
-          src="../assets/img/photo1Rec.png"
+          src="../assets/img/photo1Rec.webp"
           alt="picture"
         />
       </div>
