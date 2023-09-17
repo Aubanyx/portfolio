@@ -113,7 +113,7 @@ export default {
           description: this.$i18n.t("projects.modal.portfolio.description"),
           techUse: ["html", "scss", "javascript", "vue"],
           linkRepo: "https://github.com/Aubanyx/portfolio",
-          linkSite: "#",
+          linkSite: "https://www.aubanlabie.com",
           presentation: "portfolio1280.png",
           thumbnail: ["img01.jpg"],
           img: ["img01.jpg"],
