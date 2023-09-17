@@ -245,7 +245,7 @@ export default {
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      overflow-y: hidden;
+      overflow: hidden;
       padding: 10rem 5rem;
 
       .form-box__title {
@@ -324,24 +324,13 @@ export default {
           width: 100%;
           margin-bottom: 5rem;
 
-          .contact__container__boxForm__form__box {
-            .contact__container__boxForm__form__box--subject {
-              display: flex;
-              flex-direction: column;
-            }
-            .contact__container__boxForm__form__box--email {
-              display: flex;
-              flex-direction: column;
-            }
-          }
-
           label {
             align-self: flex-start;
             color: var(--color-text-tertiary);
             font-size: 1.6rem;
-            //padding-left: 3rem;
             margin-top: 3rem;
             margin-bottom: 2rem;
+            text-align: left;
 
             &:first-of-type {
               margin-top: 0;
@@ -412,29 +401,10 @@ export default {
     &__content {
       .contact__form-box {
         padding: 7rem;
-
-        .form-box__wrapper {
-          .form-box__info {
-          }
-          .form-box__form {
-            .contact__container__boxForm__form__box {
-              display: flex;
-              justify-content: space-between;
-              width: 100%;
-
-              input {
-                width: 49%;
-              }
-            }
-          }
-        }
       }
 
       .contact__map-box {
         height: 60vw;
-
-        .map-box__map {
-        }
       }
     }
   }
@@ -448,7 +418,7 @@ export default {
       height: 100vh;
 
       .contact__form-box {
-        width: 70%;
+        width: 90%;
 
         .form-box__wrapper {
           width: 100%;
@@ -458,9 +428,6 @@ export default {
             width: 40%;
             padding-left: 7rem;
             margin-bottom: 0;
-
-            .info__text {
-            }
           }
 
           .form-box__form {
@@ -472,6 +439,15 @@ export default {
             label {
               padding-left: 3rem;
             }
+
+            label {
+              margin-top: 2rem;
+              margin-bottom: 1rem;
+
+              &:first-of-type {
+                margin-top: 0;
+              }
+            }
           }
         }
       }
@@ -482,6 +458,29 @@ export default {
 
         .map-box__map {
           height: 100%;
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .contact {
+    &__content {
+      .contact__form-box {
+        width: 70%;
+
+        .form-box__wrapper {
+          .form-box__form {
+
+            label {
+              margin-top: 3rem;
+              margin-bottom: 2rem;
+
+              &:first-of-type {
+                margin-top: 0;
+              }
+            }
+          }
         }
       }
     }

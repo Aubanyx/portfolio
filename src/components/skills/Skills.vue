@@ -176,12 +176,6 @@ export default {
           y: 30,
           opacity: 0,
           stagger: 0.05,
-        })
-        .from(".skills__tab--image", {
-          duration: 0.4,
-          scale: 0,
-          opacity: 0,
-          stagger: 0.1,
         });
     },
   },
