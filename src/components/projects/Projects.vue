@@ -402,7 +402,6 @@ export default {
         duration: 0.5,
         y: 40,
         opacity: 0,
-        delay: 0.5,
         ease: "power2.out",
         scrollTrigger: {
           trigger: ".projects__button--more",

@@ -181,7 +181,7 @@ export default {
         scrollTrigger: {
           trigger: ".skills",
           start: "top 90%",
-          end: "bottom 60%",
+          end: "bottom 80%",
           scrub: 1,
         },
       });
