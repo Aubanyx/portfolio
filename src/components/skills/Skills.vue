@@ -61,16 +61,24 @@ export default {
               img: "css.svg",
             },
             {
-              title: "Sass/Scss",
-              img: "sass.svg",
-            },
-            {
               title: "Javascript",
               img: "javascript.svg",
             },
             {
               title: "PHP",
               img: "php.svg",
+            },
+            {
+              title: "Sass/Scss",
+              img: "sass.svg",
+            },
+            {
+              title: "MySQL",
+              img: "mysql.svg",
+            },
+            {
+              title: "Json",
+              img: "json.svg",
             },
           ],
         },
@@ -80,12 +88,40 @@ export default {
           open: false,
           skills: [
             {
+              title: "Bootstrap",
+              img: "bootstrap.svg",
+            },
+            {
               title: "Vue.js",
               img: "vueJs.svg",
             },
             {
-              title: "React",
+              title: "React.js",
               img: "react.svg",
+            },
+            {
+              title: "Wordpress",
+              img: "wordpress.svg",
+            },
+            {
+              title: "Node.js",
+              img: "nodeJs.svg",
+            },
+            {
+              title: "Webpack",
+              img: "webpack.svg",
+            },
+            {
+              title: "Git",
+              img: "git.svg",
+            },
+            {
+              title: "Linux",
+              img: "linux.svg",
+            },
+            {
+              title: "Figma",
+              img: "figma.svg",
             },
             {
               title: "Photoshop",
@@ -94,18 +130,6 @@ export default {
             {
               title: "Illustrator",
               img: "illustrator.svg",
-            },
-            {
-              title: "Figma",
-              img: "figma.svg",
-            },
-            {
-              title: "Git",
-              img: "git.svg",
-            },
-            {
-              title: "Wordpress",
-              img: "wordpress.svg",
             },
           ],
         },
