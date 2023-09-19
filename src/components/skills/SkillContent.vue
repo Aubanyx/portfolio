@@ -76,7 +76,7 @@ export default {
       }
 
       &--icon {
-        width: fit-content;
+        width: auto;
         height: 100%;
       }
 
