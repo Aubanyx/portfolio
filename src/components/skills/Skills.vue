@@ -87,22 +87,22 @@ export default {
           img: "tools.svg",
           open: false,
           skills: [
-            {
-              title: "Bootstrap",
-              img: "bootstrap.svg",
-            },
+            // {
+            //   title: "Bootstrap",
+            //   img: "bootstrap.svg",
+            // },
             {
               title: "Vue.js",
               img: "vueJs.svg",
             },
-            {
-              title: "React.js",
-              img: "react.svg",
-            },
-            {
-              title: "Wordpress",
-              img: "wordpress.svg",
-            },
+            // {
+            //   title: "React.js",
+            //   img: "react.svg",
+            // },
+            // {
+            //   title: "Wordpress",
+            //   img: "wordpress.svg",
+            // },
             {
               title: "Node.js",
               img: "nodeJs.svg",
@@ -115,10 +115,10 @@ export default {
               title: "Git",
               img: "git.svg",
             },
-            {
-              title: "Linux",
-              img: "linux.svg",
-            },
+            // {
+            //   title: "Linux",
+            //   img: "linux.svg",
+            // },
             {
               title: "Figma",
               img: "figma.svg",
